@@ -5,5 +5,8 @@
   "scripts": {
     "build": "",
     "build-dev": ""
+  },
+  "dependencies": {
+    "dotenv": "^10.0.0"
   }
 }
