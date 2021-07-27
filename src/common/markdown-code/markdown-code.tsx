@@ -2,22 +2,20 @@ import React from 'react';
 import { useCopyToClipboard } from 'react-use';
 
 import { ButtonBase } from '../button-base';
-import { useMarkdownCodeStyles } from './markdown-code.styles';
+import * as styles from './markdown-code.css';
 
 export type MarkdownCodeProps = {
   value: string;
 };
 
 export const MarkdownCode: React.FC<MarkdownCodeProps> = (props) => {
-  const classes = useMarkdownCodeStyles();
-
   const [state, copyToClipboard] = useCopyToClipboard();
 
   return (
-    <pre className={classes.root}>
+    <pre className={styles.root}>
       <code>{props.value}</code>
       <ButtonBase
-        className={classes.button}
+        className={styles.button}
         onClick={() => copyToClipboard(props.value)}
       >
         {state.value && <>copied</>}

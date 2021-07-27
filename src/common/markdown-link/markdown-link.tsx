@@ -1,19 +1,17 @@
 import React from 'react';
 
 import { Link } from '../link';
-import { useMarkdownLinkStyles } from './markdown-link.styles';
+import * as styles from './markdown-link.css';
 
 export type MarkdownLinkProps = {
   href: string;
 };
 
 export const MarkdownLink: React.FC<MarkdownLinkProps> = (props) => {
-  const classes = useMarkdownLinkStyles();
-
   return (
     <Link
       href={props.href}
-      className={classes.root}
+      className={styles.root}
       target={props.href.includes('http') ? '_blank' : undefined}
       color="blue"
     >

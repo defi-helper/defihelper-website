@@ -1,18 +1,14 @@
 import clsx from 'clsx';
 import React from 'react';
 
-import { useMarkdownListStyles } from './markdown-list.styles';
+import * as styles from './markdown-list.css';
 
 export type MarkdownListItemProps = {
   className?: string;
 };
 
 export const MarkdownListItem: React.FC<MarkdownListItemProps> = (props) => {
-  const classes = useMarkdownListStyles();
-
   return (
-    <li className={clsx(props.className, classes.listItem)}>
-      {props.children}
-    </li>
+    <li className={clsx(props.className, styles.listItem)}>{props.children}</li>
   );
 };

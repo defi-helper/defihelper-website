@@ -4,7 +4,8 @@ import { HelmetProvider } from 'react-helmet-async';
 import smoothscroll from 'smoothscroll-polyfill';
 import 'normalize.css';
 
-import { ModalProvider, ThemeProvider } from './common';
+import { ModalProvider } from './common/modal';
+import { ThemeProvider } from './common/theme';
 import { App } from './app';
 import { config } from './config';
 import { Web3Provider } from './web3/web3-provider';

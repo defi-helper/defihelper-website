@@ -14,5 +14,6 @@ export const palette = {
   orange: '#e64d32',
   pink: '#e8c8dd',
   grey1: rgba('#fff', 0.64),
-  grey2: rgba('#fff', 0.4)
+  grey2: rgba('#fff', 0.4),
+  grey3: rgba('#fff', 0.24)
 } as const;

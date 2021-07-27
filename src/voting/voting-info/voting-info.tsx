@@ -49,12 +49,7 @@ export const VotingInfo: React.FC = () => {
           <VotingInfoDecision
             className={clsx(classes.proposals, classes.block)}
           />
-          <Faq
-            title="Learn more about BondAppétit Governance Token (BAG)"
-            className={clsx(classes.decision, classes.block)}
-          >
-            {FAQ}
-          </Faq>
+          <Faq className={clsx(classes.decision, classes.block)}>{FAQ}</Faq>
         </PageWrapper>
       </MainLayout>
     </>

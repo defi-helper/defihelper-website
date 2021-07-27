@@ -1,7 +1,6 @@
 export * from './create-use-contract';
 export * from './button-base';
 export * from './button';
-export * from './theme';
 export * from './use-network-config';
 export * from './typography';
 export * from './input';

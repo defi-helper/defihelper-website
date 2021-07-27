@@ -1,14 +1,15 @@
 import { style } from '@vanilla-extract/css';
 import { transitions } from 'polished';
+import { theme } from '../theme';
 
 export const root = style({
-  borderTop: `solid 1px black`,
+  borderTop: `solid 1px ${theme.palette.grey3}`,
   overflow: 'hidden',
   ...transitions('height 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms'),
 
   selectors: {
     '&:last-child': {
-      borderBottom: `solid 1px black`
+      borderBottom: `solid 1px ${theme.palette.grey3}`
     }
   }
 });

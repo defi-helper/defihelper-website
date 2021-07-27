@@ -7,7 +7,7 @@ import { MarkdownLink } from '../markdown-link';
 import { MarkdownList } from '../markdown-list';
 import { MarkdownParagraph } from '../markdown-paragraph';
 import { Typography } from '../typography';
-import { useFaqStyles } from './faq.styles';
+import * as styles from './faq.css';
 
 export type BagFaqProps = {
   className?: string;
@@ -15,7 +15,6 @@ export type BagFaqProps = {
     title: string;
     body: string;
   }[];
-  title: string;
 };
 
 const renderers = {
@@ -25,23 +24,20 @@ const renderers = {
 };
 
 export const Faq: React.VFC<BagFaqProps> = (props) => {
-  const classes = useFaqStyles();
-
   return (
-    <div className={props.className} id="faq">
-      <Typography variant="h3" className={classes.title}>
-        {props.title}
-      </Typography>
+    <>
       {props.children.map((faqItem) => (
         <Accordion key={faqItem.title}>
           <Accordion.Summary expandIcon={<ExpandIcon width="32" height="32" />}>
-            <Typography variant="h4">{faqItem.title}</Typography>
+            <Typography variant="h4" family="mono" transform="uppercase">
+              {faqItem.title}
+            </Typography>
           </Accordion.Summary>
-          <Accordion.Details className={classes.detail}>
+          <Accordion.Details className={styles.detail}>
             <ReactMarkdown renderers={renderers}>{faqItem.body}</ReactMarkdown>
           </Accordion.Details>
         </Accordion>
       ))}
-    </div>
+    </>
   );
 };
