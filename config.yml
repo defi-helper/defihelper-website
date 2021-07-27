@@ -1,0 +1,36 @@
+overwrite: true
+schema: "https://cache.bondappetit.io/api"
+documents: [
+  './src/**/**/*.graphql.ts',
+]
+config:
+  scalars:
+    AddressType: string
+    DateTimeType: string
+generates:
+  src/graphql/_generated-fragment-types.ts:
+    plugins:
+      - add:
+          content: '/* eslint-disable */'
+      - fragment-matcher
+  src/graphql/_generated-types.ts:
+    plugins:
+      - add:
+          content: '/* eslint-disable */'
+      - typescript
+      - typescript-operations
+  src/graphql/_generated-hooks.tsx:
+    plugins:
+      - add:
+          content: '/* eslint-disable */'
+      - typescript
+      - typescript-operations
+      - typescript-react-apollo
+    config:
+      apolloReactHooksImportFrom: "@apollo/client"
+      withComponent: false
+      withHOC: false
+      withHooks: true
+hooks:
+  afterAllFileWrite:
+    - prettier --write

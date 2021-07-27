@@ -1,0 +1,7 @@
+<svg width="200" height="120" viewBox="0 0 200 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect x="0.5" y="12.5" width="95" height="95" rx="31.5" fill="var(--plate)" stroke="currentColor"/>
+<rect x="104.5" y="12.5" width="95" height="95" rx="31.5" fill="var(--plate)" stroke="currentColor"/>
+<path d="M128 59.5429L144.302 76L176 44" stroke="currentColor"/>
+<path d="M165.328 95.1086L159.389 52.6541L193.186 79.0249L176.061 81.1415L175.851 81.1674L175.723 81.3365L165.328 95.1086Z" fill="var(--plate)" stroke="currentColor"/>
+<path d="M32 44L48 60M48 60L32 76M48 60L64 44M48 60L64 76" stroke="currentColor"/>
+</svg>
