@@ -4,7 +4,7 @@ import React from 'react';
 import * as styles from './link.css';
 
 export type LinkProps = {
-  component?: React.ElementType;
+  as?: React.ElementType;
   to?: string;
   href?: string;
   target?: string;
@@ -18,14 +18,14 @@ export type LinkProps = {
 export const Link = React.forwardRef<HTMLAnchorElement, LinkProps>(
   function Link(props, ref) {
     const {
-      component = 'a',
+      as = 'a',
       underline = 'none',
       className,
       color = 'primary',
       ...restOfProps
     } = props;
 
-    const Component = component;
+    const Component = as;
 
     const classNames = clsx(
       styles.root,

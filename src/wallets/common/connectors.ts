@@ -44,7 +44,9 @@ export const walletlink = new WalletLinkConnector({
 });
 
 export const walletconnect = new WalletConnectConnector({
-  rpc: { 1: config.DEFAULT_NETWORK_CONFIG.networkUrl },
+  rpc: {
+    1: config.DEFAULT_NETWORK_CONFIG.networkUrl
+  },
   bridge: 'https://bridge.walletconnect.org',
   qrcode: true,
   pollingInterval: config.POLLING_INTERVAL

@@ -66,7 +66,7 @@ export const StakingAcquireModal: React.VFC<StakingAcquireModalProps> = (
               5. Then stake LP tokens and earn BAG
             </Typography>
           </div>
-          <Button className={classes.button} component="a">
+          <Button className={classes.button} as="a">
             Go to Liquidity Pool
           </Button>
         </div>

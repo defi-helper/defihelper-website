@@ -30,16 +30,16 @@ export const VotingDetailInfo: React.FC<VotingDetailInfoProps> = (props) => {
       })}
     >
       {props.active && (
-        <Typography variant="body1" component="div" className={classes.chip}>
+        <Typography variant="body1" as="div" className={classes.chip}>
           <CheckedIcon className={classes.checkedIcon} />
           voted
         </Typography>
       )}
-      <Typography variant="h3" component="div">
+      <Typography variant="h3" as="div">
         {percentage}% {props.children}
       </Typography>
       <div className={clsx(classes.separator, classes[props.variant])} />
-      <Typography variant="body1" component="div">
+      <Typography variant="body1" as="div">
         {humanizeNumeral(props.count)} votes
       </Typography>
     </div>

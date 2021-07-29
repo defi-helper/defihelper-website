@@ -14,7 +14,7 @@ export const Chip: React.FC<ChipProps> = (props) => {
   return (
     <Typography
       variant="body1"
-      component="div"
+      as="div"
       className={clsx(classes.chip, props.className)}
     >
       {props.children}

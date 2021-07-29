@@ -12,7 +12,7 @@ import {
   ButtonBase,
   useUpButton
 } from 'src/common';
-import { MainLayout } from 'src/layouts';
+import { LandingLayout } from 'src/layouts';
 import { DocsRenderer } from '../docs-renderer';
 import { useWhitepaperStyles } from './whitepaper.styles';
 
@@ -26,7 +26,7 @@ export const WhitePaper: React.FC = () => {
   return (
     <>
       <Head title="Whitepaper" />
-      <MainLayout>
+      <LandingLayout>
         <div className={classes.header}>
           <Typography className={classes.title} variant="h1" align="center">
             BondAppétit Protocol
@@ -51,7 +51,7 @@ export const WhitePaper: React.FC = () => {
           </Typography>
         </div>
         <DocsRenderer>{WhitepaperMd}</DocsRenderer>
-      </MainLayout>
+      </LandingLayout>
       <Portal>
         <ButtonBase
           className={clsx(classes.upButton, {

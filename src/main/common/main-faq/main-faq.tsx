@@ -1,4 +1,5 @@
 import React from 'react';
+import clsx from 'clsx';
 
 import { Typography } from 'src/common/typography';
 import { Faq } from 'src/common/faq';
@@ -34,9 +35,9 @@ Price stability is connected to the protocol's assets, the price of which should
   }
 ];
 
-export const MainFaq: React.FC<MainFaqProps> = () => {
+export const MainFaq: React.FC<MainFaqProps> = (props) => {
   return (
-    <Grid.Container>
+    <Grid.Container className={clsx(props.className)}>
       <Typography
         family="mono"
         transform="uppercase"

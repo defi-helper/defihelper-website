@@ -1,7 +1,7 @@
 import React from 'react';
 import { useParams, Link as ReactRouterLink } from 'react-router-dom';
 
-import { MainLayout } from 'src/layouts';
+import { LandingLayout } from 'src/layouts';
 import {
   Typography,
   Skeleton,
@@ -31,14 +31,10 @@ export const VotingProposalDetail: React.FC = () => {
   return (
     <>
       <Head title={votingProposalState.value?.title} />
-      <MainLayout>
+      <LandingLayout>
         <div className={classes.voting}>
           <Typography variant="body1" align="center">
-            <Link
-              component={ReactRouterLink}
-              to={URLS.voting.list}
-              color="blue"
-            >
+            <Link as={ReactRouterLink} to={URLS.voting.list} color="blue">
               ← Proposals
             </Link>
           </Typography>
@@ -60,7 +56,7 @@ export const VotingProposalDetail: React.FC = () => {
             variant="h5"
             align="center"
             className={classes.subtitle}
-            component="div"
+            as="div"
           >
             {votingProposalState.loading ? (
               <>
@@ -109,7 +105,7 @@ export const VotingProposalDetail: React.FC = () => {
           {!votingProposalState.value?.forCount.isGreaterThanOrEqualTo(
             votingProposalState.value.quorumVotes ?? '0'
           ) && (
-            <Typography variant="body1" align="center" component="div">
+            <Typography variant="body1" align="center" as="div">
               In order to be applied, the quorum of 4% must be reached
             </Typography>
           )}
@@ -129,11 +125,7 @@ export const VotingProposalDetail: React.FC = () => {
               align="center"
               className={classes.getVotes}
             >
-              <Link
-                component={ReactRouterLink}
-                to={URLS.voting.list}
-                color="blue"
-              >
+              <Link as={ReactRouterLink} to={URLS.voting.list} color="blue">
                 Get votes
               </Link>
             </Typography>
@@ -147,7 +139,7 @@ export const VotingProposalDetail: React.FC = () => {
             description={votingProposalState.value?.description}
           />
         </div>
-      </MainLayout>
+      </LandingLayout>
     </>
   );
 };

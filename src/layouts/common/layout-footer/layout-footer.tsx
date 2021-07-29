@@ -2,6 +2,11 @@ import clsx from 'clsx';
 import React from 'react';
 
 import { ReactComponent as LogoMini } from 'src/assets/icons/logo-mini.svg';
+import { ReactComponent as TwitterIcon } from 'src/assets/icons/social/twitter.svg';
+import { ReactComponent as GithubIcon } from 'src/assets/icons/social/github.svg';
+import { ReactComponent as MediumIcon } from 'src/assets/icons/social/medium.svg';
+import { ReactComponent as TelegramIcon } from 'src/assets/icons/social/telegram.svg';
+import { ReactComponent as DiscordIcon } from 'src/assets/icons/social/discord.svg';
 import { Typography } from 'src/common/typography';
 import { Grid } from 'src/common/grid';
 import { Button, Link } from 'src/common';
@@ -31,10 +36,14 @@ export const LayoutFooter: React.FC<LayoutFooterProps> = (props) => {
             </Typography>
             <ul className={styles.list}>
               <li className={styles.listItem}>
-                <Link href="/">Governance</Link>
+                <Link href="/" className={styles.grey}>
+                  Governance
+                </Link>
               </li>
               <li className={styles.listItem}>
-                <Link href="/">Carreers</Link>
+                <Link href="/" className={styles.grey}>
+                  Carreers
+                </Link>
               </li>
             </ul>
           </div>
@@ -49,19 +58,34 @@ export const LayoutFooter: React.FC<LayoutFooterProps> = (props) => {
             </Typography>
             <ul className={styles.list}>
               <li className={styles.listItem}>
-                <Link href="/">Medium</Link>
+                <Link href="/" className={clsx(styles.socialLink, styles.grey)}>
+                  <MediumIcon className={styles.socialIcon} />
+                  Medium
+                </Link>
               </li>
               <li className={styles.listItem}>
-                <Link href="/">Github</Link>
+                <Link href="/" className={clsx(styles.socialLink, styles.grey)}>
+                  <GithubIcon className={styles.socialIcon} />
+                  Github
+                </Link>
               </li>
               <li className={styles.listItem}>
-                <Link href="/">Twitter</Link>
+                <Link href="/" className={clsx(styles.socialLink, styles.grey)}>
+                  <TwitterIcon className={styles.socialIcon} />
+                  Twitter
+                </Link>
               </li>
               <li className={styles.listItem}>
-                <Link href="/">Telegram</Link>
+                <Link href="/" className={clsx(styles.socialLink, styles.grey)}>
+                  <TelegramIcon className={styles.socialIcon} />
+                  Telegram
+                </Link>
               </li>
               <li className={styles.listItem}>
-                <Link href="/">Discord</Link>
+                <Link href="/" className={clsx(styles.socialLink, styles.grey)}>
+                  <DiscordIcon className={styles.socialIcon} />
+                  Discord
+                </Link>
               </li>
             </ul>
           </div>
@@ -74,7 +98,10 @@ export const LayoutFooter: React.FC<LayoutFooterProps> = (props) => {
             >
               Subscribtion
             </Typography>
-            <Typography variant="body2" className={styles.mb}>
+            <Typography
+              variant="body2"
+              className={clsx(styles.mb, styles.grey)}
+            >
               Be the first one to know about updates and new features
             </Typography>
             <Button variant="outlined">Subscribe</Button>
@@ -88,7 +115,10 @@ export const LayoutFooter: React.FC<LayoutFooterProps> = (props) => {
             >
               Join Us
             </Typography>
-            <Typography variant="body2" className={styles.mb}>
+            <Typography
+              variant="body2"
+              className={clsx(styles.mb, styles.grey)}
+            >
               Join the team and work on the future of DeFi automation with us.
             </Typography>
             <Button variant="outlined">Apply</Button>

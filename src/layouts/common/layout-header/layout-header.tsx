@@ -1,34 +1,63 @@
 import React from 'react';
 import clsx from 'clsx';
+import { Link as ReactRouterLink, useRouteMatch } from 'react-router-dom';
 
-import { Button, Typography } from 'src/common';
+import { Button } from 'src/common/button';
+import { Typography } from 'src/common/typography';
+import { Link } from 'src/common/link';
 import { ReactComponent as Logo } from 'src/assets/icons/logo.svg';
 import { Grid } from 'src/common/grid';
+import { config } from 'src/config';
+import { URLS } from 'src/router/urls';
 import * as styles from './layout-header.css';
 
 export type LayoutHeaderProps = {
   className?: string;
 };
 
-export const LayoutHeader: React.FC<LayoutHeaderProps> = (props) => {
+export const LayoutHeader: React.VFC<LayoutHeaderProps> = (props) => {
+  const isTokenomics = useRouteMatch(URLS.tokenomics);
+
   return (
     <>
       <div className={styles.attention}>
-        <Typography align="center" family="mono" transform="uppercase">
-          DFH launch in 48:16:32, explore tokenomics
+        <Typography
+          variant="body2"
+          align="center"
+          family="mono"
+          transform="uppercase"
+          className={styles.attentionText}
+        >
+          DFH launch in 48:16:32,{' '}
+          <Link as={ReactRouterLink} to={URLS.tokenomics} underline="always">
+            explore tokenomics
+          </Link>
         </Typography>
       </div>
       <header className={clsx(styles.root, props.className)}>
         <Grid.Container>
           <Grid.Row className={styles.root} items="center">
-            <div className={styles.logo}>
+            <ReactRouterLink to={URLS.main} className={styles.logo}>
               <Logo />
-            </div>
+            </ReactRouterLink>
             <div className={styles.actions}>
-              <Button variant="outlined" color="primary" className={styles.btn}>
-                Tokenomics
-              </Button>
-              <Button variant="contained" color="secondary">
+              {!isTokenomics && (
+                <Button
+                  variant="outlined"
+                  color="primary"
+                  className={styles.btn}
+                  as={ReactRouterLink}
+                  to={URLS.tokenomics}
+                >
+                  Tokenomics
+                </Button>
+              )}
+              <Button
+                variant="contained"
+                color="secondary"
+                as="a"
+                href={config.LAUNCH_APP_URL}
+              >
                 Launch App
               </Button>
             </div>

@@ -7,6 +7,7 @@ export const palette = {
   black2: '#1a2223',
   black3: '#494949',
   black4: '#0a1213',
+  black5: rgba('#000', 0.24),
   blue: '#061edd',
   brown: '#8a7a63',
   green: '#3a9b66',

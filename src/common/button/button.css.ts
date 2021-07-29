@@ -20,6 +20,12 @@ export const colors = styleVariants({
     background: theme.color.secondary,
     color: theme.palette.black1,
     border: `1px solid ${theme.color.secondary}`
+  },
+
+  pink: {
+    background: theme.palette.pink,
+    color: theme.palette.black1,
+    border: `1px solid ${theme.palette.pink}`
   }
 });
 
@@ -32,6 +38,10 @@ export const varinats = styleVariants({
     selectors: {
       [`&.${colors.primary}`]: {
         color: theme.color.textColor
+      },
+
+      [`&.${colors.secondary}`]: {
+        color: theme.color.secondary
       }
     }
   }

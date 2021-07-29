@@ -47,7 +47,7 @@ const List: React.VFC<DocsRendererTableOfContentsListProps> = (props) => {
                   ? URLS.docs.detail(list.text)
                   : undefined
               }
-              component={list.external ? ReactRouterLink : undefined}
+              as={list.external ? ReactRouterLink : undefined}
               className={classes.link}
             >
               {list.id === props.activeElement && (

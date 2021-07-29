@@ -28,7 +28,7 @@ export const Status: React.FC<StatusProps> = (props) => {
   return (
     <Typography
       variant="h5"
-      component="div"
+      as="div"
       className={clsx(
         classes.root,
         classes[props.color],

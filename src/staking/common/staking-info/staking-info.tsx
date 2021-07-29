@@ -28,7 +28,7 @@ export const StakingInfo: React.FC = () => {
     <Plate withoutBorder color="grey" className={classes.root}>
       {STAKING_CARDS.map((card) => (
         <div className={classes.card} key={card.title}>
-          <Typography variant="h1" component="h2" className={classes.cardTitle}>
+          <Typography variant="h1" as="h2" className={classes.cardTitle}>
             {card.title}
           </Typography>
           <Typography variant="h5" className={classes.cardBody}>

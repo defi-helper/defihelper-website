@@ -26,9 +26,9 @@ export const VotingProposals: React.FC<VotingProposalsProps> = (props) => {
         ))}
       {!props.loading &&
         props.proposals?.map((proposal) => (
-          <Typography key={proposal.id} variant="h5" component="div">
+          <Typography key={proposal.id} variant="h5" as="div">
             <Link
-              component={ReactRouterLink}
+              as={ReactRouterLink}
               to={URLS.voting.detail(proposal.id)}
               className={clsx(
                 classes.proposal,
@@ -47,7 +47,7 @@ export const VotingProposals: React.FC<VotingProposalsProps> = (props) => {
           </Typography>
         ))}
       {!props.loading && !props.proposals?.length && (
-        <Typography variant="h5" component="div">
+        <Typography variant="h5" as="div">
           <div className={classes.proposal}>
             <Typography variant="inherit" className={classes.proposalTitle}>
               No proposals yet...

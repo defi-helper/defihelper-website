@@ -39,10 +39,10 @@ export const VotingChooseButtons: React.FC<VotingChooseButtonsProps> = (
           type="button"
           className={classes.button}
         >
-          <Typography variant="h4" component="span">
+          <Typography variant="h4" as="span">
             {title}
           </Typography>
-          <Typography variant="body2" component="span">
+          <Typography variant="body2" as="span">
             {subtitle}
           </Typography>
         </ButtonBase>

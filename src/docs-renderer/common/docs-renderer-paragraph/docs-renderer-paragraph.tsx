@@ -18,7 +18,7 @@ export const DocsRendererParagraph: React.FC = (props) => {
   }
 
   return (
-    <Typography variant="h5" component="p" className={classes.root}>
+    <Typography variant="h5" as="p" className={classes.root}>
       {props.children}
     </Typography>
   );

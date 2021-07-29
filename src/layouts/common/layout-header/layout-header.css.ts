@@ -19,16 +19,48 @@ export const attention = style({
   padding: '8px 0'
 });
 
+export const attentionText = style({
+  fontSize: 12,
+  lineHeight: '16px',
+
+  '@media': {
+    [theme.mediaQueries.lg()]: {
+      fontSize: 16,
+      lineHeight: '24px'
+    }
+  }
+});
+
 export const padding = style({
   padding: '0 16px'
 });
 
-export const logo = composeStyles(padding, style({}));
+export const logo = composeStyles(
+  padding,
+  style({
+    width: 216,
+    height: 16,
+
+    '@media': {
+      [theme.mediaQueries.lg()]: {
+        width: 308,
+        height: 24
+      }
+    }
+  })
+);
 
 export const actions = composeStyles(
   padding,
   style({
-    marginLeft: 'auto'
+    marginLeft: 'auto',
+    display: 'none',
+
+    '@media': {
+      [theme.mediaQueries.lg()]: {
+        display: 'block'
+      }
+    }
   })
 );
 

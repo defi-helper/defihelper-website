@@ -50,7 +50,7 @@ export const StakingCard: React.VFC<StakingCardProps> = (props) => {
 
   return (
     <Link
-      component={ReactRouterLink}
+      as={ReactRouterLink}
       to={URLS.staking.detail(props.stakingContractAddress)}
       className={clsx(classes.stakingCard, {
         [classes.loading]: props.loading

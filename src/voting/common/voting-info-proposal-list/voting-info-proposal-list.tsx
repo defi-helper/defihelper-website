@@ -27,11 +27,7 @@ export const VotingInfoProposalList: React.FC<VotingInfoProposalListProps> = (
         proposals={props.proposals}
         className={classes.proposals}
       />
-      <Link
-        component={ReactRouterLink}
-        to={URLS.voting.list}
-        className={classes.link}
-      >
+      <Link as={ReactRouterLink} to={URLS.voting.list} className={classes.link}>
         {!props.proposalCount ? (
           <>Create first proposal →</>
         ) : (

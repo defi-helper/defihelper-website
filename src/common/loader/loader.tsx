@@ -1,7 +1,6 @@
 import React, { forwardRef } from 'react';
 import clsx from 'clsx';
 
-import { ReactComponent as HatOutlineIcon } from 'src/assets/images/hat-loader-base.svg';
 import { useLoaderStyles } from './loader.styles';
 
 export type LoaderProps = {
@@ -18,7 +17,9 @@ export const Loader = forwardRef<HTMLDivElement, LoaderProps>((props, ref) => {
 
   return (
     <div className={clsx(classes.root, props.className)} ref={ref}>
-      <HatOutlineIcon strokeWidth={strokeWidth} width={width} height={height} />
+      loading...{width}
+      {height}
+      {strokeWidth}
     </div>
   );
 });

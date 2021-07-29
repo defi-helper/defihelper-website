@@ -32,7 +32,7 @@ import {
   setupBinance,
   Head
 } from 'src/common';
-import { MainLayout } from 'src/layouts';
+import { LandingLayout } from 'src/layouts';
 import { ReactComponent as EthIcon } from 'src/assets/icons/chains/ethereum.svg';
 import { ReactComponent as BnbIcon } from 'src/assets/icons/chains/bsc.svg';
 import { ReactComponent as BridgeArrowIcon } from 'src/assets/icons/bridge-arrow.svg';
@@ -326,7 +326,7 @@ export const Bridge: React.VFC = () => {
         title="Transfer BAG between the Ethereum and the Binance Smart Chain"
         ogUrl="https://bondappetit.io"
       />
-      <MainLayout>
+      <LandingLayout>
         <PageWrapper>
           <div>
             <div>
@@ -516,7 +516,7 @@ export const Bridge: React.VFC = () => {
             </SmallModal>
           </Modal>
         </PageWrapper>
-      </MainLayout>
+      </LandingLayout>
     </>
   );
 };

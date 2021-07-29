@@ -46,7 +46,7 @@ const getInjectedWalletProps = (name: string) => {
   }
 };
 
-export const WalletList: React.FC<WalletListProps> = (props) => {
+export const WalletList: React.VFC<WalletListProps> = (props) => {
   const classes = useWalletListStyles();
 
   return (
@@ -60,11 +60,11 @@ export const WalletList: React.FC<WalletListProps> = (props) => {
               key={name}
               onClick={() => props.onClick(connector)}
               className={classes.wallet}
-              component={injectedWallet?.component}
+              as={injectedWallet?.component}
             >
               <Typography
                 variant="h4"
-                component="span"
+                as="span"
                 className={classes.walletTitle}
               >
                 {injectedWallet?.title ?? name}

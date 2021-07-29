@@ -4,8 +4,7 @@ import { useToggle } from 'react-use';
 import { useWeb3React } from '@web3-react/core';
 
 import { ReactComponent as BAGicon } from 'src/assets/icons/wallet-info.svg';
-import { ButtonBase, LinkModal, useNetworkConfig } from 'src/common';
-import { VotingInvestingForm } from 'src/voting/voting-investing-form';
+import { ButtonBase } from 'src/common';
 import { config } from 'src/config';
 import { VotingInvestingAttention } from 'src/voting/voting-investing-attention';
 import { useWalletProfileStyles } from './wallet-profile.styles';
@@ -18,20 +17,17 @@ export type WalletProfileProps = {
 
 export const WalletProfile: React.VFC<WalletProfileProps> = (props) => {
   const classes = useWalletProfileStyles();
-
-  const networkConfig = useNetworkConfig();
-
   const { chainId } = useWeb3React();
 
   const ref = useRef<HTMLDivElement | null>(null);
   const dropdownRef = useRef<HTMLDivElement | null>(null);
 
   const [dropdownOpened, toggleDropdown] = useToggle(false);
-  const [linkModalOpen, togglelinkModal] = useToggle(false);
-  const [investFormIsOpen, toggleInvestForm] = useToggle(false);
+  const [, togglelinkModal] = useToggle(false);
+  const [, toggleInvestForm] = useToggle(false);
   const [walletModalOpen, toggleWalletModal] = useToggle(false);
   const [attentionModalOpen, toggleAttentionModal] = useToggle(false);
-  const [linksOpen, linksToggle] = useToggle(false);
+  const [, linksToggle] = useToggle(false);
 
   useEffect(() => {
     const onMouseOver = () => toggleDropdown(true);
@@ -47,11 +43,6 @@ export const WalletProfile: React.VFC<WalletProfileProps> = (props) => {
       current?.addEventListener('mouseleave', onMouseOut);
     };
   }, [ref, toggleDropdown]);
-
-  const handleAttention = () => {
-    togglelinkModal(false);
-    toggleAttentionModal(true);
-  };
   const handleBuyInvestment = () => {
     toggleAttentionModal(false);
     toggleInvestForm(true);
@@ -74,31 +65,11 @@ export const WalletProfile: React.VFC<WalletProfileProps> = (props) => {
           />
         </div>
       )}
-      <LinkModal
-        open={linkModalOpen}
-        onClose={togglelinkModal}
-        tokenName={networkConfig.assets.Governance?.symbol}
-        tokenAddress={networkConfig.assets.Governance?.address}
-        withBuyInvestment={config.IS_INVEST}
-        onBuyInvestment={handleAttention}
-      />
-      <LinkModal
-        open={linksOpen}
-        onClose={linksToggle}
-        tokenName={networkConfig.assets.Governance.symbol}
-        tokenAddress={networkConfig.assets.Governance.address}
-      />
       <VotingInvestingAttention
         open={attentionModalOpen}
         onClose={toggleAttentionModal}
         onBuy={handleBuyInvestment}
       />
-      {investFormIsOpen && (
-        <VotingInvestingForm
-          open={investFormIsOpen}
-          onClose={toggleInvestForm}
-        />
-      )}
       <WalletModal open={walletModalOpen} onClose={toggleWalletModal} />
     </div>
   );

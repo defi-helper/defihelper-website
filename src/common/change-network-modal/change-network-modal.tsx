@@ -1,6 +1,5 @@
 import React from 'react';
 
-import MetamaskScreen from 'src/assets/images/metamask-screen.png';
 import { Modal, SmallModal, useModal } from '../modal';
 import { Typography } from '../typography';
 import { useChangeNetworkModalStyles } from './change-network-modal.styles';
@@ -20,7 +19,7 @@ const ChangeNetworkModal: React.VFC<ChangeNetworkModalProps> = (props) => {
             Switch from Binance Smart Chain to Ethereum Mainnet manually in your
             MetaMask
           </Typography>
-          <img src={MetamaskScreen} alt="" className={classes.img} />
+          <img src="" alt="" className={classes.img} />
         </div>
       </SmallModal>
     </Modal>

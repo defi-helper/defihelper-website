@@ -13,7 +13,7 @@ import {
   Head,
   estimateGas
 } from 'src/common';
-import { MainLayout } from 'src/layouts';
+import { LandingLayout } from 'src/layouts';
 import { URLS } from 'src/router/urls';
 import { VotingInput, VotingMediumEditor, VotingActionList } from '../common';
 import {
@@ -153,7 +153,7 @@ export const VotingCreateProposal: React.FC = () => {
   return (
     <>
       <Head title="Create proposal" />
-      <MainLayout>
+      <LandingLayout>
         <form
           className={classes.form}
           onSubmit={formik.handleSubmit}
@@ -208,7 +208,7 @@ export const VotingCreateProposal: React.FC = () => {
             onSubmitActions={handleSubmitActions}
           />
         </Modal>
-      </MainLayout>
+      </LandingLayout>
     </>
   );
 };

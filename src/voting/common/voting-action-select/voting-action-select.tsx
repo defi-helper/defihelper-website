@@ -29,7 +29,7 @@ export const VotingActionSelect: React.FC<VotingActionSelectProps> = (
               onClick={() => props.onChange?.(option)}
               key={option}
             >
-              <Typography variant="h5" component="span">
+              <Typography variant="h5" as="span">
                 {option}
               </Typography>
             </ButtonBase>

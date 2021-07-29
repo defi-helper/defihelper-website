@@ -7,13 +7,16 @@ export type GridRowProps = {
   className?: string;
   items?: 'initial' | 'flexStart' | 'center' | 'flexEnd';
   justify?: 'initial' | 'flexStart' | 'center' | 'flexEnd' | 'spaceBetween';
+  as?: React.ElementType;
 };
 
 export const GridRow: React.FC<GridRowProps> = (props) => {
-  const { items = 'initial', justify = 'initial' } = props;
+  const { items = 'initial', justify = 'initial', as = 'div' } = props;
+
+  const Component = as;
 
   return (
-    <div
+    <Component
       className={clsx(
         styles.row,
         styles.items[items],
@@ -22,6 +25,6 @@ export const GridRow: React.FC<GridRowProps> = (props) => {
       )}
     >
       {props.children}
-    </div>
+    </Component>
   );
 };

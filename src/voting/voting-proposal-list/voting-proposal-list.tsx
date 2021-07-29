@@ -4,7 +4,7 @@ import { Link as ReactRouterLink } from 'react-router-dom';
 import clsx from 'clsx';
 import { useWeb3React } from '@web3-react/core';
 
-import { MainLayout } from 'src/layouts';
+import { LandingLayout } from 'src/layouts';
 import {
   Typography,
   Button,
@@ -63,15 +63,11 @@ export const VotingProposalList: React.FC = () => {
   return (
     <>
       <Head title="Proposals" />
-      <MainLayout>
+      <LandingLayout>
         <div className={classes.root}>
           <div className={classes.header}>
             <Typography variant="body1" align="center">
-              <Link
-                component={ReactRouterLink}
-                to={URLS.voting.info}
-                color="blue"
-              >
+              <Link as={ReactRouterLink} to={URLS.voting.info} color="blue">
                 ← Governance
               </Link>
             </Typography>
@@ -135,7 +131,7 @@ export const VotingProposalList: React.FC = () => {
           </div>
           {!proposals.loading && canCreateProposal && (
             <Button
-              component={ReactRouterLink}
+              as={ReactRouterLink}
               variant="outlined"
               className={clsx(
                 classes.createProposal,
@@ -148,7 +144,7 @@ export const VotingProposalList: React.FC = () => {
           {!proposals.loading && !votesGreaterThanProposalThreshold && account && (
             <Typography
               variant="h4"
-              component="div"
+              as="div"
               align="center"
               className={classes.createProposalMargin}
             >
@@ -170,7 +166,7 @@ export const VotingProposalList: React.FC = () => {
           open={votingChooseOpen}
           onClose={handleToggleVotingChoose}
         />
-      </MainLayout>
+      </LandingLayout>
     </>
   );
 };

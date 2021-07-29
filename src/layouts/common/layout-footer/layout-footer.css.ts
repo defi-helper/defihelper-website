@@ -7,7 +7,7 @@ export const root = style({
 
   '@media': {
     [theme.mediaQueries.lg()]: {
-      padding: '114px 0'
+      padding: '40px 0 114px 0'
     }
   }
 });
@@ -67,4 +67,18 @@ export const listItem = style({
       marginBottom: 8
     }
   }
+});
+
+export const socialLink = style({
+  verticalAlign: 'middle',
+  display: 'flex',
+  alignItems: 'center'
+});
+
+export const socialIcon = style({
+  marginRight: 4
+});
+
+export const grey = style({
+  color: theme.palette.grey1
 });

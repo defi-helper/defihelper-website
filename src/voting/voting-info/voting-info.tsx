@@ -3,7 +3,7 @@ import React, { useMemo } from 'react';
 import { Link as ReactRouterLink } from 'react-router-dom';
 
 import { Faq, Head, Link, PageWrapper, Typography } from 'src/common';
-import { MainLayout } from 'src/layouts';
+import { LandingLayout } from 'src/layouts';
 import { URLS } from 'src/router/urls';
 import {
   useVotingProposalList,
@@ -23,7 +23,7 @@ export const VotingInfo: React.FC = () => {
   return (
     <>
       <Head title="Shape the future of the protocol with the BondAppétit Governance token (BAG)" />
-      <MainLayout>
+      <LandingLayout>
         <PageWrapper className={classes.root}>
           <div className={clsx(classes.block, classes.titleWrap)}>
             <Typography variant="h1" align="center" className={classes.title}>
@@ -32,7 +32,7 @@ export const VotingInfo: React.FC = () => {
             </Typography>
             <Typography variant="h4" align="center" className={classes.link}>
               <Link
-                component={ReactRouterLink}
+                as={ReactRouterLink}
                 to={`${URLS.whitepaper}#19`}
                 color="blue"
               >
@@ -51,7 +51,7 @@ export const VotingInfo: React.FC = () => {
           />
           <Faq className={clsx(classes.decision, classes.block)}>{FAQ}</Faq>
         </PageWrapper>
-      </MainLayout>
+      </LandingLayout>
     </>
   );
 };

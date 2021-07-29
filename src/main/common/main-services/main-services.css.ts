@@ -1,4 +1,5 @@
-import { style } from '@vanilla-extract/css';
+import { style, createVar } from '@vanilla-extract/css';
+
 import { theme } from 'src/common/theme';
 
 export const root = style({});
@@ -7,24 +8,41 @@ export const title = style({
   marginBottom: 64
 });
 
+const width = createVar();
+
 export const grid = style({
   display: 'grid',
   padding: 0,
   listStyle: 'none',
-  gridTemplateColumns: 'repeat(auto-fit, minmax(416px, 1fr))',
+  gridTemplateColumns: `repeat(auto-fit, minmax(${width}, 1fr))`,
   gridGap: 16,
   margin: '0 0 16px',
 
   '@media': {
+    [theme.mediaQueries.md()]: {
+      vars: {
+        [width]: '350px'
+      }
+    },
+
     [theme.mediaQueries.lg()]: {
       gridGap: 32,
-      margin: '0 0 32px'
+      margin: '0 0 32px',
+
+      vars: {
+        [width]: '416px'
+      }
     }
+  },
+
+  vars: {
+    [width]: '270px'
   }
 });
 
 export const card = style({
   padding: '32px 24px',
+  minHeight: '100%',
 
   '@media': {
     [theme.mediaQueries.lg()]: {

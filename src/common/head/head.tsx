@@ -1,8 +1,6 @@
 import React from 'react';
 import { Helmet } from 'react-helmet-async';
 
-import OpenGraph from 'src/assets/images/ba-opengraph.jpg';
-
 export type HeadProps = {
   title?: string;
   description?: string;
@@ -10,19 +8,14 @@ export type HeadProps = {
   ogUrl?: string;
 };
 
-const SITE_URL = 'https://bondappetit.io';
+const SITE_URL = '';
 
-const SITE_DESCRIPTION =
-  'The first DeFi protocol that connects real-world debt instruments with the Ethereum ecosystem';
+const SITE_DESCRIPTION = '';
 
 export const Head: React.FC<HeadProps> = (props) => {
-  const siteTitle = ['BondAppetit', props.title].filter(Boolean).join(' - ');
+  const siteTitle = ['', props.title].filter(Boolean).join(' - ');
 
-  const {
-    ogImage = OpenGraph,
-    ogUrl = SITE_URL,
-    description = SITE_DESCRIPTION
-  } = props;
+  const { ogImage, ogUrl = SITE_URL, description = SITE_DESCRIPTION } = props;
 
   const image = [ogUrl, ogImage].join('');
 

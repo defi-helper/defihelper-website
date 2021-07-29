@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { MainLayout } from 'src/layouts';
+import { LandingLayout } from 'src/layouts';
 import {
   PageWrapper,
   Typography,
@@ -12,11 +12,9 @@ import {
 } from 'src/common';
 import {
   StakingCard,
-  StakingInfo,
   StakingLabel,
   useStakingListData
 } from 'src/staking/common';
-import { config } from 'src/config';
 import { useStakingConfig } from 'src/staking-config';
 import { useStakingListStyles } from './staking-list.styles';
 import { StakingSwopFi } from '../staking-swop-fi/staking-swop-fi';
@@ -39,7 +37,7 @@ export const StakingList: React.VFC = () => {
   return (
     <>
       <Head title="Earn Staking Rewards in BAG by providing liquidity for protocol’s assets" />
-      <MainLayout>
+      <LandingLayout>
         <PageWrapper>
           <div className={classes.header}>
             <Typography variant="h1" align="center" className={classes.title}>
@@ -109,9 +107,8 @@ export const StakingList: React.VFC = () => {
                   );
                 })}
           </div>
-          {!config.IS_COLLATERAL && <StakingInfo />}
         </PageWrapper>
-      </MainLayout>
+      </LandingLayout>
     </>
   );
 };

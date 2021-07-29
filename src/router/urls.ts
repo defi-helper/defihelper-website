@@ -7,6 +7,8 @@ export const URLS = {
       `/governance/proposals/${proposalId}`,
     create: '/governance/proposals/create'
   },
+  betaAccess: '/beta-access',
+  tokenomics: '/tokenomics',
   notfound: '/404',
   staking: {
     list: '/staking',

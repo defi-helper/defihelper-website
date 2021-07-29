@@ -30,7 +30,7 @@ export type TypographyProps = {
   variant?: Variants;
   className?: string;
   align?: 'left' | 'center' | 'right';
-  component?: TagNames | 'span' | 'div';
+  as?: TagNames | 'span' | 'div';
   family?: 'square' | 'circle' | 'mono';
   transform?: 'uppercase' | 'lowercase' | 'normal';
   ref?:
@@ -47,7 +47,7 @@ export const Typography = forwardRef<HTMLHeadingElement, TypographyProps>(
       align = 'left',
       family = 'square',
       transform = 'normal',
-      component
+      as
     } = props;
 
     const classNames = clsx(
@@ -59,7 +59,7 @@ export const Typography = forwardRef<HTMLHeadingElement, TypographyProps>(
       styles.transforms[transform]
     );
 
-    const Component = component ?? variantMapping[variant];
+    const Component = as ?? variantMapping[variant];
 
     return (
       <Component className={classNames} ref={ref}>

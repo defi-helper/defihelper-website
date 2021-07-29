@@ -3,8 +3,7 @@ import clsx from 'clsx';
 import Slider from 'react-slick';
 
 import './slick.css';
-import { useCarouselStyles } from './carousel.styles';
-import { ButtonBase } from '../button-base';
+import * as styles from './carousel.css';
 
 export type CarouselProps = {
   children: React.ReactElement | React.ReactElement[];
@@ -12,10 +11,7 @@ export type CarouselProps = {
 };
 
 export const Carousel: React.FC<CarouselProps> = (props) => {
-  const classes = useCarouselStyles();
-
   const settings = {
-    dots: true,
     infinite: false,
     speed: 500,
     slidesToShow: 1,
@@ -24,18 +20,12 @@ export const Carousel: React.FC<CarouselProps> = (props) => {
     arrows: false,
     centerMode: true,
     outerEdgeLimit: true,
-    // variableWidth: true,
-    appendDots: (dots: React.ReactNode) => (
-      <div>
-        <ul className={classes.dots}>{dots}</ul>
-      </div>
-    ),
-    customPaging: () => <ButtonBase className={classes.dot} />
+    dots: false
   };
 
   const renderChildren = (child: React.ReactElement) => {
     return (
-      <div className={classes.slide}>
+      <div className={styles.slide}>
         {React.cloneElement(child, {
           ...child.props,
           className: clsx(child.props.className)
@@ -45,7 +35,7 @@ export const Carousel: React.FC<CarouselProps> = (props) => {
   };
 
   return (
-    <Slider {...settings} className={clsx(classes.root, props.className)}>
+    <Slider {...settings} className={clsx(styles.root, props.className)}>
       {React.Children.map(props.children, renderChildren)}
     </Slider>
   );

@@ -263,7 +263,7 @@ export const StakingLockForm: React.FC<StakingLockFormProps> = (props) => {
             variant="body1"
             align="center"
             className={classes.max}
-            component="div"
+            as="div"
           >
             <ButtonBase
               className={classes.link}

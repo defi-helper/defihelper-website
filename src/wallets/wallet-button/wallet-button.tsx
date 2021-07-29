@@ -41,11 +41,7 @@ export const WalletButton: React.FC = () => {
         <Chip className={classes.chip}>{networkName}</Chip>
       )}
       <ButtonBase onClick={toggleOpen} className={clsx(classes.connected)}>
-        <Typography
-          variant="body1"
-          className={classes.account}
-          component="span"
-        >
+        <Typography variant="body1" className={classes.account} as="span">
           {account ? cutAccount(account) : <>Connect wallet</>}
         </Typography>
         {account ? (

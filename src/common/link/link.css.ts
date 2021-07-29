@@ -1,27 +1,29 @@
 import { style, styleVariants } from '@vanilla-extract/css';
 import { transitions } from 'polished';
+import { theme } from '../theme';
 
 export const root = style({
   display: 'inline-flex',
   cursor: 'pointer',
   outline: 0,
   fontFamily: 'inherit',
-  letterSpacing: '-0.02em',
   fontWeight: 'normal',
+  textUnderlineOffset: 3,
+  textDecorationColor: theme.palette.black5,
   ...transitions('opacity 0.3s ease')
 });
 
 export const underlines = styleVariants({
   none: {
-    textDecoration: 'none'
+    textDecorationLine: 'none'
   },
 
   always: {
-    textDecoration: 'underline'
+    textDecorationLine: 'underline'
   },
 
   hover: {
-    textDecoration: 'none'
+    textDecorationLine: 'none'
   }
 });
 

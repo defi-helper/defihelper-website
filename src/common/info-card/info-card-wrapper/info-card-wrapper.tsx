@@ -23,13 +23,13 @@ export const InfoCardWrapper: React.FC<InfoCardWrapperProps> = (props) => {
         <Typography
           variant="h4"
           align="center"
-          component="div"
+          as="div"
           className={classes.decoratedText}
         >
           {props.title}
         </Typography>
         {props.subtitle && (
-          <Typography variant="h4" align="center" component="div">
+          <Typography variant="h4" align="center" as="div">
             {props.subtitle}
           </Typography>
         )}

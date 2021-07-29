@@ -32,7 +32,7 @@ export const VotingDetailsBlock: React.FC<VotingDetailsBlockProps> = (
                 <Typography
                   key={key}
                   variant="h5"
-                  component="p"
+                  as="p"
                   className={classes.line}
                 >
                   <span className={classes.lineId}>{index + 1}</span>

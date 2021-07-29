@@ -5,7 +5,7 @@ import { useWeb3React } from '@web3-react/core';
 import clsx from 'clsx';
 import { useToggle, useAsyncFn, useAsyncRetry } from 'react-use';
 
-import { MainLayout } from 'src/layouts';
+import { LandingLayout } from 'src/layouts';
 import {
   Plate,
   Typography,
@@ -137,7 +137,7 @@ export const StakingDetail: React.FC = () => {
   return (
     <>
       <Head title={`Staking ${tokenName}`} />
-      <MainLayout>
+      <LandingLayout>
         <PageWrapper className={classes.staking}>
           <StakingHeader
             depositToken={depositToken}
@@ -293,7 +293,7 @@ export const StakingDetail: React.FC = () => {
             </Plate>
           </div>
         </PageWrapper>
-      </MainLayout>
+      </LandingLayout>
     </>
   );
 };

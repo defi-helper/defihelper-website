@@ -22,7 +22,7 @@ export const VotingButton: React.FC<VotingButtonProps> = (props) => {
         props.loading && classes.loading
       )}
     >
-      <Typography variant="h4" component="span">
+      <Typography variant="h4" as="span">
         {props.loading && <Loader width="1em" height="1em" strokeWidth={5} />}
         {!props.loading && props.children}
       </Typography>

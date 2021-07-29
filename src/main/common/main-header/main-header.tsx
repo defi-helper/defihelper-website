@@ -5,6 +5,7 @@ import { Button } from 'src/common/button';
 import { Grid } from 'src/common/grid';
 import { Typography } from 'src/common/typography';
 import { bignumberUtils } from 'src/common/bignumber-utils';
+import { config } from 'src/config';
 import * as styles from './main-header.css';
 
 export type MainHeaderProps = {
@@ -33,7 +34,12 @@ export const MainHeader: React.VFC<MainHeaderProps> = (props) => {
               Automate your DeFi strategies across chains, earn more with
               autostaking feature
             </Typography>
-            <Button variant="outlined" color="primary">
+            <Button
+              variant="outlined"
+              color="primary"
+              as="a"
+              href={config.LAUNCH_APP_URL}
+            >
               Launch App
             </Button>
           </div>
