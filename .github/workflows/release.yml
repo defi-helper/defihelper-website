@@ -37,6 +37,8 @@ jobs:
           echo "REACT_APP_WAVES_NODE_URL: https://nodes.wavesnodes.com" >> .env
           echo "REACT_APP_ADAPTERS_HOST: https://backend.defihelper.io/adapters" >> .env
           echo "REACT_APP_LAUNCH_APP_URL: https://app.defihelper.io/adapters" >> .env
+      - name: Run typechain
+        run: npm run typechain
       - if: github.event.release.prerelease == true
         run: npm run build-dev
       - if: github.event.release.prerelease == false
