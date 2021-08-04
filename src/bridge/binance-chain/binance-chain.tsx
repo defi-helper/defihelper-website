@@ -18,6 +18,8 @@ import {
 import {
   BurgerSwapBridgeTransitTypeEnum,
   useAddBurgerSwapBridgeTransitMutation
+  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+  // @ts-ignore
 } from 'src/graphql/_generated-hooks';
 import {
   BridgeForm,

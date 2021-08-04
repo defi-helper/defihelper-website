@@ -1,6 +1,8 @@
 import { DependencyList, useCallback, useEffect, useRef } from 'react';
 import { useAsyncRetry } from 'react-use';
-import { DocumentNode } from '@apollo/client';
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-ignore
+import { DocumentNode } from 'urql';
 
 type Body = {
   query: string | DocumentNode;

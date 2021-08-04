@@ -3,12 +3,12 @@ import ReactDOM from 'react-dom';
 import { HelmetProvider } from 'react-helmet-async';
 import smoothscroll from 'smoothscroll-polyfill';
 import 'normalize.css';
+import { createClient, Provider } from 'urql';
 
 import { ModalProvider } from './common/modal';
 import { ThemeProvider } from './common/theme';
 import { App } from './app';
 import { config } from './config';
-import { Web3Provider } from './web3/web3-provider';
 import { ErrorBoundary, Sentry } from './error-boundary';
 import * as serviceWorkerRegistration from './serviceWorkerRegistration';
 import './assets/fonts/Basier-Circle-regular-webfont/stylesheet.css';
@@ -19,17 +19,21 @@ smoothscroll.polyfill();
 
 Sentry.init();
 
+const client = createClient({
+  url: config.API_URL ?? ''
+});
+
 ReactDOM.render(
   <React.StrictMode>
     <HelmetProvider>
       <ThemeProvider>
-        <Web3Provider>
-          <ErrorBoundary>
+        <ErrorBoundary>
+          <Provider value={client}>
             <ModalProvider>
               <App />
             </ModalProvider>
-          </ErrorBoundary>
-        </Web3Provider>
+          </Provider>
+        </ErrorBoundary>
       </ThemeProvider>
     </HelmetProvider>
   </React.StrictMode>,

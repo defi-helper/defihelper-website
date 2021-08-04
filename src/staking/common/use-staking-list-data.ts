@@ -15,6 +15,8 @@ import {
   StakingQuery,
   useSwopfiPairQuery,
   useTokenPriceQuery
+  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+  // @ts-ignore
 } from 'src/graphql/_generated-hooks';
 import {
   StakingConfig,
@@ -22,6 +24,8 @@ import {
   useStakingConfig
 } from 'src/staking-config';
 import { useGovernanceCost } from './use-governance-cost';
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-ignore
 import { STAKING_LIST_QUERY_STRING } from './graphql/staking-list-query.graphql';
 
 type StakingToken = {
@@ -134,6 +138,8 @@ export const useStakingListData = (address?: string) => {
           if (!stakingList.data) return [];
 
           return stakingList.data?.stakingList.reduce(
+            // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+            // @ts-ignore
             (res, staking): StakingToken[] => {
               const stakingConfigItem = stakingConfigAddresses.find(
                 ({ configAddress }) => configAddress === staking.address

@@ -10,6 +10,8 @@ import {
   humanizeNumeral,
   dateUtils
 } from 'src/common';
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-ignore
 import { Maybe } from 'src/graphql/_generated-hooks';
 import { URLS } from 'src/router/urls';
 import { StakingStatuses } from 'src/staking-config';

@@ -1,5 +1,5 @@
 overwrite: true
-schema: "https://cache.bondappetit.io/api"
+schema: "https://backend.defihelper.io/api"
 documents: [
   './src/**/**/*.graphql.ts',
 ]
@@ -25,9 +25,9 @@ generates:
           content: '/* eslint-disable */'
       - typescript
       - typescript-operations
-      - typescript-react-apollo
+      - typescript-urql
     config:
-      apolloReactHooksImportFrom: "@apollo/client"
+      urqlImportFrom: "urql"
       withComponent: false
       withHOC: false
       withHooks: true

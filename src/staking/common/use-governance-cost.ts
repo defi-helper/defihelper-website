@@ -1,6 +1,7 @@
 import networks from '@bondappetit/networks';
 import { config } from 'src/config';
-
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-ignore
 import { useTokenPriceQuery } from 'src/graphql/_generated-hooks';
 
 export const useGovernanceCost = () => {

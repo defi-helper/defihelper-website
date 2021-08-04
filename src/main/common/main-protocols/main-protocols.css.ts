@@ -49,5 +49,7 @@ export const protocolButton = style({
 });
 
 export const protocolIcon = style({
-  marginRight: 8
+  marginRight: 8,
+  width: 40,
+  height: 40
 });

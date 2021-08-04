@@ -1,5 +1,6 @@
 import { useWeb3React } from '@web3-react/core';
-
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-ignore
 import { useWalletQuery } from 'src/graphql/_generated-hooks';
 import { config } from 'src/config';
 import { BN } from 'src/common';

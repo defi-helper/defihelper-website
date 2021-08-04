@@ -1,7 +1,6 @@
 /* eslint-disable */
-import { gql } from '@apollo/client';
-import * as Apollo from '@apollo/client';
-import * as ApolloReactHooks from '@apollo/client';
+import gql from 'graphql-tag';
+import * as Urql from 'urql';
 export type Maybe<T> = T | null;
 export type Exact<T extends { [key: string]: unknown }> = {
   [K in keyof T]: T[K];
@@ -10,7 +9,7 @@ export type MakeOptional<T, K extends keyof T> = Omit<T, K> &
   { [SubKey in K]?: Maybe<T[SubKey]> };
 export type MakeMaybe<T, K extends keyof T> = Omit<T, K> &
   { [SubKey in K]: Maybe<T[SubKey]> };
-const defaultOptions = {};
+export type Omit<T, K extends keyof T> = Pick<T, Exclude<keyof T, K>>;
 /** All built-in and custom scalars, mapped to their actual values */
 export type Scalars = {
   ID: string;
@@ -18,1350 +17,1827 @@ export type Scalars = {
   Boolean: boolean;
   Int: number;
   Float: number;
-  /** Ethereum wallet address */
-  AddressType: string;
-  /** Дата и время */
+  /** Date and time */
   DateTimeType: string;
-  /** Ethereum transaction hash */
-  TxHashType: any;
+  /** Metric column */
+  MetricColumnType: any;
+  /** Identificator */
+  UuidType: any;
 };
 
-export type BurgerSwapBridgeTransitInput = {
-  /** Transaction hash */
-  tx: Scalars['TxHashType'];
-  /** Wallet address of transaction owner */
-  owner: Scalars['AddressType'];
-  /** Transit type */
-  type: BurgerSwapBridgeTransitTypeEnum;
+export type AddWalletInputType = {
+  /** Blockchain */
+  blockchain: BlockchainEnum;
+  /** Blockchain network id */
+  network: Scalars['String'];
+  /** Wallet address */
+  address: Scalars['String'];
 };
 
-export type BurgerSwapBridgeTransitType = {
-  __typename?: 'BurgerSwapBridgeTransitType';
-  /** Transaction hash */
-  tx: Scalars['TxHashType'];
-  /** Transit type */
-  type: BurgerSwapBridgeTransitTypeEnum;
-  /** Wallet address of transaction owner */
-  owner: Scalars['AddressType'];
-  /** Created at date */
+export type AuthEthereumInputType = {
+  /** Blockchain network id */
+  network: Scalars['String'];
+  /** Wallet address */
+  address: Scalars['String'];
+  /** Message */
+  message: Scalars['String'];
+  /** Signed message */
+  signature: Scalars['String'];
+};
+
+export type AuthType = {
+  __typename?: 'AuthType';
+  /** Authenticated user account */
+  user: UserType;
+  /** Session ID */
+  sid: Scalars['String'];
+};
+
+export type AuthWavesInputType = {
+  /** Blockchain network id */
+  network: Scalars['String'];
+  /** Wallet public key */
+  publicKey: Scalars['String'];
+  /** Wallet address */
+  address: Scalars['String'];
+  /** Message */
+  message: Scalars['String'];
+  /** Signed message */
+  signature: Scalars['String'];
+};
+
+export type BillingBalanceType = {
+  __typename?: 'BillingBalanceType';
+  balance: Scalars['Float'];
+  claim: Scalars['Float'];
+  netBalance: Scalars['Float'];
+};
+
+export enum BillingBillStatusEnum {
+  /** Bill awaiting confirmation */
+  Pending = 'pending',
+  /** Bill accepted */
+  Accepted = 'accepted',
+  /** Bill rejected */
+  Rejected = 'rejected'
+}
+
+export type BillingBillType = {
+  __typename?: 'BillingBillType';
+  /** Identificator */
+  id: Scalars['UuidType'];
+  /** Blockchain type */
+  blockchain: BlockchainEnum;
+  /** Blockchain network id */
+  network: Scalars['String'];
+  /** Account */
+  account: Scalars['String'];
+  /** Claimant */
+  claimant: Scalars['String'];
+  /** Declarate gas fee */
+  claimGasFee: Scalars['Float'];
+  /** Declarate protocol fee */
+  claimProtocolFee: Scalars['Float'];
+  /** Confirmed gas fee */
+  gasFee?: Maybe<Scalars['Float']>;
+  /** Confirmed protocol fee */
+  protocolFee?: Maybe<Scalars['Float']>;
+  /** Balance of claim after make the bill */
+  claim: Scalars['Float'];
+  /** Current status */
+  status: BillingBillStatusEnum;
+  /** Transaction id */
+  tx: Scalars['String'];
+  /** Date of created */
+  createdAt: Scalars['DateTimeType'];
+  /** Date of last updated */
+  updatedAt: Scalars['DateTimeType'];
+};
+
+export type BillingTransferType = {
+  __typename?: 'BillingTransferType';
+  /** Identificator */
+  id: Scalars['UuidType'];
+  /** Blockchain type */
+  blockchain: BlockchainEnum;
+  /** Blockchain network id */
+  network: Scalars['String'];
+  /** Account */
+  account: Scalars['String'];
+  /** Transfer amount (must be negative) */
+  amount: Scalars['Float'];
+  /** Transaction id */
+  tx: Scalars['String'];
+  /** Bill */
+  bill?: Maybe<BillingBillType>;
+  /** Date of created */
   createdAt: Scalars['DateTimeType'];
 };
 
-export enum BurgerSwapBridgeTransitTypeEnum {
-  /** Withdraw BEP20 on Binance */
-  BscWithdraw = 'bscWithdraw',
-  /** Withdraw ERC20 on Ethereum */
-  EthTransit = 'ethTransit'
+export enum BlockchainEnum {
+  Ethereum = 'ethereum',
+  Waves = 'waves'
 }
 
-export type MediumPostType = {
-  __typename?: 'MediumPostType';
-  /** Global unique id */
-  guid: Scalars['String'];
-  /** Title */
-  title: Scalars['String'];
-  /** Publication date */
-  pubDate: Scalars['DateTimeType'];
-  /** Link */
-  link: Scalars['String'];
-  /** Author */
-  author: Scalars['String'];
-  /** Thumbnail */
-  thumbnail: Scalars['String'];
+export type BlockchainFilterInputType = {
+  protocol: BlockchainEnum;
+  network?: Maybe<Scalars['String']>;
+};
+
+export type ContractCreateInputType = {
+  /** Blockchain protocol */
+  blockchain: BlockchainEnum;
+  /** Blockchain network */
+  network: Scalars['String'];
+  /** Address */
+  address: Scalars['String'];
+  /** Adapter name */
+  adapter: Scalars['String'];
+  /** Contract deployment block number */
+  deployBlockNumber?: Maybe<Scalars['String']>;
+  /** Layout name */
+  layout: Scalars['String'];
+  /** Name */
+  name: Scalars['String'];
+  /** Description */
+  description?: Maybe<Scalars['String']>;
+  /** Website URL */
+  link?: Maybe<Scalars['String']>;
+  /** Is hidden */
+  hidden?: Maybe<Scalars['Boolean']>;
+};
+
+export type ContractListFilterInputType = {
+  id?: Maybe<Scalars['UuidType']>;
+  blockchain?: Maybe<BlockchainFilterInputType>;
+  hidden?: Maybe<Scalars['Boolean']>;
+  search?: Maybe<Scalars['String']>;
+};
+
+export type ContractListPaginationInputType = {
+  /** Limit */
+  limit?: Maybe<Scalars['Int']>;
+  /** Offset */
+  offset?: Maybe<Scalars['Int']>;
+};
+
+export type ContractListSortInputType = {
+  column: ContractListSortInputTypeColumnEnum;
+  order?: Maybe<SortOrderEnum>;
+};
+
+export enum ContractListSortInputTypeColumnEnum {
+  Id = 'id',
+  Name = 'name',
+  Address = 'address',
+  CreatedAt = 'createdAt'
+}
+
+export type ContractListType = {
+  __typename?: 'ContractListType';
+  /** Elements */
+  list?: Maybe<Array<ContractType>>;
+  pagination: Pagination;
+};
+
+export type ContractMetricChartFilterInputType = {
+  /** Created at equals or greater */
+  dateAfter?: Maybe<Scalars['DateTimeType']>;
+  /** Created at less */
+  dateBefore?: Maybe<Scalars['DateTimeType']>;
+};
+
+export type ContractMetricChartPaginationInputType = {
+  /** Limit */
+  limit?: Maybe<Scalars['Int']>;
+  /** Offset */
+  offset?: Maybe<Scalars['Int']>;
+};
+
+export type ContractMetricChartSortInputType = {
+  column: ContractMetricChartSortInputTypeColumnEnum;
+  order?: Maybe<SortOrderEnum>;
+};
+
+export enum ContractMetricChartSortInputTypeColumnEnum {
+  Date = 'date',
+  Value = 'value'
+}
+
+export type ContractType = {
+  __typename?: 'ContractType';
+  /** Identificator */
+  id: Scalars['UuidType'];
+  protocolId: Scalars['UuidType'];
+  /** Adapter name */
+  adapter: Scalars['String'];
+  /** Layout name */
+  layout: Scalars['String'];
+  /** Blockchain type */
+  blockchain: BlockchainEnum;
+  /** Blockchain network id */
+  network: Scalars['String'];
+  /** Address */
+  address: Scalars['String'];
+  /** Contract deployment block number */
+  deployBlockNumber?: Maybe<Scalars['String']>;
+  /** Name */
+  name: Scalars['String'];
   /** Description */
   description: Scalars['String'];
-  /** Content */
-  content: Scalars['String'];
+  /** View URL */
+  link?: Maybe<Scalars['String']>;
+  /** Is hidden */
+  hidden: Scalars['Boolean'];
+  metricChart: Array<MetricChartType>;
+  events: Array<Scalars['String']>;
+  /** Date of created account */
+  createdAt: Scalars['DateTimeType'];
 };
+
+export type ContractTypeMetricChartArgs = {
+  metric: Scalars['MetricColumnType'];
+  group: MetricGroupEnum;
+  filter?: Maybe<ContractMetricChartFilterInputType>;
+  sort?: Maybe<Array<ContractMetricChartSortInputType>>;
+  pagination?: Maybe<ContractMetricChartPaginationInputType>;
+};
+
+export type ContractUpdateInputType = {
+  /** Blockchain protocol */
+  blockchain?: Maybe<BlockchainEnum>;
+  /** Blockchain network */
+  network?: Maybe<Scalars['String']>;
+  /** Address */
+  address?: Maybe<Scalars['String']>;
+  /** Contract deployment block number */
+  deployBlockNumber?: Maybe<Scalars['String']>;
+  /** Adapter name */
+  adapter?: Maybe<Scalars['String']>;
+  /** Layout name */
+  layout?: Maybe<Scalars['String']>;
+  /** Name */
+  name?: Maybe<Scalars['String']>;
+  /** Description */
+  description?: Maybe<Scalars['String']>;
+  /** Website URL */
+  link?: Maybe<Scalars['String']>;
+  /** Is hidden */
+  hidden?: Maybe<Scalars['Boolean']>;
+};
+
+export enum LocaleEnum {
+  EnUs = 'enUS',
+  RuRu = 'ruRU'
+}
+
+export type MetricChartType = {
+  __typename?: 'MetricChartType';
+  date: Scalars['DateTimeType'];
+  min: Scalars['String'];
+  max: Scalars['String'];
+  avg: Scalars['String'];
+  sum: Scalars['String'];
+  count: Scalars['String'];
+};
+
+export enum MetricGroupEnum {
+  Hour = 'hour',
+  Day = 'day',
+  Week = 'week',
+  Year = 'year'
+}
 
 export type Mutation = {
   __typename?: 'Mutation';
-  addBurgerSwapBridgeTransit: BurgerSwapBridgeTransitType;
+  authEth?: Maybe<AuthType>;
+  authWaves?: Maybe<AuthType>;
+  addWallet?: Maybe<AuthType>;
+  protocolCreate: ProtocolType;
+  protocolUpdate: ProtocolType;
+  protocolDelete: Scalars['Boolean'];
+  contractCreate: ContractType;
+  contractUpdate: ContractType;
+  contractDelete: Scalars['Boolean'];
+  contractWalletLink: Scalars['Boolean'];
+  contractWalletUnlink: Scalars['Boolean'];
+  proposalCreate: ProposalType;
+  proposalUpdate: ProposalType;
+  proposalDelete: Scalars['Boolean'];
+  vote: VoteType;
+  unvote: Scalars['Boolean'];
+  userContactCreate: UserContactType;
+  userContactEmailConfirm: Scalars['Boolean'];
+  userContactDelete: Scalars['Boolean'];
+  userEventSubscriptionCreate: UserEventSubscriptionType;
+  userEventSubscriptionDelete: Scalars['Boolean'];
+  productCreate: StoreProductType;
+  productUpdate: StoreProductType;
+  productDelete: Scalars['Boolean'];
 };
 
-export type MutationAddBurgerSwapBridgeTransitArgs = {
-  input: BurgerSwapBridgeTransitInput;
+export type MutationAuthEthArgs = {
+  input: AuthEthereumInputType;
+};
+
+export type MutationAuthWavesArgs = {
+  input: AuthWavesInputType;
+};
+
+export type MutationAddWalletArgs = {
+  input: AddWalletInputType;
+};
+
+export type MutationProtocolCreateArgs = {
+  input: ProtocolCreateInputType;
+};
+
+export type MutationProtocolUpdateArgs = {
+  id: Scalars['UuidType'];
+  input: ProtocolUpdateInputType;
+};
+
+export type MutationProtocolDeleteArgs = {
+  id: Scalars['UuidType'];
+};
+
+export type MutationContractCreateArgs = {
+  protocol: Scalars['UuidType'];
+  input: ContractCreateInputType;
+};
+
+export type MutationContractUpdateArgs = {
+  id: Scalars['UuidType'];
+  input: ContractUpdateInputType;
+};
+
+export type MutationContractDeleteArgs = {
+  id: Scalars['UuidType'];
+};
+
+export type MutationContractWalletLinkArgs = {
+  contract: Scalars['UuidType'];
+  wallet: Scalars['UuidType'];
+};
+
+export type MutationContractWalletUnlinkArgs = {
+  contract: Scalars['UuidType'];
+  wallet: Scalars['UuidType'];
+};
+
+export type MutationProposalCreateArgs = {
+  input: ProposalCreateInputType;
+};
+
+export type MutationProposalUpdateArgs = {
+  id: Scalars['UuidType'];
+  input: ProposalUpdateInputType;
+};
+
+export type MutationProposalDeleteArgs = {
+  id: Scalars['UuidType'];
+};
+
+export type MutationVoteArgs = {
+  proposal: Scalars['UuidType'];
+};
+
+export type MutationUnvoteArgs = {
+  proposal: Scalars['UuidType'];
+};
+
+export type MutationUserContactCreateArgs = {
+  input: UserContactCreateInputType;
+};
+
+export type MutationUserContactEmailConfirmArgs = {
+  input: UserContactConfirmEmailInputType;
+};
+
+export type MutationUserContactDeleteArgs = {
+  id: Scalars['UuidType'];
+};
+
+export type MutationUserEventSubscriptionCreateArgs = {
+  input: UserEventSubscriptionCreateInputType;
+};
+
+export type MutationUserEventSubscriptionDeleteArgs = {
+  id: Scalars['UuidType'];
+};
+
+export type MutationProductCreateArgs = {
+  input: StoreProductCreateInputType;
+};
+
+export type MutationProductUpdateArgs = {
+  id: Scalars['UuidType'];
+  input: StoreProductUpdateInputType;
+};
+
+export type MutationProductDeleteArgs = {
+  id: Scalars['UuidType'];
+};
+
+export type Pagination = {
+  __typename?: 'Pagination';
+  /** Count of list elements */
+  count: Scalars['Int'];
+};
+
+export type ProposalCreateInputType = {
+  /** Title */
+  title: Scalars['String'];
+  /** Description */
+  description: Scalars['String'];
+};
+
+export type ProposalFilterInputType = {
+  id: Scalars['String'];
+};
+
+export type ProposalListFilterInputType = {
+  author?: Maybe<Scalars['UuidType']>;
+  status?: Maybe<ProposalStatusEnum>;
+  search?: Maybe<Scalars['String']>;
+};
+
+export type ProposalListPaginationInputType = {
+  /** Limit */
+  limit?: Maybe<Scalars['Int']>;
+  /** Offset */
+  offset?: Maybe<Scalars['Int']>;
+};
+
+export type ProposalListQuery = {
+  __typename?: 'ProposalListQuery';
+  /** Elements */
+  list?: Maybe<Array<ProposalType>>;
+  pagination: Pagination;
+};
+
+export type ProposalListSortInputType = {
+  column: ProposalListSortInputTypeColumnEnum;
+  order?: Maybe<SortOrderEnum>;
+};
+
+export enum ProposalListSortInputTypeColumnEnum {
+  Id = 'id',
+  Title = 'title',
+  CreatedAt = 'createdAt'
+}
+
+export enum ProposalStatusEnum {
+  /** Proposal is open for vote */
+  Open = 'open',
+  /** Proposal is executed */
+  Executed = 'executed',
+  /** Proposal is defeated */
+  Defeated = 'defeated'
+}
+
+export type ProposalType = {
+  __typename?: 'ProposalType';
+  /** Identificator */
+  id: Scalars['UuidType'];
+  /** Title */
+  title: Scalars['String'];
+  /** Description */
+  description: Scalars['String'];
+  /** Current status */
+  status: ProposalStatusEnum;
+  /** Author */
+  author?: Maybe<UserType>;
+  votes: VoteListType;
+  /** Date of updated */
+  updatedAt: Scalars['DateTimeType'];
+  /** Date of created */
+  createdAt: Scalars['DateTimeType'];
+};
+
+export type ProposalTypeVotesArgs = {
+  filter?: Maybe<VoteListFilterInputType>;
+  sort?: Maybe<Array<VoteListSortInputType>>;
+  pagination?: Maybe<VoteListPaginationInputType>;
+};
+
+export type ProposalUpdateInputType = {
+  /** Title */
+  title?: Maybe<Scalars['String']>;
+  /** Description */
+  description?: Maybe<Scalars['String']>;
+  /** Current status */
+  status?: Maybe<ProposalStatusEnum>;
+};
+
+export type ProtocolCreateInputType = {
+  /** Adapter name */
+  adapter: Scalars['String'];
+  /** Name */
+  name: Scalars['String'];
+  /** Description */
+  description?: Maybe<Scalars['String']>;
+  /** Icon image URL */
+  icon?: Maybe<Scalars['String']>;
+  /** Website URL */
+  link?: Maybe<Scalars['String']>;
+  /** Is hidden */
+  hidden?: Maybe<Scalars['Boolean']>;
+};
+
+export type ProtocolFilterInputType = {
+  id: Scalars['String'];
+};
+
+export type ProtocolListFilterInputType = {
+  blockchain?: Maybe<BlockchainFilterInputType>;
+  /** Target user ID */
+  linked?: Maybe<Scalars['UuidType']>;
+  hidden?: Maybe<Scalars['Boolean']>;
+  search?: Maybe<Scalars['String']>;
+};
+
+export type ProtocolListPaginationInputType = {
+  /** Limit */
+  limit?: Maybe<Scalars['Int']>;
+  /** Offset */
+  offset?: Maybe<Scalars['Int']>;
+};
+
+export type ProtocolListQuery = {
+  __typename?: 'ProtocolListQuery';
+  /** Elements */
+  list?: Maybe<Array<ProtocolType>>;
+  pagination: Pagination;
+};
+
+export type ProtocolListSortInputType = {
+  column: ProtocolListSortInputTypeColumnEnum;
+  order?: Maybe<SortOrderEnum>;
+};
+
+export enum ProtocolListSortInputTypeColumnEnum {
+  Id = 'id',
+  Name = 'name',
+  Address = 'address',
+  CreatedAt = 'createdAt'
+}
+
+export type ProtocolMetricChartFilterInputType = {
+  blockchain?: Maybe<BlockchainFilterInputType>;
+  /** Created at equals or greater */
+  dateAfter?: Maybe<Scalars['DateTimeType']>;
+  /** Created at less */
+  dateBefore?: Maybe<Scalars['DateTimeType']>;
+};
+
+export type ProtocolMetricChartPaginationInputType = {
+  /** Limit */
+  limit?: Maybe<Scalars['Int']>;
+  /** Offset */
+  offset?: Maybe<Scalars['Int']>;
+};
+
+export type ProtocolMetricChartSortInputType = {
+  column: ProtocolMetricChartSortInputTypeColumnEnum;
+  order?: Maybe<SortOrderEnum>;
+};
+
+export enum ProtocolMetricChartSortInputTypeColumnEnum {
+  Date = 'date',
+  Value = 'value'
+}
+
+export type ProtocolType = {
+  __typename?: 'ProtocolType';
+  /** Identificator */
+  id: Scalars['UuidType'];
+  /** Adapter name */
+  adapter: Scalars['String'];
+  /** Name */
+  name: Scalars['String'];
+  /** Description */
+  description: Scalars['String'];
+  /** Icon image URL */
+  icon?: Maybe<Scalars['String']>;
+  /** Website URL */
+  link?: Maybe<Scalars['String']>;
+  /** Is hidden */
+  hidden: Scalars['Boolean'];
+  contracts: ContractListType;
+  metricChart: Array<MetricChartType>;
+  /** Date of created account */
+  createdAt: Scalars['DateTimeType'];
+};
+
+export type ProtocolTypeContractsArgs = {
+  filter?: Maybe<ContractListFilterInputType>;
+  sort?: Maybe<Array<ContractListSortInputType>>;
+  pagination?: Maybe<ContractListPaginationInputType>;
+};
+
+export type ProtocolTypeMetricChartArgs = {
+  metric: Scalars['MetricColumnType'];
+  group: MetricGroupEnum;
+  filter?: Maybe<ProtocolMetricChartFilterInputType>;
+  sort?: Maybe<Array<ProtocolMetricChartSortInputType>>;
+  pagination?: Maybe<ProtocolMetricChartPaginationInputType>;
+};
+
+export type ProtocolUpdateInputType = {
+  /** Adapter name */
+  adapter?: Maybe<Scalars['String']>;
+  /** Name */
+  name?: Maybe<Scalars['String']>;
+  /** Description */
+  description?: Maybe<Scalars['String']>;
+  /** Icon image URL */
+  icon?: Maybe<Scalars['String']>;
+  /** Website URL */
+  link?: Maybe<Scalars['String']>;
+  /** Is hidden */
+  hidden?: Maybe<Scalars['Boolean']>;
 };
 
 export type Query = {
   __typename?: 'Query';
-  getTVL: Scalars['String'];
-  token: TokenPayload;
-  tokenList: Array<TokenType>;
-  uniswapPair: UniswapPairPayload;
-  uniswapPairList: Array<UniswapPairType>;
-  staking: StakingPayload;
-  stakingList: Array<StakingType>;
-  mediumPostList: Array<MediumPostType>;
-  wallet: WalletPayload;
-  walletList: Array<WalletType>;
-  swopfiPair: SwopfiPairPayload;
-  swopfiPairList: Array<SwopfiPairType>;
+  ping: Scalars['String'];
+  me?: Maybe<UserType>;
+  protocol?: Maybe<ProtocolType>;
+  protocols: ProtocolListQuery;
+  proposal?: Maybe<ProposalType>;
+  proposals: ProposalListQuery;
+  userContact?: Maybe<UserContactType>;
+  userContacts: UserContactListQuery;
+  userEventSubscription?: Maybe<UserEventSubscriptionType>;
+  userEventSubscriptions: UserEventSubscriptionListQuery;
+  tokens: TokenListQuery;
+  tokenAlias?: Maybe<TokenAlias>;
+  tokensAlias: TokenAliasListQuery;
+  products: StoreProductListQuery;
 };
 
-export type QueryTokenArgs = {
-  filter: TokenQueryFilterInputType;
+export type QueryProtocolArgs = {
+  filter: ProtocolFilterInputType;
 };
 
-export type QueryTokenListArgs = {
+export type QueryProtocolsArgs = {
+  filter?: Maybe<ProtocolListFilterInputType>;
+  sort?: Maybe<Array<ProtocolListSortInputType>>;
+  pagination?: Maybe<ProtocolListPaginationInputType>;
+};
+
+export type QueryProposalArgs = {
+  filter: ProposalFilterInputType;
+};
+
+export type QueryProposalsArgs = {
+  filter?: Maybe<ProposalListFilterInputType>;
+  sort?: Maybe<Array<ProposalListSortInputType>>;
+  pagination?: Maybe<ProposalListPaginationInputType>;
+};
+
+export type QueryUserContactArgs = {
+  filter: UserContactFilterInputType;
+};
+
+export type QueryUserContactsArgs = {
+  filter?: Maybe<UserContactListQueryFilterInputType>;
+  sort?: Maybe<Array<UserContactListSortInputType>>;
+  pagination?: Maybe<UserContactListPaginationInputType>;
+};
+
+export type QueryUserEventSubscriptionArgs = {
+  filter: UserEventSubscriptionInputType;
+};
+
+export type QueryUserEventSubscriptionsArgs = {
+  filter?: Maybe<UserEventSubscriptionListQueryFilterInputType>;
+  sort?: Maybe<Array<UserEventSubscriptionListSortInputType>>;
+  pagination?: Maybe<UserEventSubscriptionListPaginationInputType>;
+};
+
+export type QueryTokensArgs = {
   filter?: Maybe<TokenListQueryFilterInputType>;
+  sort?: Maybe<Array<TokenListQuerySortInputType>>;
+  pagination?: Maybe<TokenListQueryPaginationInputType>;
 };
 
-export type QueryUniswapPairArgs = {
-  filter: UniswapPairQueryFilterInputType;
+export type QueryTokenAliasArgs = {
+  filter: TokenAliasFilterInputType;
 };
 
-export type QueryUniswapPairListArgs = {
-  filter?: Maybe<UniswapPairListQueryFilterInputType>;
+export type QueryTokensAliasArgs = {
+  filter?: Maybe<TokenAliasListFilterInputType>;
+  sort?: Maybe<Array<TokenAliasListSortInputType>>;
+  pagination?: Maybe<TokenAliasListPaginationInputType>;
 };
 
-export type QueryStakingArgs = {
-  filter: StakingQueryFilterInputType;
+export type QueryProductsArgs = {
+  filter?: Maybe<StoreProductListQueryFilterInputType>;
+  sort?: Maybe<Array<StoreProductListQuerySortInputType>>;
+  pagination?: Maybe<StoreProductListQueryPaginationInputType>;
 };
 
-export type QueryStakingListArgs = {
-  filter?: Maybe<StakingListQueryFilterInputType>;
+export enum SortOrderEnum {
+  /** Ascending */
+  Asc = 'asc',
+  /** Descending */
+  Desc = 'desc'
+}
+
+export enum StoreProductCodeEnum {
+  /** Notification */
+  Notification = 'notification'
+}
+
+export type StoreProductCreateInputType = {
+  /** Number of blockchain */
+  number: Scalars['Int'];
+  /** System code */
+  code: StoreProductCodeEnum;
+  /** Name */
+  name: Scalars['String'];
+  /** Description */
+  description: Scalars['String'];
+  /** Price in USD */
+  priceUSD: Scalars['Float'];
+  /** Amount of product */
+  amount: Scalars['Int'];
 };
 
-export type QueryWalletArgs = {
-  filter: WalletQueryFilterInputType;
+export type StoreProductListQuery = {
+  __typename?: 'StoreProductListQuery';
+  /** Elements */
+  list?: Maybe<Array<StoreProductType>>;
+  pagination: Pagination;
 };
 
-export type QueryWalletListArgs = {
-  filter?: Maybe<WalletListQueryFilterInputType>;
+export type StoreProductListQueryFilterInputType = {
+  code?: Maybe<Array<StoreProductCodeEnum>>;
+  search?: Maybe<Scalars['String']>;
 };
 
-export type QuerySwopfiPairArgs = {
-  filter: SwopfiPairQueryFilterInputType;
+export type StoreProductListQueryPaginationInputType = {
+  /** Limit */
+  limit?: Maybe<Scalars['Int']>;
+  /** Offset */
+  offset?: Maybe<Scalars['Int']>;
 };
 
-export type QuerySwopfiPairListArgs = {
-  filter?: Maybe<SwopfiPairListQueryFilterInputType>;
+export type StoreProductListQuerySortInputType = {
+  column: StoreProductListQuerySortInputTypeColumnEnum;
+  order?: Maybe<SortOrderEnum>;
 };
 
-export type StakingAprType = {
-  __typename?: 'StakingAprType';
-  /** APR per block */
-  block: Scalars['String'];
-  /** APR per day */
-  day: Scalars['String'];
-  /** APR per week */
-  week: Scalars['String'];
-  /** APR per month */
-  month: Scalars['String'];
-  /** APR per year */
-  year: Scalars['String'];
+export enum StoreProductListQuerySortInputTypeColumnEnum {
+  Id = 'id',
+  Name = 'name',
+  CreatedAt = 'createdAt'
+}
+
+export type StoreProductType = {
+  __typename?: 'StoreProductType';
+  /** Identificator */
+  id: Scalars['UuidType'];
+  /** Number of blockchain */
+  number: Scalars['Int'];
+  /** System code */
+  code: StoreProductCodeEnum;
+  /** Name */
+  name: Scalars['String'];
+  /** Description */
+  description: Scalars['String'];
+  /** Price in USD */
+  priceUSD: Scalars['Float'];
+  /** Amount product */
+  amount: Scalars['Int'];
+  purchases: StorePurchaseListType;
+  /** Date of updated */
+  updatedAt: Scalars['DateTimeType'];
+  /** Date of created */
+  createdAt: Scalars['DateTimeType'];
 };
 
-export type StakingListQueryFilterInputType = {
-  /** List of target staking contract addresses */
-  address?: Maybe<Array<Scalars['AddressType']>>;
+export type StoreProductTypePurchasesArgs = {
+  filter?: Maybe<StorePurchaseListFilterInputType>;
+  sort?: Maybe<Array<StorePurchaseListSortInputType>>;
+  pagination?: Maybe<StorePurchaseListPaginationInputType>;
 };
 
-export type StakingPayload = {
-  __typename?: 'StakingPayload';
-  data?: Maybe<StakingType>;
-  error?: Maybe<Scalars['String']>;
+export type StoreProductUpdateInputType = {
+  /** Number of blockchain */
+  number: Scalars['Int'];
+  /** System code */
+  code: StoreProductCodeEnum;
+  /** Name */
+  name: Scalars['String'];
+  /** Description */
+  description: Scalars['String'];
+  /** Price in USD */
+  priceUSD: Scalars['Float'];
+  /** Amount of product */
+  amount: Scalars['Int'];
 };
 
-export type StakingPoolRateType = {
-  __typename?: 'StakingPoolRateType';
-  /** Pool rate per block */
-  block: Scalars['String'];
-  /** Pool rate per block normalize */
-  blockFloat: Scalars['String'];
-  /** Pool rate per day */
-  daily: Scalars['String'];
-  /** Pool rate per day normalize */
-  dailyFloat: Scalars['String'];
+export type StorePurchaseListFilterInputType = {
+  user?: Maybe<Scalars['UuidType']>;
 };
 
-export type StakingQueryFilterInputType = {
-  /** Target staking contract address */
-  address: Scalars['AddressType'];
+export type StorePurchaseListPaginationInputType = {
+  /** Limit */
+  limit?: Maybe<Scalars['Int']>;
+  /** Offset */
+  offset?: Maybe<Scalars['Int']>;
 };
 
-export type StakingRewardHistoryType = {
-  __typename?: 'StakingRewardHistoryType';
-  /** History block number */
-  blockNumber: Scalars['String'];
-  /** Distributable reward */
-  totalReward: Scalars['String'];
-  /** Distributed reward */
-  totalEarned: Scalars['String'];
+export type StorePurchaseListSortInputType = {
+  column: StorePurchaseListSortInputTypeColumnEnum;
+  order?: Maybe<SortOrderEnum>;
 };
 
-export type StakingStakingEndType = {
-  __typename?: 'StakingStakingEndType';
-  /** Block number of end staking */
-  block?: Maybe<Scalars['String']>;
-  /** Date of end staking */
-  date?: Maybe<Scalars['DateTimeType']>;
+export enum StorePurchaseListSortInputTypeColumnEnum {
+  Id = 'id',
+  CreatedAt = 'createdAt'
+}
+
+export type StorePurchaseListType = {
+  __typename?: 'StorePurchaseListType';
+  /** Elements */
+  list?: Maybe<Array<StorePurchaseType>>;
+  pagination: Pagination;
 };
 
-export type StakingType = {
-  __typename?: 'StakingType';
-  /** Staking contract address */
-  address: Scalars['AddressType'];
-  /** Staking token address */
-  stakingToken: Scalars['AddressType'];
-  /** Staking token decimals */
-  stakingTokenDecimals: Scalars['Int'];
-  /** Plain staking token */
-  stakingTokenPlain?: Maybe<TokenType>;
-  /** Uniswap LP staking token */
-  stakingTokenUniswap?: Maybe<UniswapPairType>;
-  /** Reward token address */
-  rewardToken: Scalars['AddressType'];
-  /** Reward token decimals */
-  rewardTokenDecimals: Scalars['Int'];
-  /** Staking total supply */
-  totalSupply: Scalars['String'];
-  /** Staking total supply normalize */
-  totalSupplyFloat: Scalars['String'];
-  /** Block number of staking period start */
-  periodStart: Scalars['String'];
-  /** Block number of staking period finish */
-  periodFinish: Scalars['String'];
-  /** Rewards duration */
-  rewardsDuration: Scalars['String'];
-  /** Reward for duration */
-  rewardForDuration: Scalars['String'];
-  /** Reward for duration normalize */
-  rewardForDurationFloat: Scalars['String'];
-  /** Already earned */
-  earned: Scalars['String'];
-  /** Already earned normalize */
-  earnedFloat: Scalars['String'];
-  poolRate: StakingPoolRateType;
-  stakingEnd: StakingStakingEndType;
-  unstakingStart: StakingUnstakingStartType;
-  apr: StakingAprType;
-  userList: Array<StakingUserType>;
-  rewardHistory: Array<StakingRewardHistoryType>;
+export type StorePurchaseType = {
+  __typename?: 'StorePurchaseType';
+  /** Identificator */
+  id: Scalars['UuidType'];
+  /** Blockchain type */
+  blockchain: BlockchainEnum;
+  /** Blockchain network id */
+  network: Scalars['String'];
+  /** Account */
+  account: Scalars['String'];
+  /** Amount product */
+  amount: Scalars['Int'];
+  /** Transaction id */
+  tx: Scalars['String'];
+  /** Date of created */
+  createdAt: Scalars['DateTimeType'];
 };
 
-export type StakingTypeUserListArgs = {
-  filter?: Maybe<StakingUserListFilterInputType>;
+export type TokenAlias = {
+  __typename?: 'TokenAlias';
+  /** Identificator */
+  id: Scalars['UuidType'];
+  /** Name */
+  name: Scalars['String'];
+  /** Symbol */
+  symbol: Scalars['String'];
+  /** Is stable price */
+  stable: Scalars['Boolean'];
+  tokens: TokenListType;
 };
 
-export type StakingUnstakingStartType = {
-  __typename?: 'StakingUnstakingStartType';
-  /** Block number of start unstaking */
-  block?: Maybe<Scalars['String']>;
-  /** Date of start unstaking */
-  date?: Maybe<Scalars['DateTimeType']>;
+export type TokenAliasTokensArgs = {
+  filter?: Maybe<TokenListFilterInputType>;
+  sort?: Maybe<Array<TokenListSortInputType>>;
+  pagination?: Maybe<TokenListPaginationInputType>;
 };
 
-export type StakingUserListFilterInputType = {
-  /** List of target wallets */
-  address?: Maybe<Array<Scalars['AddressType']>>;
+export type TokenAliasFilterInputType = {
+  id: Scalars['String'];
 };
 
-export type StakingUserType = {
-  __typename?: 'StakingUserType';
-  /** Staking contract address */
-  staking: Scalars['AddressType'];
-  /** User wallet address */
-  address: Scalars['AddressType'];
-  /** Staking balance */
-  balance: Scalars['String'];
-  /** Staking balance normalize */
-  balanceFloat: Scalars['String'];
-  /** Is staked */
-  staked: Scalars['Boolean'];
-  /** Earned balance */
-  earned: Scalars['String'];
-  /** Earned balance normalize */
-  earnedFloat: Scalars['String'];
+export type TokenAliasListFilterInputType = {
+  blockchain?: Maybe<BlockchainFilterInputType>;
+  stable?: Maybe<Scalars['Boolean']>;
+  symbol?: Maybe<Scalars['String']>;
+  search?: Maybe<Scalars['String']>;
 };
 
-export type SwopfiLpAprType = {
-  __typename?: 'SwopfiLPAprType';
-  /** APR per year */
-  year: Scalars['String'];
+export type TokenAliasListPaginationInputType = {
+  /** Limit */
+  limit?: Maybe<Scalars['Int']>;
+  /** Offset */
+  offset?: Maybe<Scalars['Int']>;
 };
 
-export type SwopfiPairListQueryFilterInputType = {
-  /** List of target pair addresses */
+export type TokenAliasListQuery = {
+  __typename?: 'TokenAliasListQuery';
+  /** Elements */
+  list?: Maybe<Array<TokenAlias>>;
+  pagination: Pagination;
+};
+
+export type TokenAliasListSortInputType = {
+  column: TokenAliasListSortInputTypeColumnEnum;
+  order?: Maybe<SortOrderEnum>;
+};
+
+export enum TokenAliasListSortInputTypeColumnEnum {
+  Id = 'id',
+  Name = 'name',
+  Symbol = 'symbol',
+  CreatedAt = 'createdAt'
+}
+
+export type TokenListFilterInputType = {
+  blockchain?: Maybe<BlockchainFilterInputType>;
   address?: Maybe<Array<Scalars['String']>>;
+  search?: Maybe<Scalars['String']>;
 };
 
-export type SwopfiPairPayload = {
-  __typename?: 'SwopfiPairPayload';
-  data?: Maybe<SwopfiPairType>;
-  error?: Maybe<Scalars['String']>;
+export type TokenListPaginationInputType = {
+  /** Limit */
+  limit?: Maybe<Scalars['Int']>;
+  /** Offset */
+  offset?: Maybe<Scalars['Int']>;
 };
 
-export type SwopfiPairQueryFilterInputType = {
-  /** Target pair address */
-  address: Scalars['String'];
-};
-
-export type SwopfiPairType = {
-  __typename?: 'SwopfiPairType';
-  /** Pair address */
-  address: Scalars['String'];
-  /** Token 0 */
-  token0Address: Scalars['String'];
-  /** Token 0 */
-  token1Address: Scalars['String'];
-  /** Token 0 reserve */
-  token0Reserve: Scalars['String'];
-  /** Token 0 reserve normalize */
-  token0ReserveFloat: Scalars['String'];
-  /** Token 1 reserve */
-  token1Reserve: Scalars['String'];
-  /** Token 1 reserve normalize */
-  token1ReserveFloat: Scalars['String'];
-  /** Daily income */
-  incomeUSD: Scalars['String'];
-  /** Total liquidity */
-  totalLiquidityUSD: Scalars['String'];
-  /** Daily fees */
-  dailyFeesUSD: Scalars['String'];
-  /** Daily volume */
-  dailyVolumeUSD: Scalars['String'];
-  /** Daily transactions count */
-  dailyTxCount: Scalars['String'];
-  apr: SwopfiLpAprType;
+export type TokenListQuery = {
+  __typename?: 'TokenListQuery';
+  /** Elements */
+  list?: Maybe<Array<TokenType>>;
+  pagination: Pagination;
 };
 
 export type TokenListQueryFilterInputType = {
-  /** List of target token addresses */
-  address?: Maybe<Array<Scalars['AddressType']>>;
+  blockchain?: Maybe<BlockchainFilterInputType>;
+  address?: Maybe<Array<Scalars['String']>>;
+  search?: Maybe<Scalars['String']>;
 };
 
-export type TokenPayload = {
-  __typename?: 'TokenPayload';
-  data?: Maybe<TokenType>;
-  error?: Maybe<Scalars['String']>;
+export type TokenListQueryPaginationInputType = {
+  /** Limit */
+  limit?: Maybe<Scalars['Int']>;
+  /** Offset */
+  offset?: Maybe<Scalars['Int']>;
 };
 
-export type TokenQueryFilterInputType = {
-  /** Target token address */
-  address: Scalars['AddressType'];
+export type TokenListQuerySortInputType = {
+  column: TokenListQuerySortInputTypeColumnEnum;
+  order?: Maybe<SortOrderEnum>;
 };
 
-export type TokenStatisticType = {
-  __typename?: 'TokenStatisticType';
-  /** Token daily volume at USD */
-  dailyVolumeUSD: Scalars['String'];
-  /** Token total liquidity at USD */
-  totalLiquidityUSD: Scalars['String'];
+export enum TokenListQuerySortInputTypeColumnEnum {
+  Id = 'id',
+  Name = 'name',
+  Symbol = 'symbol',
+  CreatedAt = 'createdAt'
+}
+
+export type TokenListSortInputType = {
+  column: TokenListSortInputTypeColumnEnum;
+  order?: Maybe<SortOrderEnum>;
+};
+
+export enum TokenListSortInputTypeColumnEnum {
+  Id = 'id',
+  Name = 'name',
+  Symbol = 'symbol',
+  Address = 'address',
+  CreatedAt = 'createdAt'
+}
+
+export type TokenListType = {
+  __typename?: 'TokenListType';
+  /** Elements */
+  list?: Maybe<Array<TokenType>>;
+  pagination: Pagination;
 };
 
 export type TokenType = {
   __typename?: 'TokenType';
-  /** Token address */
-  address: Scalars['AddressType'];
-  /** Token name */
+  /** Identificator */
+  id: Scalars['UuidType'];
+  /** Token alias id */
+  alias: Scalars['String'];
+  /** Blockchain type */
+  blockchain: BlockchainEnum;
+  /** Blockchain network id */
+  network: Scalars['String'];
+  /** Address */
+  address: Scalars['String'];
+  /** Name */
   name: Scalars['String'];
-  /** Token symbol */
+  /** Symbol */
   symbol: Scalars['String'];
-  /** Token decimals */
+  /** Decimals */
   decimals: Scalars['Int'];
-  /** Token total supply */
-  totalSupply: Scalars['String'];
-  /** Token total supply normalize */
-  totalSupplyFloat: Scalars['String'];
-  /** Token price at USD */
-  priceUSD: Scalars['String'];
-  statistic?: Maybe<TokenStatisticType>;
 };
 
-export type UniswapPairListQueryFilterInputType = {
-  /** List of target pair addresses */
-  address?: Maybe<Array<Scalars['AddressType']>>;
+export type UserBillingBillListFilterInputType = {
+  blockchain?: Maybe<BlockchainFilterInputType>;
+  status?: Maybe<BillingBillStatusEnum>;
 };
 
-export type UniswapPairPayload = {
-  __typename?: 'UniswapPairPayload';
-  data?: Maybe<UniswapPairType>;
-  error?: Maybe<Scalars['String']>;
+export type UserBillingBillListPaginationInputType = {
+  /** Limit */
+  limit?: Maybe<Scalars['Int']>;
+  /** Offset */
+  offset?: Maybe<Scalars['Int']>;
 };
 
-export type UniswapPairQueryFilterInputType = {
-  /** Target pair address */
-  address: Scalars['AddressType'];
+export type UserBillingBillListSortInputType = {
+  column: UserBillingBillListSortInputTypeColumnEnum;
+  order?: Maybe<SortOrderEnum>;
 };
 
-export type UniswapPairStatisticType = {
-  __typename?: 'UniswapPairStatisticType';
-  /** Pair daily volume at USD */
-  dailyVolumeUSD: Scalars['String'];
-  /** Pair total liquidity at USD */
-  totalLiquidityUSD: Scalars['String'];
+export enum UserBillingBillListSortInputTypeColumnEnum {
+  Id = 'id',
+  UpdatedAt = 'updatedAt',
+  CreatedAt = 'createdAt'
+}
+
+export type UserBillingBillListType = {
+  __typename?: 'UserBillingBillListType';
+  /** Elements */
+  list?: Maybe<Array<BillingBillType>>;
+  pagination: Pagination;
 };
 
-export type UniswapPairType = {
-  __typename?: 'UniswapPairType';
-  /** Pair address */
-  address: Scalars['AddressType'];
-  /** Token 0 */
-  token0Address: Scalars['AddressType'];
-  /** Token 1 */
-  token1Address: Scalars['AddressType'];
-  /** Token 0 reserve */
-  token0Reserve: Scalars['String'];
-  /** Token 0 reserve normalize */
-  token0ReserveFloat: Scalars['String'];
-  /** Token 1 reserve */
-  token1Reserve: Scalars['String'];
-  /** Token 1 reserve normalize */
-  token1ReserveFloat: Scalars['String'];
-  /** Pair total supply normalize */
-  totalSupplyFloat: Scalars['String'];
-  statistic?: Maybe<UniswapPairStatisticType>;
+export type UserBillingTransferListFilterInputType = {
+  blockchain?: Maybe<BlockchainFilterInputType>;
+  deposit?: Maybe<Scalars['Boolean']>;
+  claim?: Maybe<Scalars['Boolean']>;
 };
 
-export type WalletListQueryFilterInputType = {
-  /** List of target wallet addresses */
-  address?: Maybe<Array<Scalars['AddressType']>>;
+export type UserBillingTransferListPaginationInputType = {
+  /** Limit */
+  limit?: Maybe<Scalars['Int']>;
+  /** Offset */
+  offset?: Maybe<Scalars['Int']>;
 };
 
-export type WalletPayload = {
-  __typename?: 'WalletPayload';
-  data?: Maybe<WalletType>;
-  error?: Maybe<Scalars['String']>;
+export type UserBillingTransferListSortInputType = {
+  column: UserBillingTransferListSortInputTypeColumnEnum;
+  order?: Maybe<SortOrderEnum>;
 };
 
-export type WalletQueryFilterInputType = {
-  /** Target wallet address */
-  address: Scalars['AddressType'];
+export enum UserBillingTransferListSortInputTypeColumnEnum {
+  Id = 'id',
+  Amount = 'amount',
+  CreatedAt = 'createdAt'
+}
+
+export type UserBillingTransferListType = {
+  __typename?: 'UserBillingTransferListType';
+  /** Elements */
+  list?: Maybe<Array<BillingTransferType>>;
+  pagination: Pagination;
 };
+
+export type UserBillingType = {
+  __typename?: 'UserBillingType';
+  transfers: UserBillingTransferListType;
+  bills: UserBillingBillListType;
+  balance: BillingBalanceType;
+};
+
+export type UserBillingTypeTransfersArgs = {
+  filter?: Maybe<UserBillingTransferListFilterInputType>;
+  sort?: Maybe<Array<UserBillingTransferListSortInputType>>;
+  pagination?: Maybe<UserBillingTransferListPaginationInputType>;
+};
+
+export type UserBillingTypeBillsArgs = {
+  filter?: Maybe<UserBillingBillListFilterInputType>;
+  sort?: Maybe<Array<UserBillingBillListSortInputType>>;
+  pagination?: Maybe<UserBillingBillListPaginationInputType>;
+};
+
+export type UserBlockchainType = {
+  __typename?: 'UserBlockchainType';
+  name: Scalars['String'];
+  /** Blockchain type */
+  blockchain: BlockchainEnum;
+  /** Blockchain network id */
+  network: Scalars['String'];
+  wallets: UserBlockchainWalletListType;
+  tokenMetricChart: Array<MetricChartType>;
+};
+
+export type UserBlockchainTypeWalletsArgs = {
+  filter?: Maybe<UserBlockchainWalletListFilterInputType>;
+  sort?: Maybe<Array<UserBlockchainWalletListSortInputType>>;
+  pagination?: Maybe<UserBlockchainWalletListPaginationInputType>;
+};
+
+export type UserBlockchainTypeTokenMetricChartArgs = {
+  metric: Scalars['MetricColumnType'];
+  group: MetricGroupEnum;
+  filter?: Maybe<UserBlockchainWalletTokenMetricChartFilterInputType>;
+  sort?: Maybe<Array<UserBlockchainWalletTokenMetricChartSortInputType>>;
+  pagination?: Maybe<UserBlockchainWalletTokenMetricChartPaginationInputType>;
+};
+
+export type UserBlockchainWalletListFilterInputType = {
+  search?: Maybe<Scalars['String']>;
+};
+
+export type UserBlockchainWalletListPaginationInputType = {
+  /** Limit */
+  limit?: Maybe<Scalars['Int']>;
+  /** Offset */
+  offset?: Maybe<Scalars['Int']>;
+};
+
+export type UserBlockchainWalletListSortInputType = {
+  column: UserBlockchainWalletListSortInputTypeColumnEnum;
+  order?: Maybe<SortOrderEnum>;
+};
+
+export enum UserBlockchainWalletListSortInputTypeColumnEnum {
+  Id = 'id',
+  Address = 'address',
+  CreatedAt = 'createdAt'
+}
+
+export type UserBlockchainWalletListType = {
+  __typename?: 'UserBlockchainWalletListType';
+  /** Elements */
+  list?: Maybe<Array<WalletType>>;
+  pagination: Pagination;
+};
+
+export type UserBlockchainWalletTokenMetricChartFilterInputType = {
+  /** Created at equals or greater */
+  dateAfter?: Maybe<Scalars['DateTimeType']>;
+  /** Created at less */
+  dateBefore?: Maybe<Scalars['DateTimeType']>;
+};
+
+export type UserBlockchainWalletTokenMetricChartPaginationInputType = {
+  /** Limit */
+  limit?: Maybe<Scalars['Int']>;
+  /** Offset */
+  offset?: Maybe<Scalars['Int']>;
+};
+
+export type UserBlockchainWalletTokenMetricChartSortInputType = {
+  column: UserBlockchainWalletTokenMetricChartSortInputTypeColumnEnum;
+  order?: Maybe<SortOrderEnum>;
+};
+
+export enum UserBlockchainWalletTokenMetricChartSortInputTypeColumnEnum {
+  Date = 'date',
+  Value = 'value'
+}
+
+export enum UserContactBrokerEnum {
+  /** Email */
+  Email = 'email',
+  /** Telegram */
+  Telegram = 'telegram'
+}
+
+export type UserContactConfirmEmailInputType = {
+  /** code */
+  confirmationCode: Scalars['String'];
+};
+
+export type UserContactCreateInputType = {
+  /** Type */
+  broker: UserContactBrokerEnum;
+  /** Address */
+  address: Scalars['String'];
+};
+
+export type UserContactFilterInputType = {
+  id: Scalars['String'];
+};
+
+export type UserContactListPaginationInputType = {
+  /** Limit */
+  limit?: Maybe<Scalars['Int']>;
+  /** Offset */
+  offset?: Maybe<Scalars['Int']>;
+};
+
+export type UserContactListQuery = {
+  __typename?: 'UserContactListQuery';
+  /** Elements */
+  list?: Maybe<Array<UserContactType>>;
+  pagination: Pagination;
+};
+
+export type UserContactListQueryFilterInputType = {
+  /** User ID */
+  user?: Maybe<Scalars['UuidType']>;
+  /** Type */
+  broker?: Maybe<UserContactBrokerEnum>;
+  /** Status */
+  status?: Maybe<UserContactStatusEnum>;
+};
+
+export type UserContactListSortInputType = {
+  column: UserContactListSortInputTypeColumnEnum;
+  order?: Maybe<SortOrderEnum>;
+};
+
+export enum UserContactListSortInputTypeColumnEnum {
+  Id = 'id',
+  CreatedAt = 'createdAt'
+}
+
+export enum UserContactStatusEnum {
+  /** Has been activated */
+  Active = 'active',
+  /** Has not been activated yet */
+  Inactive = 'inactive'
+}
+
+export type UserContactType = {
+  __typename?: 'UserContactType';
+  /** Identificator */
+  id: Scalars['UuidType'];
+  /** User */
+  user: UserType;
+  /** Type of the contact */
+  broker: UserContactBrokerEnum;
+  /** Address */
+  address: Scalars['String'];
+  /** Status */
+  status: UserContactStatusEnum;
+  /** Confirmation Code */
+  confirmationCode: Scalars['String'];
+  /** Date of create */
+  createdAt: Scalars['DateTimeType'];
+  /** Date of activated */
+  activatedAt?: Maybe<Scalars['DateTimeType']>;
+};
+
+export type UserEventSubscriptionCreateInputType = {
+  /** User contact id */
+  contact: Scalars['String'];
+  /** Contract id */
+  contract: Scalars['String'];
+  /** Event name */
+  event: Scalars['String'];
+};
+
+export type UserEventSubscriptionInputType = {
+  id: Scalars['UuidType'];
+};
+
+export type UserEventSubscriptionListPaginationInputType = {
+  /** Limit */
+  limit?: Maybe<Scalars['Int']>;
+  /** Offset */
+  offset?: Maybe<Scalars['Int']>;
+};
+
+export type UserEventSubscriptionListQuery = {
+  __typename?: 'UserEventSubscriptionListQuery';
+  /** Elements */
+  list?: Maybe<Array<UserEventSubscriptionType>>;
+  pagination: Pagination;
+};
+
+export type UserEventSubscriptionListQueryFilterInputType = {
+  /** User ID */
+  user?: Maybe<Scalars['UuidType']>;
+  /** Contract Id */
+  contract?: Maybe<Scalars['UuidType']>;
+  /** Event */
+  event?: Maybe<Scalars['String']>;
+  /** User contact type */
+  contactType?: Maybe<UserContactBrokerEnum>;
+};
+
+export type UserEventSubscriptionListSortInputType = {
+  column: UserEventSubscriptionListSortInputTypeColumnEnum;
+  order?: Maybe<SortOrderEnum>;
+};
+
+export enum UserEventSubscriptionListSortInputTypeColumnEnum {
+  Id = 'id',
+  CreatedAt = 'createdAt'
+}
+
+export type UserEventSubscriptionType = {
+  __typename?: 'UserEventSubscriptionType';
+  /** Identificator */
+  id: Scalars['UuidType'];
+  /** Contact */
+  contact: UserContactType;
+  /** Contract */
+  contract: ContractType;
+  /** Event */
+  event: Scalars['String'];
+  /** Date of create */
+  createdAt: Scalars['DateTimeType'];
+};
+
+export type UserMetricChartFilterInputType = {
+  /** Target contracts */
+  contract?: Maybe<Array<Scalars['UuidType']>>;
+  /** Target wallets */
+  wallet?: Maybe<Array<Scalars['UuidType']>>;
+  blockchain?: Maybe<BlockchainFilterInputType>;
+  /** Created at equals or greater */
+  dateAfter?: Maybe<Scalars['DateTimeType']>;
+  /** Created at less */
+  dateBefore?: Maybe<Scalars['DateTimeType']>;
+};
+
+export type UserMetricChartPaginationInputType = {
+  /** Limit */
+  limit?: Maybe<Scalars['Int']>;
+  /** Offset */
+  offset?: Maybe<Scalars['Int']>;
+};
+
+export type UserMetricChartSortInputType = {
+  column: UserMetricChartSortInputTypeColumnEnum;
+  order?: Maybe<SortOrderEnum>;
+};
+
+export enum UserMetricChartSortInputTypeColumnEnum {
+  Date = 'date',
+  Value = 'value'
+}
+
+export type UserMetricsTokenAliasFilterInputType = {
+  id?: Maybe<Array<Scalars['UuidType']>>;
+  /** Is stable token */
+  stable?: Maybe<Scalars['Boolean']>;
+};
+
+export enum UserRoleEnum {
+  /** User */
+  User = 'user',
+  /** Administrator */
+  Admin = 'admin'
+}
+
+export type UserStoreBalanceType = {
+  __typename?: 'UserStoreBalanceType';
+  /** Available nofications count */
+  notifications: Scalars['Int'];
+};
+
+export type UserStoreProductListFilterInputType = {
+  code?: Maybe<Array<StoreProductCodeEnum>>;
+};
+
+export type UserStoreProductListPaginationInputType = {
+  /** Limit */
+  limit?: Maybe<Scalars['Int']>;
+  /** Offset */
+  offset?: Maybe<Scalars['Int']>;
+};
+
+export type UserStoreProductListSortInputType = {
+  column: UserStoreProductListSortInputTypeColumnEnum;
+  order?: Maybe<SortOrderEnum>;
+};
+
+export enum UserStoreProductListSortInputTypeColumnEnum {
+  Id = 'id',
+  CreatedAt = 'createdAt'
+}
+
+export type UserStoreProductListType = {
+  __typename?: 'UserStoreProductListType';
+  /** Elements */
+  list?: Maybe<Array<StoreProductType>>;
+  pagination: Pagination;
+};
+
+export type UserStorePurchaseListFilterInputType = {
+  product?: Maybe<Array<Scalars['UuidType']>>;
+};
+
+export type UserStorePurchaseListPaginationInputType = {
+  /** Limit */
+  limit?: Maybe<Scalars['Int']>;
+  /** Offset */
+  offset?: Maybe<Scalars['Int']>;
+};
+
+export type UserStorePurchaseListSortInputType = {
+  column: UserStorePurchaseListSortInputTypeColumnEnum;
+  order?: Maybe<SortOrderEnum>;
+};
+
+export enum UserStorePurchaseListSortInputTypeColumnEnum {
+  Id = 'id',
+  CreatedAt = 'createdAt'
+}
+
+export type UserStorePurchaseListType = {
+  __typename?: 'UserStorePurchaseListType';
+  /** Elements */
+  list?: Maybe<Array<StorePurchaseType>>;
+  pagination: Pagination;
+};
+
+export type UserStoreType = {
+  __typename?: 'UserStoreType';
+  purchases: UserStorePurchaseListType;
+  products: UserStoreProductListType;
+  balance: UserStoreBalanceType;
+};
+
+export type UserStoreTypePurchasesArgs = {
+  filter?: Maybe<UserStorePurchaseListFilterInputType>;
+  sort?: Maybe<Array<UserStorePurchaseListSortInputType>>;
+  pagination?: Maybe<UserStorePurchaseListPaginationInputType>;
+};
+
+export type UserStoreTypeProductsArgs = {
+  filter?: Maybe<UserStoreProductListFilterInputType>;
+  sort?: Maybe<Array<UserStoreProductListSortInputType>>;
+  pagination?: Maybe<UserStoreProductListPaginationInputType>;
+};
+
+export type UserTokenMetricChartFilterInputType = {
+  /** Target token alias */
+  tokenAlias?: Maybe<UserMetricsTokenAliasFilterInputType>;
+  /** Target token address */
+  tokenAddress?: Maybe<Array<Scalars['String']>>;
+  /** Target contracts */
+  contract?: Maybe<Array<Scalars['UuidType']>>;
+  blockchain?: Maybe<BlockchainFilterInputType>;
+  /** Target wallets */
+  wallet?: Maybe<Array<Scalars['UuidType']>>;
+  /** Created at equals or greater */
+  dateAfter?: Maybe<Scalars['DateTimeType']>;
+  /** Created at less */
+  dateBefore?: Maybe<Scalars['DateTimeType']>;
+};
+
+export type UserTokenMetricChartPaginationInputType = {
+  /** Limit */
+  limit?: Maybe<Scalars['Int']>;
+  /** Offset */
+  offset?: Maybe<Scalars['Int']>;
+};
+
+export type UserTokenMetricChartSortInputType = {
+  column: UserTokenMetricChartSortInputTypeColumnEnum;
+  order?: Maybe<SortOrderEnum>;
+};
+
+export enum UserTokenMetricChartSortInputTypeColumnEnum {
+  Date = 'date',
+  Value = 'value'
+}
+
+export type UserType = {
+  __typename?: 'UserType';
+  /** Identificator */
+  id: Scalars['UuidType'];
+  /** Access role */
+  role: UserRoleEnum;
+  /** Current user locale */
+  locale: LocaleEnum;
+  wallets: WalletListType;
+  blockchains: Array<UserBlockchainType>;
+  metricChart: Array<MetricChartType>;
+  tokenMetricChart: Array<MetricChartType>;
+  billing: UserBillingType;
+  store: UserStoreType;
+  /** Date of created account */
+  createdAt: Scalars['DateTimeType'];
+};
+
+export type UserTypeWalletsArgs = {
+  filter?: Maybe<WalletListFilterInputType>;
+  sort?: Maybe<Array<WalletListSortInputType>>;
+  pagination?: Maybe<WalletListPaginationInputType>;
+};
+
+export type UserTypeMetricChartArgs = {
+  metric: Scalars['MetricColumnType'];
+  group: MetricGroupEnum;
+  filter?: Maybe<UserMetricChartFilterInputType>;
+  sort?: Maybe<Array<UserMetricChartSortInputType>>;
+  pagination?: Maybe<UserMetricChartPaginationInputType>;
+};
+
+export type UserTypeTokenMetricChartArgs = {
+  metric: Scalars['MetricColumnType'];
+  group: MetricGroupEnum;
+  filter?: Maybe<UserTokenMetricChartFilterInputType>;
+  sort?: Maybe<Array<UserTokenMetricChartSortInputType>>;
+  pagination?: Maybe<UserTokenMetricChartPaginationInputType>;
+};
+
+export type VoteListFilterInputType = {
+  user?: Maybe<Scalars['UuidType']>;
+};
+
+export type VoteListPaginationInputType = {
+  /** Limit */
+  limit?: Maybe<Scalars['Int']>;
+  /** Offset */
+  offset?: Maybe<Scalars['Int']>;
+};
+
+export type VoteListSortInputType = {
+  column: VoteListSortInputTypeColumnEnum;
+  order?: Maybe<SortOrderEnum>;
+};
+
+export enum VoteListSortInputTypeColumnEnum {
+  Id = 'id',
+  CreatedAt = 'createdAt'
+}
+
+export type VoteListType = {
+  __typename?: 'VoteListType';
+  /** Elements */
+  list?: Maybe<Array<VoteType>>;
+  pagination: Pagination;
+};
+
+export type VoteType = {
+  __typename?: 'VoteType';
+  /** Identificator */
+  id: Scalars['UuidType'];
+  /** Voting user */
+  user: UserType;
+  /** Date of updated */
+  updatedAt: Scalars['DateTimeType'];
+  /** Date of created */
+  createdAt: Scalars['DateTimeType'];
+};
+
+export type WalletBillingBillListFilterInputType = {
+  status?: Maybe<BillingBillStatusEnum>;
+};
+
+export type WalletBillingBillListPaginationInputType = {
+  /** Limit */
+  limit?: Maybe<Scalars['Int']>;
+  /** Offset */
+  offset?: Maybe<Scalars['Int']>;
+};
+
+export type WalletBillingBillListSortInputType = {
+  column: WalletBillingBillListSortInputTypeColumnEnum;
+  order?: Maybe<SortOrderEnum>;
+};
+
+export enum WalletBillingBillListSortInputTypeColumnEnum {
+  Id = 'id',
+  UpdatedAt = 'updatedAt',
+  CreatedAt = 'createdAt'
+}
+
+export type WalletBillingBillListType = {
+  __typename?: 'WalletBillingBillListType';
+  /** Elements */
+  list?: Maybe<Array<BillingBillType>>;
+  pagination: Pagination;
+};
+
+export type WalletBillingTransferListFilterInputType = {
+  deposit?: Maybe<Scalars['Boolean']>;
+  claim?: Maybe<Scalars['Boolean']>;
+};
+
+export type WalletBillingTransferListPaginationInputType = {
+  /** Limit */
+  limit?: Maybe<Scalars['Int']>;
+  /** Offset */
+  offset?: Maybe<Scalars['Int']>;
+};
+
+export type WalletBillingTransferListSortInputType = {
+  column: WalletBillingTransferListSortInputTypeColumnEnum;
+  order?: Maybe<SortOrderEnum>;
+};
+
+export enum WalletBillingTransferListSortInputTypeColumnEnum {
+  Id = 'id',
+  Amount = 'amount',
+  CreatedAt = 'createdAt'
+}
+
+export type WalletBillingTransferListType = {
+  __typename?: 'WalletBillingTransferListType';
+  /** Elements */
+  list?: Maybe<Array<BillingTransferType>>;
+  pagination: Pagination;
+};
+
+export type WalletBillingType = {
+  __typename?: 'WalletBillingType';
+  transfers: WalletBillingTransferListType;
+  bills: WalletBillingBillListType;
+  balance: BillingBalanceType;
+};
+
+export type WalletBillingTypeTransfersArgs = {
+  filter?: Maybe<WalletBillingTransferListFilterInputType>;
+  sort?: Maybe<Array<WalletBillingTransferListSortInputType>>;
+  pagination?: Maybe<WalletBillingTransferListPaginationInputType>;
+};
+
+export type WalletBillingTypeBillsArgs = {
+  filter?: Maybe<WalletBillingBillListFilterInputType>;
+  sort?: Maybe<Array<WalletBillingBillListSortInputType>>;
+  pagination?: Maybe<WalletBillingBillListPaginationInputType>;
+};
+
+export type WalletContractListFilterInputType = {
+  blockchain?: Maybe<BlockchainFilterInputType>;
+  protocol?: Maybe<Array<Scalars['UuidType']>>;
+  hidden?: Maybe<Scalars['Boolean']>;
+  search?: Maybe<Scalars['String']>;
+};
+
+export type WalletContractListPaginationInputType = {
+  /** Limit */
+  limit?: Maybe<Scalars['Int']>;
+  /** Offset */
+  offset?: Maybe<Scalars['Int']>;
+};
+
+export type WalletContractListSortInputType = {
+  column: WalletContractListSortInputTypeColumnEnum;
+  order?: Maybe<SortOrderEnum>;
+};
+
+export enum WalletContractListSortInputTypeColumnEnum {
+  Id = 'id',
+  Name = 'name',
+  Address = 'address',
+  CreatedAt = 'createdAt'
+}
+
+export type WalletContractListType = {
+  __typename?: 'WalletContractListType';
+  /** Elements */
+  list?: Maybe<Array<ContractType>>;
+  pagination: Pagination;
+};
+
+export type WalletListFilterInputType = {
+  blockchain?: Maybe<BlockchainFilterInputType>;
+  search?: Maybe<Scalars['String']>;
+};
+
+export type WalletListPaginationInputType = {
+  /** Limit */
+  limit?: Maybe<Scalars['Int']>;
+  /** Offset */
+  offset?: Maybe<Scalars['Int']>;
+};
+
+export type WalletListSortInputType = {
+  column: WalletListSortInputTypeColumnEnum;
+  order?: Maybe<SortOrderEnum>;
+};
+
+export enum WalletListSortInputTypeColumnEnum {
+  Id = 'id',
+  Address = 'address',
+  CreatedAt = 'createdAt'
+}
+
+export type WalletListType = {
+  __typename?: 'WalletListType';
+  /** Elements */
+  list?: Maybe<Array<WalletType>>;
+  pagination: Pagination;
+};
+
+export type WalletMetricChartFilterInputType = {
+  /** Target contracts */
+  contract?: Maybe<Array<Scalars['UuidType']>>;
+  /** Created at equals or greater */
+  dateAfter?: Maybe<Scalars['DateTimeType']>;
+  /** Created at less */
+  dateBefore?: Maybe<Scalars['DateTimeType']>;
+};
+
+export type WalletMetricChartPaginationInputType = {
+  /** Limit */
+  limit?: Maybe<Scalars['Int']>;
+  /** Offset */
+  offset?: Maybe<Scalars['Int']>;
+};
+
+export type WalletMetricChartSortInputType = {
+  column: WalletMetricChartSortInputTypeColumnEnum;
+  order?: Maybe<SortOrderEnum>;
+};
+
+export enum WalletMetricChartSortInputTypeColumnEnum {
+  Date = 'date',
+  Value = 'value'
+}
+
+export type WalletTokenMetricChartFilterInputType = {
+  /** Target token alias */
+  tokenAlias?: Maybe<UserMetricsTokenAliasFilterInputType>;
+  /** Target token address */
+  tokenAddress?: Maybe<Array<Scalars['String']>>;
+  /** Target contracts */
+  contract?: Maybe<Array<Scalars['UuidType']>>;
+  /** Created at equals or greater */
+  dateAfter?: Maybe<Scalars['DateTimeType']>;
+  /** Created at less */
+  dateBefore?: Maybe<Scalars['DateTimeType']>;
+};
+
+export type WalletTokenMetricChartPaginationInputType = {
+  /** Limit */
+  limit?: Maybe<Scalars['Int']>;
+  /** Offset */
+  offset?: Maybe<Scalars['Int']>;
+};
+
+export type WalletTokenMetricChartSortInputType = {
+  column: WalletTokenMetricChartSortInputTypeColumnEnum;
+  order?: Maybe<SortOrderEnum>;
+};
+
+export enum WalletTokenMetricChartSortInputTypeColumnEnum {
+  Date = 'date',
+  Value = 'value'
+}
 
 export type WalletType = {
   __typename?: 'WalletType';
-  /** Wallet address */
-  address: Scalars['AddressType'];
-  /** ETH balance */
-  balance: Scalars['String'];
-  /** ETH balance normalize */
-  balanceFloat: Scalars['String'];
+  /** Identificator */
+  id: Scalars['UuidType'];
+  /** Blockchain type */
+  blockchain: BlockchainEnum;
+  /** Blockchain network id */
+  network: Scalars['String'];
+  /** Address */
+  address: Scalars['String'];
+  /** Public key */
+  publicKey: Scalars['String'];
+  contracts: WalletContractListType;
+  metricChart: Array<MetricChartType>;
+  tokenMetricChart: Array<MetricChartType>;
+  billing: WalletBillingType;
+  /** Date of created account */
+  createdAt: Scalars['DateTimeType'];
 };
 
-export type AddBurgerSwapBridgeTransitMutationVariables = Exact<{
-  input: BurgerSwapBridgeTransitInput;
-}>;
-
-export type AddBurgerSwapBridgeTransitMutation = { __typename?: 'Mutation' } & {
-  addBurgerSwapBridgeTransit: {
-    __typename?: 'BurgerSwapBridgeTransitType';
-  } & Pick<BurgerSwapBridgeTransitType, 'tx' | 'type' | 'owner' | 'createdAt'>;
+export type WalletTypeContractsArgs = {
+  filter?: Maybe<WalletContractListFilterInputType>;
+  sort?: Maybe<Array<WalletContractListSortInputType>>;
+  pagination?: Maybe<WalletContractListPaginationInputType>;
 };
 
-export type WalletQueryVariables = Exact<{
-  filter: WalletQueryFilterInputType;
-}>;
+export type WalletTypeMetricChartArgs = {
+  metric: Scalars['MetricColumnType'];
+  group: MetricGroupEnum;
+  filter?: Maybe<WalletMetricChartFilterInputType>;
+  sort?: Maybe<Array<WalletMetricChartSortInputType>>;
+  pagination?: Maybe<WalletMetricChartPaginationInputType>;
+};
 
-export type WalletQuery = { __typename?: 'Query' } & {
-  wallet: { __typename?: 'WalletPayload' } & {
-    data?: Maybe<
-      { __typename?: 'WalletType' } & Pick<
-        WalletType,
-        'address' | 'balance' | 'balanceFloat'
+export type WalletTypeTokenMetricChartArgs = {
+  metric: Scalars['MetricColumnType'];
+  group: MetricGroupEnum;
+  filter?: Maybe<WalletTokenMetricChartFilterInputType>;
+  sort?: Maybe<Array<WalletTokenMetricChartSortInputType>>;
+  pagination?: Maybe<WalletTokenMetricChartPaginationInputType>;
+};
+
+export type ProtocolsQueryVariables = Exact<{ [key: string]: never }>;
+
+export type ProtocolsQuery = { __typename?: 'Query' } & {
+  protocols: { __typename?: 'ProtocolListQuery' } & {
+    list?: Maybe<
+      Array<
+        { __typename?: 'ProtocolType' } & Pick<
+          ProtocolType,
+          'id' | 'name' | 'icon' | 'link'
+        >
       >
     >;
   };
 };
 
-export type StakingListQueryVariables = Exact<{
-  filter?: Maybe<StakingListQueryFilterInputType>;
-  userFilter?: Maybe<StakingUserListFilterInputType>;
-}>;
-
-export type StakingListQuery = { __typename?: 'Query' } & {
-  stakingList: Array<
-    { __typename?: 'StakingType' } & Pick<
-      StakingType,
-      | 'address'
-      | 'totalSupply'
-      | 'totalSupplyFloat'
-      | 'stakingTokenDecimals'
-      | 'stakingToken'
-    > & {
-        stakingTokenUniswap?: Maybe<
-          { __typename?: 'UniswapPairType' } & Pick<
-            UniswapPairType,
-            'address' | 'totalSupplyFloat'
-          > & {
-              statistic?: Maybe<
-                { __typename?: 'UniswapPairStatisticType' } & Pick<
-                  UniswapPairStatisticType,
-                  'dailyVolumeUSD' | 'totalLiquidityUSD'
-                >
-              >;
-            }
-        >;
-        poolRate: { __typename?: 'StakingPoolRateType' } & Pick<
-          StakingPoolRateType,
-          'block' | 'blockFloat' | 'daily' | 'dailyFloat'
-        >;
-        stakingEnd: { __typename?: 'StakingStakingEndType' } & Pick<
-          StakingStakingEndType,
-          'block' | 'date'
-        >;
-        unstakingStart: { __typename?: 'StakingUnstakingStartType' } & Pick<
-          StakingUnstakingStartType,
-          'block' | 'date'
-        >;
-        apr: { __typename?: 'StakingAprType' } & Pick<
-          StakingAprType,
-          'block' | 'day' | 'week' | 'month' | 'year'
-        >;
-        userList: Array<
-          { __typename?: 'StakingUserType' } & Pick<
-            StakingUserType,
-            | 'staking'
-            | 'address'
-            | 'balance'
-            | 'balanceFloat'
-            | 'staked'
-            | 'earned'
-            | 'earnedFloat'
-          >
-        >;
-      }
-  >;
-};
-
-export type StakingQueryVariables = Exact<{
-  filter: StakingQueryFilterInputType;
-  userFilter?: Maybe<StakingUserListFilterInputType>;
-}>;
-
-export type StakingQuery = { __typename?: 'Query' } & {
-  staking: { __typename?: 'StakingPayload' } & {
-    data?: Maybe<
-      { __typename?: 'StakingType' } & Pick<
-        StakingType,
-        | 'address'
-        | 'totalSupply'
-        | 'totalSupplyFloat'
-        | 'stakingTokenDecimals'
-        | 'stakingToken'
-      > & {
-          stakingTokenUniswap?: Maybe<
-            { __typename?: 'UniswapPairType' } & Pick<
-              UniswapPairType,
-              'address' | 'totalSupplyFloat'
-            > & {
-                statistic?: Maybe<
-                  { __typename?: 'UniswapPairStatisticType' } & Pick<
-                    UniswapPairStatisticType,
-                    'dailyVolumeUSD' | 'totalLiquidityUSD'
-                  >
-                >;
-              }
-          >;
-          poolRate: { __typename?: 'StakingPoolRateType' } & Pick<
-            StakingPoolRateType,
-            'block' | 'blockFloat' | 'daily' | 'dailyFloat'
-          >;
-          stakingEnd: { __typename?: 'StakingStakingEndType' } & Pick<
-            StakingStakingEndType,
-            'block' | 'date'
-          >;
-          unstakingStart: { __typename?: 'StakingUnstakingStartType' } & Pick<
-            StakingUnstakingStartType,
-            'block' | 'date'
-          >;
-          apr: { __typename?: 'StakingAprType' } & Pick<
-            StakingAprType,
-            'block' | 'day' | 'week' | 'month' | 'year'
-          >;
-          userList: Array<
-            { __typename?: 'StakingUserType' } & Pick<
-              StakingUserType,
-              | 'staking'
-              | 'address'
-              | 'balance'
-              | 'balanceFloat'
-              | 'staked'
-              | 'earned'
-              | 'earnedFloat'
-            >
-          >;
-        }
-    >;
-  };
-};
-
-export type SwopfiPairQueryVariables = Exact<{
-  filter: SwopfiPairQueryFilterInputType;
-}>;
-
-export type SwopfiPairQuery = { __typename?: 'Query' } & {
-  swopfiPair: { __typename?: 'SwopfiPairPayload' } & {
-    data?: Maybe<
-      { __typename?: 'SwopfiPairType' } & Pick<
-        SwopfiPairType,
-        | 'address'
-        | 'token0Address'
-        | 'token1Address'
-        | 'token0Reserve'
-        | 'token0ReserveFloat'
-        | 'token1Reserve'
-        | 'token1ReserveFloat'
-        | 'incomeUSD'
-        | 'totalLiquidityUSD'
-        | 'dailyTxCount'
-        | 'dailyFeesUSD'
-        | 'dailyVolumeUSD'
-      > & {
-          apr: { __typename?: 'SwopfiLPAprType' } & Pick<
-            SwopfiLpAprType,
-            'year'
-          >;
-        }
-    >;
-  };
-};
-
-export type TokenListFilterQueryVariables = Exact<{
-  filter?: Maybe<TokenListQueryFilterInputType>;
-}>;
-
-export type TokenListFilterQuery = { __typename?: 'Query' } & {
-  tokenList: Array<
-    { __typename?: 'TokenType' } & Pick<
-      TokenType,
-      | 'address'
-      | 'name'
-      | 'symbol'
-      | 'decimals'
-      | 'totalSupply'
-      | 'totalSupplyFloat'
-      | 'priceUSD'
-    > & {
-        statistic?: Maybe<
-          { __typename?: 'TokenStatisticType' } & Pick<
-            TokenStatisticType,
-            'dailyVolumeUSD' | 'totalLiquidityUSD'
-          >
-        >;
-      }
-  >;
-};
-
-export type TokenPriceQueryVariables = Exact<{
-  filter: TokenQueryFilterInputType;
-}>;
-
-export type TokenPriceQuery = { __typename?: 'Query' } & {
-  token: { __typename?: 'TokenPayload' } & {
-    data?: Maybe<
-      { __typename?: 'TokenType' } & Pick<
-        TokenType,
-        | 'address'
-        | 'name'
-        | 'symbol'
-        | 'decimals'
-        | 'totalSupply'
-        | 'totalSupplyFloat'
-        | 'priceUSD'
-      > & {
-          statistic?: Maybe<
-            { __typename?: 'TokenStatisticType' } & Pick<
-              TokenStatisticType,
-              'dailyVolumeUSD' | 'totalLiquidityUSD'
-            >
-          >;
-        }
-    >;
-  };
-};
-
-export type UniswapPairListQueryVariables = Exact<{
-  filter?: Maybe<UniswapPairListQueryFilterInputType>;
-}>;
-
-export type UniswapPairListQuery = { __typename?: 'Query' } & {
-  uniswapPairList: Array<
-    { __typename?: 'UniswapPairType' } & Pick<
-      UniswapPairType,
-      'address' | 'totalSupplyFloat'
-    > & {
-        statistic?: Maybe<
-          { __typename?: 'UniswapPairStatisticType' } & Pick<
-            UniswapPairStatisticType,
-            'dailyVolumeUSD' | 'totalLiquidityUSD'
-          >
-        >;
-      }
-  >;
-};
-
-export type UniswapPairQueryVariables = Exact<{
-  filter: UniswapPairQueryFilterInputType;
-}>;
-
-export type UniswapPairQuery = { __typename?: 'Query' } & {
-  uniswapPair: { __typename?: 'UniswapPairPayload' } & {
-    data?: Maybe<
-      { __typename?: 'UniswapPairType' } & Pick<
-        UniswapPairType,
-        'address' | 'totalSupplyFloat'
-      > & {
-          statistic?: Maybe<
-            { __typename?: 'UniswapPairStatisticType' } & Pick<
-              UniswapPairStatisticType,
-              'dailyVolumeUSD' | 'totalLiquidityUSD'
-            >
-          >;
-        }
-    >;
-  };
-};
-
-export const AddBurgerSwapBridgeTransitDocument = gql`
-  mutation AddBurgerSwapBridgeTransit($input: BurgerSwapBridgeTransitInput!) {
-    addBurgerSwapBridgeTransit(input: $input) {
-      tx
-      type
-      owner
-      createdAt
-    }
-  }
-`;
-export type AddBurgerSwapBridgeTransitMutationFn = Apollo.MutationFunction<
-  AddBurgerSwapBridgeTransitMutation,
-  AddBurgerSwapBridgeTransitMutationVariables
->;
-
-/**
- * __useAddBurgerSwapBridgeTransitMutation__
- *
- * To run a mutation, you first call `useAddBurgerSwapBridgeTransitMutation` within a React component and pass it any options that fit your needs.
- * When your component renders, `useAddBurgerSwapBridgeTransitMutation` returns a tuple that includes:
- * - A mutate function that you can call at any time to execute the mutation
- * - An object with fields that represent the current status of the mutation's execution
- *
- * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
- *
- * @example
- * const [addBurgerSwapBridgeTransitMutation, { data, loading, error }] = useAddBurgerSwapBridgeTransitMutation({
- *   variables: {
- *      input: // value for 'input'
- *   },
- * });
- */
-export function useAddBurgerSwapBridgeTransitMutation(
-  baseOptions?: ApolloReactHooks.MutationHookOptions<
-    AddBurgerSwapBridgeTransitMutation,
-    AddBurgerSwapBridgeTransitMutationVariables
-  >
-) {
-  const options = { ...defaultOptions, ...baseOptions };
-  return ApolloReactHooks.useMutation<
-    AddBurgerSwapBridgeTransitMutation,
-    AddBurgerSwapBridgeTransitMutationVariables
-  >(AddBurgerSwapBridgeTransitDocument, options);
-}
-export type AddBurgerSwapBridgeTransitMutationHookResult = ReturnType<
-  typeof useAddBurgerSwapBridgeTransitMutation
->;
-export type AddBurgerSwapBridgeTransitMutationResult = Apollo.MutationResult<
-  AddBurgerSwapBridgeTransitMutation
->;
-export type AddBurgerSwapBridgeTransitMutationOptions = Apollo.BaseMutationOptions<
-  AddBurgerSwapBridgeTransitMutation,
-  AddBurgerSwapBridgeTransitMutationVariables
->;
-export const WalletDocument = gql`
-  query Wallet($filter: WalletQueryFilterInputType!) {
-    wallet(filter: $filter) {
-      data {
-        address
-        balance
-        balanceFloat
-      }
-    }
-  }
-`;
-
-/**
- * __useWalletQuery__
- *
- * To run a query within a React component, call `useWalletQuery` and pass it any options that fit your needs.
- * When your component renders, `useWalletQuery` returns an object from Apollo Client that contains loading, error, and data properties
- * you can use to render your UI.
- *
- * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
- *
- * @example
- * const { data, loading, error } = useWalletQuery({
- *   variables: {
- *      filter: // value for 'filter'
- *   },
- * });
- */
-export function useWalletQuery(
-  baseOptions: ApolloReactHooks.QueryHookOptions<
-    WalletQuery,
-    WalletQueryVariables
-  >
-) {
-  const options = { ...defaultOptions, ...baseOptions };
-  return ApolloReactHooks.useQuery<WalletQuery, WalletQueryVariables>(
-    WalletDocument,
-    options
-  );
-}
-export function useWalletLazyQuery(
-  baseOptions?: ApolloReactHooks.LazyQueryHookOptions<
-    WalletQuery,
-    WalletQueryVariables
-  >
-) {
-  const options = { ...defaultOptions, ...baseOptions };
-  return ApolloReactHooks.useLazyQuery<WalletQuery, WalletQueryVariables>(
-    WalletDocument,
-    options
-  );
-}
-export type WalletQueryHookResult = ReturnType<typeof useWalletQuery>;
-export type WalletLazyQueryHookResult = ReturnType<typeof useWalletLazyQuery>;
-export type WalletQueryResult = Apollo.QueryResult<
-  WalletQuery,
-  WalletQueryVariables
->;
-export const StakingListDocument = gql`
-  query StakingList(
-    $filter: StakingListQueryFilterInputType
-    $userFilter: StakingUserListFilterInputType
-  ) {
-    stakingList(filter: $filter) {
-      address
-      totalSupply
-      totalSupplyFloat
-      stakingTokenDecimals
-      stakingToken
-      stakingTokenUniswap {
-        address
-        totalSupplyFloat
-        statistic {
-          dailyVolumeUSD
-          totalLiquidityUSD
-        }
-      }
-      poolRate {
-        block
-        blockFloat
-        daily
-        dailyFloat
-      }
-      stakingEnd {
-        block
-        date
-      }
-      unstakingStart {
-        block
-        date
-      }
-      apr {
-        block
-        day
-        week
-        month
-        year
-      }
-      userList(filter: $userFilter) {
-        staking
-        address
-        balance
-        balanceFloat
-        staked
-        earned
-        earnedFloat
-      }
-    }
-  }
-`;
-
-/**
- * __useStakingListQuery__
- *
- * To run a query within a React component, call `useStakingListQuery` and pass it any options that fit your needs.
- * When your component renders, `useStakingListQuery` returns an object from Apollo Client that contains loading, error, and data properties
- * you can use to render your UI.
- *
- * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
- *
- * @example
- * const { data, loading, error } = useStakingListQuery({
- *   variables: {
- *      filter: // value for 'filter'
- *      userFilter: // value for 'userFilter'
- *   },
- * });
- */
-export function useStakingListQuery(
-  baseOptions?: ApolloReactHooks.QueryHookOptions<
-    StakingListQuery,
-    StakingListQueryVariables
-  >
-) {
-  const options = { ...defaultOptions, ...baseOptions };
-  return ApolloReactHooks.useQuery<StakingListQuery, StakingListQueryVariables>(
-    StakingListDocument,
-    options
-  );
-}
-export function useStakingListLazyQuery(
-  baseOptions?: ApolloReactHooks.LazyQueryHookOptions<
-    StakingListQuery,
-    StakingListQueryVariables
-  >
-) {
-  const options = { ...defaultOptions, ...baseOptions };
-  return ApolloReactHooks.useLazyQuery<
-    StakingListQuery,
-    StakingListQueryVariables
-  >(StakingListDocument, options);
-}
-export type StakingListQueryHookResult = ReturnType<typeof useStakingListQuery>;
-export type StakingListLazyQueryHookResult = ReturnType<
-  typeof useStakingListLazyQuery
->;
-export type StakingListQueryResult = Apollo.QueryResult<
-  StakingListQuery,
-  StakingListQueryVariables
->;
-export const StakingDocument = gql`
-  query Staking(
-    $filter: StakingQueryFilterInputType!
-    $userFilter: StakingUserListFilterInputType
-  ) {
-    staking(filter: $filter) {
-      data {
-        address
-        totalSupply
-        totalSupplyFloat
-        stakingTokenDecimals
-        stakingToken
-        stakingTokenUniswap {
-          address
-          totalSupplyFloat
-          statistic {
-            dailyVolumeUSD
-            totalLiquidityUSD
-          }
-        }
-        poolRate {
-          block
-          blockFloat
-          daily
-          dailyFloat
-        }
-        stakingEnd {
-          block
-          date
-        }
-        unstakingStart {
-          block
-          date
-        }
-        apr {
-          block
-          day
-          week
-          month
-          year
-        }
-        userList(filter: $userFilter) {
-          staking
-          address
-          balance
-          balanceFloat
-          staked
-          earned
-          earnedFloat
-        }
-      }
-    }
-  }
-`;
-
-/**
- * __useStakingQuery__
- *
- * To run a query within a React component, call `useStakingQuery` and pass it any options that fit your needs.
- * When your component renders, `useStakingQuery` returns an object from Apollo Client that contains loading, error, and data properties
- * you can use to render your UI.
- *
- * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
- *
- * @example
- * const { data, loading, error } = useStakingQuery({
- *   variables: {
- *      filter: // value for 'filter'
- *      userFilter: // value for 'userFilter'
- *   },
- * });
- */
-export function useStakingQuery(
-  baseOptions: ApolloReactHooks.QueryHookOptions<
-    StakingQuery,
-    StakingQueryVariables
-  >
-) {
-  const options = { ...defaultOptions, ...baseOptions };
-  return ApolloReactHooks.useQuery<StakingQuery, StakingQueryVariables>(
-    StakingDocument,
-    options
-  );
-}
-export function useStakingLazyQuery(
-  baseOptions?: ApolloReactHooks.LazyQueryHookOptions<
-    StakingQuery,
-    StakingQueryVariables
-  >
-) {
-  const options = { ...defaultOptions, ...baseOptions };
-  return ApolloReactHooks.useLazyQuery<StakingQuery, StakingQueryVariables>(
-    StakingDocument,
-    options
-  );
-}
-export type StakingQueryHookResult = ReturnType<typeof useStakingQuery>;
-export type StakingLazyQueryHookResult = ReturnType<typeof useStakingLazyQuery>;
-export type StakingQueryResult = Apollo.QueryResult<
-  StakingQuery,
-  StakingQueryVariables
->;
-export const SwopfiPairDocument = gql`
-  query swopfiPair($filter: SwopfiPairQueryFilterInputType!) {
-    swopfiPair(filter: $filter) {
-      data {
-        address
-        token0Address
-        token1Address
-        token0Reserve
-        token0ReserveFloat
-        token1Reserve
-        token1ReserveFloat
-        incomeUSD
-        totalLiquidityUSD
-        dailyTxCount
-        dailyFeesUSD
-        dailyVolumeUSD
-        apr {
-          year
-        }
-      }
-    }
-  }
-`;
-
-/**
- * __useSwopfiPairQuery__
- *
- * To run a query within a React component, call `useSwopfiPairQuery` and pass it any options that fit your needs.
- * When your component renders, `useSwopfiPairQuery` returns an object from Apollo Client that contains loading, error, and data properties
- * you can use to render your UI.
- *
- * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
- *
- * @example
- * const { data, loading, error } = useSwopfiPairQuery({
- *   variables: {
- *      filter: // value for 'filter'
- *   },
- * });
- */
-export function useSwopfiPairQuery(
-  baseOptions: ApolloReactHooks.QueryHookOptions<
-    SwopfiPairQuery,
-    SwopfiPairQueryVariables
-  >
-) {
-  const options = { ...defaultOptions, ...baseOptions };
-  return ApolloReactHooks.useQuery<SwopfiPairQuery, SwopfiPairQueryVariables>(
-    SwopfiPairDocument,
-    options
-  );
-}
-export function useSwopfiPairLazyQuery(
-  baseOptions?: ApolloReactHooks.LazyQueryHookOptions<
-    SwopfiPairQuery,
-    SwopfiPairQueryVariables
-  >
-) {
-  const options = { ...defaultOptions, ...baseOptions };
-  return ApolloReactHooks.useLazyQuery<
-    SwopfiPairQuery,
-    SwopfiPairQueryVariables
-  >(SwopfiPairDocument, options);
-}
-export type SwopfiPairQueryHookResult = ReturnType<typeof useSwopfiPairQuery>;
-export type SwopfiPairLazyQueryHookResult = ReturnType<
-  typeof useSwopfiPairLazyQuery
->;
-export type SwopfiPairQueryResult = Apollo.QueryResult<
-  SwopfiPairQuery,
-  SwopfiPairQueryVariables
->;
-export const TokenListFilterDocument = gql`
-  query TokenListFilter($filter: TokenListQueryFilterInputType) {
-    tokenList(filter: $filter) {
-      address
-      name
-      symbol
-      decimals
-      totalSupply
-      totalSupplyFloat
-      priceUSD
-      statistic {
-        dailyVolumeUSD
-        totalLiquidityUSD
-      }
-    }
-  }
-`;
-
-/**
- * __useTokenListFilterQuery__
- *
- * To run a query within a React component, call `useTokenListFilterQuery` and pass it any options that fit your needs.
- * When your component renders, `useTokenListFilterQuery` returns an object from Apollo Client that contains loading, error, and data properties
- * you can use to render your UI.
- *
- * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
- *
- * @example
- * const { data, loading, error } = useTokenListFilterQuery({
- *   variables: {
- *      filter: // value for 'filter'
- *   },
- * });
- */
-export function useTokenListFilterQuery(
-  baseOptions?: ApolloReactHooks.QueryHookOptions<
-    TokenListFilterQuery,
-    TokenListFilterQueryVariables
-  >
-) {
-  const options = { ...defaultOptions, ...baseOptions };
-  return ApolloReactHooks.useQuery<
-    TokenListFilterQuery,
-    TokenListFilterQueryVariables
-  >(TokenListFilterDocument, options);
-}
-export function useTokenListFilterLazyQuery(
-  baseOptions?: ApolloReactHooks.LazyQueryHookOptions<
-    TokenListFilterQuery,
-    TokenListFilterQueryVariables
-  >
-) {
-  const options = { ...defaultOptions, ...baseOptions };
-  return ApolloReactHooks.useLazyQuery<
-    TokenListFilterQuery,
-    TokenListFilterQueryVariables
-  >(TokenListFilterDocument, options);
-}
-export type TokenListFilterQueryHookResult = ReturnType<
-  typeof useTokenListFilterQuery
->;
-export type TokenListFilterLazyQueryHookResult = ReturnType<
-  typeof useTokenListFilterLazyQuery
->;
-export type TokenListFilterQueryResult = Apollo.QueryResult<
-  TokenListFilterQuery,
-  TokenListFilterQueryVariables
->;
-export const TokenPriceDocument = gql`
-  query TokenPrice($filter: TokenQueryFilterInputType!) {
-    token(filter: $filter) {
-      data {
-        address
+export const ProtocolsDocument = gql`
+  query Protocols {
+    protocols {
+      list {
+        id
         name
-        symbol
-        decimals
-        totalSupply
-        totalSupplyFloat
-        priceUSD
-        statistic {
-          dailyVolumeUSD
-          totalLiquidityUSD
-        }
+        icon
+        link
       }
     }
   }
 `;
 
-/**
- * __useTokenPriceQuery__
- *
- * To run a query within a React component, call `useTokenPriceQuery` and pass it any options that fit your needs.
- * When your component renders, `useTokenPriceQuery` returns an object from Apollo Client that contains loading, error, and data properties
- * you can use to render your UI.
- *
- * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
- *
- * @example
- * const { data, loading, error } = useTokenPriceQuery({
- *   variables: {
- *      filter: // value for 'filter'
- *   },
- * });
- */
-export function useTokenPriceQuery(
-  baseOptions: ApolloReactHooks.QueryHookOptions<
-    TokenPriceQuery,
-    TokenPriceQueryVariables
-  >
+export function useProtocolsQuery(
+  options: Omit<Urql.UseQueryArgs<ProtocolsQueryVariables>, 'query'> = {}
 ) {
-  const options = { ...defaultOptions, ...baseOptions };
-  return ApolloReactHooks.useQuery<TokenPriceQuery, TokenPriceQueryVariables>(
-    TokenPriceDocument,
-    options
-  );
+  return Urql.useQuery<ProtocolsQuery>({
+    query: ProtocolsDocument,
+    ...options
+  });
 }
-export function useTokenPriceLazyQuery(
-  baseOptions?: ApolloReactHooks.LazyQueryHookOptions<
-    TokenPriceQuery,
-    TokenPriceQueryVariables
-  >
-) {
-  const options = { ...defaultOptions, ...baseOptions };
-  return ApolloReactHooks.useLazyQuery<
-    TokenPriceQuery,
-    TokenPriceQueryVariables
-  >(TokenPriceDocument, options);
-}
-export type TokenPriceQueryHookResult = ReturnType<typeof useTokenPriceQuery>;
-export type TokenPriceLazyQueryHookResult = ReturnType<
-  typeof useTokenPriceLazyQuery
->;
-export type TokenPriceQueryResult = Apollo.QueryResult<
-  TokenPriceQuery,
-  TokenPriceQueryVariables
->;
-export const UniswapPairListDocument = gql`
-  query UniswapPairList($filter: UniswapPairListQueryFilterInputType) {
-    uniswapPairList(filter: $filter) {
-      address
-      totalSupplyFloat
-      statistic {
-        dailyVolumeUSD
-        totalLiquidityUSD
-      }
-    }
-  }
-`;
-
-/**
- * __useUniswapPairListQuery__
- *
- * To run a query within a React component, call `useUniswapPairListQuery` and pass it any options that fit your needs.
- * When your component renders, `useUniswapPairListQuery` returns an object from Apollo Client that contains loading, error, and data properties
- * you can use to render your UI.
- *
- * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
- *
- * @example
- * const { data, loading, error } = useUniswapPairListQuery({
- *   variables: {
- *      filter: // value for 'filter'
- *   },
- * });
- */
-export function useUniswapPairListQuery(
-  baseOptions?: ApolloReactHooks.QueryHookOptions<
-    UniswapPairListQuery,
-    UniswapPairListQueryVariables
-  >
-) {
-  const options = { ...defaultOptions, ...baseOptions };
-  return ApolloReactHooks.useQuery<
-    UniswapPairListQuery,
-    UniswapPairListQueryVariables
-  >(UniswapPairListDocument, options);
-}
-export function useUniswapPairListLazyQuery(
-  baseOptions?: ApolloReactHooks.LazyQueryHookOptions<
-    UniswapPairListQuery,
-    UniswapPairListQueryVariables
-  >
-) {
-  const options = { ...defaultOptions, ...baseOptions };
-  return ApolloReactHooks.useLazyQuery<
-    UniswapPairListQuery,
-    UniswapPairListQueryVariables
-  >(UniswapPairListDocument, options);
-}
-export type UniswapPairListQueryHookResult = ReturnType<
-  typeof useUniswapPairListQuery
->;
-export type UniswapPairListLazyQueryHookResult = ReturnType<
-  typeof useUniswapPairListLazyQuery
->;
-export type UniswapPairListQueryResult = Apollo.QueryResult<
-  UniswapPairListQuery,
-  UniswapPairListQueryVariables
->;
-export const UniswapPairDocument = gql`
-  query UniswapPair($filter: UniswapPairQueryFilterInputType!) {
-    uniswapPair(filter: $filter) {
-      data {
-        address
-        totalSupplyFloat
-        statistic {
-          dailyVolumeUSD
-          totalLiquidityUSD
-        }
-      }
-    }
-  }
-`;
-
-/**
- * __useUniswapPairQuery__
- *
- * To run a query within a React component, call `useUniswapPairQuery` and pass it any options that fit your needs.
- * When your component renders, `useUniswapPairQuery` returns an object from Apollo Client that contains loading, error, and data properties
- * you can use to render your UI.
- *
- * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
- *
- * @example
- * const { data, loading, error } = useUniswapPairQuery({
- *   variables: {
- *      filter: // value for 'filter'
- *   },
- * });
- */
-export function useUniswapPairQuery(
-  baseOptions: ApolloReactHooks.QueryHookOptions<
-    UniswapPairQuery,
-    UniswapPairQueryVariables
-  >
-) {
-  const options = { ...defaultOptions, ...baseOptions };
-  return ApolloReactHooks.useQuery<UniswapPairQuery, UniswapPairQueryVariables>(
-    UniswapPairDocument,
-    options
-  );
-}
-export function useUniswapPairLazyQuery(
-  baseOptions?: ApolloReactHooks.LazyQueryHookOptions<
-    UniswapPairQuery,
-    UniswapPairQueryVariables
-  >
-) {
-  const options = { ...defaultOptions, ...baseOptions };
-  return ApolloReactHooks.useLazyQuery<
-    UniswapPairQuery,
-    UniswapPairQueryVariables
-  >(UniswapPairDocument, options);
-}
-export type UniswapPairQueryHookResult = ReturnType<typeof useUniswapPairQuery>;
-export type UniswapPairLazyQueryHookResult = ReturnType<
-  typeof useUniswapPairLazyQuery
->;
-export type UniswapPairQueryResult = Apollo.QueryResult<
-  UniswapPairQuery,
-  UniswapPairQueryVariables
->;

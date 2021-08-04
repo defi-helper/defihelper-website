@@ -1,5 +1,6 @@
 import React from 'react';
 
+import { useProtocolsQuery } from 'src/graphql/_generated-hooks';
 import { LandingLayout } from 'src/layouts';
 import {
   MainChart,
@@ -14,6 +15,8 @@ import {
 import * as styles from './main.css';
 
 export const Main: React.VFC = () => {
+  const [{ data }] = useProtocolsQuery();
+
   return (
     <LandingLayout>
       <MainHeader className={styles.header} />
@@ -21,7 +24,10 @@ export const Main: React.VFC = () => {
       <MainServices className={styles.section} />
       <MainExplore className={styles.section} />
       <MainEditor className={styles.section} />
-      <MainProtocols className={styles.section} />
+      <MainProtocols
+        className={styles.section}
+        protocols={data?.protocols.list}
+      />
       <MainTeam className={styles.section} />
       <MainFaq className={styles.section} />
     </LandingLayout>
