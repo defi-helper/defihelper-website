@@ -1,7 +1,9 @@
 import React from 'react';
 import { Link as ReactRouterLink } from 'react-router-dom';
 
-import { Head, Link, Typography } from 'src/common';
+import { Link } from 'src/common/link';
+import { Typography } from 'src/common/typography';
+import { Head } from 'src/common/head';
 import { LandingLayout } from 'src/layouts';
 import { URLS } from 'src/router/urls';
 import { useNotFoundStyles } from './not-found.styles';

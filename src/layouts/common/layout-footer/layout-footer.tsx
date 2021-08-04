@@ -9,7 +9,8 @@ import { ReactComponent as TelegramIcon } from 'src/assets/icons/social/telegram
 import { ReactComponent as DiscordIcon } from 'src/assets/icons/social/discord.svg';
 import { Typography } from 'src/common/typography';
 import { Grid } from 'src/common/grid';
-import { Button, Link } from 'src/common';
+import { Button } from 'src/common/button';
+import { Link } from 'src/common/link';
 import * as styles from './layout-footer.css';
 
 export type LayoutFooterProps = {

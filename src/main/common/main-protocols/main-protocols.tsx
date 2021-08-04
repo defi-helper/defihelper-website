@@ -59,17 +59,19 @@ export const MainProtocols: React.VFC<MainProtocolsProps> = (props) => {
             </Button>
           </li>
         )}
-        <li className={styles.listItem}>
-          <Button
-            variant="outlined"
-            color="secondary"
-            className={clsx(styles.protocol, styles.protocolButton)}
-            as={Link}
-            href={`${config.LAUNCH_APP_URL}proposals`}
-          >
-            +ADD Protocol
-          </Button>
-        </li>
+        {config.SHOW_ADD_PROTOCOL_BUTTON && (
+          <li className={styles.listItem}>
+            <Button
+              variant="outlined"
+              color="secondary"
+              className={clsx(styles.protocol, styles.protocolButton)}
+              as={Link}
+              href={`${config.LAUNCH_APP_URL}proposals`}
+            >
+              +ADD Protocol
+            </Button>
+          </li>
+        )}
       </ul>
     </Grid.Container>
   );
