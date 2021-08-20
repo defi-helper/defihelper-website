@@ -8,13 +8,15 @@ export const palette = {
   black3: '#494949',
   black4: '#0a1213',
   black5: rgba('#000', 0.24),
-  blue: '#061edd',
+  blue: '#4463ee',
   brown: '#8a7a63',
-  green: '#3a9b66',
+  green: '#39c077',
   green1: '#ccff3c',
   orange: '#e64d32',
-  pink: '#e8c8dd',
+  pink: '#f08ba9',
+  softpink: '#eec3dd',
   grey1: rgba('#fff', 0.64),
   grey2: rgba('#fff', 0.4),
-  grey3: rgba('#fff', 0.24)
+  grey3: rgba('#fff', 0.24),
+  grey4: rgba('#fff', 0.16)
 } as const;

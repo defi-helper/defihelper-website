@@ -12,25 +12,6 @@ export const root = style({
   }
 });
 
-export const attention = style({
-  backgroundColor: theme.color.attention,
-  color: theme.palette.black1,
-  width: '100%',
-  padding: '8px 0'
-});
-
-export const attentionText = style({
-  fontSize: 12,
-  lineHeight: '16px',
-
-  '@media': {
-    [theme.mediaQueries.lg()]: {
-      fontSize: 16,
-      lineHeight: '24px'
-    }
-  }
-});
-
 export const padding = style({
   padding: '0 16px'
 });
@@ -64,6 +45,15 @@ export const actions = composeStyles(
   })
 );
 
-export const btn = style({
-  marginRight: 16
+export const navLink = style({
+  color: 'inherit',
+  textTransform: 'uppercase',
+  fontFamily: theme.fonts.mono,
+  textDecoration: 'none',
+
+  selectors: {
+    '&:not(:last-child)': {
+      marginRight: 32
+    }
+  }
 });

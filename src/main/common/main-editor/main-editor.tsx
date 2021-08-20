@@ -23,7 +23,7 @@ export const MainEditor: React.VFC<MainEditorProps> = (props) => {
               family="mono"
               className={styles.cardTitle}
             >
-              REady to develop?
+              Build and Earn
             </Typography>
             <Typography className={styles.cardDescription}>
               Build compelling use-cases and monetize their models to earn money

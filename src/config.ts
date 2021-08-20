@@ -22,5 +22,6 @@ export const config = {
   BUILD_DATE: process.env.BUILD_DATE,
   LAUNCH_APP_URL: process.env.REACT_APP_LAUNCH_APP_URL,
   SHOW_ADD_PROTOCOL_BUTTON:
-    process.env.REACT_APP_SHOW_ADD_PROTOCOL_BUTTON === 'true'
+    process.env.REACT_APP_SHOW_ADD_PROTOCOL_BUTTON === 'true',
+  FEES: 3.5
 };

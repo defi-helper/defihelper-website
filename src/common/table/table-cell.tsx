@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import clsx from 'clsx';
 
-import { useTableStyles } from './table.styles';
+import * as styles from './table.css';
 import {
   TableSecondLevelContext,
   TableFirstLevelContext
@@ -14,7 +14,6 @@ export type TableCellProps = {
 } & MarkdownTable;
 
 export const TableCell: React.FC<TableCellProps> = (props) => {
-  const classes = useTableStyles();
   const tableFirstLevelContext = useContext(TableFirstLevelContext);
   const tableSecondLevelContext = useContext(TableSecondLevelContext);
 
@@ -36,7 +35,7 @@ export const TableCell: React.FC<TableCellProps> = (props) => {
     <Component
       rowSpan={rowSpan}
       colSpan={colSpan}
-      className={clsx(classes.tableCell, className)}
+      className={clsx(styles.tableCell, className)}
     >
       {children}
     </Component>

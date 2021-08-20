@@ -2,19 +2,16 @@ import React, { useContext, Children } from 'react';
 import clsx from 'clsx';
 import { useMount } from 'react-use';
 
-import { useTableStyles } from './table.styles';
+import * as styles from './table.css';
 import { MarkdownTable } from './table-types';
 import {
   TableFirstLevelContext,
   TableSecondLevelContext
 } from './table-context';
 
-export type TableRowProps = React.HTMLProps<HTMLTableRowElement> &
-  MarkdownTable;
+export type TableRowProps = React.ComponentProps<'tr'> & MarkdownTable;
 
 export const TableRow: React.FC<TableRowProps> = (props) => {
-  const classes = useTableStyles();
-
   const children = Children.toArray(props.children);
 
   const tableFirstLevelContext = useContext(TableFirstLevelContext);
@@ -29,8 +26,6 @@ export const TableRow: React.FC<TableRowProps> = (props) => {
   });
 
   return (
-    <tr className={clsx(classes.tableRow, props.className)}>
-      {props.children}
-    </tr>
+    <tr className={clsx(styles.tableRow, props.className)}>{props.children}</tr>
   );
 };

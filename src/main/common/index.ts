@@ -6,3 +6,4 @@ export * from './main-editor';
 export * from './main-protocols';
 export * from './main-explore';
 export * from './main-chart';
+export * from './main-table';

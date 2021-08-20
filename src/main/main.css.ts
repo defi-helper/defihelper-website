@@ -16,7 +16,7 @@ export const section = style({
 
   '@media': {
     [theme.mediaQueries.lg()]: {
-      marginBottom: 240
+      marginBottom: 264
     }
   }
 });

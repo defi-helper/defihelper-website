@@ -10,6 +10,7 @@ import {
   MainHeader,
   MainProtocols,
   MainServices,
+  MainTable,
   MainTeam
 } from './common';
 import * as styles from './main.css';
@@ -28,6 +29,7 @@ export const Main: React.VFC = () => {
         className={styles.section}
         protocols={data?.protocols.list}
       />
+      <MainTable className={styles.section} />
       <MainTeam className={styles.section} />
       <MainFaq className={styles.section} />
     </LandingLayout>

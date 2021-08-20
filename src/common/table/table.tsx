@@ -1,7 +1,7 @@
 import clsx from 'clsx';
 import React, { useReducer, useCallback } from 'react';
 
-import { useTableStyles } from './table.styles';
+import * as styles from './table.css';
 import { TableFirstLevelContext } from './table-context';
 import { MarkdownTable } from './table-types';
 import {
@@ -11,11 +11,9 @@ import {
   setHeadColsCount
 } from './table.reducer';
 
-export type TableProps = React.HTMLProps<HTMLTableElement> & MarkdownTable;
+export type TableProps = React.ComponentProps<'table'> & MarkdownTable;
 
 export const Table: React.FC<TableProps> = (props) => {
-  const classes = useTableStyles();
-
   const [state, dispatch] = useReducer(tableReducer, initialTableState);
 
   const handleSetBodyCount = useCallback((payload: number) => {
@@ -34,8 +32,8 @@ export const Table: React.FC<TableProps> = (props) => {
         tableState: state
       }}
     >
-      <div className={classes.root} id={props.id}>
-        <table className={clsx(classes.table, props.className)}>
+      <div className={styles.root} id={props.id}>
+        <table className={clsx(styles.table, props.className)}>
           {props.children}
         </table>
       </div>

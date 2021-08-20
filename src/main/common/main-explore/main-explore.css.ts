@@ -3,57 +3,16 @@ import { style } from '@vanilla-extract/css';
 import { theme } from 'src/common/theme';
 
 export const root = style({
-  position: 'relative',
-
-  '@media': {
-    [theme.mediaQueries.lg()]: {
-      paddingBottom: 264
-    }
-  }
+  position: 'relative'
 });
 
 export const title = style({
-  fontSize: 48,
-  lineHeight: '56px',
+  maxWidth: 960,
+  marginBottom: 40,
 
   '@media': {
     [theme.mediaQueries.lg()]: {
-      fontSize: 144,
-      lineHeight: '160px'
-    }
-  }
-});
-
-export const img = style({
-  width: 262,
-  height: 230,
-  padding: '0 16px',
-  order: -1,
-
-  '@media': {
-    [theme.mediaQueries.lg()]: {
-      width: 554,
-      height: 554,
-      position: 'absolute',
-      top: 92,
-      left: 0,
-      right: 0,
-      padding: 0,
-      margin: 'auto',
-      order: 'unset'
-    }
-  }
-});
-
-export const description = style({
-  color: theme.palette.grey1,
-  marginBottom: 16,
-
-  '@media': {
-    [theme.mediaQueries.lg()]: {
-      maxWidth: 320,
-      marginLeft: 'auto',
-      marginBottom: 0
+      marginBottom: 64
     }
   }
 });
@@ -61,10 +20,61 @@ export const description = style({
 export const col = style({
   padding: '0 16px',
   width: '100%',
+  marginBottom: 16,
 
   '@media': {
     [theme.mediaQueries.lg()]: {
-      width: '50%'
+      width: '33.33%',
+      marginBottom: 0
     }
   }
+});
+
+export const colContent = style({
+  minHeight: '100%',
+  display: 'flex',
+  flexDirection: 'column',
+  alignItems: 'flex-start',
+  position: 'relative',
+  padding: '40px 20px',
+
+  '@media': {
+    [theme.mediaQueries.lg()]: {
+      padding: '64px 40px'
+    }
+  }
+});
+
+export const logo = style({
+  width: 80,
+  height: 80,
+  marginLeft: 'auto',
+  marginTop: -10,
+  marginRight: 14
+});
+
+export const list = style({
+  margin: 0,
+  padding: 0,
+  listStyle: 'none'
+});
+
+export const listItem = style({
+  selectors: {
+    '&:not(:last-child)': {
+      marginBottom: 32
+    }
+  }
+});
+
+export const listItemTitle = style({
+  opacity: 0.64
+});
+
+export const listItemDescription = style({
+  opacity: 0.8
+});
+
+export const button = style({
+  marginTop: 'auto'
 });

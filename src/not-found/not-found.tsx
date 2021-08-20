@@ -6,25 +6,23 @@ import { Typography } from 'src/common/typography';
 import { Head } from 'src/common/head';
 import { LandingLayout } from 'src/layouts';
 import { URLS } from 'src/router/urls';
-import { useNotFoundStyles } from './not-found.styles';
+import * as styles from './not-found.css';
 
 export const NotFound: React.FC = () => {
-  const classes = useNotFoundStyles();
-
   return (
     <>
       <Head title="404" />
       <LandingLayout>
-        <div className={classes.root}>
-          <Typography variant="h1" align="center" className={classes.title}>
+        <div className={styles.root}>
+          <Typography variant="h1" align="center" className={styles.title}>
             404
           </Typography>
           <Typography
             variant="body1"
             align="center"
-            className={classes.subtitle}
+            className={styles.subtitle}
           >
-            Oops! The page you were looking for doesn’t exist.
+            Oops! The page you were looking for doesn&apos;t exist.
           </Typography>
           <Typography variant="body1" align="center">
             <Link as={ReactRouterLink} to={URLS.main} color="blue">

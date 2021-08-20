@@ -128,7 +128,7 @@ export const transforms = styleVariants({
   },
 
   normal: {
-    textTransform: 'inherit'
+    textTransform: 'none'
   },
 
   lowercase: {
