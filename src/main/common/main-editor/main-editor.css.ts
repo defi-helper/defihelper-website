@@ -43,3 +43,31 @@ export const cardDescription = style({
   marginBottom: 24,
   color: theme.palette.grey1
 });
+
+export const code = style({
+  position: 'relative',
+  paddingLeft: 30
+});
+
+export const numbers = style({
+  position: 'absolute',
+  left: 0,
+  top: 0,
+  color: theme.palette.grey1
+});
+
+export const green = style({
+  color: theme.palette.green
+});
+
+export const blue = style({
+  color: theme.palette.blue
+});
+
+export const red = style({
+  color: theme.palette.red
+});
+
+export const brown = style({
+  color: theme.palette.brown
+});
