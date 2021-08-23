@@ -2,6 +2,10 @@ import { style } from '@vanilla-extract/css';
 
 import { theme } from 'src/common/theme';
 
+export const header = style({
+  marginBottom: 32
+});
+
 export const section = style({
   marginBottom: 160,
 

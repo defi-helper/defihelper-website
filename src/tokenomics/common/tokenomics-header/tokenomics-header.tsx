@@ -10,12 +10,11 @@ import * as styles from './tokenomics-header.css';
 
 export type TokenomicsHeaderProps = {
   className?: string;
+  price?: string;
+  marketCap?: string;
+  circulatingSupply?: string;
+  totalSupply?: string;
 };
-
-const PRICE = '0.915032';
-const MARKET_CAP = '289156773';
-const CIRCULATING_SUPPLY = '316007280';
-const TOTAL_SUPPLY = '1000000000';
 
 export const TokenomicsHeader: React.VFC<TokenomicsHeaderProps> = (props) => {
   return (
@@ -52,7 +51,7 @@ export const TokenomicsHeader: React.VFC<TokenomicsHeaderProps> = (props) => {
               variant="h4"
               className={styles.factoidSubtitle}
             >
-              {bignumberUtils.format(PRICE)}
+              {bignumberUtils.format(props.price)}
             </Typography>
           </div>
           <div className={styles.col}>
@@ -65,7 +64,7 @@ export const TokenomicsHeader: React.VFC<TokenomicsHeaderProps> = (props) => {
               variant="h4"
               className={styles.factoidSubtitle}
             >
-              {bignumberUtils.format(MARKET_CAP)}
+              {bignumberUtils.format(props.marketCap)}
             </Typography>
           </div>
           <div className={styles.col}>
@@ -78,7 +77,7 @@ export const TokenomicsHeader: React.VFC<TokenomicsHeaderProps> = (props) => {
               variant="h4"
               className={styles.factoidSubtitle}
             >
-              {bignumberUtils.format(CIRCULATING_SUPPLY)} dfh
+              {bignumberUtils.format(props.circulatingSupply)} dfh
             </Typography>
           </div>
           <div className={styles.col}>
@@ -91,7 +90,7 @@ export const TokenomicsHeader: React.VFC<TokenomicsHeaderProps> = (props) => {
               variant="h4"
               className={styles.factoidSubtitle}
             >
-              {bignumberUtils.format(TOTAL_SUPPLY)} dfh
+              {bignumberUtils.format(props.totalSupply)} dfh
             </Typography>
           </div>
         </Paper>

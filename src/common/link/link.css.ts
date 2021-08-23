@@ -9,7 +9,7 @@ export const root = style({
   fontFamily: 'inherit',
   fontWeight: 'normal',
   textUnderlineOffset: 3,
-  textDecorationColor: theme.palette.black5,
+  textDecorationColor: theme.palette.grey2,
   ...transitions('opacity 0.3s ease')
 });
 

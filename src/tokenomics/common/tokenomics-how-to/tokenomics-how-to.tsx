@@ -8,29 +8,25 @@ import { Typography } from 'src/common/typography';
 import { ReactComponent as UniswapIcon } from 'src/assets/icons/protocols/uniswap.svg';
 import { ReactComponent as WavesIcon } from 'src/assets/icons/protocols/waves.svg';
 import { ReactComponent as CakeIcon } from 'src/assets/icons/protocols/cake.svg';
+import { GovTokenCirculationType } from 'src/graphql/_generated-hooks';
+import { bignumberUtils } from 'src/common/bignumber-utils';
 import * as styles from './tokenomics-how-to.css';
 
 export type TokenomicsHowToProps = {
   className?: string;
+  marketCap?: string;
+  circulatingSupply?: string;
+  circulation?: GovTokenCirculationType;
 };
 
-type DataItem = {
-  title: string;
-  subtitle: string[];
-  description: {
-    title: string;
-    subtitle?: string;
-    action: JSX.Element[];
-  }[];
-};
-
-const DATA: DataItem[] = [
+const DATA = [
   {
     title: 'Buy from the market',
-    subtitle: ['$289,156,773 Market Cap', '316,007,280 DFH Circulating Supply'],
+    subtitle: ['marketCap', 'circulatingSupply'],
     description: [
       {
         title: 'Buy DFH on the top exchange markets and protocols',
+        subtitle: '',
         action: [
           <Button variant="outlined" className={styles.protocol}>
             <UniswapIcon className={styles.protocolLogo} /> UniSwap
@@ -49,39 +45,42 @@ const DATA: DataItem[] = [
   },
   {
     title: 'Liquidity rewards',
-    subtitle: ['245 / 365 days left', '92,856,245 / 100,000,000 DFH left'],
+    subtitle: ['rewardsDays', 'rewardsTokens'],
     description: [
       {
         title:
           'Integer sagittis euismod vitae penatibus libero, facilisi. Nulla elit suspendisse mauris fringilla turpis posuere. ',
+        subtitle: '',
         action: [<Button variant="outlined">Earn by staking</Button>]
       }
     ]
   },
   {
     title: 'Developers grants',
-    subtitle: ['2.4 / 3 years left', '292,856,245 / 300,000,000 DHF left'],
+    subtitle: ['developersYears', 'developersTokens'],
     description: [
       {
         title: 'Help build new features and earn DFH tokens as a reward',
+        subtitle: '',
         action: [<Button variant="outlined">Become a Developer</Button>]
       }
     ]
   },
   {
     title: 'Community grants',
-    subtitle: ['245 / 365 days left', '64,272,884 / 70,000,000 DFH left'],
+    subtitle: ['communityDays', 'communityTokens'],
     description: [
       {
         title:
           'Aliquet turpis egestas neque pharetra nec a neque libero luctus. Diam sagittis volutpat dignissim suscipit.',
+        subtitle: '',
         action: [<Button variant="outlined">Influence DFH</Button>]
       }
     ]
   },
   {
     title: 'Early ecosystem rewards',
-    subtitle: ['24 / 31 days left', '72,645,926 / 80,000,000 DFH left'],
+    subtitle: ['earlyEcosistemDays', 'earlyEcosistemTokens'],
     description: [
       {
         title:
@@ -103,9 +102,47 @@ const DATA: DataItem[] = [
       }
     ]
   }
-];
+] as const;
 
-export const TokenomicsHowTo: React.FC<TokenomicsHowToProps> = (props) => {
+export const TokenomicsHowTo: React.VFC<TokenomicsHowToProps> = (props) => {
+  const { circulation } = props;
+
+  const rewards = circulation?.rewards;
+  const developers = circulation?.developers;
+  const community = circulation?.community;
+  const earlyEcosistem = circulation?.earlyEcosistem;
+
+  const data = {
+    marketCap: `$${bignumberUtils.format(props.marketCap)} Market Cap`,
+    circulatingSupply: `${bignumberUtils.format(
+      props.circulatingSupply
+    )} DFH Circulating Supply`,
+    rewardsDays: `${rewards?.timeLeft || 0} / ${
+      rewards?.timeTotal || 0
+    } days left`,
+    rewardsTokens: `${bignumberUtils.format(
+      rewards?.tokenLeft
+    )} / ${bignumberUtils.format(rewards?.tokenTotal)} DHF left `,
+    developersYears: `${developers?.timeLeft || 0} / ${
+      developers?.timeTotal || 0
+    } years left`,
+    developersTokens: `${bignumberUtils.format(
+      developers?.tokenLeft
+    )} / ${bignumberUtils.format(developers?.tokenTotal)} DHF left `,
+    communityDays: `${community?.timeLeft || 0} / ${
+      community?.timeTotal || 0
+    } days left`,
+    communityTokens: `${bignumberUtils.format(
+      community?.tokenLeft
+    )} / ${bignumberUtils.format(community?.tokenTotal)} DHF left `,
+    earlyEcosistemDays: `${earlyEcosistem?.timeLeft || 0} / ${
+      earlyEcosistem?.timeTotal || 0
+    } days left`,
+    earlyEcosistemTokens: `${bignumberUtils.format(
+      earlyEcosistem?.tokenLeft
+    )} / ${bignumberUtils.format(earlyEcosistem?.tokenTotal)} DHF left `
+  };
+
   return (
     <Grid.Container className={clsx(styles.root, props.className)}>
       <Typography
@@ -130,7 +167,7 @@ export const TokenomicsHowTo: React.FC<TokenomicsHowToProps> = (props) => {
             <div className={clsx(styles.cardSubtitle, styles.green)}>
               {dataItem.subtitle.map((subtitleItem) => (
                 <Typography key={subtitleItem} variant="body2">
-                  {subtitleItem}
+                  {data[subtitleItem]}
                 </Typography>
               ))}
             </div>

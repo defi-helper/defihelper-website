@@ -42,8 +42,14 @@ export const text = composeStyles(
 
 export const grid = style({
   display: 'grid',
-  gridTemplateColumns: `repeat(auto-fit, minmax(264px, 1fr))`,
-  padding: '48px 63px'
+  padding: '24px 32px',
+
+  '@media': {
+    [theme.mediaQueries.lg()]: {
+      padding: '48px 63px',
+      gridTemplateColumns: `repeat(auto-fit, minmax(264px, 1fr))`
+    }
+  }
 });
 
 export const factoidTitle = style({

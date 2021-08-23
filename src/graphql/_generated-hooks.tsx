@@ -165,6 +165,8 @@ export type ContractCreateInputType = {
   link?: Maybe<Scalars['String']>;
   /** Is hidden */
   hidden?: Maybe<Scalars['Boolean']>;
+  /** Events to subscribe in scanner */
+  eventsToSubscribe?: Maybe<Array<Scalars['String']>>;
 };
 
 export type ContractListFilterInputType = {
@@ -284,6 +286,160 @@ export type ContractUpdateInputType = {
   link?: Maybe<Scalars['String']>;
   /** Is hidden */
   hidden?: Maybe<Scalars['Boolean']>;
+};
+
+export type GovProposalFilterInputType = {
+  network: Scalars['String'];
+  contract: Scalars['String'];
+  proposalId: Scalars['Int'];
+  cache: Scalars['Boolean'];
+};
+
+export type GovProposalListFilterInputType = {
+  network: Scalars['String'];
+  contract: Scalars['String'];
+  cache: Scalars['Boolean'];
+};
+
+export type GovProposalListPaginationInputType = {
+  /** Limit */
+  limit?: Maybe<Scalars['Int']>;
+  /** Offset */
+  offset?: Maybe<Scalars['Int']>;
+};
+
+export type GovProposalListQuery = {
+  __typename?: 'GovProposalListQuery';
+  /** Elements */
+  list?: Maybe<Array<GovProposalType>>;
+  pagination: Pagination;
+};
+
+export type GovProposalListSortInputType = {
+  column: GovProposalListSortInputTypeColumnEnum;
+  order?: Maybe<SortOrderEnum>;
+};
+
+export enum GovProposalListSortInputTypeColumnEnum {
+  Id = 'id'
+}
+
+export enum GovProposalStateEnum {
+  Pending = 'pending',
+  Active = 'active',
+  Canceled = 'canceled',
+  Defeated = 'defeated',
+  Succeeded = 'succeeded',
+  Queued = 'queued',
+  Expired = 'expired',
+  Executed = 'executed'
+}
+
+export type GovProposalType = {
+  __typename?: 'GovProposalType';
+  /** Identificator */
+  id: Scalars['Int'];
+  /** Proposer */
+  proposer: Scalars['String'];
+  /** The timesamp that the protposal will be available for execution, set once the vote succeeds */
+  eta: Scalars['Int'];
+  /** Target addresses for calls */
+  targets: Array<Scalars['String']>;
+  /** List of values to be passed to the calls */
+  values: Array<Scalars['String']>;
+  /** List of function signatures to be calls */
+  signatures: Array<Scalars['String']>;
+  /** List of calldata to be passed to each call */
+  calldatas: Array<Array<Scalars['String']>>;
+  /** Start block of vote */
+  startBlock: Scalars['Int'];
+  /** End block of vote */
+  endBlock: Scalars['Int'];
+  /** End vote datetime */
+  endVoteDate: Scalars['DateTimeType'];
+  /** For votes */
+  forVotes: Scalars['String'];
+  /** Against votes */
+  againstVotes: Scalars['String'];
+  /** Abstain votes */
+  abstainVotes: Scalars['String'];
+  /** Is canceled */
+  canceled: Scalars['Boolean'];
+  /** Is executed */
+  executed: Scalars['Boolean'];
+  /** Current state */
+  state: GovProposalStateEnum;
+  /** Description */
+  description: Scalars['String'];
+};
+
+export type GovReceiptFilterInputType = {
+  network: Scalars['Int'];
+  contract: Scalars['String'];
+  proposalId: Scalars['Int'];
+  wallet: Scalars['String'];
+  cache: Scalars['Boolean'];
+};
+
+export enum GovReceiptSupportEnum {
+  Against = 'against',
+  For = 'for',
+  Abstain = 'Abstain'
+}
+
+export type GovReceiptType = {
+  __typename?: 'GovReceiptType';
+  /** Whether or not a vote has been cast */
+  hasVoted: Scalars['Boolean'];
+  /** Whether or not the voter supports the proposal or abstains */
+  support: GovReceiptSupportEnum;
+  /** The number of votes the voter had, which were cast */
+  votes: Scalars['String'];
+  /** The reason given for the vote by the voter */
+  reason: Scalars['String'];
+};
+
+export type GovTokenCirculationType = {
+  __typename?: 'GovTokenCirculationType';
+  total: Scalars['String'];
+  market: GovTokenCirculationValueType;
+  rewards: GovTokenCirculationValueType;
+  developers: GovTokenCirculationValueType;
+  community: GovTokenCirculationValueType;
+  earlyEcosistem: GovTokenCirculationValueType;
+};
+
+export type GovTokenCirculationValueType = {
+  __typename?: 'GovTokenCirculationValueType';
+  timeLeft: Scalars['String'];
+  timeTotal: Scalars['String'];
+  tokenLeft: Scalars['String'];
+  tokenTotal: Scalars['String'];
+};
+
+export type GovTokenFilterInputType = {
+  network: Scalars['Int'];
+  contract: Scalars['String'];
+};
+
+export type GovTokenType = {
+  __typename?: 'GovTokenType';
+  price: Scalars['String'];
+  totalSupply: Scalars['String'];
+  marketCap: Scalars['String'];
+  circulation: GovTokenCirculationType;
+};
+
+export type GovVoteType = {
+  __typename?: 'GovVoteType';
+  votes: Scalars['String'];
+  delegates: Scalars['String'];
+};
+
+export type GovVotesFilterInputType = {
+  network: Scalars['Int'];
+  contract: Scalars['String'];
+  wallet: Scalars['String'];
 };
 
 export enum LocaleEnum {
@@ -675,6 +831,11 @@ export type Query = {
   tokenAlias?: Maybe<TokenAlias>;
   tokensAlias: TokenAliasListQuery;
   products: StoreProductListQuery;
+  govProposal?: Maybe<GovProposalType>;
+  govProposals: GovProposalListQuery;
+  govReceipt?: Maybe<GovReceiptType>;
+  govVotes: GovVoteType;
+  govToken: GovTokenType;
 };
 
 export type QueryProtocolArgs = {
@@ -737,6 +898,28 @@ export type QueryProductsArgs = {
   filter?: Maybe<StoreProductListQueryFilterInputType>;
   sort?: Maybe<Array<StoreProductListQuerySortInputType>>;
   pagination?: Maybe<StoreProductListQueryPaginationInputType>;
+};
+
+export type QueryGovProposalArgs = {
+  filter: GovProposalFilterInputType;
+};
+
+export type QueryGovProposalsArgs = {
+  filter: GovProposalListFilterInputType;
+  sort?: Maybe<Array<GovProposalListSortInputType>>;
+  pagination?: Maybe<GovProposalListPaginationInputType>;
+};
+
+export type QueryGovReceiptArgs = {
+  filter: GovReceiptFilterInputType;
+};
+
+export type QueryGovVotesArgs = {
+  filter: GovVotesFilterInputType;
+};
+
+export type QueryGovTokenArgs = {
+  filter: GovTokenFilterInputType;
 };
 
 export enum SortOrderEnum {
@@ -1366,6 +1549,8 @@ export type UserMetricsTokenAliasFilterInputType = {
 };
 
 export enum UserRoleEnum {
+  /** Candidate */
+  Candidate = 'candidate',
   /** User */
   User = 'user',
   /** Administrator */
@@ -1820,6 +2005,53 @@ export type ProtocolsQuery = { __typename?: 'Query' } & {
   };
 };
 
+export type GovTokenFragmentFragment = {
+  __typename?: 'GovTokenCirculationValueType';
+} & Pick<
+  GovTokenCirculationValueType,
+  'timeLeft' | 'timeTotal' | 'tokenLeft' | 'tokenTotal'
+>;
+
+export type GovTokenQueryVariables = Exact<{
+  filter: GovTokenFilterInputType;
+}>;
+
+export type GovTokenQuery = { __typename?: 'Query' } & {
+  govToken: { __typename?: 'GovTokenType' } & Pick<
+    GovTokenType,
+    'price' | 'totalSupply' | 'marketCap'
+  > & {
+      circulation: { __typename?: 'GovTokenCirculationType' } & Pick<
+        GovTokenCirculationType,
+        'total'
+      > & {
+          market: {
+            __typename?: 'GovTokenCirculationValueType';
+          } & GovTokenFragmentFragment;
+          rewards: {
+            __typename?: 'GovTokenCirculationValueType';
+          } & GovTokenFragmentFragment;
+          developers: {
+            __typename?: 'GovTokenCirculationValueType';
+          } & GovTokenFragmentFragment;
+          community: {
+            __typename?: 'GovTokenCirculationValueType';
+          } & GovTokenFragmentFragment;
+          earlyEcosistem: {
+            __typename?: 'GovTokenCirculationValueType';
+          } & GovTokenFragmentFragment;
+        };
+    };
+};
+
+export const GovTokenFragmentFragmentDoc = gql`
+  fragment govTokenFragment on GovTokenCirculationValueType {
+    timeLeft
+    timeTotal
+    tokenLeft
+    tokenTotal
+  }
+`;
 export const ProtocolsDocument = gql`
   query Protocols {
     protocols {
@@ -1840,4 +2072,38 @@ export function useProtocolsQuery(
     query: ProtocolsDocument,
     ...options
   });
+}
+export const GovTokenDocument = gql`
+  query GovToken($filter: GovTokenFilterInputType!) {
+    govToken(filter: $filter) {
+      price
+      totalSupply
+      marketCap
+      circulation {
+        total
+        market {
+          ...govTokenFragment
+        }
+        rewards {
+          ...govTokenFragment
+        }
+        developers {
+          ...govTokenFragment
+        }
+        community {
+          ...govTokenFragment
+        }
+        earlyEcosistem {
+          ...govTokenFragment
+        }
+      }
+    }
+  }
+  ${GovTokenFragmentFragmentDoc}
+`;
+
+export function useGovTokenQuery(
+  options: Omit<Urql.UseQueryArgs<GovTokenQueryVariables>, 'query'> = {}
+) {
+  return Urql.useQuery<GovTokenQuery>({ query: GovTokenDocument, ...options });
 }
