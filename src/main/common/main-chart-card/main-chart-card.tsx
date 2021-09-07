@@ -3,7 +3,8 @@ import {
   create,
   useTheme as amchartsUseTheme,
   options,
-  color
+  color,
+  addLicense
 } from '@amcharts/amcharts4/core';
 import {
   DateAxis,
@@ -15,9 +16,11 @@ import {
 import React, { useEffect, useRef } from 'react';
 import am4themes_animated from '@amcharts/amcharts4/themes/animated';
 import amchartsdark from '@amcharts/amcharts4/themes/amchartsdark';
+import { useDebounce } from 'react-use';
 
 import { bignumberUtils } from 'src/common/bignumber-utils';
 import { Typography } from 'src/common/typography';
+import { config } from 'src/config';
 import * as styles from './main-chart-card.css';
 
 export type MainChartCardProps = {
@@ -36,6 +39,9 @@ options.classNamePrefix = 'main-chart-card';
 
 amchartsUseTheme(amchartsdark);
 amchartsUseTheme(am4themes_animated);
+if (config.AMCHARTS_LICENCE) {
+  addLicense(config.AMCHARTS_LICENCE);
+}
 
 const GREY_STROKE_COLOR = color('#444848');
 const STROKES = {
@@ -62,6 +68,10 @@ export const MainChartCard: React.VFC<MainChartCardProps> = (props) => {
     dateAxis.renderer.baseGrid.stroke = GREY_STROKE_COLOR;
     dateAxis.renderer.baseGrid.strokeWidth = 2;
     dateAxis.renderer.baseGrid.strokeOpacity = 1;
+
+    chartRef.current.zoomOutButton.disabled = true;
+    chartRef.current.seriesContainer.draggable = false;
+    chartRef.current.seriesContainer.resizable = false;
 
     props.dataFields.forEach((field) => {
       if (!chartRef.current) return;
@@ -101,11 +111,15 @@ export const MainChartCard: React.VFC<MainChartCardProps> = (props) => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  useEffect(() => {
-    if (chartRef.current && props.data?.length) {
-      chartRef.current.data = props.data;
-    }
-  }, [props.data]);
+  useDebounce(
+    () => {
+      if (chartRef.current && props.data?.length) {
+        chartRef.current.data = props.data;
+      }
+    },
+    300,
+    [props.data]
+  );
 
   return (
     <div>
