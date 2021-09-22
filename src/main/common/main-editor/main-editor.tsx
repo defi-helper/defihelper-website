@@ -33,7 +33,7 @@ export const MainEditor: React.VFC<MainEditorProps> = (props) => {
           </div>
           <div className={styles.separator} />
           <div className={styles.card}>
-            <Typography variant="body2" className={styles.code}>
+            <Typography variant="body2" className={styles.code} as="div">
               <div className={styles.numbers}>
                 {Array.from(Array(32)).map((_, i) => (
                   <div key={String(i)}>{i + 1}</div>

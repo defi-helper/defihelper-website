@@ -26,7 +26,7 @@ import * as styles from './main-chart-card.css';
 export type MainChartCardProps = {
   color: 'hold' | 'restake' | 'autostaking';
   title: React.ReactNode;
-  apy: React.ReactNode;
+  apy: string | number;
   sum: string | number;
   description: React.ReactNode;
   dataFields: Array<IXYSeriesDataFields>;
@@ -136,7 +136,7 @@ export const MainChartCard: React.VFC<MainChartCardProps> = (props) => {
           as="div"
           className={styles.color[props.color]}
         >
-          {props.apy}% APY
+          {bignumberUtils.format(props.apy)}% APY
         </Typography>
       </div>
       <div className={styles.chart} id={id} />

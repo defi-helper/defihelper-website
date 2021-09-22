@@ -1,6 +1,10 @@
-import React from 'react';
+import React, { useMemo, useState } from 'react';
+import { useThrottle } from 'react-use';
 
-import { useProtocolsQuery } from 'src/graphql/_generated-hooks';
+import {
+  useProtocolsQuery,
+  useRestakeStrategyQuery
+} from 'src/graphql/_generated-hooks';
 import { LandingLayout } from 'src/layouts';
 import {
   MainChart,
@@ -16,18 +20,44 @@ import {
 import * as styles from './main.css';
 
 export const Main: React.VFC = () => {
-  const [{ data }] = useProtocolsQuery();
+  const [sum, setSum] = useState(10000);
+  const [apy, setApy] = useState(100);
+
+  const [throttledSum, throttledApy] = useThrottle(
+    useMemo(() => [sum, apy / 100], [sum, apy]),
+    500
+  );
+
+  const [{ data: protocolsData }] = useProtocolsQuery();
+  const [{ data }] = useRestakeStrategyQuery({
+    variables: { balance: throttledSum, apy: throttledApy }
+  });
+
+  const handleChangeSum = (value: number) => {
+    setSum(value);
+  };
+
+  const handleChangeApy = (value: number) => {
+    setApy(value);
+  };
 
   return (
     <LandingLayout>
       <MainHeader className={styles.header} />
-      <MainChart className={styles.section} />
+      <MainChart
+        className={styles.section}
+        onChangeApy={handleChangeApy}
+        onChangeSum={handleChangeSum}
+        apy={apy}
+        sum={sum}
+        data={data?.restakeStrategy}
+      />
       <MainServices className={styles.section} />
       <MainExplore className={styles.section} />
       <MainEditor className={styles.section} />
       <MainProtocols
         className={styles.section}
-        protocols={data?.protocols.list}
+        protocols={protocolsData?.protocols.list}
       />
       <MainTable className={styles.section} />
       <MainTeam className={styles.section} />

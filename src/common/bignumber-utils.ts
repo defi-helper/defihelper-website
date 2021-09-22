@@ -12,7 +12,7 @@ export const bignumberUtils = {
       .toString(10),
 
   format: (amount?: string | number | null) => {
-    const result = new BigNumber(amount || 0).toFormat(2);
+    const result = new BigNumber(amount || 0).toFormat(1);
 
     const [integerValue, floatValue] = result.split('.');
 
@@ -52,5 +52,17 @@ export const bignumberUtils = {
     new BigNumber(num1 || 0).isGreaterThan(num2 || 0),
 
   eq: (num1?: string | number | null, num2?: string | number | null) =>
-    new BigNumber(num1 || 0).isEqualTo(num2 || 0)
+    new BigNumber(num1 || 0).isEqualTo(num2 || 0),
+
+  minus: (num1?: string | number | null, num2?: string | number | null) =>
+    new BigNumber(num1 || 0).minus(num2 || 0).toString(10),
+
+  plus: (num1?: string | number | null, num2?: string | number | null) =>
+    new BigNumber(num1 || 0).plus(num2 || 0).toString(10),
+
+  mul: (num1?: string | number, num2?: string | number) =>
+    new BigNumber(num1 || 0).multipliedBy(num2 || 0).toString(10),
+
+  div: (num1?: string | number, num2?: string | number) =>
+    new BigNumber(num1 || 0).div(num2 || 1).toString(10)
 };

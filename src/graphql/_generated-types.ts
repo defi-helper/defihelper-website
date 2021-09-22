@@ -63,6 +63,297 @@ export type AuthWavesInputType = {
   signature: Scalars['String'];
 };
 
+export type AutomateActionCreateInputType = {
+  /** Trigger */
+  trigger: Scalars['UuidType'];
+  /** Type */
+  type: AutomateActionTypeEnum;
+  /** Parameters */
+  params: Scalars['String'];
+  /** Execution priority (ascending) */
+  priority?: Maybe<Scalars['Int']>;
+};
+
+export type AutomateActionListFilterInputType = {
+  id?: Maybe<Scalars['UuidType']>;
+  type?: Maybe<AutomateConditionTypeEnum>;
+};
+
+export type AutomateActionListPaginationInputType = {
+  /** Limit */
+  limit?: Maybe<Scalars['Int']>;
+  /** Offset */
+  offset?: Maybe<Scalars['Int']>;
+};
+
+export type AutomateActionListSortInputType = {
+  column: AutomateActionListSortInputTypeColumnEnum;
+  order?: Maybe<SortOrderEnum>;
+};
+
+export enum AutomateActionListSortInputTypeColumnEnum {
+  Priority = 'priority'
+}
+
+export type AutomateActionListType = {
+  __typename?: 'AutomateActionListType';
+  /** Elements */
+  list?: Maybe<Array<AutomateActionType>>;
+  pagination: Pagination;
+};
+
+export type AutomateActionType = {
+  __typename?: 'AutomateActionType';
+  /** Identificator */
+  id: Scalars['UuidType'];
+  /** Type */
+  type: AutomateActionTypeEnum;
+  /** Condition parameters */
+  params: Scalars['String'];
+  /** Execution priority (ascending) */
+  priority: Scalars['Int'];
+  /** Created at date */
+  createdAt: Scalars['DateTimeType'];
+};
+
+export enum AutomateActionTypeEnum {
+  EthereumAutomateRun = 'ethereumAutomateRun'
+}
+
+export type AutomateActionUpdateInputType = {
+  /** Action identifier */
+  id: Scalars['UuidType'];
+  /** Parameters */
+  params?: Maybe<Scalars['String']>;
+  /** Execution priority (ascending) */
+  priority?: Maybe<Scalars['Int']>;
+};
+
+export type AutomateConditionCreateInputType = {
+  /** Trigger */
+  trigger: Scalars['UuidType'];
+  /** Type */
+  type: AutomateConditionTypeEnum;
+  /** Parameters */
+  params: Scalars['String'];
+  /** Execution priority (ascending) */
+  priority?: Maybe<Scalars['Int']>;
+};
+
+export type AutomateConditionListFilterInputType = {
+  id?: Maybe<Scalars['UuidType']>;
+  type?: Maybe<AutomateConditionTypeEnum>;
+};
+
+export type AutomateConditionListPaginationInputType = {
+  /** Limit */
+  limit?: Maybe<Scalars['Int']>;
+  /** Offset */
+  offset?: Maybe<Scalars['Int']>;
+};
+
+export type AutomateConditionListSortInputType = {
+  column: AutomateConditionListSortInputTypeColumnEnum;
+  order?: Maybe<SortOrderEnum>;
+};
+
+export enum AutomateConditionListSortInputTypeColumnEnum {
+  Priority = 'priority'
+}
+
+export type AutomateConditionListType = {
+  __typename?: 'AutomateConditionListType';
+  /** Elements */
+  list?: Maybe<Array<AutomateConditionType>>;
+  pagination: Pagination;
+};
+
+export type AutomateConditionType = {
+  __typename?: 'AutomateConditionType';
+  /** Identificator */
+  id: Scalars['UuidType'];
+  /** Type */
+  type: AutomateConditionTypeEnum;
+  /** Condition parameters */
+  params: Scalars['String'];
+  /** Execution priority (ascending) */
+  priority: Scalars['Int'];
+  /** Created at date */
+  createdAt: Scalars['DateTimeType'];
+};
+
+export enum AutomateConditionTypeEnum {
+  EthereumBalance = 'ethereumBalance'
+}
+
+export type AutomateConditionUpdateInputType = {
+  /** Condition identifier */
+  id: Scalars['UuidType'];
+  /** Parameters */
+  params?: Maybe<Scalars['String']>;
+  /** Execution priority (ascending) */
+  priority?: Maybe<Scalars['Int']>;
+};
+
+export type AutomateContractCreateInputType = {
+  /** Wallet owner */
+  wallet: Scalars['UuidType'];
+  /** Protocol */
+  protocol: Scalars['UuidType'];
+  /** Address */
+  address: Scalars['String'];
+  /** Adapter name */
+  adapter: Scalars['String'];
+};
+
+export type AutomateContractListFilterInputType = {
+  user?: Maybe<Scalars['UuidType']>;
+  wallet?: Maybe<Scalars['UuidType']>;
+  protocol?: Maybe<Scalars['UuidType']>;
+  address?: Maybe<Array<Scalars['String']>>;
+};
+
+export type AutomateContractListPaginationInputType = {
+  /** Limit */
+  limit?: Maybe<Scalars['Int']>;
+  /** Offset */
+  offset?: Maybe<Scalars['Int']>;
+};
+
+export type AutomateContractListQuery = {
+  __typename?: 'AutomateContractListQuery';
+  /** Elements */
+  list?: Maybe<Array<AutomateContractType>>;
+  pagination: Pagination;
+};
+
+export type AutomateContractListSortInputType = {
+  column: AutomateContractListSortInputTypeColumnEnum;
+  order?: Maybe<SortOrderEnum>;
+};
+
+export enum AutomateContractListSortInputTypeColumnEnum {
+  CreatedAt = 'createdAt'
+}
+
+export type AutomateContractType = {
+  __typename?: 'AutomateContractType';
+  /** Identificator */
+  id: Scalars['UuidType'];
+  /** Owner wallet */
+  wallet: WalletType;
+  /** Protocol */
+  protocol: ProtocolType;
+  /** Address in blockchain */
+  address: Scalars['String'];
+  /** Adapter name */
+  adapter: Scalars['String'];
+  /** Verification status */
+  verification: AutomateContractVerificationStatusEnum;
+  rejectReason: Scalars['String'];
+};
+
+export enum AutomateContractVerificationStatusEnum {
+  Pending = 'pending',
+  Confirmed = 'confirmed',
+  Rejected = 'rejected'
+}
+
+export type AutomateTriggerCreateInputType = {
+  /** Wallet owner */
+  wallet: Scalars['UuidType'];
+  /** Type */
+  type: AutomateTriggerTypeEnum;
+  /** Name */
+  name: Scalars['String'];
+  /** Is active */
+  active?: Maybe<Scalars['Boolean']>;
+};
+
+export type AutomateTriggerFilterInputType = {
+  id: Scalars['UuidType'];
+};
+
+export type AutomateTriggerListFilterInputType = {
+  user?: Maybe<Scalars['UuidType']>;
+  wallet?: Maybe<Scalars['UuidType']>;
+  active?: Maybe<Scalars['Boolean']>;
+  search?: Maybe<Scalars['String']>;
+};
+
+export type AutomateTriggerListPaginationInputType = {
+  /** Limit */
+  limit?: Maybe<Scalars['Int']>;
+  /** Offset */
+  offset?: Maybe<Scalars['Int']>;
+};
+
+export type AutomateTriggerListQuery = {
+  __typename?: 'AutomateTriggerListQuery';
+  /** Elements */
+  list?: Maybe<Array<AutomateTriggerType>>;
+  pagination: Pagination;
+};
+
+export type AutomateTriggerListSortInputType = {
+  column: AutomateTriggerListSortInputTypeColumnEnum;
+  order?: Maybe<SortOrderEnum>;
+};
+
+export enum AutomateTriggerListSortInputTypeColumnEnum {
+  Id = 'id',
+  Name = 'name',
+  CreatedAt = 'createdAt'
+}
+
+export type AutomateTriggerType = {
+  __typename?: 'AutomateTriggerType';
+  /** Identificator */
+  id: Scalars['UuidType'];
+  /** Type */
+  type: AutomateTriggerTypeEnum;
+  /** Wallet of owner */
+  wallet: WalletType;
+  /** Name */
+  name: Scalars['String'];
+  /** Is trigger active */
+  active: Scalars['Boolean'];
+  /** Date of last call */
+  lastCallAt?: Maybe<Scalars['DateTimeType']>;
+  /** Created at date */
+  createdAt: Scalars['DateTimeType'];
+  conditions: AutomateConditionListType;
+  actions: AutomateActionListType;
+};
+
+export type AutomateTriggerTypeConditionsArgs = {
+  filter?: Maybe<AutomateConditionListFilterInputType>;
+  sort?: Maybe<Array<AutomateConditionListSortInputType>>;
+  pagination?: Maybe<AutomateConditionListPaginationInputType>;
+};
+
+export type AutomateTriggerTypeActionsArgs = {
+  filter?: Maybe<AutomateActionListFilterInputType>;
+  sort?: Maybe<Array<AutomateActionListSortInputType>>;
+  pagination?: Maybe<AutomateActionListPaginationInputType>;
+};
+
+export enum AutomateTriggerTypeEnum {
+  EveryMonth = 'everyMonth',
+  EveryWeek = 'everyWeek',
+  EveryDay = 'everyDay',
+  EveryHour = 'everyHour'
+}
+
+export type AutomateTriggerUpdateInputType = {
+  /** Trigger identifier */
+  id: Scalars['UuidType'];
+  /** Name */
+  name?: Maybe<Scalars['String']>;
+  /** Is active */
+  active?: Maybe<Scalars['Boolean']>;
+};
+
 export type BillingBalanceType = {
   __typename?: 'BillingBalanceType';
   balance: Scalars['Float'];
@@ -487,6 +778,17 @@ export type Mutation = {
   productCreate: StoreProductType;
   productUpdate: StoreProductType;
   productDelete: Scalars['Boolean'];
+  automateTriggerCreate: AutomateTriggerType;
+  automateTriggerUpdate: AutomateTriggerType;
+  automateTriggerDelete: Scalars['Boolean'];
+  automateConditionCreate: AutomateConditionType;
+  automateConditionUpdate: AutomateConditionType;
+  automateConditionDelete: Scalars['Boolean'];
+  automateActionCreate: AutomateActionType;
+  automateActionUpdate: AutomateActionType;
+  automateActionDelete: Scalars['Boolean'];
+  automateContractCreate: AutomateContractType;
+  automateContractDelete: Scalars['Boolean'];
 };
 
 export type MutationAuthEthArgs = {
@@ -589,6 +891,50 @@ export type MutationProductUpdateArgs = {
 };
 
 export type MutationProductDeleteArgs = {
+  id: Scalars['UuidType'];
+};
+
+export type MutationAutomateTriggerCreateArgs = {
+  input: AutomateTriggerCreateInputType;
+};
+
+export type MutationAutomateTriggerUpdateArgs = {
+  input: AutomateTriggerUpdateInputType;
+};
+
+export type MutationAutomateTriggerDeleteArgs = {
+  id: Scalars['UuidType'];
+};
+
+export type MutationAutomateConditionCreateArgs = {
+  input: AutomateConditionCreateInputType;
+};
+
+export type MutationAutomateConditionUpdateArgs = {
+  input: AutomateConditionUpdateInputType;
+};
+
+export type MutationAutomateConditionDeleteArgs = {
+  id: Scalars['UuidType'];
+};
+
+export type MutationAutomateActionCreateArgs = {
+  input: AutomateActionCreateInputType;
+};
+
+export type MutationAutomateActionUpdateArgs = {
+  input: AutomateActionUpdateInputType;
+};
+
+export type MutationAutomateActionDeleteArgs = {
+  id: Scalars['UuidType'];
+};
+
+export type MutationAutomateContractCreateArgs = {
+  input: AutomateContractCreateInputType;
+};
+
+export type MutationAutomateContractDeleteArgs = {
   id: Scalars['UuidType'];
 };
 
@@ -699,7 +1045,8 @@ export type ProtocolCreateInputType = {
 };
 
 export type ProtocolFilterInputType = {
-  id: Scalars['String'];
+  id?: Maybe<Scalars['UuidType']>;
+  adapter?: Maybe<Scalars['String']>;
 };
 
 export type ProtocolListFilterInputType = {
@@ -832,7 +1179,11 @@ export type Query = {
   govProposals: GovProposalListQuery;
   govReceipt?: Maybe<GovReceiptType>;
   govVotes: GovVoteType;
+  automateTrigger?: Maybe<AutomateTriggerType>;
+  automateTriggers: AutomateTriggerListQuery;
+  automateContracts: AutomateContractListQuery;
   govToken: GovTokenType;
+  restakeStrategy: RestakeStrategyType;
 };
 
 export type QueryProtocolArgs = {
@@ -915,8 +1266,42 @@ export type QueryGovVotesArgs = {
   filter: GovVotesFilterInputType;
 };
 
+export type QueryAutomateTriggerArgs = {
+  filter: AutomateTriggerFilterInputType;
+};
+
+export type QueryAutomateTriggersArgs = {
+  filter?: Maybe<AutomateTriggerListFilterInputType>;
+  sort?: Maybe<Array<AutomateTriggerListSortInputType>>;
+  pagination?: Maybe<AutomateTriggerListPaginationInputType>;
+};
+
+export type QueryAutomateContractsArgs = {
+  filter?: Maybe<AutomateContractListFilterInputType>;
+  sort?: Maybe<Array<AutomateContractListSortInputType>>;
+  pagination?: Maybe<AutomateContractListPaginationInputType>;
+};
+
 export type QueryGovTokenArgs = {
   filter: GovTokenFilterInputType;
+};
+
+export type QueryRestakeStrategyArgs = {
+  balance: Scalars['Float'];
+  apy: Scalars['Float'];
+};
+
+export type RestakeStrategyPointType = {
+  __typename?: 'RestakeStrategyPointType';
+  v: Scalars['Float'];
+  t: Scalars['Float'];
+};
+
+export type RestakeStrategyType = {
+  __typename?: 'RestakeStrategyType';
+  hold: Array<RestakeStrategyPointType>;
+  everyDay: Array<RestakeStrategyPointType>;
+  optimal: Array<RestakeStrategyPointType>;
 };
 
 export enum SortOrderEnum {
@@ -1997,6 +2382,34 @@ export type ProtocolsQuery = { __typename?: 'Query' } & {
           ProtocolType,
           'id' | 'name' | 'icon' | 'link'
         >
+      >
+    >;
+  };
+};
+
+export type RestakeStrategyQueryVariables = Exact<{
+  balance: Scalars['Float'];
+  apy: Scalars['Float'];
+}>;
+
+export type RestakeStrategyQuery = { __typename?: 'Query' } & {
+  restakeStrategy: { __typename?: 'RestakeStrategyType' } & {
+    hold: Array<
+      { __typename?: 'RestakeStrategyPointType' } & Pick<
+        RestakeStrategyPointType,
+        'v' | 't'
+      >
+    >;
+    everyDay: Array<
+      { __typename?: 'RestakeStrategyPointType' } & Pick<
+        RestakeStrategyPointType,
+        'v' | 't'
+      >
+    >;
+    optimal: Array<
+      { __typename?: 'RestakeStrategyPointType' } & Pick<
+        RestakeStrategyPointType,
+        'v' | 't'
       >
     >;
   };

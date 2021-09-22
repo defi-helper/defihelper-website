@@ -44,6 +44,7 @@ export class ErrorBoundary extends Component<
             <br />
             Please <button onClick={this.handleReloadPage}>reload page</button>
           </>
+          {JSON.stringify(error)}
         </div>
       );
     }
