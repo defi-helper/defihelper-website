@@ -6,7 +6,7 @@ import { Button } from 'src/common/button';
 import { Grid } from 'src/common/grid';
 import { Paper } from 'src/common/paper';
 import { Typography } from 'src/common/typography';
-import { MainProgress } from '../main-progress/main-progress';
+import { CollectedProgress } from 'src/common/collected-progress';
 import * as styles from './main-explore.css';
 
 export type MainExploreProps = {
@@ -29,8 +29,8 @@ export const MainExplore: React.VFC<MainExploreProps> = (props) => {
           <div className={styles.col}>
             <Paper className={styles.colContent}>
               <Typography variant="h3" className={styles.listItemDescription}>
-                DFH token is the main reward and decision making tool in
-                DeFiHelper ecosystem.
+                The DFH token is a governance and yield-generating token Explore
+                DFH
               </Typography>
               <img src={dfhlogo} alt="" className={styles.logo} />
               <Button variant="outlined" className={styles.button}>
@@ -43,19 +43,7 @@ export const MainExplore: React.VFC<MainExploreProps> = (props) => {
               <ul className={styles.list}>
                 <li className={styles.listItem}>
                   <Typography className={styles.listItemTitle}>
-                    Estimated Price
-                  </Typography>
-                  <Typography>$0.915032</Typography>
-                </li>
-                <li className={styles.listItem}>
-                  <Typography className={styles.listItemTitle}>
-                    Estimated Market Cap (1 year)
-                  </Typography>
-                  <Typography>$289,156,773</Typography>
-                </li>
-                <li className={styles.listItem}>
-                  <Typography className={styles.listItemTitle}>
-                    Circulating Supply
+                    Circulating supply (first year)
                   </Typography>
                   <Typography>316,007,280 DFH</Typography>
                 </li>
@@ -63,17 +51,23 @@ export const MainExplore: React.VFC<MainExploreProps> = (props) => {
                   <Typography className={styles.listItemTitle}>
                     Total Supply
                   </Typography>
-                  <Typography>1,000,000,000 DFH</Typography>
+                  <Typography>1000,000,000 DFH</Typography>
+                </li>
+                <li className={styles.listItem}>
+                  <Typography className={styles.listItemTitle}>
+                    Max supply
+                  </Typography>
+                  <Typography>1000,000,000 DFH</Typography>
                 </li>
               </ul>
             </Paper>
           </div>
           <div className={styles.col}>
             <Paper className={styles.colContent}>
-              <MainProgress count={8} width={34} height={80} bottomTitle />
+              <CollectedProgress count={8} width={34} height={80} bottomTitle />
               <Typography className={styles.listItemDescription}>
-                DFH will be launched with proofed concept of the token, baked by
-                protocol fees from day one.
+                The DFH token will be launched only after the protocol collects
+                at least 8 ETH in fees as proof of concept.
               </Typography>
               <Button variant="outlined" className={styles.button}>
                 Notify me

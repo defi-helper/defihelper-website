@@ -17,6 +17,7 @@ import join_us from 'src/assets/images/team/join_us.png';
 import { ReactComponent as TwitterIcon } from 'src/assets/icons/social/twitter.svg';
 import { ReactComponent as LinkedInIcon } from 'src/assets/icons/social/linkedin.svg';
 import { ButtonBase } from 'src/common/button-base';
+import { Link } from 'src/common/link';
 import * as styles from './main-team.css';
 
 export type MainTeamProps = {
@@ -39,10 +40,18 @@ const TEAM: Array<Team> = [
     description:
       'Vlad has over 17 years of experience in web development. He launched and managed a number of major ICT products and services on the CIS market.',
     actions: [
-      <ButtonBase>
+      <ButtonBase
+        as={Link}
+        target="_blank"
+        href="https://twitter.com/cryptoappetit"
+      >
         <TwitterIcon />
       </ButtonBase>,
-      <ButtonBase>
+      <ButtonBase
+        as={Link}
+        href="https://linkedin.com/in/vkomissarov"
+        target="_blank"
+      >
         <LinkedInIcon />
       </ButtonBase>
     ]
@@ -54,10 +63,18 @@ const TEAM: Array<Team> = [
     description:
       'Former head of the Blockchain Lab at Deloitte. For over seven years, Artem has been one of the key opinion leaders in the CIS region in blockchain and tokenization.',
     actions: [
-      <ButtonBase>
+      <ButtonBase
+        as={Link}
+        target="_blank"
+        href="https://twitter.com/artemtolkachev"
+      >
         <TwitterIcon />
       </ButtonBase>,
-      <ButtonBase>
+      <ButtonBase
+        as={Link}
+        href="https://linkedin.com/in/artem-tolkachev"
+        target="_blank"
+      >
         <LinkedInIcon />
       </ButtonBase>
     ]
@@ -79,10 +96,26 @@ const TEAM: Array<Team> = [
   },
   {
     photo: dream_team,
-    name: 'Dream Team',
-    role: '8 FTE',
-    description: 'bla bla bla',
-    actions: []
+    name: 'Igor Varnavsky',
+    role: 'CMO',
+    description:
+      'A long-time crypto proponent, Igor has 17 years of experience in journalism and 11 years of experience in marketing. Previously worked at Mango.Rocks, Mail.Ru Group',
+    actions: [
+      <ButtonBase
+        as={Link}
+        href="https://twitter.com/IgorVarnavsky"
+        target="_blank"
+      >
+        <TwitterIcon />
+      </ButtonBase>,
+      <ButtonBase
+        as={Link}
+        href="https://www.linkedin.com/in/igor-varnavsky-9868aa1/"
+        target="_blank"
+      >
+        <LinkedInIcon />
+      </ButtonBase>
+    ]
   },
   {
     photo: waves,
@@ -91,11 +124,12 @@ const TEAM: Array<Team> = [
     description:
       'All-encompassing gateway blockchain protocol advancing technological frontiers of today for the pioneering developers of tomorrow. ',
     actions: [
-      <ButtonBase>
+      <ButtonBase
+        as={Link}
+        target="_blank"
+        href="https://twitter.com/wavesplatform"
+      >
         <TwitterIcon />
-      </ButtonBase>,
-      <ButtonBase>
-        <LinkedInIcon />
       </ButtonBase>
     ]
   },
@@ -104,13 +138,14 @@ const TEAM: Array<Team> = [
     name: 'BondAppetit',
     role: 'Partner',
     description:
-      'The first DeFi protocol that connects real-world debt instruments with the Ethereum ecosystem',
+      'The first decentralized lending protocol with a stablecoin 100% backed by yield‑generating bonds',
     actions: [
-      <ButtonBase>
+      <ButtonBase
+        as={Link}
+        target="_blank"
+        href="https://twitter.com/DefiBonds"
+      >
         <TwitterIcon />
-      </ButtonBase>,
-      <ButtonBase>
-        <LinkedInIcon />
       </ButtonBase>
     ]
   },
@@ -119,8 +154,8 @@ const TEAM: Array<Team> = [
     name: 'Join Us',
     role: '?',
     description:
-      'Join the team and work on the future of DeFi automation with us.',
-    actions: [<Button variant="outlined">Application</Button>]
+      'Join the team and help build the next generation investment tool',
+    actions: [<Button variant="outlined">Apply</Button>]
   }
 ];
 
@@ -141,7 +176,7 @@ export const MainTeam: React.VFC<MainTeamProps> = (props) => {
         transform="uppercase"
         className={styles.title}
       >
-        behind the scenes
+        Team
       </Typography>
       <Wrap>
         {TEAM.map((teammate) => (

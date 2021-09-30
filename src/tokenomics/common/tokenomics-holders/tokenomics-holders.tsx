@@ -16,30 +16,22 @@ export type TokenomicsHoldersProps = {
 const DATA = [
   {
     title: 'Fees and treasure management',
-    icon: TresureIcon,
-    description:
-      'Integer sagittis euismod vitae penatibus libero, facilisi. Nulla elit suspendisse mauris fringilla turpis posuere. Aliquam, amet gravida blandit vitae id consequat risus. Faucibus amet, cum sit consequat ipsum velit aliquam non. Turpis faucibus dui nunc, non.'
+    icon: TresureIcon
   },
 
   {
-    title: 'System upgrades',
-    icon: SystemUpgradesIcon,
-    description:
-      'Aliquet turpis egestas neque pharetra nec a neque libero luctus. Diam sagittis volutpat dignissim suscipit. Orci, non lorem blandit pretium nulla id. Diam imperdiet sed at sem sed morbi.'
+    title: 'Protocol upgrades',
+    icon: SystemUpgradesIcon
   },
 
   {
     title: 'Liquidity and bridges',
-    icon: LiquidityIcon,
-    description:
-      'Elementum, pellentesque dui metus, lectus bibendum. Id cras netus egestas sit hendrerit in habitasse. Suspendisse donec porttitor ac dapibus egestas at fringilla scelerisque. Vitae sit suspendisse egestas venenatis, nunc vel sit.'
+    icon: LiquidityIcon
   },
 
   {
-    title: 'Community and developer rewards',
-    icon: CommunityIcon,
-    description:
-      'Morbi sem laoreet aliquet non. Elit cursus convallis ut eu cursus. Arcu risus pellentesque ultrices leo orci montes, tristique vel laoreet. Placerat quam eu, lacus, massa dignissim eget urna. Neque, tincidunt nibh et facilisis eget dui.'
+    title: 'Community and development rewards',
+    icon: CommunityIcon
   }
 ];
 
@@ -52,7 +44,7 @@ export const TokenomicsHolders: React.VFC<TokenomicsHoldersProps> = (props) => {
         variant="h2"
         className={styles.title}
       >
-        DFH Holders will govern
+        DFH will be community-governed
       </Typography>
       <div className={styles.grid}>
         {DATA.map((dataItem) => (
@@ -65,9 +57,6 @@ export const TokenomicsHolders: React.VFC<TokenomicsHoldersProps> = (props) => {
               className={styles.cardTitle}
             >
               {dataItem.title}
-            </Typography>
-            <Typography className={styles.opacity}>
-              {dataItem.description}
             </Typography>
           </div>
         ))}

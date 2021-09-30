@@ -25,7 +25,7 @@ const DATA = [
     subtitle: ['marketCap', 'circulatingSupply'],
     description: [
       {
-        title: 'Buy DFH on the top exchange markets and protocols',
+        title: 'Buy DFH on decentralized exchanges',
         subtitle: '',
         action: [
           <Button variant="outlined" className={styles.protocol}>
@@ -48,21 +48,20 @@ const DATA = [
     subtitle: ['rewardsDays', 'rewardsTokens'],
     description: [
       {
-        title:
-          'Integer sagittis euismod vitae penatibus libero, facilisi. Nulla elit suspendisse mauris fringilla turpis posuere. ',
+        title: 'Get DFH for free by staking tokens in liquidity pools',
         subtitle: '',
-        action: [<Button variant="outlined">Earn by staking</Button>]
+        action: [<Button variant="outlined">Stake</Button>]
       }
     ]
   },
   {
-    title: 'Developers grants',
+    title: 'Development grants',
     subtitle: ['developersYears', 'developersTokens'],
     description: [
       {
-        title: 'Help build new features and earn DFH tokens as a reward',
+        title: 'Build new features and earn ample rewards in DFH',
         subtitle: '',
-        action: [<Button variant="outlined">Become a Developer</Button>]
+        action: [<Button variant="outlined">Become a developer</Button>]
       }
     ]
   },
@@ -71,8 +70,7 @@ const DATA = [
     subtitle: ['communityDays', 'communityTokens'],
     description: [
       {
-        title:
-          'Aliquet turpis egestas neque pharetra nec a neque libero luctus. Diam sagittis volutpat dignissim suscipit.',
+        title: 'Spread the word about DFH and get paid in DFH tokens',
         subtitle: '',
         action: [<Button variant="outlined">Influence DFH</Button>]
       }
@@ -83,22 +81,19 @@ const DATA = [
     subtitle: ['earlyEcosistemDays', 'earlyEcosistemTokens'],
     description: [
       {
-        title:
-          'Provide fees for the protocol and earn rewards for providing fees for protocol',
-        subtitle: '3% total',
-        action: [<Button variant="outlined">Provide Fees</Button>]
+        title: 'Earn rewards by using autostaking',
+        subtitle: '3% of total supply',
+        action: [<Button variant="outlined">Use autostaking</Button>]
       },
       {
-        title:
-          'Buy packages for automation features and smartnotifications and earn rewards',
-        subtitle: '2% total',
-        action: [<Button variant="outlined">Buy packages</Button>]
+        title: 'Earn rewards by creating scripts',
+        subtitle: '2% of total supply',
+        action: [<Button variant="outlined">Automate</Button>]
       },
       {
-        title:
-          'Grow community invite friends and help DeFiHelper grow and earn rewards',
-        subtitle: '1% total',
-        action: [<Button variant="outlined">Invite Friend</Button>]
+        title: 'Earn rewards by inviting friends',
+        subtitle: '1% of total supply',
+        action: [<Button variant="outlined">Invite a friend</Button>]
       }
     ]
   }

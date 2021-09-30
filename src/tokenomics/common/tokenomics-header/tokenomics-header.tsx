@@ -3,6 +3,7 @@ import React from 'react';
 
 import { bignumberUtils } from 'src/common/bignumber-utils';
 import { Button } from 'src/common/button';
+import { CollectedProgress } from 'src/common/collected-progress';
 import { Grid } from 'src/common/grid';
 import { Paper } from 'src/common/paper';
 import { Typography } from 'src/common/typography';
@@ -30,46 +31,31 @@ export const TokenomicsHeader: React.VFC<TokenomicsHeaderProps> = (props) => {
             Tokenomics
           </Typography>
           <Typography variant="h3" className={styles.subtitle}>
-            DFH is an ERC-20 token and is used for governance and for covering
-            fees. Token holders can influence the future of DeFiHelper by voting
-            and sponsoring the features they need the most.
+            The DFH token (ERC-20) will be used for governance and profit
+            distribution. Token holders will shape the future of the protocol by
+            voting and sponsoring the features they need the most.
           </Typography>
           <Button color="primary" as="a">
             Get DFH
           </Button>
         </div>
       </Grid.Container>
+      <Grid.Container className={styles.progressContainer}>
+        <Grid.Row justify="spaceBetween">
+          <CollectedProgress
+            className={styles.progress}
+            count={55}
+            width={12}
+            height={24}
+            topTitle
+          />
+        </Grid.Row>
+      </Grid.Container>
       <Grid.Container>
         <Paper className={styles.grid}>
           <div className={styles.col}>
             <Typography as="h3" className={styles.factoidTitle}>
-              Price
-            </Typography>
-            <Typography
-              family="mono"
-              transform="uppercase"
-              variant="h4"
-              className={styles.factoidSubtitle}
-            >
-              {bignumberUtils.format(props.price)}
-            </Typography>
-          </div>
-          <div className={styles.col}>
-            <Typography as="h3" className={styles.factoidTitle}>
-              Market Cap
-            </Typography>
-            <Typography
-              family="mono"
-              transform="uppercase"
-              variant="h4"
-              className={styles.factoidSubtitle}
-            >
-              {bignumberUtils.format(props.marketCap)}
-            </Typography>
-          </div>
-          <div className={styles.col}>
-            <Typography as="h3" className={styles.factoidTitle}>
-              Circulating Supply
+              Circulating supply (first year)
             </Typography>
             <Typography
               family="mono"
@@ -91,6 +77,19 @@ export const TokenomicsHeader: React.VFC<TokenomicsHeaderProps> = (props) => {
               className={styles.factoidSubtitle}
             >
               {bignumberUtils.format(props.totalSupply)} dfh
+            </Typography>
+          </div>
+          <div className={styles.col}>
+            <Typography as="h3" className={styles.factoidTitle}>
+              Max supply
+            </Typography>
+            <Typography
+              family="mono"
+              transform="uppercase"
+              variant="h4"
+              className={styles.factoidSubtitle}
+            >
+              {bignumberUtils.format('1000000000')} dfh
             </Typography>
           </div>
         </Paper>
