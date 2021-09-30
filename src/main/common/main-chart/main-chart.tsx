@@ -97,8 +97,8 @@ export const MainChart: React.VFC<MainChartProps> = (props) => {
             )}
             description={
               <>
-                Restaking manualy you will probably lose more value on
-                transaction fees and price change then you will earn
+                With manual restaking, you may lose more than you had earned due
+                to high transaction fees and price fluctuations
               </>
             }
             dataFields={DATA_FIELDS}
@@ -112,7 +112,7 @@ export const MainChart: React.VFC<MainChartProps> = (props) => {
             sum={lastHoldValue?.v}
             description={
               <>
-                By just holding your bag on contract you will lost possible
+                By just holding your tokens on a contract, you may lose your
                 compound interest
               </>
             }
@@ -133,9 +133,14 @@ export const MainChart: React.VFC<MainChartProps> = (props) => {
             sum={lastAutostakingValue?.v}
             description={
               <>
-                Autostaking feature increases your rewards by restaking your bag
-                in right time when rewards is optimal over fees.{' '}
-                <Link href="/" className={styles.howItWorks} underline="always">
+                The autostaking feature increases your profits by restaking
+                tokens exactly when rewards are higher than the fees.{' '}
+                <Link
+                  target="_blank"
+                  href="/"
+                  className={styles.howItWorks}
+                  underline="always"
+                >
                   How it works in details?
                 </Link>
               </>

@@ -44,7 +44,7 @@ export const MainFaq: React.FC<MainFaqProps> = (props) => {
         variant="h2"
         className={styles.title}
       >
-        You May Ask
+        FAQ
       </Typography>
       <Faq>{FAQ}</Faq>
     </Grid.Container>

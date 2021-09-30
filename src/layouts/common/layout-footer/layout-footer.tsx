@@ -11,6 +11,8 @@ import { Typography } from 'src/common/typography';
 import { Grid } from 'src/common/grid';
 import { Button } from 'src/common/button';
 import { Link } from 'src/common/link';
+import { config } from 'src/config';
+import { URLS } from 'src/router/urls';
 import * as styles from './layout-footer.css';
 
 export type LayoutFooterProps = {
@@ -18,7 +20,85 @@ export type LayoutFooterProps = {
   className?: string;
 };
 
-export const LayoutFooter: React.FC<LayoutFooterProps> = (props) => {
+const PROTOCOL = [
+  {
+    title: 'Launch app',
+    link: config.LAUNCH_APP_URL ?? '/',
+    target: ''
+  },
+  {
+    title: 'Governance',
+    link: `${config.LAUNCH_APP_URL}governance`,
+    target: ''
+  },
+  {
+    title: 'Tokenomics',
+    link: URLS.tokenomics,
+    target: ''
+  },
+  {
+    title: 'Litepaper',
+    link: URLS.whitepaper,
+    target: ''
+  },
+  {
+    title: 'Math behind DFH',
+    link: '/',
+    target: ''
+  },
+  {
+    title: 'Contracts',
+    link: '/',
+    target: ''
+  }
+];
+
+const SOCIAL = [
+  {
+    title: 'News channel',
+    icon: TelegramIcon,
+    link: '/',
+    target: ''
+  },
+  {
+    title: 'Community chat',
+    icon: TelegramIcon,
+    link: '/',
+    target: ''
+  },
+  {
+    title: 'Twitter',
+    icon: TwitterIcon,
+    link: '/',
+    target: ''
+  },
+  {
+    title: 'Discord',
+    icon: DiscordIcon,
+    link: '/',
+    target: ''
+  },
+  {
+    title: 'Medium',
+    icon: MediumIcon,
+    link: '/',
+    target: ''
+  },
+  {
+    title: 'Github',
+    icon: GithubIcon,
+    link: '/',
+    target: ''
+  },
+  {
+    title: 'Email',
+    icon: TelegramIcon,
+    link: '/',
+    target: ''
+  }
+];
+
+export const LayoutFooter: React.VFC<LayoutFooterProps> = (props) => {
   return (
     <footer className={clsx(styles.root, props.className)}>
       <Grid.Container>
@@ -33,19 +113,20 @@ export const LayoutFooter: React.FC<LayoutFooterProps> = (props) => {
               variant="body2"
               className={styles.mb}
             >
-              Project
+              Protocol
             </Typography>
             <ul className={styles.list}>
-              <li className={styles.listItem}>
-                <Link href="/" className={styles.grey}>
-                  Governance
-                </Link>
-              </li>
-              <li className={styles.listItem}>
-                <Link href="/" className={styles.grey}>
-                  Carreers
-                </Link>
-              </li>
+              {PROTOCOL.map((protocolItem) => (
+                <li className={styles.listItem} key={protocolItem.title}>
+                  <Link
+                    href={protocolItem.link}
+                    target={protocolItem.target}
+                    className={styles.grey}
+                  >
+                    {protocolItem.title}
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
           <div className={clsx(styles.col, styles.mb56mobile)}>
@@ -55,39 +136,21 @@ export const LayoutFooter: React.FC<LayoutFooterProps> = (props) => {
               variant="body2"
               className={styles.mb}
             >
-              Resources
+              Social
             </Typography>
             <ul className={styles.list}>
-              <li className={styles.listItem}>
-                <Link href="/" className={clsx(styles.socialLink, styles.grey)}>
-                  <MediumIcon className={styles.socialIcon} />
-                  Medium
-                </Link>
-              </li>
-              <li className={styles.listItem}>
-                <Link href="/" className={clsx(styles.socialLink, styles.grey)}>
-                  <GithubIcon className={styles.socialIcon} />
-                  Github
-                </Link>
-              </li>
-              <li className={styles.listItem}>
-                <Link href="/" className={clsx(styles.socialLink, styles.grey)}>
-                  <TwitterIcon className={styles.socialIcon} />
-                  Twitter
-                </Link>
-              </li>
-              <li className={styles.listItem}>
-                <Link href="/" className={clsx(styles.socialLink, styles.grey)}>
-                  <TelegramIcon className={styles.socialIcon} />
-                  Telegram
-                </Link>
-              </li>
-              <li className={styles.listItem}>
-                <Link href="/" className={clsx(styles.socialLink, styles.grey)}>
-                  <DiscordIcon className={styles.socialIcon} />
-                  Discord
-                </Link>
-              </li>
+              {SOCIAL.map((socialItem) => (
+                <li className={styles.listItem} key={socialItem.title}>
+                  <Link
+                    href={socialItem.link}
+                    className={clsx(styles.socialLink, styles.grey)}
+                    target={socialItem.target}
+                  >
+                    <socialItem.icon className={styles.socialIcon} />
+                    {socialItem.title}
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
           <div className={styles.col}>
@@ -103,7 +166,7 @@ export const LayoutFooter: React.FC<LayoutFooterProps> = (props) => {
               variant="body2"
               className={clsx(styles.mb, styles.grey)}
             >
-              Be the first one to know about updates and new features
+              Be the first one to learn about updates and new features
             </Typography>
             <Button variant="outlined">Subscribe</Button>
           </div>
@@ -120,7 +183,7 @@ export const LayoutFooter: React.FC<LayoutFooterProps> = (props) => {
               variant="body2"
               className={clsx(styles.mb, styles.grey)}
             >
-              Join the team and work on the future of DeFi automation with us.
+              Join the team and work on the future of DeFi automation with us
             </Typography>
             <Button variant="outlined">Apply</Button>
           </div>

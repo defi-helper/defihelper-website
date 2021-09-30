@@ -50,7 +50,7 @@ export const TokenomicsFaq: React.VFC<TokenomicsFaqProps> = (props) => {
         variant="h2"
         className={styles.title}
       >
-        You May Ask
+        FAQ
       </Typography>
       <Faq>{FAQ}</Faq>
     </Grid.Container>

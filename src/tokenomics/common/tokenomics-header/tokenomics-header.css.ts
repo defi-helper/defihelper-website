@@ -59,3 +59,11 @@ export const factoidTitle = style({
 export const factoidSubtitle = style({
   whiteSpace: 'nowrap'
 });
+
+export const progress = style({
+  padding: '0 16px'
+});
+
+export const progressContainer = style({
+  marginBottom: 12
+});

@@ -47,3 +47,7 @@ export const link = style({
 export const bottomTitle = style({
   margin: '16px 0'
 });
+
+export const description = style({
+  marginTop: 10
+});

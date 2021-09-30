@@ -5,8 +5,8 @@ import { Button } from 'src/common/button';
 import { Grid } from 'src/common/grid';
 import { Typography } from 'src/common/typography';
 import { config } from 'src/config';
+import { CollectedProgress } from 'src/common/collected-progress';
 import * as styles from './main-header.css';
-import { MainProgress } from '../main-progress/main-progress';
 
 export type MainHeaderProps = {
   className?: string;
@@ -24,7 +24,7 @@ export const MainHeader: React.VFC<MainHeaderProps> = (props) => {
               variant="h1"
               className={styles.title}
             >
-              AUTOPILOT for DEFI portfolio
+              Autopilot for your DeFi portfolio
             </Typography>
             <Typography variant="h3" className={styles.subtitle}>
               Automate your DeFi strategies across chains, earn more with
@@ -38,7 +38,7 @@ export const MainHeader: React.VFC<MainHeaderProps> = (props) => {
       </Grid.Container>
       <Grid.Container>
         <Grid.Row justify="spaceBetween">
-          <MainProgress
+          <CollectedProgress
             className={styles.col}
             count={55}
             width={12}
