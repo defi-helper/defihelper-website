@@ -1,5 +1,6 @@
 import clsx from 'clsx';
 import React from 'react';
+import { Link as ReactRouterLink } from 'react-router-dom';
 
 import dfhlogo from 'src/assets/images/dfh-logo.png';
 import { Button } from 'src/common/button';
@@ -7,10 +8,12 @@ import { Grid } from 'src/common/grid';
 import { Paper } from 'src/common/paper';
 import { Typography } from 'src/common/typography';
 import { CollectedProgress } from 'src/common/collected-progress';
+import { URLS } from 'src/router/urls';
 import * as styles from './main-explore.css';
 
 export type MainExploreProps = {
   className?: string;
+  onNotify: () => void;
 };
 
 export const MainExplore: React.VFC<MainExploreProps> = (props) => {
@@ -33,7 +36,12 @@ export const MainExplore: React.VFC<MainExploreProps> = (props) => {
                 DFH
               </Typography>
               <img src={dfhlogo} alt="" className={styles.logo} />
-              <Button variant="outlined" className={styles.button}>
+              <Button
+                variant="outlined"
+                className={styles.button}
+                as={ReactRouterLink}
+                to={URLS.tokenomics}
+              >
                 Explore DFH
               </Button>
             </Paper>
@@ -69,7 +77,11 @@ export const MainExplore: React.VFC<MainExploreProps> = (props) => {
                 The DFH token will be launched only after the protocol collects
                 at least 8 ETH in fees as proof of concept.
               </Typography>
-              <Button variant="outlined" className={styles.button}>
+              <Button
+                variant="outlined"
+                className={styles.button}
+                onClick={props.onNotify}
+              >
                 Notify me
               </Button>
             </Paper>

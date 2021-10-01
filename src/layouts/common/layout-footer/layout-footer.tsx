@@ -38,8 +38,8 @@ const PROTOCOL = [
   },
   {
     title: 'Litepaper',
-    link: URLS.whitepaper,
-    target: ''
+    link: URLS.litepaper,
+    target: '_blank'
   },
   {
     title: 'Math behind DFH',
@@ -55,16 +55,28 @@ const PROTOCOL = [
 
 const SOCIAL = [
   {
-    title: 'News channel',
+    title: 'News channel (EN)',
     icon: TelegramIcon,
-    link: '/',
-    target: ''
+    link: 'https://t.me/defi_helper',
+    target: '_blank'
   },
   {
-    title: 'Community chat',
+    title: 'News channel (RU)',
     icon: TelegramIcon,
-    link: '/',
-    target: ''
+    link: 'https://t.me/defi_helper_news_ru',
+    target: '_blank'
+  },
+  {
+    title: 'Community chat (EN)',
+    icon: TelegramIcon,
+    link: 'https://t.me/defihelper_chat',
+    target: '_blank'
+  },
+  {
+    title: 'Community chat (RU)',
+    icon: TelegramIcon,
+    link: 'https://t.me/defihelper_chat_ru',
+    target: '_blank'
   },
   {
     title: 'Twitter',
@@ -168,7 +180,9 @@ export const LayoutFooter: React.VFC<LayoutFooterProps> = (props) => {
             >
               Be the first one to learn about updates and new features
             </Typography>
-            <Button variant="outlined">Subscribe</Button>
+            <Button variant="outlined" onClick={props.onSubscribe}>
+              Subscribe
+            </Button>
           </div>
           <div className={styles.col}>
             <Typography
@@ -185,7 +199,14 @@ export const LayoutFooter: React.VFC<LayoutFooterProps> = (props) => {
             >
               Join the team and work on the future of DeFi automation with us
             </Typography>
-            <Button variant="outlined">Apply</Button>
+            <Button
+              variant="outlined"
+              as="a"
+              href="mailto:hello@defiheper.io"
+              target="_blank"
+            >
+              Apply
+            </Button>
           </div>
         </Grid.Row>
       </Grid.Container>

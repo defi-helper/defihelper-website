@@ -11,6 +11,7 @@ import { ReactComponent as hand } from 'src/assets/icons/hand.svg';
 import { Grid } from 'src/common/grid';
 import { Button } from 'src/common/button';
 import { Typography } from 'src/common/typography';
+import { config } from 'src/config';
 import * as styles from './main-services.css';
 
 export type MainServicesProps = {
@@ -70,7 +71,12 @@ const SERVICES = [
     description:
       'Just create a proposal,  vote for it and we will implement this feature for you.',
     action: (
-      <Button variant="outlined" className={styles.request}>
+      <Button
+        variant="outlined"
+        className={styles.request}
+        as="a"
+        href={`${config.LAUNCH_APP_URL}proposals`}
+      >
         Request feature
       </Button>
     )

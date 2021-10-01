@@ -14,6 +14,7 @@ import dream_team from 'src/assets/images/team/dream_team.png';
 import max_bokov from 'src/assets/images/team/max_bokov.png';
 import waves from 'src/assets/images/team/waves.png';
 import join_us from 'src/assets/images/team/join_us.png';
+import ilya_munerman from 'src/assets/images/team/ilya_munerman.jpeg';
 import { ReactComponent as TwitterIcon } from 'src/assets/icons/social/twitter.svg';
 import { ReactComponent as LinkedInIcon } from 'src/assets/icons/social/linkedin.svg';
 import { ButtonBase } from 'src/common/button-base';
@@ -85,6 +86,21 @@ const TEAM: Array<Team> = [
     role: 'Head Of Design',
     description:
       'Max Bokov is a designer and art director with 8 years of experience. Over the last 3 years, he has created designs for several successful blockchain projects.',
+    actions: [
+      <ButtonBase>
+        <TwitterIcon />
+      </ButtonBase>,
+      <ButtonBase>
+        <LinkedInIcon />
+      </ButtonBase>
+    ]
+  },
+  {
+    photo: ilya_munerman,
+    name: 'Ilya Munerman',
+    role: 'Head of R&D',
+    description:
+      'Ilya Munerman, Head of R&D, is in charge of mathematical modelling in economy. He has developed various models, for example, fraud scores, credit scores suggestion systems and roboadvisors.  He combines science and business activity to provide modern solutions for achieving the best results.',
     actions: [
       <ButtonBase>
         <TwitterIcon />

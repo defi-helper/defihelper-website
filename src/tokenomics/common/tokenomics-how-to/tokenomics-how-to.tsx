@@ -10,6 +10,7 @@ import { ReactComponent as WavesIcon } from 'src/assets/icons/protocols/waves.sv
 import { ReactComponent as CakeIcon } from 'src/assets/icons/protocols/cake.svg';
 import { GovTokenCirculationType } from 'src/graphql/_generated-hooks';
 import { bignumberUtils } from 'src/common/bignumber-utils';
+import { config } from 'src/config';
 import * as styles from './tokenomics-how-to.css';
 
 export type TokenomicsHowToProps = {
@@ -28,17 +29,47 @@ const DATA = [
         title: 'Buy DFH on decentralized exchanges',
         subtitle: '',
         action: [
-          <Button variant="outlined" className={styles.protocol}>
-            <UniswapIcon className={styles.protocolLogo} /> UniSwap
-          </Button>,
-          <Button variant="outlined" className={styles.protocol}>
-            <WavesIcon className={styles.protocolLogo} />
-            Waves
-          </Button>,
-          <Button variant="outlined" className={styles.protocol}>
-            <CakeIcon className={styles.protocolLogo} />
-            PancakeSwap
-          </Button>
+          config.UNISWAP_URL ? (
+            <Button
+              variant="outlined"
+              className={styles.protocol}
+              as="a"
+              href={config.UNISWAP_URL}
+              target="_blank"
+            >
+              <UniswapIcon className={styles.protocolLogo} /> UniSwap
+            </Button>
+          ) : (
+            <div />
+          ),
+          config.WAVES_URL ? (
+            <Button
+              variant="outlined"
+              className={styles.protocol}
+              as="a"
+              href={config.WAVES_URL}
+              target="_blank"
+            >
+              <WavesIcon className={styles.protocolLogo} />
+              Waves
+            </Button>
+          ) : (
+            <div />
+          ),
+          config.PANCAKESWAP_URL ? (
+            <Button
+              variant="outlined"
+              className={styles.protocol}
+              as="a"
+              href={config.PANCAKESWAP_URL}
+              target="_blank"
+            >
+              <CakeIcon className={styles.protocolLogo} />
+              PancakeSwap
+            </Button>
+          ) : (
+            <div />
+          )
         ]
       }
     ]
@@ -72,7 +103,16 @@ const DATA = [
       {
         title: 'Spread the word about DFH and get paid in DFH tokens',
         subtitle: '',
-        action: [<Button variant="outlined">Influence DFH</Button>]
+        action: [
+          <Button
+            variant="outlined"
+            as="a"
+            href="https://t.me/igvrsk"
+            target="_blank"
+          >
+            Influence DFH
+          </Button>
+        ]
       }
     ]
   },

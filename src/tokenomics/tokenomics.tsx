@@ -1,8 +1,10 @@
 import React from 'react';
+
+import { useDialog } from 'src/common/dialog';
 import { config } from 'src/config';
 import { useGovTokenQuery } from 'src/graphql/_generated-hooks';
-
 import { LandingLayout } from 'src/layouts';
+import { LinkDialog } from 'src/common/link-dialog';
 import {
   TokenomicsHeader,
   TokenomicsFaq,
@@ -29,6 +31,12 @@ export const Tokenomics: React.VFC<TokenomicsProps> = () => {
     }
   });
 
+  const [openLinksDialog] = useDialog(LinkDialog);
+
+  const handleOpenLinkDialog = async () => {
+    openLinksDialog().catch(console.error);
+  };
+
   return (
     <LandingLayout>
       <TokenomicsHeader
@@ -37,6 +45,7 @@ export const Tokenomics: React.VFC<TokenomicsProps> = () => {
         circulatingSupply={data?.govToken.circulation.total}
         totalSupply={data?.govToken.totalSupply}
         className={styles.header}
+        onGetDFH={handleOpenLinkDialog}
       />
       <TokenomicsCharts className={styles.section} />
       <TokenomicsTable className={styles.section} />
