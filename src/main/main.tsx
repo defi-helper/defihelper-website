@@ -1,6 +1,9 @@
 import React, { useMemo, useState } from 'react';
 import { useThrottle } from 'react-use';
 
+import { useDialog } from 'src/common/dialog';
+import { ContactAnnounce } from 'src/contacts/contact-announce';
+import { ContactSuccess } from 'src/contacts/contact-success';
 import {
   useProtocolsQuery,
   useRestakeStrategyQuery
@@ -23,6 +26,9 @@ export const Main: React.VFC = () => {
   const [sum, setSum] = useState(10000);
   const [apy, setApy] = useState(100);
 
+  const [openAnnouce] = useDialog(ContactAnnounce);
+  const [openSuccess] = useDialog(ContactSuccess);
+
   const [throttledSum, throttledApy] = useThrottle(
     useMemo(() => [sum, apy / 100], [sum, apy]),
     500
@@ -41,6 +47,18 @@ export const Main: React.VFC = () => {
     setApy(value);
   };
 
+  const handleOpenAnnounce = async () => {
+    try {
+      const name = await openAnnouce();
+
+      await openSuccess({ name });
+    } catch (error) {
+      if (error instanceof Error) {
+        console.error(error.message);
+      }
+    }
+  };
+
   return (
     <LandingLayout>
       <MainHeader className={styles.header} />
@@ -53,7 +71,7 @@ export const Main: React.VFC = () => {
         data={data?.restakeStrategy}
       />
       <MainServices className={styles.section} />
-      <MainExplore className={styles.section} />
+      <MainExplore className={styles.section} onNotify={handleOpenAnnounce} />
       <MainEditor className={styles.section} />
       <MainProtocols
         className={styles.section}

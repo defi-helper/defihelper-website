@@ -15,6 +15,7 @@ export type TokenomicsHeaderProps = {
   marketCap?: string;
   circulatingSupply?: string;
   totalSupply?: string;
+  onGetDFH: () => void;
 };
 
 export const TokenomicsHeader: React.VFC<TokenomicsHeaderProps> = (props) => {
@@ -35,7 +36,7 @@ export const TokenomicsHeader: React.VFC<TokenomicsHeaderProps> = (props) => {
             distribution. Token holders will shape the future of the protocol by
             voting and sponsoring the features they need the most.
           </Typography>
-          <Button color="primary" as="a">
+          <Button color="primary" onClick={props.onGetDFH}>
             Get DFH
           </Button>
         </div>

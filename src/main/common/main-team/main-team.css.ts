@@ -48,7 +48,8 @@ export const cardPhoto = style({
   width: 72,
   height: 72,
   objectFit: 'contain',
-  marginBottom: 16
+  marginBottom: 16,
+  borderRadius: '50%'
 });
 
 export const cardSubtext = style({

@@ -25,9 +25,14 @@ export const LayoutHeader: React.VFC<LayoutHeaderProps> = (props) => {
             <NavLink className={styles.navLink} to={URLS.tokenomics}>
               Tokenomics
             </NavLink>
-            <NavLink className={styles.navLink} to={URLS.whitepaper}>
-              WHitepaper
-            </NavLink>
+            <a
+              className={styles.navLink}
+              href={URLS.litepaper}
+              target="_blank"
+              rel="noreferrer"
+            >
+              litepaper
+            </a>
             <Button
               variant="contained"
               color="secondary"

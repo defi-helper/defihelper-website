@@ -5,7 +5,7 @@ import smoothscroll from 'smoothscroll-polyfill';
 import 'normalize.css';
 import { createClient, Provider } from 'urql';
 
-import { ModalProvider } from './common/modal';
+import { DialogProvider } from './common/dialog';
 import { ThemeProvider } from './common/theme';
 import { App } from './app';
 import { config } from './config';
@@ -29,9 +29,9 @@ ReactDOM.render(
       <ThemeProvider>
         <ErrorBoundary>
           <Provider value={client}>
-            <ModalProvider>
+            <DialogProvider>
               <App />
-            </ModalProvider>
+            </DialogProvider>
           </Provider>
         </ErrorBoundary>
       </ThemeProvider>
