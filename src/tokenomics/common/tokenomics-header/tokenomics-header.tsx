@@ -3,7 +3,6 @@ import React from 'react';
 
 import { bignumberUtils } from 'src/common/bignumber-utils';
 import { Button } from 'src/common/button';
-import { CollectedProgress } from 'src/common/collected-progress';
 import { Grid } from 'src/common/grid';
 import { Paper } from 'src/common/paper';
 import { Typography } from 'src/common/typography';
@@ -16,6 +15,7 @@ export type TokenomicsHeaderProps = {
   circulatingSupply?: string;
   totalSupply?: string;
   onGetDFH: () => void;
+  progress: React.ReactNode;
 };
 
 export const TokenomicsHeader: React.VFC<TokenomicsHeaderProps> = (props) => {
@@ -42,15 +42,7 @@ export const TokenomicsHeader: React.VFC<TokenomicsHeaderProps> = (props) => {
         </div>
       </Grid.Container>
       <Grid.Container className={styles.progressContainer}>
-        <Grid.Row justify="spaceBetween">
-          <CollectedProgress
-            className={styles.progress}
-            count={55}
-            width={12}
-            height={24}
-            topTitle
-          />
-        </Grid.Row>
+        <Grid.Row justify="spaceBetween">{props.progress}</Grid.Row>
       </Grid.Container>
       <Grid.Container>
         <Paper className={styles.grid}>

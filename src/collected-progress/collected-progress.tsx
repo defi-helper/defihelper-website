@@ -1,10 +1,12 @@
 import clsx from 'clsx';
 import React from 'react';
 import { Link as ReactRouterLink } from 'react-router-dom';
+import { bignumberUtils } from 'src/common/bignumber-utils';
 
 import { Link } from 'src/common/link';
 import { Typography } from 'src/common/typography';
 import { config } from 'src/config';
+import { useTreasuryQuery } from 'src/graphql/_generated-hooks';
 import { URLS } from 'src/router/urls';
 import * as styles from './collected-progress.css';
 
@@ -23,8 +25,12 @@ const createArrayNumber = (num: number) =>
   Array.from(Array(Math.floor(num)), (_, i) => i);
 
 export const CollectedProgress: React.VFC<CollectedProgressProps> = (props) => {
+  const [{ data }] = useTreasuryQuery();
+
+  const fees = data?.treasury.balanceUSD ?? 0;
+
   const filledArray = createArrayNumber(
-    ((config.FEES / MAX) * 100 * props.count) / 100
+    ((fees / MAX) * 100 * props.count) / 100
   );
   const countArray = createArrayNumber(props.count);
 
@@ -38,7 +44,7 @@ export const CollectedProgress: React.VFC<CollectedProgressProps> = (props) => {
           className={styles.topTitle}
         >
           <span>
-            {config.FEES} / ${MAX} FEES COLLECTED
+            {bignumberUtils.format(fees)} / ${MAX} FEES COLLECTED
           </span>
           <Link
             as={ReactRouterLink}
@@ -73,7 +79,7 @@ export const CollectedProgress: React.VFC<CollectedProgressProps> = (props) => {
           variant="body2"
           className={styles.bottomTitle}
         >
-          {config.FEES}/${MAX} FEES COLLECTED
+          {bignumberUtils.format(fees)}/${MAX} FEES COLLECTED
         </Typography>
       )}
     </div>

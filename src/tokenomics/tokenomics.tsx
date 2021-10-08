@@ -6,6 +6,7 @@ import { useGovTokenQuery } from 'src/graphql/_generated-hooks';
 import { LandingLayout } from 'src/layouts';
 import { LinkDialog } from 'src/common/link-dialog';
 import { FaqText } from 'src/common/faq-text';
+import { CollectedProgress } from 'src/collected-progress';
 import {
   TokenomicsHeader,
   TokenomicsHowTo,
@@ -46,6 +47,15 @@ export const Tokenomics: React.VFC<TokenomicsProps> = () => {
         totalSupply={data?.govToken.totalSupply}
         className={styles.header}
         onGetDFH={handleOpenLinkDialog}
+        progress={
+          <CollectedProgress
+            className={styles.progress}
+            count={55}
+            width={12}
+            height={24}
+            topTitle
+          />
+        }
       />
       <TokenomicsCharts className={styles.section} />
       <TokenomicsTable className={styles.section} />
