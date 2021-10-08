@@ -6,9 +6,6 @@ export const root = style({
 });
 
 export const listItem = style({
-  fontSize: 16,
-  lineHeight: '20px',
-
   selectors: {
     '&:not(:last-child)': {
       marginBottom: 15

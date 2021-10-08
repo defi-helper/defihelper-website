@@ -5,9 +5,9 @@ import { config } from 'src/config';
 import { useGovTokenQuery } from 'src/graphql/_generated-hooks';
 import { LandingLayout } from 'src/layouts';
 import { LinkDialog } from 'src/common/link-dialog';
+import { FaqText } from 'src/common/faq-text';
 import {
   TokenomicsHeader,
-  TokenomicsFaq,
   TokenomicsHowTo,
   TokenomicsHolders,
   TokenomicsProfit,
@@ -57,7 +57,7 @@ export const Tokenomics: React.VFC<TokenomicsProps> = () => {
         circulation={data?.govToken.circulation}
         className={styles.section}
       />
-      <TokenomicsFaq className={styles.section} />
+      <FaqText className={styles.section} />
     </LandingLayout>
   );
 };

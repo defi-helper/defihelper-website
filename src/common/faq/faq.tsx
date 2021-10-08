@@ -4,7 +4,7 @@ import ReactMarkdown from 'react-markdown';
 import { ReactComponent as ExpandIcon } from 'src/assets/icons/plus.svg';
 import { Accordion } from '../accordion';
 import { MarkdownLink } from '../markdown-link';
-import { MarkdownList } from '../markdown-list';
+import { MarkdownList, MarkdownListItem } from '../markdown-list';
 import { MarkdownParagraph } from '../markdown-paragraph';
 import { Typography } from '../typography';
 import * as styles from './faq.css';
@@ -20,7 +20,8 @@ export type BagFaqProps = {
 const renderers = {
   paragraph: MarkdownParagraph,
   link: MarkdownLink,
-  list: MarkdownList
+  list: MarkdownList,
+  listItem: MarkdownListItem
 };
 
 export const Faq: React.VFC<BagFaqProps> = (props) => {

@@ -17,7 +17,7 @@ export type CollectedProgressProps = {
   bottomTitle?: boolean;
 };
 
-const MAX = 8;
+const MAX = config.MAX_FEE;
 
 const createArrayNumber = (num: number) =>
   Array.from(Array(Math.floor(num)), (_, i) => i);
@@ -38,7 +38,7 @@ export const CollectedProgress: React.VFC<CollectedProgressProps> = (props) => {
           className={styles.topTitle}
         >
           <span>
-            {config.FEES} / {MAX} ETH IN FEES COLLECTED
+            {config.FEES} / ${MAX} FEES COLLECTED
           </span>
           <Link
             as={ReactRouterLink}
@@ -73,7 +73,7 @@ export const CollectedProgress: React.VFC<CollectedProgressProps> = (props) => {
           variant="body2"
           className={styles.bottomTitle}
         >
-          {config.FEES}/{MAX} ETH IN FEES COLLECTED
+          {config.FEES}/${MAX} FEES COLLECTED
         </Typography>
       )}
     </div>

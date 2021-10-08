@@ -1,6 +1,5 @@
 export * from './main-header';
 export * from './main-services';
-export * from './main-faq';
 export * from './main-team';
 export * from './main-editor';
 export * from './main-protocols';
