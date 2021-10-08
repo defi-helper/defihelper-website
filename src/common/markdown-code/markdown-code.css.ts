@@ -1,4 +1,5 @@
 import { style } from '@vanilla-extract/css';
+import { theme } from '../theme';
 
 export const root = style({
   borderRadius: 8,
@@ -7,7 +8,8 @@ export const root = style({
   overflowX: 'auto',
   position: 'relative',
   wordWrap: 'break-word',
-  whiteSpace: 'pre-wrap'
+  whiteSpace: 'pre-wrap',
+  backgroundColor: theme.color.paper
 });
 
 export const button = style({

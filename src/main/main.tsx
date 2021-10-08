@@ -9,11 +9,11 @@ import {
   useRestakeStrategyQuery
 } from 'src/graphql/_generated-hooks';
 import { LandingLayout } from 'src/layouts';
+import { FaqText } from 'src/common/faq-text';
 import {
   MainChart,
   MainEditor,
   MainExplore,
-  MainFaq,
   MainHeader,
   MainProtocols,
   MainServices,
@@ -79,7 +79,7 @@ export const Main: React.VFC = () => {
       />
       <MainTable className={styles.section} />
       <MainTeam className={styles.section} />
-      <MainFaq className={styles.section} />
+      <FaqText className={styles.section} />
     </LandingLayout>
   );
 };

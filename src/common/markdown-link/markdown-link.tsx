@@ -13,7 +13,8 @@ export const MarkdownLink: React.FC<MarkdownLinkProps> = (props) => {
       href={props.href}
       className={styles.root}
       target={props.href.includes('http') ? '_blank' : undefined}
-      color="blue"
+      color="primary"
+      underline="always"
     >
       {props.children}
     </Link>

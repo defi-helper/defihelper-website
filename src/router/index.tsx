@@ -4,6 +4,7 @@ import { Route, Switch, BrowserRouter } from 'react-router-dom';
 import Main from 'src/main';
 import NotFound from 'src/not-found';
 import Tokenomics from 'src/tokenomics';
+import Contracts from 'src/contracts';
 import { ScrollToTop } from './scroll-to-top';
 import { URLS } from './urls';
 
@@ -17,6 +18,9 @@ const Router: React.FC = () => {
         </Route>
         <Route path={URLS.tokenomics}>
           <Tokenomics />
+        </Route>
+        <Route path={URLS.contracts}>
+          <Contracts />
         </Route>
         <Route>
           <NotFound />
