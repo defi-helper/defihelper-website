@@ -120,6 +120,7 @@ export type AutomateActionType = {
 };
 
 export enum AutomateActionTypeEnum {
+  Notification = 'notification',
   EthereumAutomateRun = 'ethereumAutomateRun'
 }
 
@@ -186,7 +187,10 @@ export type AutomateConditionType = {
 };
 
 export enum AutomateConditionTypeEnum {
-  EthereumBalance = 'ethereumBalance'
+  Schedule = 'schedule',
+  EthereumAvgGasPrice = 'ethereumAvgGasPrice',
+  EthereumBalance = 'ethereumBalance',
+  EthereumOptimalAutomateRun = 'ethereumOptimalAutomateRun'
 }
 
 export type AutomateConditionUpdateInputType = {
@@ -207,6 +211,8 @@ export type AutomateContractCreateInputType = {
   address: Scalars['String'];
   /** Adapter name */
   adapter: Scalars['String'];
+  /** Init method parameters */
+  initParams: Scalars['String'];
 };
 
 export type AutomateContractListFilterInputType = {
@@ -251,9 +257,18 @@ export type AutomateContractType = {
   address: Scalars['String'];
   /** Adapter name */
   adapter: Scalars['String'];
+  /** Init method parameters */
+  initParams: Scalars['String'];
   /** Verification status */
   verification: AutomateContractVerificationStatusEnum;
   rejectReason: Scalars['String'];
+};
+
+export type AutomateContractUpdateInputType = {
+  /** Contract identifier */
+  id: Scalars['UuidType'];
+  /** Init method parameters */
+  initParams?: Maybe<Scalars['String']>;
 };
 
 export enum AutomateContractVerificationStatusEnum {
@@ -262,11 +277,50 @@ export enum AutomateContractVerificationStatusEnum {
   Rejected = 'rejected'
 }
 
+export type AutomateTriggerCallHistoryListFilterInputType = {
+  hasError?: Maybe<Scalars['Boolean']>;
+};
+
+export type AutomateTriggerCallHistoryListPaginationInputType = {
+  /** Limit */
+  limit?: Maybe<Scalars['Int']>;
+  /** Offset */
+  offset?: Maybe<Scalars['Int']>;
+};
+
+export type AutomateTriggerCallHistoryListQuery = {
+  __typename?: 'AutomateTriggerCallHistoryListQuery';
+  /** Elements */
+  list?: Maybe<Array<AutomateTriggerCallHistoryType>>;
+  pagination: Pagination;
+};
+
+export type AutomateTriggerCallHistoryListSortInputType = {
+  column: AutomateTriggerCallHistoryListSortInputTypeColumnEnum;
+  order?: Maybe<SortOrderEnum>;
+};
+
+export enum AutomateTriggerCallHistoryListSortInputTypeColumnEnum {
+  CreatedAt = 'createdAt'
+}
+
+export type AutomateTriggerCallHistoryType = {
+  __typename?: 'AutomateTriggerCallHistoryType';
+  /** Identificator */
+  id: Scalars['UuidType'];
+  /** Call error */
+  error?: Maybe<Scalars['String']>;
+  /** Created at date */
+  createdAt: Scalars['DateTimeType'];
+};
+
 export type AutomateTriggerCreateInputType = {
   /** Wallet owner */
   wallet: Scalars['UuidType'];
   /** Type */
   type: AutomateTriggerTypeEnum;
+  /** Parameters */
+  params: Scalars['String'];
   /** Name */
   name: Scalars['String'];
   /** Is active */
@@ -315,6 +369,8 @@ export type AutomateTriggerType = {
   id: Scalars['UuidType'];
   /** Type */
   type: AutomateTriggerTypeEnum;
+  /** Trigger parameters */
+  params: Scalars['String'];
   /** Wallet of owner */
   wallet: WalletType;
   /** Name */
@@ -327,6 +383,7 @@ export type AutomateTriggerType = {
   createdAt: Scalars['DateTimeType'];
   conditions: AutomateConditionListType;
   actions: AutomateActionListType;
+  callHistory: AutomateTriggerCallHistoryListQuery;
 };
 
 export type AutomateTriggerTypeConditionsArgs = {
@@ -341,11 +398,18 @@ export type AutomateTriggerTypeActionsArgs = {
   pagination?: Maybe<AutomateActionListPaginationInputType>;
 };
 
+export type AutomateTriggerTypeCallHistoryArgs = {
+  filter?: Maybe<AutomateTriggerCallHistoryListFilterInputType>;
+  sort?: Maybe<Array<AutomateTriggerCallHistoryListSortInputType>>;
+  pagination?: Maybe<AutomateTriggerCallHistoryListPaginationInputType>;
+};
+
 export enum AutomateTriggerTypeEnum {
   EveryMonth = 'everyMonth',
   EveryWeek = 'everyWeek',
   EveryDay = 'everyDay',
-  EveryHour = 'everyHour'
+  EveryHour = 'everyHour',
+  ContractEvent = 'contractEvent'
 }
 
 export type AutomateTriggerUpdateInputType = {
@@ -752,6 +816,7 @@ export enum MetricGroupEnum {
   Hour = 'hour',
   Day = 'day',
   Week = 'week',
+  Month = 'month',
   Year = 'year'
 }
 
@@ -760,6 +825,8 @@ export type Mutation = {
   authEth?: Maybe<AuthType>;
   authWaves?: Maybe<AuthType>;
   addWallet?: Maybe<AuthType>;
+  walletUpdate: WalletType;
+  walletDelete: Scalars['Boolean'];
   protocolCreate: ProtocolType;
   protocolUpdate: ProtocolType;
   protocolDelete: Scalars['Boolean'];
@@ -774,6 +841,7 @@ export type Mutation = {
   vote: VoteType;
   unvote: Scalars['Boolean'];
   userContactCreate: UserContactType;
+  userContactUpdate: UserContactType;
   userContactEmailConfirm: Scalars['Boolean'];
   userContactDelete: Scalars['Boolean'];
   userEventSubscriptionCreate: UserEventSubscriptionType;
@@ -791,6 +859,7 @@ export type Mutation = {
   automateActionUpdate: AutomateActionType;
   automateActionDelete: Scalars['Boolean'];
   automateContractCreate: AutomateContractType;
+  automateContractUpdate: AutomateContractType;
   automateContractDelete: Scalars['Boolean'];
 };
 
@@ -804,6 +873,15 @@ export type MutationAuthWavesArgs = {
 
 export type MutationAddWalletArgs = {
   input: AddWalletInputType;
+};
+
+export type MutationWalletUpdateArgs = {
+  id: Scalars['UuidType'];
+  input: WalletUpdateInputType;
+};
+
+export type MutationWalletDeleteArgs = {
+  id: Scalars['UuidType'];
 };
 
 export type MutationProtocolCreateArgs = {
@@ -866,6 +944,11 @@ export type MutationUnvoteArgs = {
 
 export type MutationUserContactCreateArgs = {
   input: UserContactCreateInputType;
+};
+
+export type MutationUserContactUpdateArgs = {
+  id: Scalars['UuidType'];
+  input: UserContactUpdateInputType;
 };
 
 export type MutationUserContactEmailConfirmArgs = {
@@ -935,6 +1018,10 @@ export type MutationAutomateActionDeleteArgs = {
 
 export type MutationAutomateContractCreateArgs = {
   input: AutomateContractCreateInputType;
+};
+
+export type MutationAutomateContractUpdateArgs = {
+  input: AutomateContractUpdateInputType;
 };
 
 export type MutationAutomateContractDeleteArgs = {
@@ -1187,6 +1274,7 @@ export type Query = {
   automateContracts: AutomateContractListQuery;
   govToken: GovTokenType;
   restakeStrategy: RestakeStrategyType;
+  treasury: TreasuryType;
 };
 
 export type QueryProtocolArgs = {
@@ -1595,6 +1683,11 @@ export type TokenType = {
   decimals: Scalars['Int'];
 };
 
+export type TreasuryType = {
+  __typename?: 'TreasuryType';
+  balanceUSD: Scalars['Float'];
+};
+
 export type UserBillingBillListFilterInputType = {
   blockchain?: Maybe<BlockchainFilterInputType>;
   status?: Maybe<BillingBillStatusEnum>;
@@ -1629,6 +1722,7 @@ export type UserBillingTransferListFilterInputType = {
   blockchain?: Maybe<BlockchainFilterInputType>;
   deposit?: Maybe<Scalars['Boolean']>;
   claim?: Maybe<Scalars['Boolean']>;
+  wallet?: Maybe<Array<Scalars['UuidType']>>;
 };
 
 export type UserBillingTransferListPaginationInputType = {
@@ -1770,6 +1864,8 @@ export type UserContactCreateInputType = {
   broker: UserContactBrokerEnum;
   /** Address */
   address: Scalars['String'];
+  /** Name */
+  name: Scalars['String'];
 };
 
 export type UserContactFilterInputType = {
@@ -1797,6 +1893,7 @@ export type UserContactListQueryFilterInputType = {
   broker?: Maybe<UserContactBrokerEnum>;
   /** Status */
   status?: Maybe<UserContactStatusEnum>;
+  search?: Maybe<Scalars['String']>;
 };
 
 export type UserContactListSortInputType = {
@@ -1826,6 +1923,8 @@ export type UserContactType = {
   broker: UserContactBrokerEnum;
   /** Address */
   address: Scalars['String'];
+  /** Name */
+  name: Scalars['String'];
   /** Status */
   status: UserContactStatusEnum;
   /** Confirmation Code */
@@ -1834,6 +1933,11 @@ export type UserContactType = {
   createdAt: Scalars['DateTimeType'];
   /** Date of activated */
   activatedAt?: Maybe<Scalars['DateTimeType']>;
+};
+
+export type UserContactUpdateInputType = {
+  /** Name */
+  name?: Maybe<Scalars['String']>;
 };
 
 export type UserEventSubscriptionCreateInputType = {
@@ -2345,6 +2449,8 @@ export type WalletType = {
   address: Scalars['String'];
   /** Public key */
   publicKey: Scalars['String'];
+  /** Name */
+  name: Scalars['String'];
   contracts: WalletContractListType;
   metricChart: Array<MetricChartType>;
   tokenMetricChart: Array<MetricChartType>;
@@ -2373,6 +2479,17 @@ export type WalletTypeTokenMetricChartArgs = {
   filter?: Maybe<WalletTokenMetricChartFilterInputType>;
   sort?: Maybe<Array<WalletTokenMetricChartSortInputType>>;
   pagination?: Maybe<WalletTokenMetricChartPaginationInputType>;
+};
+
+export type WalletUpdateInputType = {
+  /** Name */
+  name?: Maybe<Scalars['String']>;
+};
+
+export type TreasuryQueryVariables = Exact<{ [key: string]: never }>;
+
+export type TreasuryQuery = { __typename?: 'Query' } & {
+  treasury: { __typename?: 'TreasuryType' } & Pick<TreasuryType, 'balanceUSD'>;
 };
 
 export type ProtocolsQueryVariables = Exact<{ [key: string]: never }>;
@@ -2465,6 +2582,19 @@ export const GovTokenFragmentFragmentDoc = gql`
     tokenTotal
   }
 `;
+export const TreasuryDocument = gql`
+  query Treasury {
+    treasury {
+      balanceUSD
+    }
+  }
+`;
+
+export function useTreasuryQuery(
+  options: Omit<Urql.UseQueryArgs<TreasuryQueryVariables>, 'query'> = {}
+) {
+  return Urql.useQuery<TreasuryQuery>({ query: TreasuryDocument, ...options });
+}
 export const ProtocolsDocument = gql`
   query Protocols {
     protocols {

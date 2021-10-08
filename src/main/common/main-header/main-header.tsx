@@ -5,11 +5,11 @@ import { Button } from 'src/common/button';
 import { Grid } from 'src/common/grid';
 import { Typography } from 'src/common/typography';
 import { config } from 'src/config';
-import { CollectedProgress } from 'src/common/collected-progress';
 import * as styles from './main-header.css';
 
 export type MainHeaderProps = {
   className?: string;
+  progress: React.ReactNode;
 };
 
 export const MainHeader: React.VFC<MainHeaderProps> = (props) => {
@@ -38,13 +38,11 @@ export const MainHeader: React.VFC<MainHeaderProps> = (props) => {
       </Grid.Container>
       <Grid.Container>
         <Grid.Row justify="spaceBetween">
-          <CollectedProgress
-            className={styles.col}
-            count={55}
-            width={12}
-            height={24}
-            topTitle
-          />
+          {React.isValidElement(props.progress) &&
+            React.cloneElement(props.progress, {
+              ...props.progress.props,
+              className: styles.col
+            })}
         </Grid.Row>
       </Grid.Container>
     </div>

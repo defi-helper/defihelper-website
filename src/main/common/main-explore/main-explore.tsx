@@ -7,13 +7,13 @@ import { Button } from 'src/common/button';
 import { Grid } from 'src/common/grid';
 import { Paper } from 'src/common/paper';
 import { Typography } from 'src/common/typography';
-import { CollectedProgress } from 'src/common/collected-progress';
 import { URLS } from 'src/router/urls';
 import * as styles from './main-explore.css';
 
 export type MainExploreProps = {
   className?: string;
   onNotify: () => void;
+  progress: React.ReactNode;
 };
 
 export const MainExplore: React.VFC<MainExploreProps> = (props) => {
@@ -72,7 +72,7 @@ export const MainExplore: React.VFC<MainExploreProps> = (props) => {
           </div>
           <div className={styles.col}>
             <Paper className={styles.colContent}>
-              <CollectedProgress count={8} width={34} height={80} bottomTitle />
+              {props.progress}
               <Typography className={styles.listItemDescription}>
                 The DFH token will be launched only after the protocol collects
                 at least 8 ETH in fees as proof of concept.

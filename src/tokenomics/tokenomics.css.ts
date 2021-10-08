@@ -15,3 +15,7 @@ export const section = style({
     }
   }
 });
+
+export const progress = style({
+  padding: '0 16px'
+});

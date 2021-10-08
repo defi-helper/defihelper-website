@@ -10,6 +10,7 @@ import {
 } from 'src/graphql/_generated-hooks';
 import { LandingLayout } from 'src/layouts';
 import { FaqText } from 'src/common/faq-text';
+import { CollectedProgress } from 'src/collected-progress';
 import {
   MainChart,
   MainEditor,
@@ -61,7 +62,12 @@ export const Main: React.VFC = () => {
 
   return (
     <LandingLayout>
-      <MainHeader className={styles.header} />
+      <MainHeader
+        className={styles.header}
+        progress={
+          <CollectedProgress count={55} width={12} height={24} topTitle />
+        }
+      />
       <MainChart
         className={styles.section}
         onChangeApy={handleChangeApy}
@@ -71,7 +77,13 @@ export const Main: React.VFC = () => {
         data={data?.restakeStrategy}
       />
       <MainServices className={styles.section} />
-      <MainExplore className={styles.section} onNotify={handleOpenAnnounce} />
+      <MainExplore
+        className={styles.section}
+        onNotify={handleOpenAnnounce}
+        progress={
+          <CollectedProgress count={8} width={34} height={80} bottomTitle />
+        }
+      />
       <MainEditor className={styles.section} />
       <MainProtocols
         className={styles.section}
