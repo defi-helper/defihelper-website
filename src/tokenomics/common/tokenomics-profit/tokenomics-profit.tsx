@@ -15,7 +15,7 @@ const DATA = [
     title: 'No-code automation',
     description:
       'DFH charges 1$ for every completed launch of automation.',
-    estimate: '$732,812.50 / first year'
+    estimate: '$4,000,000 / first year'
   },
 
   {
@@ -23,7 +23,7 @@ const DATA = [
     description:
       'Notifications are available in batches, starting from 10$ (in ETH)' +
       ' per 1000 messages',
-    estimate: '$105,000 / first year'
+    estimate: '$450,000 / first year'
   },
 
   {
@@ -31,7 +31,7 @@ const DATA = [
     description:
       'We and author of scenario will earn fee when scenario launched by ' +
       'other user',
-    estimate: '--- / first year'
+    estimate: '(soon)'
   },
 
 ];

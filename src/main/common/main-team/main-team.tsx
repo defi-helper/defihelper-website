@@ -10,7 +10,7 @@ import { Button } from 'src/common/button';
 import vlad_komissarov from 'src/assets/images/team/vlad_komissarov.png';
 import artem_tolkachev from 'src/assets/images/team/artem_tolkachev.png';
 import bondappetit from 'src/assets/images/team/bondappetit.png';
-import dream_team from 'src/assets/images/team/dream_team.png';
+import igor_varnavsky from 'src/assets/images/team/igor_varnavsky.jpg';
 import ct_lek from 'src/assets/images/team/ct_lek.jpg';
 import waves from 'src/assets/images/team/waves.png';
 import join_us from 'src/assets/images/team/join_us.png';
@@ -81,30 +81,7 @@ const TEAM: Array<Team> = [
     ]
   },
   {
-    photo: ct_lek,
-    name: 'CT Lek',
-    role: 'Community head',
-    description:
-      'Been in the space since double-digit ETH, Lek is a DeFi believer with 10 years of consultancy experience to funds and multinational corporations.',
-    actions: []
-  },
-  {
-    photo: ilya_munerman,
-    name: 'Ilya Munerman',
-    role: 'Head of R&D',
-    description:
-      'Ilya Munerman is in charge of mathematical modelling in economy. He has developed various models, for example, fraud scores, credit scores suggestion systems and roboadvisors.  He combines science and business activity to provide modern solutions for achieving the best results.',
-    actions: [
-      <ButtonBase>
-        <TwitterIcon />
-      </ButtonBase>,
-      <ButtonBase>
-        <LinkedInIcon />
-      </ButtonBase>
-    ]
-  },
-  {
-    photo: dream_team,
+    photo: igor_varnavsky,
     name: 'Igor Varnavsky',
     role: 'CMO',
     description:
@@ -125,6 +102,22 @@ const TEAM: Array<Team> = [
         <LinkedInIcon />
       </ButtonBase>
     ]
+  },
+  {
+    photo: ct_lek,
+    name: 'CT Lek',
+    role: 'Community lead',
+    description:
+      'Been in the space since double-digit ETH, Lek is a DeFi believer with 10 years of consultancy experience to funds and multinational corporations.',
+    actions: []
+  },
+  {
+    photo: ilya_munerman,
+    name: 'Ilya Munerman',
+    role: 'Head of R&D',
+    description:
+      'Ilya Munerman, is in charge of mathematical modelling in economy. He has developed various models, for example, fraud scores, credit scores suggestion systems and roboadvisors.',
+    actions: []
   },
   {
     photo: waves,
@@ -164,7 +157,14 @@ const TEAM: Array<Team> = [
     role: '?',
     description:
       'Join the team and help build the next generation investment tool',
-    actions: [<Button variant="outlined">Apply</Button>]
+    actions: [
+      <Button
+        as="a"
+        variant="outlined"
+        href="mailto:hello@defiheper.io"
+        target="_blank"
+      >Apply</Button>
+    ]
   }
 ];
 
