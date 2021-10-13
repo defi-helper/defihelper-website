@@ -11,7 +11,6 @@ import {
   LineSeries,
   ValueAxis,
   XYChart,
-  XYCursor,
   Legend
 } from '@amcharts/amcharts4/charts';
 import React, { useEffect, useRef } from 'react';
@@ -76,10 +75,10 @@ export const TokenomicsUnlockChart: React.VFC<TokenomicsUnlockChartProps> = (
 
       valueAxis.userClassName = styles.percent;
 
-      valueAxis.width = 7;
+      valueAxis.width = 12;
 
       valueAxis.min = 0;
-      valueAxis.max = 100;
+      valueAxis.max = 300000000;
       valueAxis.strictMinMax = true;
 
       valueAxis.renderer.grid.template.disabled = true;
@@ -88,15 +87,15 @@ export const TokenomicsUnlockChart: React.VFC<TokenomicsUnlockChartProps> = (
       function createGrid(value: number) {
         const range = valueAxis.axisRanges.create();
         range.value = value;
-        range.label.text = '{value}%';
+        range.label.text = '{value}';
       }
 
       if (!index) {
         createGrid(0);
-        createGrid(25);
-        createGrid(50);
-        createGrid(75);
-        createGrid(100);
+        createGrid(75000000);
+        createGrid(150000000);
+        createGrid(225000000);
+        createGrid(300000000);
       }
 
       const series = chartRef.current.series.push(new LineSeries());
@@ -106,9 +105,6 @@ export const TokenomicsUnlockChart: React.VFC<TokenomicsUnlockChartProps> = (
 
       series.stroke = color(field.color);
       series.strokeWidth = 2;
-
-      chartRef.current.cursor = new XYCursor();
-      chartRef.current.cursor.xAxis = dateAxis;
     });
 
     legend.data = props.dataFields.map((seriesitem) => {
