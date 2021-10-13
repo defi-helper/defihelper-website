@@ -11,7 +11,6 @@ import {
   LineSeries,
   ValueAxis,
   XYChart,
-  XYCursor,
   Legend
 } from '@amcharts/amcharts4/charts';
 import React, { useEffect, useRef } from 'react';
@@ -58,10 +57,6 @@ export const TokenomicsReleaseChart: React.VFC<TokenomicsReleaseChartProps> = (
     dateAxis.renderer.labels.template.durationFormatter.outputFormat =
       'MM-yyyy';
 
-    const legend = new Legend();
-
-    chartRef.current.legend = legend;
-
     chartRef.current.data = props.data;
 
     props.dataFields.forEach((field, index) => {
@@ -76,10 +71,8 @@ export const TokenomicsReleaseChart: React.VFC<TokenomicsReleaseChartProps> = (
 
       valueAxis.userClassName = styles.percent;
 
-      valueAxis.width = 7;
-
       valueAxis.min = 0;
-      valueAxis.max = 600;
+      valueAxis.max = 1000000000;
       valueAxis.strictMinMax = true;
 
       valueAxis.renderer.grid.template.disabled = true;
@@ -88,15 +81,15 @@ export const TokenomicsReleaseChart: React.VFC<TokenomicsReleaseChartProps> = (
       function createGrid(value: number) {
         const range = valueAxis.axisRanges.create();
         range.value = value;
-        range.label.text = '{value}M';
+        range.label.text = '{value}';
       }
 
       if (!index) {
         createGrid(0);
-        createGrid(150);
-        createGrid(300);
-        createGrid(450);
-        createGrid(600);
+        createGrid(250000000);
+        createGrid(500000000);
+        createGrid(750000000);
+        createGrid(1000000000);
       }
 
       const series = chartRef.current.series.push(new LineSeries());
@@ -106,32 +99,34 @@ export const TokenomicsReleaseChart: React.VFC<TokenomicsReleaseChartProps> = (
 
       series.stroke = color(field.color);
       series.strokeWidth = 2;
-
-      chartRef.current.cursor = new XYCursor();
-      chartRef.current.cursor.xAxis = dateAxis;
     });
 
-    legend.data = props.dataFields.map((seriesitem) => {
-      return {
-        name: seriesitem.valueY,
-        fill: color(seriesitem.color)
-      };
-    });
+    if (props.dataFields.length > 1) {
+      const legend = new Legend();
 
-    chartRef.current.legend.userClassName = styles.percent;
+      legend.data = props.dataFields.map((seriesitem) => {
+        return {
+          name: seriesitem.valueY,
+          fill: color(seriesitem.color)
+        };
+      });
 
-    chartRef.current.legend.markers.template.height = 12;
-    chartRef.current.legend.markers.template.width = 32;
+      legend.userClassName = styles.percent;
 
-    const marker =
-      chartRef.current.legend.markers.template.children.getIndex(0);
-    if (marker) {
-      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-      // @ts-ignore
-      marker.cornerRadius(0, 0, 0, 0);
+      legend.markers.template.height = 12;
+      legend.markers.template.width = 32;
+
+      const marker = legend.markers.template.children.getIndex(0);
+      if (marker) {
+        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+        // @ts-ignore
+        marker.cornerRadius(0, 0, 0, 0);
+      }
+
+      legend.contentAlign = 'left';
+
+      chartRef.current.legend = legend;
     }
-
-    legend.contentAlign = 'left';
 
     return () => {
       chartRef.current?.dispose();

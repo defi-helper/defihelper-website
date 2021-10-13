@@ -11,7 +11,7 @@ import vlad_komissarov from 'src/assets/images/team/vlad_komissarov.png';
 import artem_tolkachev from 'src/assets/images/team/artem_tolkachev.png';
 import bondappetit from 'src/assets/images/team/bondappetit.png';
 import dream_team from 'src/assets/images/team/dream_team.png';
-import max_bokov from 'src/assets/images/team/max_bokov.png';
+import ct_lek from 'src/assets/images/team/ct_lek.jpg';
 import waves from 'src/assets/images/team/waves.png';
 import join_us from 'src/assets/images/team/join_us.png';
 import ilya_munerman from 'src/assets/images/team/ilya_munerman.jpeg';
@@ -81,19 +81,12 @@ const TEAM: Array<Team> = [
     ]
   },
   {
-    photo: max_bokov,
-    name: 'Max Bokov',
-    role: 'Head Of Design',
+    photo: ct_lek,
+    name: 'CT Lek',
+    role: 'Community head',
     description:
-      'Max Bokov is a designer and art director with 8 years of experience. Over the last 3 years, he has created designs for several successful blockchain projects.',
-    actions: [
-      <ButtonBase>
-        <TwitterIcon />
-      </ButtonBase>,
-      <ButtonBase>
-        <LinkedInIcon />
-      </ButtonBase>
-    ]
+      'Been in the space since double-digit ETH, Lek is a DeFi believer with 10 years of consultancy experience to funds and multinational corporations.',
+    actions: []
   },
   {
     photo: ilya_munerman,
