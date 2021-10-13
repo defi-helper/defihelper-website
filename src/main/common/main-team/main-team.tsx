@@ -10,11 +10,11 @@ import { Button } from 'src/common/button';
 import vlad_komissarov from 'src/assets/images/team/vlad_komissarov.png';
 import artem_tolkachev from 'src/assets/images/team/artem_tolkachev.png';
 import bondappetit from 'src/assets/images/team/bondappetit.png';
-import dream_team from 'src/assets/images/team/dream_team.png';
 import ct_lek from 'src/assets/images/team/ct_lek.jpg';
 import waves from 'src/assets/images/team/waves.png';
 import join_us from 'src/assets/images/team/join_us.png';
 import ilya_munerman from 'src/assets/images/team/ilya_munerman.jpeg';
+import igor_varnavsky from 'src/assets/images/team/igor_varnavsky.jpg';
 import { ReactComponent as TwitterIcon } from 'src/assets/icons/social/twitter.svg';
 import { ReactComponent as LinkedInIcon } from 'src/assets/icons/social/linkedin.svg';
 import { ButtonBase } from 'src/common/button-base';
@@ -104,7 +104,7 @@ const TEAM: Array<Team> = [
     ]
   },
   {
-    photo: dream_team,
+    photo: igor_varnavsky,
     name: 'Igor Varnavsky',
     role: 'CMO',
     description:
