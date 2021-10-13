@@ -82,10 +82,10 @@ const TEAM: Array<Team> = [
   },
   {
     photo: max_bokov,
-    name: 'Max Bokov',
-    role: 'Head Of Design',
+    name: '---',
+    role: '---',
     description:
-      'Max Bokov is a designer and art director with 8 years of experience. Over the last 3 years, he has created designs for several successful blockchain projects.',
+      '---',
     actions: [
       <ButtonBase>
         <TwitterIcon />
@@ -100,7 +100,7 @@ const TEAM: Array<Team> = [
     name: 'Ilya Munerman',
     role: 'Head of R&D',
     description:
-      'Ilya Munerman, Head of R&D, is in charge of mathematical modelling in economy. He has developed various models, for example, fraud scores, credit scores suggestion systems and roboadvisors.  He combines science and business activity to provide modern solutions for achieving the best results.',
+      'Ilya Munerman is in charge of mathematical modelling in economy. He has developed various models, for example, fraud scores, credit scores suggestion systems and roboadvisors.  He combines science and business activity to provide modern solutions for achieving the best results.',
     actions: [
       <ButtonBase>
         <TwitterIcon />

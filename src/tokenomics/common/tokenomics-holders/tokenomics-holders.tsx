@@ -44,7 +44,7 @@ export const TokenomicsHolders: React.VFC<TokenomicsHoldersProps> = (props) => {
         variant="h2"
         className={styles.title}
       >
-        DFH will be community-governed
+        DFH will govern
       </Typography>
       <div className={styles.grid}>
         {DATA.map((dataItem) => (

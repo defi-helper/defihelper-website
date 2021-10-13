@@ -44,7 +44,7 @@ export const CollectedProgress: React.VFC<CollectedProgressProps> = (props) => {
           className={styles.topTitle}
         >
           <span>
-            {bignumberUtils.format(fees)} / ${MAX} FEES COLLECTED
+            {bignumberUtils.format(fees)} / {MAX} ETH FEES COLLECTED
           </span>
           <Link
             as={ReactRouterLink}
@@ -68,8 +68,8 @@ export const CollectedProgress: React.VFC<CollectedProgressProps> = (props) => {
       </div>
       {props.topTitle && (
         <Typography className={styles.description}>
-          The DFH token will be launched only after the protocol collects at
-          least 8 ETH in fees as proof of concept
+          The DFH token will be launched only after the protocol collects some
+          amount of fees as proof of concept
         </Typography>
       )}
       {props.bottomTitle && (
@@ -79,7 +79,7 @@ export const CollectedProgress: React.VFC<CollectedProgressProps> = (props) => {
           variant="body2"
           className={styles.bottomTitle}
         >
-          {bignumberUtils.format(fees)}/${MAX} FEES COLLECTED
+          {bignumberUtils.format(fees)}/{MAX} ETH FEES COLLECTED
         </Typography>
       )}
     </div>

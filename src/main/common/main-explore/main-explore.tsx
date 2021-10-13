@@ -51,21 +51,21 @@ export const MainExplore: React.VFC<MainExploreProps> = (props) => {
               <ul className={styles.list}>
                 <li className={styles.listItem}>
                   <Typography className={styles.listItemTitle}>
-                    Circulating supply (first year)
+                    Estimated circulating supply
                   </Typography>
-                  <Typography>316,007,280 DFH</Typography>
+                  <Typography>520,000,000 DFH</Typography>
                 </li>
                 <li className={styles.listItem}>
                   <Typography className={styles.listItemTitle}>
                     Total Supply
                   </Typography>
-                  <Typography>1000,000,000 DFH</Typography>
+                  <Typography>1,000,000,000 DFH</Typography>
                 </li>
                 <li className={styles.listItem}>
                   <Typography className={styles.listItemTitle}>
                     Max supply
                   </Typography>
-                  <Typography>1000,000,000 DFH</Typography>
+                  <Typography>1,000,000,000 DFH</Typography>
                 </li>
               </ul>
             </Paper>
@@ -74,8 +74,8 @@ export const MainExplore: React.VFC<MainExploreProps> = (props) => {
             <Paper className={styles.colContent}>
               {props.progress}
               <Typography className={styles.listItemDescription}>
-                The DFH token will be launched only after the protocol collects
-                at least 8 ETH in fees as proof of concept.
+                The DFH token will be launched only after the protocol will
+                collect fees as a proof of concept
               </Typography>
               <Button
                 variant="outlined"
