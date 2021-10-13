@@ -21,17 +21,17 @@ export type MainTableProps = {
 const HEAD = [
   'Feature',
   'DeFiHelper',
-  'AutoFarm',
   'InstaDapp',
   'Zerion',
-  'Dbank'
+  'DeBank',
+  'AutoFarm',
 ];
 
 const BODY = {
-  PortfolioTracker: [1, 0, 0, 0, 1],
-  Autostaking: [1, 0, 1, 0, 0],
-  Notifications: [1, 1, 0, 0, 1],
-  Automations: [1, 0, 0, 1, 0],
+  'Portfolio Tracker': [1, 1, 1, 1, 0],
+  'Autostaking': [1, 1, 0, 0, 0],
+  'Notifications': [1, 0, 0, 1, 1],
+  'Automations': [1, 0, 1, 0, 0],
 };
 
 export const MainTable: React.VFC<MainTableProps> = (props) => {
