@@ -19,19 +19,19 @@ export type MainTableProps = {
 };
 
 const HEAD = [
-  'Application',
-  'Portfolio Tracker',
-  'Autostaking',
-  'Notifications',
-  'Scenarios Automation'
+  'Feature',
+  'DeFiHelper',
+  'InstaDapp',
+  'Zerion',
+  'DeBank',
+  'AutoFarm',
 ];
 
 const BODY = {
-  DeFiHelper: [1, 1, 1, 1],
-  Zapper: [1, 0, 0, 0],
-  InstaDapp: [0, 1, 0, 0],
-  Protocol: [0, 0, 0, 1],
-  Onemore: [0, 0, 1, 0]
+  'Portfolio Tracker': [1, 1, 1, 1, 0],
+  'Autostaking': [1, 1, 0, 0, 0],
+  'Notifications': [1, 0, 0, 1, 1],
+  'Automations': [1, 0, 1, 0, 0],
 };
 
 export const MainTable: React.VFC<MainTableProps> = (props) => {

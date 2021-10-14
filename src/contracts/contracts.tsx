@@ -6,6 +6,7 @@ import { MarkdownCode } from 'src/common/markdown-code';
 import { LandingLayout } from 'src/layouts';
 import { Grid } from 'src/common/grid';
 import { Typography } from 'src/common/typography';
+import { Head } from 'src/common/head';
 
 type ContractsType = typeof contracts[keyof typeof contracts];
 
@@ -20,6 +21,7 @@ export const Contracts: React.VFC = () => {
 
   return (
     <LandingLayout>
+      <Head title="Contracts" />
       <Grid.Container>
         {currentNetworkContracts &&
           Object.entries(currentNetworkContracts).map(

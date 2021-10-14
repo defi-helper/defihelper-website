@@ -12,25 +12,28 @@ export type TokenomicsProfitProps = {
 
 const DATA = [
   {
-    title: 'Autostaking fees',
+    title: 'No-code automation',
     description:
-      'DFH charges 5% from the profits made with autostaking. We earn only when you do.',
-    estimate: '$732,812.50 / month'
+      'DFH charges 1$ for every completed launch of automation.',
+    estimate: '$4,000,000 / first year'
   },
 
   {
     title: 'Notifications',
     description:
-      'Notifications are available in batches, starting from 0.01 ETH per 1000 messages',
-    estimate: '$105,000 / month'
+      'Notifications are available in batches, starting from 10$ (in ETH)' +
+      ' per 1000 messages',
+    estimate: '$450,000 / first year'
   },
 
   {
-    title: 'No-code automation',
+    title: 'Scenarios marketplace',
     description:
-      'Automations are available in batches, starting from 0.01 ETH per 1000 actions.',
-    estimate: '$112,000 / month'
-  }
+      'We and author of scenario will earn fee when scenario launched by ' +
+      'other user',
+    estimate: '(soon)'
+  },
+
 ];
 
 export const TokenomicsProfit: React.VFC<TokenomicsProfitProps> = (props) => {

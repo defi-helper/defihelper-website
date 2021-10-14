@@ -31,20 +31,18 @@ export const cell = style({
       width: '15%'
     },
     '&:nth-child(2)': {
-      width: '20%'
+      width: '5%'
     },
     '&:nth-child(3)': {
       color: theme.palette.grey1,
-      width: '25%'
+      width: '15%'
     },
     '&:nth-child(4)': {
       color: theme.palette.grey1,
-      width: '20%'
+      width: '10%'
     },
     '&:nth-child(5)': {
-      color: theme.palette.grey1,
-      width: '20%',
-      textAlign: 'right'
+      width: '55%',
     }
   }
 });

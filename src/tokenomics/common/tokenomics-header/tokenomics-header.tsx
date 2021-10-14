@@ -48,7 +48,7 @@ export const TokenomicsHeader: React.VFC<TokenomicsHeaderProps> = (props) => {
         <Paper className={styles.grid}>
           <div className={styles.col}>
             <Typography as="h3" className={styles.factoidTitle}>
-              Circulating supply (first year)
+              Circulating supply
             </Typography>
             <Typography
               family="mono"

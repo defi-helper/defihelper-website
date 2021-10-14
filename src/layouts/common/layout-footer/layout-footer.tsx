@@ -42,13 +42,13 @@ const PROTOCOL = [
     target: '_blank'
   },
   {
-    title: 'Math behind DFH',
+    title: '!!!!! Math behind DFH',
     link: '/',
     target: ''
   },
   {
     title: 'Contracts',
-    link: '/',
+    link: '/contracts',
     target: ''
   }
 ];
@@ -57,13 +57,13 @@ const SOCIAL = [
   {
     title: 'News channel (EN)',
     icon: TelegramIcon,
-    link: 'https://t.me/defi_helper',
+    link: 'https://t.me/defihelper_news',
     target: '_blank'
   },
   {
     title: 'News channel (RU)',
     icon: TelegramIcon,
-    link: 'https://t.me/defi_helper_news_ru',
+    link: 'https://t.me/defihelper_news_ru',
     target: '_blank'
   },
   {
@@ -81,32 +81,32 @@ const SOCIAL = [
   {
     title: 'Twitter',
     icon: TwitterIcon,
-    link: '/',
-    target: ''
+    link: 'https://twitter.com/defihelper',
+    target: '_blank'
   },
   {
     title: 'Discord',
     icon: DiscordIcon,
-    link: '/',
-    target: ''
+    link: 'https://discord.gg/EjEqqTYm',
+    target: '_blank'
   },
   {
     title: 'Medium',
     icon: MediumIcon,
-    link: '/',
-    target: ''
+    link: 'https://defihelper.medium.com\n',
+    target: '_blank'
   },
   {
     title: 'Github',
     icon: GithubIcon,
-    link: '/',
-    target: ''
+    link: 'https://github.com/defi-helper',
+    target: '_blank'
   },
   {
     title: 'Email',
     icon: TelegramIcon,
-    link: '/',
-    target: ''
+    link: 'mailto:hello@defihelper.io',
+    target: '_blank'
   }
 ];
 

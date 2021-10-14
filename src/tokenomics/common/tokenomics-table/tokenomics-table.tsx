@@ -17,69 +17,79 @@ export type TokenomicsTableProps = {
 };
 
 const HEAD = [
-  '%',
   'Reward Item',
-  'Description',
+  '%',
   'Destribution period',
-  'DFH Amount'
+  'DFH Amount',
+  'Description',
 ];
 
 const BODY = [
   [
-    '30%',
     'Development grants',
-    'Integer sagittis euismod vitae penatibus libero, facilisi. Nulla elit suspendisse mauris fringilla turpis posuere. ',
-    '3 years',
-    '300,000,000'
+    '30%',
+    '3 years (on demand)',
+    '300,000,000',
+    'Привлечение внешних разработчиков для развития функциональности ' +
+    'протокола. Подключение новых протоколов, блокчейнов, разработка ' +
+    'и доработка текущий сценариев автоматизации. Основная цель - ' +
+    'привлечение новых пользователей с целью увеличения комиссий протокола.',
   ],
   [
-    '19%',
     'Core contributors',
-    'Faucibus amet, cum sit consequat ipsum velit aliquam non. Turpis faucibus dui nunc, non.',
+    '19%',
     '1-year vesting',
-    '190,000,000'
+    '190,000,000',
+    'Разработка корневого функционала, управление протоколом в первый год.' +
+    'Основная цель - обеспечить развитие и бесперебойное функционирование' +
+    'протокола',
   ],
   [
-    '15%',
     'Early investors',
-    'Aliquet turpis egestas neque pharetra nec a neque libero luctus. Diam sagittis volutpat dignissim suscipit.',
+    '15%',
     '4 month moratorium on sale',
-    '150,000,000'
+    '150,000,000',
+    'Вознаграждение инвесторам, которые спонсировали разработку и запуск ' +
+    'протокола',
   ],
   [
-    '10%',
     'Marketing',
-    'Orci, non lorem blandit pretium nulla id. Diam imperdiet sed at sem sed morbi.',
-    '1 year',
-    '100,000,000'
-  ],
-  [
     '10%',
+    '1 year (on demand)',
+    '100,000,000',
+    'Выделение средств на маркетинговые активности с целью привлечения новых ' +
+    'пользоватлей, роста узнаваемости продукта и партнерские проекты',
+  ],
+  [
     'Liquidity rewards',
-    'Integer sagittis euismod vitae penatibus libero, facilisi. Nulla elit suspendisse mauris fringilla turpis posuere. ',
-    '1 year',
-    '100,000,000'
+    '10%',
+    '1 year (on demand)',
+    '100,000,000',
+    'Вознаграждение провайдерам ликвидности для обеспечения возможности ' +
+    'обмена токена DFH. Основная цель - создать рынок для участников протокола',
   ],
   [
-    '8%',
     'Early ecosystem reward',
-    'Faucibus amet, cum sit consequat ipsum velit aliquam non. Turpis faucibus dui nunc, non.',
-    '1 month with 6-month vesting',
-    '80,000,000'
+    '8%',
+    '6 month vesting',
+    '80,000,000',
+    'Бонус ранним пользователям, которые воспользовались протоколом и ' +
+    'порекменодвали наш продукт своим друзьям.',
   ],
   [
-    '7%',
     'Community grants',
-    'Aliquet turpis egestas neque pharetra nec a neque libero luctus. Diam sagittis volutpat dignissim suscipit.',
-    '1-year vesting',
-    '70,000,000'
+    '7%',
+    '1-year (on demand)',
+    '70,000,000',
+    'Вознаграждение за обеспечение стабильного роста количества участников' +
+    ' протокола',
   ],
   [
-    '1%',
     'Core contributors Launch Bonus',
-    'Orci, non lorem blandit pretium nulla id. Diam imperdiet sed at sem sed morbi.',
+    '1%',
     '1 month moratorium on sale',
-    '10,000,000'
+    '10,000,000',
+    'Символический бонус корневой команде за запуск протокола',
   ]
 ];
 
