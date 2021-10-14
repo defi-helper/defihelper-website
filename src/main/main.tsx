@@ -4,10 +4,7 @@ import { useThrottle } from 'react-use';
 import { useDialog } from 'src/common/dialog';
 import { ContactAnnounce } from 'src/contacts/contact-announce';
 import { ContactSuccess } from 'src/contacts/contact-success';
-import {
-  useProtocolsQuery,
-  useRestakeStrategyQuery
-} from 'src/graphql/_generated-hooks';
+import { useRestakeStrategyQuery } from 'src/graphql/_generated-hooks';
 import { LandingLayout } from 'src/layouts';
 import { FaqText } from 'src/common/faq-text';
 import { CollectedProgress } from 'src/collected-progress';
@@ -17,7 +14,6 @@ import {
   MainEditor,
   MainExplore,
   MainHeader,
-  MainProtocols,
   MainServices,
   MainTable,
   MainTeam
@@ -35,8 +31,6 @@ export const Main: React.VFC = () => {
     useMemo(() => [sum, apy / 100], [sum, apy]),
     500
   );
-
-  const [{ data: protocolsData }] = useProtocolsQuery();
   const [{ data }] = useRestakeStrategyQuery({
     variables: { balance: throttledSum, apy: throttledApy }
   });
@@ -87,10 +81,6 @@ export const Main: React.VFC = () => {
         }
       />
       <MainEditor className={styles.section} />
-      <MainProtocols
-        className={styles.section}
-        protocols={protocolsData?.protocols.list}
-      />
       <MainTable className={styles.section} />
       <MainTeam className={styles.section} />
       <FaqText className={styles.section} />
