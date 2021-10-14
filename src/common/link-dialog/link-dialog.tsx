@@ -50,7 +50,7 @@ export const LinkDialog: React.FC<LinkDialogProps> = () => {
         </Button>
       )}
       {[config.PANCAKESWAP_URL, config.UNISWAP_URL, config.WAVES_URL].some(
-        (link) => link !== undefined
+        (link) => link === undefined
       ) && (
         <Typography align="center" transform="uppercase" family="mono">
           DFH does not sale yet

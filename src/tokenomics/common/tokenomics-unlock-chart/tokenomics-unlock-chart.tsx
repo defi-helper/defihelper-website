@@ -137,7 +137,7 @@ export const TokenomicsUnlockChart: React.VFC<TokenomicsUnlockChartProps> = (
 
   return (
     <div className={styles.root}>
-      <Typography className={styles.title}>Token Unlock Schedule</Typography>
+      <Typography className={styles.title}>Total unlock schedule</Typography>
       <div id={id} className={styles.chart} />
     </div>
   );

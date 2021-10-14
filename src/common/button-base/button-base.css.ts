@@ -1,4 +1,5 @@
 import { style } from '@vanilla-extract/css';
+import { theme } from '../theme';
 
 export const root = style({
   display: 'inline-flex',
@@ -12,7 +13,16 @@ export const root = style({
   outline: 0,
   fontFamily: 'inherit',
   color: 'currentColor',
-  textDecoration: 'none'
+  textDecoration: 'none',
+  transition: 'opacity .3s ease-in-out',
+
+  '@media': {
+    [theme.mediaQueries.hover()]: {
+      ':hover': {
+        opacity: 0.75
+      }
+    }
+  }
 });
 
 export const disabled = style({

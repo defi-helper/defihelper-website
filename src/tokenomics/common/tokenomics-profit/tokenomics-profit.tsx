@@ -13,27 +13,22 @@ export type TokenomicsProfitProps = {
 const DATA = [
   {
     title: 'No-code automation',
-    description:
-      'DFH charges 1$ for every completed launch of automation.',
+    description: 'DFH charges $1 per executed action',
     estimate: '$4,000,000 / first year'
   },
 
   {
     title: 'Notifications',
-    description:
-      'Notifications are available in batches, starting from 10$ (in ETH)' +
-      ' per 1000 messages',
+    description: `Notifications are available in batches, starting from $10 (in ETH) per 1,000 messages`,
     estimate: '$450,000 / first year'
   },
 
   {
     title: 'Scenarios marketplace',
-    description:
-      'We and author of scenario will earn fee when scenario launched by ' +
-      'other user',
+    description: `The protocol and the authors of the provided strategies will
+      earn commissions from the application of the strategies by other users`,
     estimate: '(soon)'
-  },
-
+  }
 ];
 
 export const TokenomicsProfit: React.VFC<TokenomicsProfitProps> = (props) => {

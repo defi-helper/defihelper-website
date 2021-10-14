@@ -19,8 +19,8 @@ const UNLOCK_DATA = [
     'Community grants': '0',
     'Core contributors': '0',
     'Early investors': '0',
-    'Early ecosystem reward': '0',
-    'Core contributors Launch Bonus': '0',
+    'Early ecosystem rewards': '0',
+    'Core contributors launch bonus': '0',
     date: new Date(2021, 11, 1)
   },
   {
@@ -30,8 +30,8 @@ const UNLOCK_DATA = [
     'Community grants': '0',
     'Core contributors': '0',
     'Early investors': '0',
-    'Early ecosystem reward': '0',
-    'Core contributors Launch Bonus': '0',
+    'Early ecosystem rewards': '0',
+    'Core contributors launch bonus': '0',
     date: new Date(2021, 12, 1)
   },
 
@@ -42,8 +42,8 @@ const UNLOCK_DATA = [
     'Community grants': '5833333.33333333',
     'Core contributors': '15833333.3333333',
     'Early investors': '0',
-    'Early ecosystem reward': '13333333.3333333',
-    'Core contributors Launch Bonus': '0',
+    'Early ecosystem rewards': '13333333.3333333',
+    'Core contributors launch bonus': '0',
     date: new Date(2022, 1, 1)
   },
   {
@@ -53,8 +53,8 @@ const UNLOCK_DATA = [
     'Community grants': '11666666.6666667',
     'Core contributors': '31666666.6666666',
     'Early investors': '150000000',
-    'Early ecosystem reward': '26666666.6666666',
-    'Core contributors Launch Bonus': '10000000',
+    'Early ecosystem rewards': '26666666.6666666',
+    'Core contributors launch bonus': '10000000',
     date: new Date(2022, 2, 1)
   },
   {
@@ -64,8 +64,8 @@ const UNLOCK_DATA = [
     'Community grants': '17500000',
     'Core contributors': '47499999.9999999',
     'Early investors': '150000000',
-    'Early ecosystem reward': '39999999.9999999',
-    'Core contributors Launch Bonus': '10000000',
+    'Early ecosystem rewards': '39999999.9999999',
+    'Core contributors launch bonus': '10000000',
     date: new Date(2022, 3, 1)
   },
   {
@@ -75,8 +75,8 @@ const UNLOCK_DATA = [
     'Community grants': '23333333.3333333',
     'Core contributors': '63333333.3333332',
     'Early investors': '150000000',
-    'Early ecosystem reward': '53333333.3333332',
-    'Core contributors Launch Bonus': '10000000',
+    'Early ecosystem rewards': '53333333.3333332',
+    'Core contributors launch bonus': '10000000',
     date: new Date(2022, 4, 1)
   },
   {
@@ -86,8 +86,8 @@ const UNLOCK_DATA = [
     'Community grants': '29166666.6666666',
     'Core contributors': '79166666.6666665',
     'Early investors': '150000000',
-    'Early ecosystem reward': '66666666.6666665',
-    'Core contributors Launch Bonus': '10000000',
+    'Early ecosystem rewards': '66666666.6666665',
+    'Core contributors launch bonus': '10000000',
     date: new Date(2022, 5, 1)
   },
   {
@@ -97,8 +97,8 @@ const UNLOCK_DATA = [
     'Community grants': '34999999.9999999',
     'Core contributors': '94999999.9999998',
     'Early investors': '150000000',
-    'Early ecosystem reward': '79999999.9999998',
-    'Core contributors Launch Bonus': '10000000',
+    'Early ecosystem rewards': '79999999.9999998',
+    'Core contributors launch bonus': '10000000',
     date: new Date(2022, 6, 1)
   },
   {
@@ -108,8 +108,8 @@ const UNLOCK_DATA = [
     'Community grants': '40833333.3333332',
     'Core contributors': '110833333.333333',
     'Early investors': '150000000',
-    'Early ecosystem reward': '79999999.9999998',
-    'Core contributors Launch Bonus': '10000000',
+    'Early ecosystem rewards': '79999999.9999998',
+    'Core contributors launch bonus': '10000000',
     date: new Date(2022, 7, 1)
   },
   {
@@ -119,8 +119,8 @@ const UNLOCK_DATA = [
     'Community grants': '46666666.6666665',
     'Core contributors': '126666666.666666',
     'Early investors': '150000000',
-    'Early ecosystem reward': '79999999.9999998',
-    'Core contributors Launch Bonus': '10000000',
+    'Early ecosystem rewards': '79999999.9999998',
+    'Core contributors launch bonus': '10000000',
     date: new Date(2022, 8, 1)
   },
   {
@@ -130,8 +130,8 @@ const UNLOCK_DATA = [
     'Community grants': '52499999.9999998',
     'Core contributors': '142499999.999999',
     'Early investors': '150000000',
-    'Early ecosystem reward': '79999999.9999998',
-    'Core contributors Launch Bonus': '10000000',
+    'Early ecosystem rewards': '79999999.9999998',
+    'Core contributors launch bonus': '10000000',
     date: new Date(2022, 9, 1)
   },
   {
@@ -141,8 +141,8 @@ const UNLOCK_DATA = [
     'Community grants': '58333333.3333331',
     'Core contributors': '158333333.333332',
     'Early investors': '150000000',
-    'Early ecosystem reward': '79999999.9999998',
-    'Core contributors Launch Bonus': '10000000',
+    'Early ecosystem rewards': '79999999.9999998',
+    'Core contributors launch bonus': '10000000',
     date: new Date(2022, 10, 1)
   },
   {
@@ -152,8 +152,8 @@ const UNLOCK_DATA = [
     'Community grants': '64166666.6666664',
     'Core contributors': '174166666.666665',
     'Early investors': '150000000',
-    'Early ecosystem reward': '79999999.9999998',
-    'Core contributors Launch Bonus': '10000000',
+    'Early ecosystem rewards': '79999999.9999998',
+    'Core contributors launch bonus': '10000000',
     date: new Date(2022, 11, 1)
   },
   {
@@ -163,8 +163,8 @@ const UNLOCK_DATA = [
     'Community grants': '69999999.9999997',
     'Core contributors': '189999999.999998',
     'Early investors': '150000000',
-    'Early ecosystem reward': '79999999.9999998',
-    'Core contributors Launch Bonus': '10000000',
+    'Early ecosystem rewards': '79999999.9999998',
+    'Core contributors launch bonus': '10000000',
     date: new Date(2022, 12, 1)
   },
 
@@ -175,8 +175,8 @@ const UNLOCK_DATA = [
     'Community grants': '69999999.9999997',
     'Core contributors': '189999999.999998',
     'Early investors': '150000000',
-    'Early ecosystem reward': '79999999.9999998',
-    'Core contributors Launch Bonus': '10000000',
+    'Early ecosystem rewards': '79999999.9999998',
+    'Core contributors launch bonus': '10000000',
     date: new Date(2023, 1, 1)
   },
   {
@@ -186,8 +186,8 @@ const UNLOCK_DATA = [
     'Community grants': '69999999.9999997',
     'Core contributors': '189999999.999998',
     'Early investors': '150000000',
-    'Early ecosystem reward': '79999999.9999998',
-    'Core contributors Launch Bonus': '10000000',
+    'Early ecosystem rewards': '79999999.9999998',
+    'Core contributors launch bonus': '10000000',
     date: new Date(2023, 2, 1)
   },
   {
@@ -197,8 +197,8 @@ const UNLOCK_DATA = [
     'Community grants': '69999999.9999997',
     'Core contributors': '189999999.999998',
     'Early investors': '150000000',
-    'Early ecosystem reward': '79999999.9999998',
-    'Core contributors Launch Bonus': '10000000',
+    'Early ecosystem rewards': '79999999.9999998',
+    'Core contributors launch bonus': '10000000',
     date: new Date(2023, 3, 1)
   },
   {
@@ -208,8 +208,8 @@ const UNLOCK_DATA = [
     'Community grants': '69999999.9999997',
     'Core contributors': '189999999.999998',
     'Early investors': '150000000',
-    'Early ecosystem reward': '79999999.9999998',
-    'Core contributors Launch Bonus': '10000000',
+    'Early ecosystem rewards': '79999999.9999998',
+    'Core contributors launch bonus': '10000000',
     date: new Date(2023, 4, 1)
   },
   {
@@ -219,8 +219,8 @@ const UNLOCK_DATA = [
     'Community grants': '69999999.9999997',
     'Core contributors': '189999999.999998',
     'Early investors': '150000000',
-    'Early ecosystem reward': '79999999.9999998',
-    'Core contributors Launch Bonus': '10000000',
+    'Early ecosystem rewards': '79999999.9999998',
+    'Core contributors launch bonus': '10000000',
     date: new Date(2023, 5, 1)
   },
   {
@@ -230,8 +230,8 @@ const UNLOCK_DATA = [
     'Community grants': '69999999.9999997',
     'Core contributors': '189999999.999998',
     'Early investors': '150000000',
-    'Early ecosystem reward': '79999999.9999998',
-    'Core contributors Launch Bonus': '10000000',
+    'Early ecosystem rewards': '79999999.9999998',
+    'Core contributors launch bonus': '10000000',
     date: new Date(2023, 6, 1)
   },
   {
@@ -241,8 +241,8 @@ const UNLOCK_DATA = [
     'Community grants': '69999999.9999997',
     'Core contributors': '189999999.999998',
     'Early investors': '150000000',
-    'Early ecosystem reward': '79999999.9999998',
-    'Core contributors Launch Bonus': '10000000',
+    'Early ecosystem rewards': '79999999.9999998',
+    'Core contributors launch bonus': '10000000',
     date: new Date(2023, 7, 1)
   },
   {
@@ -252,8 +252,8 @@ const UNLOCK_DATA = [
     'Community grants': '69999999.9999997',
     'Core contributors': '189999999.999998',
     'Early investors': '150000000',
-    'Early ecosystem reward': '79999999.9999998',
-    'Core contributors Launch Bonus': '10000000',
+    'Early ecosystem rewards': '79999999.9999998',
+    'Core contributors launch bonus': '10000000',
     date: new Date(2023, 8, 1)
   },
   {
@@ -263,8 +263,8 @@ const UNLOCK_DATA = [
     'Community grants': '69999999.9999997',
     'Core contributors': '189999999.999998',
     'Early investors': '150000000',
-    'Early ecosystem reward': '79999999.9999998',
-    'Core contributors Launch Bonus': '10000000',
+    'Early ecosystem rewards': '79999999.9999998',
+    'Core contributors launch bonus': '10000000',
     date: new Date(2023, 9, 1)
   },
   {
@@ -274,8 +274,8 @@ const UNLOCK_DATA = [
     'Community grants': '69999999.9999997',
     'Core contributors': '189999999.999998',
     'Early investors': '150000000',
-    'Early ecosystem reward': '79999999.9999998',
-    'Core contributors Launch Bonus': '10000000',
+    'Early ecosystem rewards': '79999999.9999998',
+    'Core contributors launch bonus': '10000000',
     date: new Date(2023, 10, 1)
   },
   {
@@ -285,8 +285,8 @@ const UNLOCK_DATA = [
     'Community grants': '69999999.9999997',
     'Core contributors': '189999999.999998',
     'Early investors': '150000000',
-    'Early ecosystem reward': '79999999.9999998',
-    'Core contributors Launch Bonus': '10000000',
+    'Early ecosystem rewards': '79999999.9999998',
+    'Core contributors launch bonus': '10000000',
     date: new Date(2023, 11, 1)
   },
   {
@@ -296,8 +296,8 @@ const UNLOCK_DATA = [
     'Community grants': '69999999.9999997',
     'Core contributors': '189999999.999998',
     'Early investors': '150000000',
-    'Early ecosystem reward': '79999999.9999998',
-    'Core contributors Launch Bonus': '10000000',
+    'Early ecosystem rewards': '79999999.9999998',
+    'Core contributors launch bonus': '10000000',
     date: new Date(2023, 12, 1)
   },
 
@@ -308,8 +308,8 @@ const UNLOCK_DATA = [
     'Community grants': '69999999.9999997',
     'Core contributors': '189999999.999998',
     'Early investors': '150000000',
-    'Early ecosystem reward': '79999999.9999998',
-    'Core contributors Launch Bonus': '10000000',
+    'Early ecosystem rewards': '79999999.9999998',
+    'Core contributors launch bonus': '10000000',
     date: new Date(2024, 1, 1)
   },
   {
@@ -319,8 +319,8 @@ const UNLOCK_DATA = [
     'Community grants': '69999999.9999997',
     'Core contributors': '189999999.999998',
     'Early investors': '150000000',
-    'Early ecosystem reward': '79999999.9999998',
-    'Core contributors Launch Bonus': '10000000',
+    'Early ecosystem rewards': '79999999.9999998',
+    'Core contributors launch bonus': '10000000',
     date: new Date(2024, 2, 1)
   },
   {
@@ -330,8 +330,8 @@ const UNLOCK_DATA = [
     'Community grants': '69999999.9999997',
     'Core contributors': '189999999.999998',
     'Early investors': '150000000',
-    'Early ecosystem reward': '79999999.9999998',
-    'Core contributors Launch Bonus': '10000000',
+    'Early ecosystem rewards': '79999999.9999998',
+    'Core contributors launch bonus': '10000000',
     date: new Date(2024, 3, 1)
   },
   {
@@ -341,8 +341,8 @@ const UNLOCK_DATA = [
     'Community grants': '69999999.9999997',
     'Core contributors': '189999999.999998',
     'Early investors': '150000000',
-    'Early ecosystem reward': '79999999.9999998',
-    'Core contributors Launch Bonus': '10000000',
+    'Early ecosystem rewards': '79999999.9999998',
+    'Core contributors launch bonus': '10000000',
     date: new Date(2024, 4, 1)
   },
   {
@@ -352,8 +352,8 @@ const UNLOCK_DATA = [
     'Community grants': '69999999.9999997',
     'Core contributors': '189999999.999998',
     'Early investors': '150000000',
-    'Early ecosystem reward': '79999999.9999998',
-    'Core contributors Launch Bonus': '10000000',
+    'Early ecosystem rewards': '79999999.9999998',
+    'Core contributors launch bonus': '10000000',
     date: new Date(2024, 5, 1)
   },
   {
@@ -363,8 +363,8 @@ const UNLOCK_DATA = [
     'Community grants': '69999999.9999997',
     'Core contributors': '189999999.999998',
     'Early investors': '150000000',
-    'Early ecosystem reward': '79999999.9999998',
-    'Core contributors Launch Bonus': '10000000',
+    'Early ecosystem rewards': '79999999.9999998',
+    'Core contributors launch bonus': '10000000',
     date: new Date(2024, 6, 1)
   },
   {
@@ -374,8 +374,8 @@ const UNLOCK_DATA = [
     'Community grants': '69999999.9999997',
     'Core contributors': '189999999.999998',
     'Early investors': '150000000',
-    'Early ecosystem reward': '79999999.9999998',
-    'Core contributors Launch Bonus': '10000000',
+    'Early ecosystem rewards': '79999999.9999998',
+    'Core contributors launch bonus': '10000000',
     date: new Date(2024, 7, 1)
   },
   {
@@ -385,8 +385,8 @@ const UNLOCK_DATA = [
     'Community grants': '69999999.9999997',
     'Core contributors': '189999999.999998',
     'Early investors': '150000000',
-    'Early ecosystem reward': '79999999.9999998',
-    'Core contributors Launch Bonus': '10000000',
+    'Early ecosystem rewards': '79999999.9999998',
+    'Core contributors launch bonus': '10000000',
     date: new Date(2024, 8, 1)
   },
   {
@@ -396,8 +396,8 @@ const UNLOCK_DATA = [
     'Community grants': '69999999.9999997',
     'Core contributors': '189999999.999998',
     'Early investors': '150000000',
-    'Early ecosystem reward': '79999999.9999998',
-    'Core contributors Launch Bonus': '10000000',
+    'Early ecosystem rewards': '79999999.9999998',
+    'Core contributors launch bonus': '10000000',
     date: new Date(2024, 9, 1)
   }
 ];
@@ -434,12 +434,12 @@ const UNLOCK_DATA_FIELDS = [
     color: '#E9CC67'
   },
   {
-    valueY: 'Early ecosystem reward',
+    valueY: 'Early ecosystem rewards',
     dateX: 'date',
     color: '#F08BA9'
   },
   {
-    valueY: 'Core contributors Launch Bonus',
+    valueY: 'Core contributors launch bonus',
     dateX: 'date',
     color: '#E35137'
   }

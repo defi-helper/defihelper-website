@@ -39,7 +39,7 @@ DeFiHelper monitors and reports on sudden changes in profitability, important ma
 
   {
     title: 'How does DeFiHelper make money?',
-    body: `Part of DeFiHelper's functionality is available on a paid basis. It includes notifications ($10 per 1,000 messages) and automation ($1 per 1 actions).`
+    body: `Part of DeFiHelper's functionality is available on a paid basis. It includes notifications ($10 per 1,000 messages) and automation ($1 per executed action plus network fee).`
   },
 
   {
@@ -84,10 +84,10 @@ If you do not have any programming skills, you can help in other ways by creatin
 
 * 300,000,000 (30%) — grants for development during the first three years of operation.
 * 190,000,000 (19%) — team tokens with vesting for a period of one year.
-* 150,000,000 (15%) — tokens allocated for seed investors with a one year moratorium on sales.
+* 150,000,000 (15%) — tokens allocated for seed investors with a 4-month moratorium on sales.
 * 100,000,000 (10%) — marketing budget for the first year of operation.
 * 100,000,000 (10%) — tokens allocated for distribution through liquidity pools during the first year of operation.
-* 80,000,000 (8%) — bonus tokens for early adopters with vesting for a period of 18 months.
+* 80,000,000 (8%) — bonus tokens for early adopters with vesting for a period of 6 months.
 * 70,000,000 (7%) — grants for DeFiHelper Ambassadors.
 * 10,000,000 (1%) — bonus for the team following launch with a one year moratorium on sales.`
   },
@@ -105,12 +105,12 @@ If you do not have any programming skills, you can help in other ways by creatin
 
   {
     title: 'Why are DFH tokens not available yet?',
-    body: `We have decided to release the token onto the market only after the business model of the protocol has been validated. A progress bar on the main page of the DFH website indicates the amount of fees the protocol has collected. The token and the governance system will be launched when 3 ETH ($10,000 in ETH) have been collected.`
+    body: `We have decided to release the token onto the market only after the business model of the protocol has been validated. A progress bar on the main page of the DFH website indicates the amount of fees the protocol has collected. The token and the governance system will be launched when $10,000 in ETH have been collected.`
   },
 
   {
     title: 'What are the addresses of DFH smart contracts?',
-    body: `You can find all DFH smart contract addresses on the [following page](/contracts)`
+    body: `You can find all DFH smart contract addresses on the [Contracts](/contracts) page.`
   },
 
   {
@@ -119,7 +119,7 @@ If you do not have any programming skills, you can help in other ways by creatin
 
 * [Vladislav Komissarov](https://www.linkedin.com/in/vkomissarov/) is the founder and head of the project. CTO of [BondAppetit](https://bondappetit.io/). Vladislav has about 20 years of experience as a developer and technical director in many IT projects.
 * [Artem Tolkachev](https://www.linkedin.com/in/artemtolkachev/) is a co-founder and CBDO. Founder and CEO of BondAppetit. Formerly the Head of Blockchain Lab at Deloitte.
-* [Igor Varnavsky](https://www.linkedin.com/in/igor-varnavsky-9868aa1/) is the Marketing Director. He is a former employee of [Mango Insurance](https://www.linkedin.com/in/igor-varnavsky-9868aa1/) and [Mail.Ru Group](https://corp.mail.ru/ru/).
+* [Igor Varnavsky](https://www.linkedin.com/in/igor-varnavsky-9868aa1/) is the Marketing Director. He is a former employee of [Mango Insurance](https://mango.rocks/) and [VK](https://vk.company/).
 * [Ilya Munerman](https://www.linkedin.com/in/ilya-munerman-1936a027/) is the developer of the mathematical models used in DeFiHelper. He has a PhD in economics, leads the [Interfax](https://interfax.com/) scoring systems project, and works as an Assistant Professor at [New Economic School](https://www.nes.ru/ilya-munerman?lang=en) and [HSE University](https://re.hse.ru/expert/munerman).`
   }
 ];

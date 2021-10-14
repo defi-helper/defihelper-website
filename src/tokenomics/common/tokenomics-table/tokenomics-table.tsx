@@ -21,7 +21,7 @@ const HEAD = [
   '%',
   'Destribution period',
   'DFH Amount',
-  'Description',
+  'Description'
 ];
 
 const BODY = [
@@ -30,66 +30,58 @@ const BODY = [
     '30%',
     '3 years (on demand)',
     '300,000,000',
-    'Привлечение внешних разработчиков для развития функциональности ' +
-    'протокола. Подключение новых протоколов, блокчейнов, разработка ' +
-    'и доработка текущий сценариев автоматизации. Основная цель - ' +
-    'привлечение новых пользователей с целью увеличения комиссий протокола.',
+    `Grants for outsourced developers. The goal is to scale up the development of DFH — add new features,
+    connect new protocols and blockchains, and improve automation scripts — and as a result to increase the volume of protocol commissions.`
   ],
   [
     'Core contributors',
     '19%',
     '1-year vesting',
     '190,000,000',
-    'Разработка корневого функционала, управление протоколом в первый год.' +
-    'Основная цель - обеспечить развитие и бесперебойное функционирование' +
-    'протокола',
+    `Development of basic functionality and protocol governance during the first year of operation.
+    The main goal is to ensure the sustained development and proper operation of the protocol.`
   ],
   [
     'Early investors',
     '15%',
-    '4 month moratorium on sale',
+    '4-month moratorium on sale',
     '150,000,000',
-    'Вознаграждение инвесторам, которые спонсировали разработку и запуск ' +
-    'протокола',
+    `Rewards for seed investors who fund the development and launch of the protocol.`
   ],
   [
     'Marketing',
     '10%',
-    '1 year (on demand)',
+    '1-year (on demand)',
     '100,000,000',
-    'Выделение средств на маркетинговые активности с целью привлечения новых ' +
-    'пользоватлей, роста узнаваемости продукта и партнерские проекты',
+    `Marketing budget to expand audience reach, increase awareness about DFH, and work with partner projects.`
   ],
   [
     'Liquidity rewards',
     '10%',
-    '1 year (on demand)',
+    '1-year (on demand)',
     '100,000,000',
-    'Вознаграждение провайдерам ликвидности для обеспечения возможности ' +
-    'обмена токена DFH. Основная цель - создать рынок для участников протокола',
+    `Rewards for liquidity providers for creating a liquid DFH token market.`
   ],
   [
     'Early ecosystem reward',
     '8%',
-    '6 month vesting',
+    '6-month vesting',
     '80,000,000',
-    'Бонус ранним пользователям, которые воспользовались протоколом и ' +
-    'порекменодвали наш продукт своим друзьям.',
+    `Bonuses to early adopters for using the protocol and referring it to friends.`
   ],
   [
     'Community grants',
     '7%',
     '1-year (on demand)',
     '70,000,000',
-    'Вознаграждение за обеспечение стабильного роста количества участников' +
-    ' протокола',
+    `Rewards for helping with protocol promotion.`
   ],
   [
     'Core contributors Launch Bonus',
     '1%',
-    '1 month moratorium on sale',
+    '1-month moratorium on sale',
     '10,000,000',
-    'Символический бонус корневой команде за запуск протокола',
+    `A small bonus to the core team for protocol launch.`
   ]
 ];
 

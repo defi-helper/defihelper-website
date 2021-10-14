@@ -85,7 +85,7 @@ const TEAM: Array<Team> = [
     name: 'Igor Varnavsky',
     role: 'CMO',
     description:
-      'A long-time crypto proponent, Igor has 17 years of experience in journalism and 11 years of experience in marketing. Previously worked at Mango.Rocks, Mail.Ru Group',
+      'A long-time crypto proponent, Igor has 17 years of experience in journalism and 11 years of experience in marketing. Previously worked at Mango.Rocks, VK',
     actions: [
       <ButtonBase
         as={Link}
@@ -116,8 +116,16 @@ const TEAM: Array<Team> = [
     name: 'Ilya Munerman',
     role: 'Head of R&D',
     description:
-      'Ilya Munerman, is in charge of mathematical modelling in economy. He has developed various models, for example, fraud scores, credit scores suggestion systems and roboadvisors.',
-    actions: []
+      'Author of the DFH mathematical model. Head of Scoring and Analytics at Interfax, has a PhD in economics, and works as an Assistant Professor at New Economic School and HSE University.',
+    actions: [
+      <ButtonBase
+        as={Link}
+        href="https://www.linkedin.com/in/ilya-munerman-1936a027"
+        target="_blank"
+      >
+        <LinkedInIcon />
+      </ButtonBase>
+    ]
   },
   {
     photo: waves,

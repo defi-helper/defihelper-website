@@ -26,29 +26,29 @@ export const MainEditor: React.VFC<MainEditorProps> = (props) => {
               Build and Earn
             </Typography>
             <Typography className={styles.cardDescription}>
-              Мы прекрасно понимаем, что основной драйвер роста для нашего
-              протокола &mdash; это качество и скорость внедрения нового
-              функционала, добавление новых протоколов и блокчейнов.
+              It is crucial for DFH to move fast — add new features, connect new
+              protocols and blockchains, and upgrade automation scripts. For
+              speedy development, we need all the help we can get.
             </Typography>
             <Typography className={styles.cardDescription}>
-              Мы &mdash; профессиональные разработчики с опытом веб разработки
-              около 20 лет. Последние 5 лет мы занимаемся преимущественно
-              блокчейн проектами.
+              We are professional developers with over 20 years of combined web
+              development experience. Over the last five years, we have been
+              primarily engaged in the launch of blockchain projects.
             </Typography>
             <Typography className={styles.cardDescription}>
-              Нам интересно сотрудничество в следующих областях:
+              We are interested in cooperation on:
             </Typography>
             <Typography className={styles.cardDescription}>
-              1) Frontend development (TypeScript, NodeJS)
+              1) Front-end development (TypeScript, NodeJS)
               <br />
-              2) Backend development (TypeScript, NodeJS)
+              2) Back-end development (TypeScript, NodeJS)
               <br />
-              3) Blockchain development (Solidity, Ride и др.)
-              <br />
+              3) Blockchain development (Solidity, Ride, etc.)
             </Typography>
             <Typography className={styles.cardDescription}>
-              Нашли себя в этом списке и чувствуете свои силы и хотите
-              заработать? Свяжитесь с нами и мы обсудим детали.
+              If you find your competencies on this list and want to make some
+              good money, then please contact us and we will discuss the
+              details.
             </Typography>
             <Button variant="outlined">Become a Developer</Button>
           </div>
