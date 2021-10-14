@@ -4,6 +4,7 @@ import clsx from 'clsx';
 import { Typography } from 'src/common/typography';
 import { Faq } from 'src/common/faq';
 import { Grid } from 'src/common/grid';
+import articleEN from 'src/assets/pdf/defihelper-en.pdf';
 import * as styles from './faq-text.css';
 
 export type FaqTextProps = {
@@ -23,7 +24,7 @@ const FAQ = [
 
   {
     title: 'How exactly does DeFiHelper help earn more?',
-    body: `DeFiHelper can restake tokens automatically and helps users earn more using the power of compound interest. The mathematical model developed by the DFH team makes decisions based on fees, token prices, and other factors.
+    body: `DeFiHelper can restake tokens automatically and helps users earn more using the power of compound interest. [The mathematical model](${window.location.origin}${articleEN}) developed by the DFH team makes decisions based on fees, token prices, and other factors.
 
 Ready-made, high-yield investment strategies devised by other users can be applied (available soon) and followed. Users can also create their own strategies and earn a percentage of the profits received from the users who apply them.
 
@@ -33,7 +34,7 @@ DeFiHelper monitors and reports on sudden changes in profitability, important ma
   {
     title: 'What is the mathematical model behind DeFiHelper?',
     body: `The mathematical model developed by the DFH team manages portfolios more efficiently than any human ever could.
-    We have written a dedicated article about the algorithms applied in DeFiHelper.`
+    We have written [a dedicated article](${window.location.origin}${articleEN}) about the algorithms applied in DeFiHelper.`
   },
 
   {
