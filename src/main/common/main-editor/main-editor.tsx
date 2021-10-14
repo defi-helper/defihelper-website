@@ -39,13 +39,16 @@ export const MainEditor: React.VFC<MainEditorProps> = (props) => {
               Нам интересно сотрудничество в следующих областях:
             </Typography>
             <Typography className={styles.cardDescription}>
-              1) Frontend development (TypeScript, NodeJS)<br />
-              2) Backend development  (TypeScript, NodeJS)<br />
-              3) Blockchain development (Solidity, Ride и др.)<br />
+              1) Frontend development (TypeScript, NodeJS)
+              <br />
+              2) Backend development (TypeScript, NodeJS)
+              <br />
+              3) Blockchain development (Solidity, Ride и др.)
+              <br />
             </Typography>
             <Typography className={styles.cardDescription}>
-              Нашли себя в этом списке и чувствуете свои силы и хотите заработать?
-              Свяжитесь с нами и мы обсудим детали.
+              Нашли себя в этом списке и чувствуете свои силы и хотите
+              заработать? Свяжитесь с нами и мы обсудим детали.
             </Typography>
             <Button variant="outlined">Become a Developer</Button>
           </div>
@@ -53,19 +56,15 @@ export const MainEditor: React.VFC<MainEditorProps> = (props) => {
           <div className={styles.card}>
             <Typography variant="body2" className={styles.code} as="div">
               <div className={styles.numbers}>
-                {Array.from(Array(32)).map((_, i) => (
+                {Array.from(Array(24)).map((_, i) => (
                   <div key={String(i)}>{i + 1}</div>
                 ))}
               </div>
               <div>
-                function <span className={styles.green}>claim</span>(
-                &nbsp;
-                <span className={styles.blue}>address</span> account,
-                &nbsp;
-                <span className={styles.blue}>uint256</span> gasFee,
-                &nbsp;
-                <span className={styles.blue}>uint256</span> protocolFee,
-                &nbsp;
+                function <span className={styles.green}>claim</span>( &nbsp;
+                <span className={styles.blue}>address</span> account, &nbsp;
+                <span className={styles.blue}>uint256</span> gasFee, &nbsp;
+                <span className={styles.blue}>uint256</span> protocolFee, &nbsp;
                 <span className={styles.blue}>string</span>{' '}
                 <span className={styles.red}>memory</span> description
               </div>
@@ -117,14 +116,10 @@ export const MainEditor: React.VFC<MainEditorProps> = (props) => {
               <div>
                 &nbsp;bills[billCount] ={' '}
                 <span className={styles.brown}>Bill</span>
-                (&nbsp;&nbsp;billCount,
-                &nbsp;&nbsp;
+                (&nbsp;&nbsp;billCount, &nbsp;&nbsp;
                 <span className={styles.brown}>_msgSender</span>(),
-                &nbsp;&nbsp;account,
-                &nbsp;&nbsp;gasFee, &nbsp;&nbsp;
-                &nbsp;&nbsp;protocolFee,
-                &nbsp;&nbsp;BillStatus.Pending
-                &nbsp;);
+                &nbsp;&nbsp;account, &nbsp;&nbsp;gasFee, &nbsp;&nbsp;
+                &nbsp;&nbsp;protocolFee, &nbsp;&nbsp;BillStatus.Pending &nbsp;);
               </div>
               <div>
                 &nbsp;

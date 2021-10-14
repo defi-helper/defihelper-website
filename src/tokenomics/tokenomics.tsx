@@ -7,6 +7,7 @@ import { LandingLayout } from 'src/layouts';
 import { LinkDialog } from 'src/common/link-dialog';
 import { FaqText } from 'src/common/faq-text';
 import { CollectedProgress } from 'src/collected-progress';
+import { Head } from 'src/common/head';
 import {
   TokenomicsHeader,
   TokenomicsHowTo,
@@ -40,6 +41,7 @@ export const Tokenomics: React.VFC<TokenomicsProps> = () => {
 
   return (
     <LandingLayout>
+      <Head title="Tokenomics" />
       <TokenomicsHeader
         price={data?.govToken.price}
         marketCap={data?.govToken.marketCap}
