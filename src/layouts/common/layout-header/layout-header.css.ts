@@ -38,7 +38,7 @@ export const actions = composeStyles(
     display: 'none',
 
     '@media': {
-      [theme.mediaQueries.lg()]: {
+      [theme.mediaQueries.up(700)]: {
         display: 'block'
       }
     }
