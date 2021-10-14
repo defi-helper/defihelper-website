@@ -11,6 +11,7 @@ import {
 import { LandingLayout } from 'src/layouts';
 import { FaqText } from 'src/common/faq-text';
 import { CollectedProgress } from 'src/collected-progress';
+import { Head } from 'src/common/head';
 import {
   MainChart,
   MainEditor,
@@ -62,6 +63,7 @@ export const Main: React.VFC = () => {
 
   return (
     <LandingLayout>
+      <Head title="Autopilot for your DeFi portfolio" />
       <MainHeader
         className={styles.header}
         progress={

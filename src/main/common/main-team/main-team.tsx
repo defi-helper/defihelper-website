@@ -163,7 +163,9 @@ const TEAM: Array<Team> = [
         variant="outlined"
         href="mailto:hello@defiheper.io"
         target="_blank"
-      >Apply</Button>
+      >
+        Apply
+      </Button>
     ]
   }
 ];

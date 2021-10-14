@@ -1,6 +1,8 @@
 import React from 'react';
 import { Helmet } from 'react-helmet-async';
 
+import opengraph from 'src/assets/images/opengraph.jpg';
+
 export type HeadProps = {
   title?: string;
   description?: string;
@@ -8,14 +10,19 @@ export type HeadProps = {
   ogUrl?: string;
 };
 
-const SITE_URL = '';
+const SITE_URL = 'https://defihelper.io';
 
-const SITE_DESCRIPTION = '';
+const SITE_DESCRIPTION =
+  'Automate your DeFi strategies across chains, earn more with autostaking feature';
 
 export const Head: React.FC<HeadProps> = (props) => {
-  const siteTitle = ['', props.title].filter(Boolean).join(' - ');
+  const siteTitle = ['Defihelper', props.title].filter(Boolean).join(' - ');
 
-  const { ogImage, ogUrl = SITE_URL, description = SITE_DESCRIPTION } = props;
+  const {
+    ogImage = opengraph,
+    ogUrl = SITE_URL,
+    description = SITE_DESCRIPTION
+  } = props;
 
   const image = [ogUrl, ogImage].join('');
 
