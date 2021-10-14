@@ -7,6 +7,7 @@ import { ReactComponent as Logo } from 'src/assets/icons/logo.svg';
 import { Grid } from 'src/common/grid';
 import { config } from 'src/config';
 import { URLS } from 'src/router/urls';
+import { Link } from 'src/common/link';
 import * as styles from './layout-header.css';
 
 export type LayoutHeaderProps = {
@@ -22,17 +23,17 @@ export const LayoutHeader: React.VFC<LayoutHeaderProps> = (props) => {
             <Logo />
           </ReactRouterLink>
           <div className={styles.actions}>
-            <NavLink className={styles.navLink} to={URLS.tokenomics}>
+            <Link as={NavLink} className={styles.navLink} to={URLS.tokenomics}>
               Tokenomics
-            </NavLink>
-            <a
+            </Link>
+            <Link
               className={styles.navLink}
               href={URLS.litepaper}
               target="_blank"
               rel="noreferrer"
             >
               litepaper
-            </a>
+            </Link>
             <Button
               variant="contained"
               color="secondary"

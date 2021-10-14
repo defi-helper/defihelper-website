@@ -24,14 +24,14 @@ const HEAD = [
   'InstaDapp',
   'Zerion',
   'DeBank',
-  'AutoFarm',
+  'AutoFarm'
 ];
 
 const BODY = {
-  'Portfolio Tracker': [1, 1, 1, 1, 0],
-  'Autostaking': [1, 1, 0, 0, 0],
-  'Notifications': [1, 0, 0, 1, 1],
-  'Automations': [1, 0, 1, 0, 0],
+  'Portfolio tracker': [1, 1, 1, 1, 0],
+  Autostaking: [1, 1, 0, 0, 0],
+  'Smart notifications': [1, 0, 0, 1, 1],
+  'No-code automation': [1, 0, 1, 0, 0]
 };
 
 export const MainTable: React.VFC<MainTableProps> = (props) => {

@@ -61,7 +61,7 @@ export const TokenomicsHeader: React.VFC<TokenomicsHeaderProps> = (props) => {
           </div>
           <div className={styles.col}>
             <Typography as="h3" className={styles.factoidTitle}>
-              Total Supply
+              Total supply
             </Typography>
             <Typography
               family="mono"

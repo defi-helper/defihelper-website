@@ -1,5 +1,5 @@
 import { style, styleVariants } from '@vanilla-extract/css';
-import { transitions } from 'polished';
+
 import { theme } from '../theme';
 
 export const root = style({
@@ -10,7 +10,15 @@ export const root = style({
   fontWeight: 'normal',
   textUnderlineOffset: 3,
   textDecorationColor: theme.palette.grey2,
-  ...transitions('opacity 0.3s ease')
+  transition: 'opacity .3s ease-in-out',
+
+  '@media': {
+    [theme.mediaQueries.hover()]: {
+      ':hover': {
+        opacity: 0.75
+      }
+    }
+  }
 });
 
 export const underlines = styleVariants({

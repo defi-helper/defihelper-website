@@ -5,6 +5,7 @@ import { Grid } from 'src/common/grid';
 import { Link } from 'src/common/link';
 import { Paper } from 'src/common/paper';
 import { Typography } from 'src/common/typography';
+import articleEN from 'src/assets/pdf/defihelper-en.pdf';
 import { RestakeStrategyQuery } from 'src/graphql/_generated-hooks';
 import { MainChartCard } from '../main-chart-card';
 import { MainInputSlider } from '../main-input-slider';
@@ -137,7 +138,7 @@ export const MainChart: React.VFC<MainChartProps> = (props) => {
                 tokens exactly when rewards are higher than the fees.{' '}
                 <Link
                   target="_blank"
-                  href="/"
+                  href={articleEN}
                   className={styles.howItWorks}
                   underline="always"
                 >

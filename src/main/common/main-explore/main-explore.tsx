@@ -32,8 +32,7 @@ export const MainExplore: React.VFC<MainExploreProps> = (props) => {
           <div className={styles.col}>
             <Paper className={styles.colContent}>
               <Typography variant="h3" className={styles.listItemDescription}>
-                The DFH token is a governance and yield-generating token Explore
-                DFH
+                The DFH token is a governance and yield-generating token
               </Typography>
               <img src={dfhlogo} alt="" className={styles.logo} />
               <Button
@@ -57,7 +56,7 @@ export const MainExplore: React.VFC<MainExploreProps> = (props) => {
                 </li>
                 <li className={styles.listItem}>
                   <Typography className={styles.listItemTitle}>
-                    Total Supply
+                    Total supply
                   </Typography>
                   <Typography>1,000,000,000 DFH</Typography>
                 </li>
@@ -74,8 +73,8 @@ export const MainExplore: React.VFC<MainExploreProps> = (props) => {
             <Paper className={styles.colContent}>
               {props.progress}
               <Typography className={styles.listItemDescription}>
-                The DFH token will be launched only after the protocol will
-                collect fees as a proof of concept
+                The DFH token will be launched only after the protocol collects
+                at least $10,000 (in ETH) in fees as proof of concept.
               </Typography>
               <Button
                 variant="outlined"
