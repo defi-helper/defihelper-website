@@ -30,6 +30,7 @@ export const card = style({
   padding: '44px 20px',
   display: 'flex',
   flexDirection: 'column',
+  height: '100%',
 
   '@media': {
     [theme.mediaQueries.lg()]: {
