@@ -28,6 +28,9 @@ export const grid = style({
 
 export const card = style({
   padding: '44px 20px',
+  display: 'flex',
+  flexDirection: 'column',
+  height: '100%',
 
   '@media': {
     [theme.mediaQueries.lg()]: {
@@ -59,16 +62,12 @@ export const cardSubtitle = style({
 export const cardDescription = style({
   display: 'grid',
   gridGap: 30,
-  height: '50%',
+  height: '100%',
 
   '@media': {
     [theme.mediaQueries.md()]: {
       gridTemplateColumns: `repeat(auto-fit, minmax(200px, 1fr))`,
       gridGap: 72
-    },
-
-    [theme.mediaQueries.lg()]: {
-      height: '67%'
     }
   }
 });
