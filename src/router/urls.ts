@@ -1,4 +1,4 @@
-import litepaper from 'src/assets/pdf/litepaper.pdf';
+import litepaper from 'src/assets/pdf/DefiHelper_litepaper.pdf';
 
 export const URLS = {
   main: '/',

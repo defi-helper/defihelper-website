@@ -4,7 +4,7 @@ import clsx from 'clsx';
 import { Typography } from 'src/common/typography';
 import { Faq } from 'src/common/faq';
 import { Grid } from 'src/common/grid';
-import articleEN from 'src/assets/pdf/defihelper-en.pdf';
+import articleEN from 'src/assets/pdf/Math Behind DeFiHelper.pdf';
 import * as styles from './faq-text.css';
 
 export type FaqTextProps = {
@@ -108,10 +108,10 @@ If you do not have any programming skills, you can help in other ways by creatin
     body: `We have decided to release the token onto the market only after the business model of the protocol has been validated. A progress bar on the main page of the DFH website indicates the amount of fees the protocol has collected. The token and the governance system will be launched when $10,000 in ETH have been collected.`
   },
 
-  {
-    title: 'What are the addresses of DFH smart contracts?',
-    body: `You can find all DFH smart contract addresses on the [Contracts](/contracts) page.`
-  },
+  // {
+  //   title: 'What are the addresses of DFH smart contracts?',
+  //   body: `You can find all DFH smart contract addresses on the [Contracts](/contracts) page.`
+  // },
 
   {
     title: 'Who is on the DeFiHelper team?',
