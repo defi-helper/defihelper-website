@@ -26,7 +26,8 @@ const DATA = [
     subtitle: ['marketCap', 'circulatingSupply'],
     description: [
       {
-        title: 'Buy DFH on decentralized exchanges',
+        //title: 'Buy DFH on decentralized exchanges',
+        title: 'The DFH token will be launched only after the protocol collects at least $10,000 in fees as proof of concept.',
         subtitle: '',
         action: [
           config.UNISWAP_URL ? (
@@ -92,7 +93,13 @@ const DATA = [
       {
         title: 'Build new features and earn ample rewards in DFH',
         subtitle: '',
-        action: [<Button variant="outlined">Become a developer</Button>]
+        action: [
+          <Button
+            as="a"
+            variant="outlined"
+            href="mailto:hello@defiheper.io"
+            target="_blank"
+          >Become a developer</Button>]
       }
     ]
   },
@@ -107,7 +114,7 @@ const DATA = [
           <Button
             variant="outlined"
             as="a"
-            href="https://t.me/vkomissarov"
+            href="https://t.me/kbandito"
             target="_blank"
           >
             Influence DFH
@@ -199,13 +206,13 @@ export const TokenomicsHowTo: React.VFC<TokenomicsHowToProps> = (props) => {
             >
               {dataItem.title}
             </Typography>
-            <div className={clsx(styles.cardSubtitle, styles.green)}>
-              {dataItem.subtitle.map((subtitleItem) => (
-                <Typography key={subtitleItem} variant="body2">
-                  {data[subtitleItem]}
-                </Typography>
-              ))}
-            </div>
+            {/*<div className={clsx(styles.cardSubtitle, styles.green)}>*/}
+            {/*  {dataItem.subtitle.map((subtitleItem) => (*/}
+            {/*    <Typography key={subtitleItem} variant="body2">*/}
+            {/*      {data[subtitleItem]}*/}
+            {/*    </Typography>*/}
+            {/*  ))}*/}
+            {/*</div>*/}
             <div className={styles.cardDescription}>
               {dataItem.description.map((descriptionItem) => (
                 <div

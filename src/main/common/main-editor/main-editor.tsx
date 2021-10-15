@@ -36,21 +36,26 @@ export const MainEditor: React.VFC<MainEditorProps> = (props) => {
               primarily engaged in the launch of blockchain projects.
             </Typography>
             <Typography className={styles.cardDescription}>
-              We are interested in cooperation on:
+              We are interested in cooperation with developers:
             </Typography>
             <Typography className={styles.cardDescription}>
-              1) Front-end development (TypeScript, NodeJS)
+              1) Front-end (TypeScript, React.JS, GraphQL)
               <br />
-              2) Back-end development (TypeScript, NodeJS)
+              2) Back-end (TypeScript, NodeJS, PostgreSQL)
               <br />
-              3) Blockchain development (Solidity, Ride, etc.)
+              3) Blockchain (Solidity, Ride, Rust)
             </Typography>
             <Typography className={styles.cardDescription}>
               If you find your competencies on this list and want to make some
               good money, then please contact us and we will discuss the
               details.
             </Typography>
-            <Button variant="outlined">Become a Developer</Button>
+            <Button
+              variant="outlined"
+              as="a"
+              href="mailto:hello@defiheper.io"
+              target="_blank"
+            >Become a Developer</Button>
           </div>
           <div className={styles.separator} />
           <div className={styles.card}>
@@ -62,6 +67,7 @@ export const MainEditor: React.VFC<MainEditorProps> = (props) => {
               </div>
               <div>
                 function <span className={styles.green}>claim</span>( &nbsp;
+                <br />
                 <span className={styles.blue}>address</span> account, &nbsp;
                 <span className={styles.blue}>uint256</span> gasFee, &nbsp;
                 <span className={styles.blue}>uint256</span> protocolFee, &nbsp;

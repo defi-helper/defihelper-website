@@ -19,7 +19,7 @@ const DATA = [
 
   {
     title: 'Notifications',
-    description: `Notifications are available in batches, starting from $10 (in ETH) per 1,000 messages`,
+    description: `Notifications are available in batches, starting from $10 per 1,000 messages`,
     estimate: '$450,000 / first year'
   },
 

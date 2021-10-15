@@ -53,7 +53,8 @@ export const LinkDialog: React.FC<LinkDialogProps> = () => {
         (link) => link === undefined
       ) && (
         <Typography align="center" transform="uppercase" family="mono">
-          DFH does not sale yet
+          The DFH token will be launched only after the protocol collects
+          at least $10,000 in fees as proof of concept.
         </Typography>
       )}
     </Dialog>
