@@ -5,7 +5,7 @@ import { Grid } from 'src/common/grid';
 import { Link } from 'src/common/link';
 import { Paper } from 'src/common/paper';
 import { Typography } from 'src/common/typography';
-import articleEN from 'src/assets/pdf/Math Behind DeFiHelper.pdf';
+import articleEN from 'src/assets/pdf/Math_Behind_DeFiHelper.pdf';
 import { RestakeStrategyQuery } from 'src/graphql/_generated-hooks';
 import { MainChartCard } from '../main-chart-card';
 import { MainInputSlider } from '../main-input-slider';

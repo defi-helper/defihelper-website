@@ -4,7 +4,7 @@ import clsx from 'clsx';
 import { Typography } from 'src/common/typography';
 import { Faq } from 'src/common/faq';
 import { Grid } from 'src/common/grid';
-import articleEN from 'src/assets/pdf/Math Behind DeFiHelper.pdf';
+import articleEN from 'src/assets/pdf/Math_Behind_DeFiHelper.pdf';
 import * as styles from './faq-text.css';
 
 export type FaqTextProps = {
