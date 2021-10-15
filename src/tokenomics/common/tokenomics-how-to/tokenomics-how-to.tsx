@@ -26,8 +26,8 @@ const DATA = [
     subtitle: ['marketCap', 'circulatingSupply'],
     description: [
       {
-        //title: 'Buy DFH on decentralized exchanges',
-        title: 'The DFH token will be launched only after the protocol collects at least $10,000 in fees as proof of concept.',
+        title:
+          'The DFH token will be launched only after the protocol collects at least $10,000 in fees as proof of concept.',
         subtitle: '',
         action: [
           config.UNISWAP_URL ? (
@@ -81,8 +81,8 @@ const DATA = [
     description: [
       {
         title: 'Get DFH for free by staking tokens in liquidity pools',
-        subtitle: '',
-        action: [<Button variant="outlined">Stake</Button>]
+        subtitle: '10% of total supply',
+        action: []
       }
     ]
   },
@@ -92,14 +92,17 @@ const DATA = [
     description: [
       {
         title: 'Build new features and earn ample rewards in DFH',
-        subtitle: '',
+        subtitle: '30% of total supply',
         action: [
           <Button
             as="a"
             variant="outlined"
             href="mailto:hello@defiheper.io"
             target="_blank"
-          >Become a developer</Button>]
+          >
+            Become a developer
+          </Button>
+        ]
       }
     ]
   },
@@ -109,7 +112,7 @@ const DATA = [
     description: [
       {
         title: 'Spread the word about DFH and get paid in DFH tokens',
-        subtitle: '',
+        subtitle: '7% of total supply',
         action: [
           <Button
             variant="outlined"
@@ -206,13 +209,13 @@ export const TokenomicsHowTo: React.VFC<TokenomicsHowToProps> = (props) => {
             >
               {dataItem.title}
             </Typography>
-            {/*<div className={clsx(styles.cardSubtitle, styles.green)}>*/}
-            {/*  {dataItem.subtitle.map((subtitleItem) => (*/}
-            {/*    <Typography key={subtitleItem} variant="body2">*/}
-            {/*      {data[subtitleItem]}*/}
-            {/*    </Typography>*/}
-            {/*  ))}*/}
-            {/*</div>*/}
+            {/* <div className={clsx(styles.cardSubtitle, styles.green)}>
+              {dataItem.subtitle.map((subtitleItem) => (
+                <Typography key={subtitleItem} variant="body2">
+                  {data[subtitleItem]}
+                </Typography>
+              ))}
+            </div> */}
             <div className={styles.cardDescription}>
               {dataItem.description.map((descriptionItem) => (
                 <div
