@@ -7,8 +7,8 @@ import { ReactComponent as GithubIcon } from 'src/assets/icons/social/github.svg
 import { ReactComponent as MediumIcon } from 'src/assets/icons/social/medium.svg';
 import { ReactComponent as TelegramIcon } from 'src/assets/icons/social/telegram.svg';
 import { ReactComponent as DiscordIcon } from 'src/assets/icons/social/discord.svg';
-import articleEN from 'src/assets/pdf/defihelper-en.pdf';
-import articleRU from 'src/assets/pdf/defihelper-ru.pdf';
+import articleEN from 'src/assets/pdf/Math Behind DeFiHelper.pdf';
+import articleRU from 'src/assets/pdf/Как устроен алгоритм автостейкинга DeFiHelper.pdf';
 import { Typography } from 'src/common/typography';
 import { Grid } from 'src/common/grid';
 import { Button } from 'src/common/button';
@@ -52,12 +52,12 @@ const PROTOCOL = [
     title: 'Math behind DFH (RU)',
     link: articleRU,
     target: '_blank'
-  },
-  {
-    title: 'Contracts',
-    link: '/contracts',
-    target: ''
   }
+  // {
+  //   title: 'Contracts',
+  //   link: URLS.contracts,
+  //   target: ''
+  // }
 ];
 
 const SOCIAL = [

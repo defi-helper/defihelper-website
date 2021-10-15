@@ -25,7 +25,7 @@ export const NotFound: React.FC = () => {
             Oops! The page you were looking for doesn&apos;t exist.
           </Typography>
           <Typography variant="body1" align="center">
-            <Link as={ReactRouterLink} to={URLS.main} color="blue">
+            <Link as={ReactRouterLink} to={URLS.main}>
               Go home →
             </Link>
           </Typography>
