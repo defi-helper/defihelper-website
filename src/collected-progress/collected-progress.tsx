@@ -69,8 +69,8 @@ export const CollectedProgress: React.VFC<CollectedProgressProps> = (props) => {
       </div>
       {props.topTitle && (
         <Typography className={styles.description} variant="body2">
-          The DFH token will be launched only after the protocol collects some
-          amount of fees as proof of concept
+          The DFH token will be launched only after the protocol collects at
+          least $10,000 in fees as proof of concept
         </Typography>
       )}
       {props.bottomTitle && (

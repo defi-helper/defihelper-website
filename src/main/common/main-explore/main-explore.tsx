@@ -74,7 +74,7 @@ export const MainExplore: React.VFC<MainExploreProps> = (props) => {
               {props.progress}
               <Typography className={styles.listItemDescription}>
                 The DFH token will be launched only after the protocol collects
-                at least $10,000 in fees as proof of concept.
+                at least $10,000 in fees as proof of concept
               </Typography>
               <Button
                 variant="outlined"

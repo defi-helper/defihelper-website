@@ -89,7 +89,7 @@ If you do not have any programming skills, you can help in other ways by creatin
 * 100,000,000 (10%) — tokens allocated for distribution through liquidity pools during the first year of operation.
 * 80,000,000 (8%) — bonus tokens for early adopters with vesting for a period of 6 months.
 * 70,000,000 (7%) — grants for DeFiHelper Ambassadors.
-* 10,000,000 (1%) — bonus for the team following launch with a one year moratorium on sales.`
+* 10,000,000 (1%) — bonus for the team following launch with a one month moratorium on sales.`
   },
 
   {
