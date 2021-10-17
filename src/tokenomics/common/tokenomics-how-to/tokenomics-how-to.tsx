@@ -133,17 +133,17 @@ const DATA = [
       {
         title: 'Earn rewards by using autostaking',
         subtitle: '3% of total supply',
-        action: [<Button variant="outlined">Use autostaking</Button>]
+        action: []
       },
       {
         title: 'Earn rewards by creating scripts',
         subtitle: '2% of total supply',
-        action: [<Button variant="outlined">Automate</Button>]
+        action: []
       },
       {
         title: 'Earn rewards by inviting friends',
         subtitle: '1% of total supply',
-        action: [<Button variant="outlined">Invite a friend</Button>]
+        action: []
       }
     ]
   }
