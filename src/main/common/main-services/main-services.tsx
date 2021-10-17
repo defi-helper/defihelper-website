@@ -23,7 +23,7 @@ const SERVICES = [
     image: crossChainTracking,
     title: 'cross-chain Tracking',
     description:
-      'Track your portfolio in the ETH, BSC and WAVES blockchains. More chains coming soon.'
+      'Track your portfolio in the ETH, BSC, Polygon and WAVES blockchains. More chains coming soon.'
   },
   {
     image: help,
