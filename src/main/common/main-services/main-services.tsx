@@ -29,12 +29,12 @@ const SERVICES = [
     image: help,
     title: 'smart notifications',
     description:
-      'See how whales move, be instantly aware when big changes happen. Create custom notifications'
+      'See how whales move, be instantly aware when big changes happen. Create custom notifications, use your imagination.'
   },
   {
     image: security,
     title: 'Security',
-    description: 'All your money only under your control, secure and safe'
+    description: 'DFH doesn’t have access to your private keys. The app performs only the actions that you authorize via a special contract that is always under your control.'
   },
   {
     image: automation,
