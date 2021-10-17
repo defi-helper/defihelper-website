@@ -75,7 +75,7 @@ const SERVICES = [
         variant="outlined"
         className={styles.request}
         as="a"
-        href={`${config.LAUNCH_APP_URL}/proposals`}
+        href={`${config.LAUNCH_APP_URL}proposals`}
       >
         Request feature
       </Button>

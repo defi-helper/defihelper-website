@@ -44,7 +44,7 @@ export const CollectedProgress: React.VFC<CollectedProgressProps> = (props) => {
           className={styles.topTitle}
         >
           <span>
-            {bignumberUtils.format(fees)}/${bignumberUtils.format(MAX)} FEES
+            {bignumberUtils.format(fees)}/${bignumberUtils.format(MAX)} IN FEES
             COLLECTED
           </span>
           <Link
@@ -80,7 +80,7 @@ export const CollectedProgress: React.VFC<CollectedProgressProps> = (props) => {
           variant="body2"
           className={styles.bottomTitle}
         >
-          {bignumberUtils.format(fees)}/${bignumberUtils.format(MAX)} FEES COLLECTED
+          {bignumberUtils.format(fees)}/${bignumberUtils.format(MAX)} IN FEES COLLECTED
         </Typography>
       )}
     </div>

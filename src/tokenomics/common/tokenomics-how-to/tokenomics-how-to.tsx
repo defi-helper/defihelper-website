@@ -87,26 +87,6 @@ const DATA = [
     ]
   },
   {
-    title: 'Development grants',
-    subtitle: ['developersYears', 'developersTokens'],
-    description: [
-      {
-        title: 'Build new features and earn ample rewards in DFH',
-        subtitle: '30% of total supply',
-        action: [
-          <Button
-            as="a"
-            variant="outlined"
-            href="mailto:hello@defiheper.io"
-            target="_blank"
-          >
-            Become a developer
-          </Button>
-        ]
-      }
-    ]
-  },
-  {
     title: 'Community grants',
     subtitle: ['communityDays', 'communityTokens'],
     description: [
@@ -127,21 +107,41 @@ const DATA = [
     ]
   },
   {
+    title: 'Development grants',
+    subtitle: ['developersYears', 'developersTokens'],
+    description: [
+      {
+        title: 'Build new features and earn ample rewards in DFH',
+        subtitle: '30% of total supply',
+        action: [
+          <Button
+            as="a"
+            variant="outlined"
+            href="mailto:hello@defiheper.io"
+            target="_blank"
+          >
+            Join our team
+          </Button>
+        ]
+      }
+    ]
+  },
+  {
     title: 'Early ecosystem rewards',
     subtitle: ['earlyEcosistemDays', 'earlyEcosistemTokens'],
     description: [
       {
-        title: 'Earn rewards by using autostaking',
+        title: 'Earn rewards by using automations',
         subtitle: '3% of total supply',
         action: []
       },
       {
-        title: 'Earn rewards by creating scripts',
+        title: 'Earn rewards by inviting friends',
         subtitle: '2% of total supply',
         action: []
       },
       {
-        title: 'Earn rewards by inviting friends',
+        title: 'Earn rewards by using notifications',
         subtitle: '1% of total supply',
         action: []
       }

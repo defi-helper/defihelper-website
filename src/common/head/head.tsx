@@ -16,7 +16,7 @@ const SITE_DESCRIPTION =
   'Automate your DeFi strategies across chains, earn more with autostaking feature';
 
 export const Head: React.FC<HeadProps> = (props) => {
-  const siteTitle = ['Defihelper', props.title].filter(Boolean).join(' - ');
+  const siteTitle = ['DeFiHelper', props.title].filter(Boolean).join(' - ');
 
   const {
     ogImage = opengraph,

@@ -13,13 +13,13 @@ export type TokenomicsProfitProps = {
 const DATA = [
   {
     title: 'No-code automation',
-    description: 'DFH charges $1 per executed action',
+    description: 'DFH charges $1 per executed automation (blockchain fee not included)',
     estimate: '$4,000,000 / first year'
   },
 
   {
     title: 'Notifications',
-    description: `Notifications are available in batches, starting from $10 per 1,000 messages`,
+    description: `Notifications are available starting from $10 per 1,000 messages`,
     estimate: '$450,000 / first year'
   },
 
