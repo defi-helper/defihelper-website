@@ -71,7 +71,7 @@ export const listItem = style({
 
 export const socialLink = style({
   verticalAlign: 'middle',
-  display: 'flex',
+  display: 'inline-flex',
   alignItems: 'center'
 });
 
