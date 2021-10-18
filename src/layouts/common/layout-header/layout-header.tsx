@@ -67,7 +67,11 @@ export const LayoutHeader: React.VFC<LayoutHeaderProps> = (props) => {
           {!isDesktop && (
             <>
               <ButtonBase className={styles.burger} onClick={handleToggle}>
-                {!open ? <BurgerIcon /> : <CloseIcon />}
+                {!open ? (
+                  <BurgerIcon width="30" height="30" />
+                ) : (
+                  <CloseIcon width="30" height="30" />
+                )}
               </ButtonBase>
               {open && (
                 <div className={styles.mobileMenu} ref={setRef}>
