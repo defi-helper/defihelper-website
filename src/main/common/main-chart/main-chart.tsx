@@ -142,7 +142,7 @@ export const MainChart: React.VFC<MainChartProps> = (props) => {
                   className={styles.howItWorks}
                   underline="always"
                 >
-                  How it works in detail?
+                  How it works in detail
                 </Link>
               </>
             }
