@@ -43,6 +43,7 @@ export const cell = style({
     },
     '&:nth-child(5)': {
       width: '55%',
+      minWidth: 360
     }
   }
 });

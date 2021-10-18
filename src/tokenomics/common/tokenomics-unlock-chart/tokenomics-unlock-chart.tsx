@@ -15,6 +15,7 @@ import {
 } from '@amcharts/amcharts4/charts';
 import React, { useEffect, useRef } from 'react';
 import am4themes_animated from '@amcharts/amcharts4/themes/animated';
+import { useMedia } from 'react-use';
 import amchartsdark from '@amcharts/amcharts4/themes/amchartsdark';
 
 import { Typography } from 'src/common/typography';
@@ -36,6 +37,8 @@ export const TokenomicsUnlockChart: React.VFC<TokenomicsUnlockChartProps> = (
   props
 ) => {
   const chartRef = useRef<null | XYChart>(null);
+
+  const isDesktop = useMedia('(min-width: 700px)');
 
   const { id = 'unlock-chart' } = props;
 
@@ -75,8 +78,6 @@ export const TokenomicsUnlockChart: React.VFC<TokenomicsUnlockChartProps> = (
 
       valueAxis.userClassName = styles.percent;
 
-      valueAxis.width = 12;
-
       valueAxis.min = 0;
       valueAxis.max = 300000000;
       valueAxis.strictMinMax = true;
@@ -87,7 +88,7 @@ export const TokenomicsUnlockChart: React.VFC<TokenomicsUnlockChartProps> = (
       function createGrid(value: number) {
         const range = valueAxis.axisRanges.create();
         range.value = value;
-        range.label.text = '{value}';
+        if (isDesktop) range.label.text = '{value}';
       }
 
       if (!index) {
@@ -133,7 +134,7 @@ export const TokenomicsUnlockChart: React.VFC<TokenomicsUnlockChartProps> = (
       chartRef.current?.dispose();
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [props.data, id]);
+  }, [props.data, id, isDesktop]);
 
   return (
     <div className={styles.root}>
