@@ -31,6 +31,7 @@ export const card = style({
   display: 'flex',
   flexDirection: 'column',
   height: '100%',
+  minHeight: 232,
 
   '@media': {
     [theme.mediaQueries.lg()]: {

@@ -61,7 +61,13 @@ export const Main: React.VFC = () => {
       <MainHeader
         className={styles.header}
         progress={
-          <CollectedProgress count={55} width={12} height={24} topTitle />
+          <CollectedProgress
+            count={55}
+            width={12}
+            height={24}
+            topTitle
+            mainPage
+          />
         }
       />
       <MainChart
