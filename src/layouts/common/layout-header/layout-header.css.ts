@@ -1,4 +1,4 @@
-import { style, composeStyles } from '@vanilla-extract/css';
+import { style, composeStyles, globalStyle } from '@vanilla-extract/css';
 
 import { theme } from 'src/common/theme';
 
@@ -31,17 +31,10 @@ export const logo = composeStyles(
   })
 );
 
-export const actions = composeStyles(
+export const menu = composeStyles(
   padding,
   style({
-    marginLeft: 'auto',
-    display: 'none',
-
-    '@media': {
-      [theme.mediaQueries.up(700)]: {
-        display: 'block'
-      }
-    }
+    marginLeft: 'auto'
   })
 );
 
@@ -56,4 +49,32 @@ export const navLink = style({
       marginRight: 32
     }
   }
+});
+
+export const burger = style({
+  width: 30,
+  height: 30,
+  marginLeft: 'auto',
+  marginRight: 16
+});
+
+export const mobileMenu = style({
+  position: 'fixed',
+  bottom: 0,
+  left: 0,
+  right: 0,
+  top: 78,
+  display: 'flex',
+  flexDirection: 'column',
+  background: theme.color.background,
+  zIndex: 100,
+  padding: 16
+});
+
+globalStyle(`${mobileMenu} > *:not(:last-child)`, {
+  marginBottom: 32
+});
+
+export const launchButtonMobile = style({
+  marginTop: 'auto'
 });

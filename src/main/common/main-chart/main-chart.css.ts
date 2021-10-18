@@ -1,4 +1,4 @@
-import { style } from '@vanilla-extract/css';
+import { style, globalStyle } from '@vanilla-extract/css';
 
 import { theme } from 'src/common/theme';
 
@@ -21,10 +21,22 @@ export const header = style({
   alignItems: 'center',
   justifyContent: 'center',
   marginBottom: 43,
+  flexDirection: 'column',
 
   '@media': {
     [theme.mediaQueries.md()]: {
-      marginBottom: 96
+      marginBottom: 96,
+      flexDirection: 'row'
+    }
+  }
+});
+
+globalStyle(`${header} > *`, {
+  marginBottom: 10,
+
+  '@media': {
+    [theme.mediaQueries.md()]: {
+      marginBottom: 0
     }
   }
 });
