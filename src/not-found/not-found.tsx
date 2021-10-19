@@ -11,7 +11,7 @@ import * as styles from './not-found.css';
 export const NotFound: React.FC = () => {
   return (
     <>
-      <Head title="404" />
+      <Head title="404" status={404} />
       <LandingLayout>
         <div className={styles.root}>
           <Typography variant="h1" align="center" className={styles.title}>

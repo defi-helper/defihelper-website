@@ -8,6 +8,7 @@ export type HeadProps = {
   description?: string;
   ogImage?: string;
   ogUrl?: string;
+  status?: number;
 };
 
 const SITE_URL = 'https://defihelper.io';
@@ -21,7 +22,8 @@ export const Head: React.FC<HeadProps> = (props) => {
   const {
     ogImage = opengraph,
     ogUrl = SITE_URL,
-    description = SITE_DESCRIPTION
+    description = SITE_DESCRIPTION,
+    status = 200
   } = props;
 
   const image = [ogUrl, ogImage].join('');
@@ -38,6 +40,7 @@ export const Head: React.FC<HeadProps> = (props) => {
       <meta name="twitter:image" content={image} />
       <meta property="og:site_name" content={siteTitle} />
       <meta name="twitter:title" content={siteTitle} />
+      <meta name="prerender-status-code" content={String(status)} />
     </Helmet>
   );
 };
