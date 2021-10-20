@@ -94,7 +94,7 @@ const SOCIAL = [
   {
     title: 'Discord',
     icon: DiscordIcon,
-    link: 'https://discord.gg/EjEqqTYm',
+    link: 'https://discord.gg/2sT3bmjPhf',
     target: '_blank'
   },
   {
