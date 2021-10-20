@@ -17,6 +17,7 @@ export type CollectedProgressProps = {
   height: number;
   topTitle?: boolean;
   bottomTitle?: boolean;
+  mainPage?: boolean;
 };
 
 const MAX = config.MAX_FEE;
@@ -47,13 +48,15 @@ export const CollectedProgress: React.VFC<CollectedProgressProps> = (props) => {
             {bignumberUtils.format(fees)}/${bignumberUtils.format(MAX)} IN FEES
             COLLECTED
           </span>
-          <Link
-            as={ReactRouterLink}
-            to={URLS.tokenomics}
-            className={styles.link}
-          >
-            Learn More
-          </Link>
+          {props.mainPage && (
+            <Link
+              as={ReactRouterLink}
+              to={URLS.tokenomics}
+              className={styles.link}
+            >
+              Learn More
+            </Link>
+          )}
         </Typography>
       )}
       <div className={styles.progress}>
@@ -80,7 +83,8 @@ export const CollectedProgress: React.VFC<CollectedProgressProps> = (props) => {
           variant="body2"
           className={styles.bottomTitle}
         >
-          {bignumberUtils.format(fees)}/${bignumberUtils.format(MAX)} IN FEES COLLECTED
+          {bignumberUtils.format(fees)}/${bignumberUtils.format(MAX)} IN FEES
+          COLLECTED
         </Typography>
       )}
     </div>

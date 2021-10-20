@@ -55,7 +55,9 @@ export const MainEditor: React.VFC<MainEditorProps> = (props) => {
               as="a"
               href="mailto:hello@defiheper.io"
               target="_blank"
-            >Join our team</Button>
+            >
+              Join our team
+            </Button>
           </div>
           <div className={styles.separator} />
           <div className={styles.card}>

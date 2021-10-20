@@ -64,5 +64,11 @@ export const bignumberUtils = {
     new BigNumber(num1 || 0).multipliedBy(num2 || 0).toString(10),
 
   div: (num1?: string | number, num2?: string | number) =>
-    new BigNumber(num1 || 0).div(num2 || 1).toString(10)
+    new BigNumber(num1 || 0).div(num2 || 1).toString(10),
+
+  lt: (num1?: string | number | null, num2?: string | number | null) =>
+    new BigNumber(num1 || 0).isLessThan(num2 || 0),
+
+  lte: (num1?: string | number | null, num2?: string | number | null) =>
+    new BigNumber(num1 || 0).isLessThanOrEqualTo(num2 || 0)
 };

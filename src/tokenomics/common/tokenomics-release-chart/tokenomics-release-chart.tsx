@@ -16,6 +16,7 @@ import {
 import React, { useEffect, useRef } from 'react';
 import am4themes_animated from '@amcharts/amcharts4/themes/animated';
 import amchartsdark from '@amcharts/amcharts4/themes/amchartsdark';
+import { useMedia } from 'react-use';
 
 import { Typography } from 'src/common/typography';
 import * as styles from './tokenomics-release-chart.css';
@@ -36,6 +37,8 @@ export const TokenomicsReleaseChart: React.VFC<TokenomicsReleaseChartProps> = (
   props
 ) => {
   const chartRef = useRef<null | XYChart>(null);
+
+  const isDesktop = useMedia('(min-width: 700px)');
 
   const { id = 'release-chart' } = props;
 
@@ -81,7 +84,7 @@ export const TokenomicsReleaseChart: React.VFC<TokenomicsReleaseChartProps> = (
       function createGrid(value: number) {
         const range = valueAxis.axisRanges.create();
         range.value = value;
-        range.label.text = '{value}';
+        if (isDesktop) range.label.text = '{value}';
       }
 
       if (!index) {
@@ -132,7 +135,7 @@ export const TokenomicsReleaseChart: React.VFC<TokenomicsReleaseChartProps> = (
       chartRef.current?.dispose();
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [props.data, id]);
+  }, [props.data, id, isDesktop]);
 
   return (
     <div className={styles.root}>

@@ -128,7 +128,10 @@ export const MainChartCard: React.VFC<MainChartCardProps> = (props) => {
       </Typography>
       <div className={styles.subtitle}>
         <Typography variant="inherit" transform="uppercase" as="div">
-          ${bignumberUtils.format(props.sum)}
+          $
+          {bignumberUtils.lt(props.sum, 0)
+            ? 0
+            : bignumberUtils.format(props.sum)}
         </Typography>
         <Typography
           variant="inherit"
@@ -136,7 +139,10 @@ export const MainChartCard: React.VFC<MainChartCardProps> = (props) => {
           as="div"
           className={styles.color[props.color]}
         >
-          {bignumberUtils.format(props.apy)}% APY
+          {bignumberUtils.lt(props.apy, 0)
+            ? 0
+            : bignumberUtils.format(props.apy)}
+          % APY
         </Typography>
       </div>
       <div className={styles.chart} id={id} />
