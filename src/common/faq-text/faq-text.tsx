@@ -42,12 +42,12 @@ DeFiHelper monitors and reports on sudden changes in profitability, important ma
     body: `Part of DeFiHelper's functionality is available on a paid basis. It includes notifications ($10 per 1,000 messages) and automation ($1 per executed action plus network fee).`
   },
 
-  {
-    title: 'How secure is DeFiHelper?',
-    body: `DeFiHelper does not have access to users' private keys. The service performs only the actions that users authorize via a special contract that is always under their control.
-
-The code behind DeFiHelper has been audited by [MixBytes](https://mixbytes.io/). The results of the audit will be made available within a few weeks after the public launch.`
-  },
+//   {
+//     title: 'How secure is DeFiHelper?',
+//     body: `DeFiHelper does not have access to users' private keys. The service performs only the actions that users authorize via a special contract that is always under their control.
+//
+// The code behind DeFiHelper has been audited by [MixBytes](https://mixbytes.io/). The results of the audit will be made available within a few weeks after the public launch.`
+//   },
 
   {
     title: 'How does the automation functionality of DFH work?',
