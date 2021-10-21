@@ -1,11 +1,19 @@
 import { style, globalStyle } from '@vanilla-extract/css';
+
 import { theme } from 'src/common/theme';
 
 export const root = style({});
 
 export const title = style({
   marginBottom: 32,
-  color: theme.palette.grey1
+  color: theme.palette.grey1,
+  padding: '0 24px',
+
+  '@media': {
+    [theme.mediaQueries.md()]: {
+      padding: 0
+    }
+  }
 });
 
 export const chart = style({
