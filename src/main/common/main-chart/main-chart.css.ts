@@ -16,6 +16,11 @@ export const chart = style({
   }
 });
 
+export const title = style({
+  marginBottom: 64,
+  maxWidth: 960
+});
+
 export const header = style({
   display: 'flex',
   alignItems: 'center',

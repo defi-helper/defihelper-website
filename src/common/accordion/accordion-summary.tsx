@@ -8,9 +8,9 @@ import React, {
 } from 'react';
 import { useMount, useUnmount } from 'react-use';
 
-import * as styles from './accordion.css';
 import { AccordionContext } from './accordion-context';
 import { throttle } from '../throttle';
+import * as styles from './accordion.css';
 
 export type AccordionSummaryProps = {
   className?: string;
@@ -28,7 +28,7 @@ export const AccordionSummary: React.FC<AccordionSummaryProps> = (props) => {
         if (ref.current?.clientHeight) {
           accordionContext?.handleSummaryHeight(ref.current.clientHeight);
         }
-      }, 300),
+      }, 500),
     // eslint-disable-next-line react-hooks/exhaustive-deps
     []
   );

@@ -5,7 +5,7 @@ import { useMedia } from 'react-use';
 
 import { ButtonBase } from 'src/common/button-base';
 import { Button } from 'src/common/button';
-import { ReactComponent as Logo } from 'src/assets/icons/logo.svg';
+import { ReactComponent as Logo } from 'src/assets/icons/logo-mini.svg';
 import { ReactComponent as BurgerIcon } from 'src/assets/icons/burger.svg';
 import { ReactComponent as CloseIcon } from 'src/assets/icons/close-burger.svg';
 import { useBodyScrollLock } from 'src/common/hooks';
@@ -33,7 +33,7 @@ export const LayoutHeader: React.VFC<LayoutHeaderProps> = (props) => {
   return (
     <header className={clsx(styles.root, props.className)}>
       <Grid.Container>
-        <Grid.Row className={styles.root} items="center">
+        <Grid.Row items="center">
           <ReactRouterLink to={URLS.main} className={styles.logo}>
             <Logo />
           </ReactRouterLink>

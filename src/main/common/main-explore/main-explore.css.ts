@@ -40,7 +40,7 @@ export const colContent = style({
 
   '@media': {
     [theme.mediaQueries.lg()]: {
-      padding: '64px 40px'
+      padding: '64px 40px 40px'
     }
   }
 });
@@ -49,7 +49,8 @@ export const logo = style({
   width: 80,
   height: 80,
   marginLeft: 'auto',
-  marginTop: -10,
+  marginTop: 'auto',
+  marginBottom: 'auto',
   marginRight: 14
 });
 
@@ -72,9 +73,10 @@ export const listItemTitle = style({
 });
 
 export const listItemDescription = style({
-  opacity: 0.8
+  opacity: 0.8,
+  marginBottom: 'auto'
 });
 
 export const button = style({
-  marginTop: 20,
+  marginTop: 20
 });

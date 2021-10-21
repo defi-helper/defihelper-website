@@ -7,8 +7,8 @@ export const title = style({
 });
 
 export const subtitle = style({
-  fontSize: 48,
-  lineHeight: '56px',
+  fontSize: 38,
+  lineHeight: '46px',
   fontFamily: theme.fonts.mono,
   marginBottom: 48
 });

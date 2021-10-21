@@ -1,6 +1,7 @@
-import { style } from '@vanilla-extract/css';
+import { globalStyle, style } from '@vanilla-extract/css';
 import { transitions } from 'polished';
-import { theme } from '../theme';
+
+import { theme } from 'src/common/theme';
 
 export const root = style({
   borderTop: `solid 1px ${theme.palette.grey3}`,
@@ -21,27 +22,28 @@ export const hided = style({
 export const summary = style({
   cursor: 'pointer',
   userSelect: 'none',
-  padding: '16px 0 40px 0',
+  padding: '16px 0 32px 0',
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'space-between',
   outline: 'none',
+  transition: 'opacity .3s ease-in-out',
 
-  selectors: {
-    // '& *:first-child': {
-    //   flexBasis: '95%'
-    // }
+  '@media': {
+    [theme.mediaQueries.hover()]: {
+      ':hover': {
+        opacity: 0.64
+      }
+    }
   }
 });
 
 export const details = style({
-  padding: '0 0 64px 0',
+  padding: '0 0 48px 0'
+});
 
-  selectors: {
-    // '& p:not(:last-child)': {
-    //   marginBottom: 30
-    // }
-  }
+globalStyle(`${details} > *:last-child`, {
+  marginBottom: 0
 });
 
 export const arrow = style({

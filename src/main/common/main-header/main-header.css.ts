@@ -3,7 +3,16 @@ import { composeStyles, style } from '@vanilla-extract/css';
 import { theme } from 'src/common/theme';
 
 export const root = style({
-  overflowX: 'hidden'
+  overflowX: 'hidden',
+  display: 'flex',
+  flexDirection: 'column',
+  minHeight: 'calc(100vh - 84px)',
+
+  '@media': {
+    [theme.mediaQueries.md()]: {
+      minHeight: 'calc(100vh - 116px)'
+    }
+  }
 });
 
 export const col = style({
@@ -11,22 +20,19 @@ export const col = style({
 });
 
 export const hero = style({
-  marginBottom: 112,
-
-  '@media': {
-    [theme.mediaQueries.lg()]: {
-      marginBottom: 156
-    }
-  }
+  marginTop: 'auto',
+  marginBottom: 'auto'
 });
 
-export const title = style({
-  marginBottom: 16
+export const bottom = style({
+  marginBottom: 20
 });
 
 export const subtitle = style({
   marginBottom: 24,
-  color: theme.palette.grey1
+  color: theme.palette.grey1,
+  fontSize: 34,
+  lineHeight: '42px'
 });
 
 export const text = composeStyles(
@@ -34,10 +40,14 @@ export const text = composeStyles(
   style({
     '@media': {
       [theme.mediaQueries.lg()]: {
-        width: '63%',
         paddingTop: 64,
         paddingBottom: 80
       }
     }
   })
 );
+
+export const logo = style({
+  maxWidth: '100%',
+  marginBottom: 40
+});

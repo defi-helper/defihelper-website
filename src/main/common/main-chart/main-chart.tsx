@@ -1,6 +1,6 @@
 import React from 'react';
-import { bignumberUtils } from 'src/common/bignumber-utils';
 
+import { bignumberUtils } from 'src/common/bignumber-utils';
 import { Grid } from 'src/common/grid';
 import { Link } from 'src/common/link';
 import { Paper } from 'src/common/paper';
@@ -64,6 +64,14 @@ export const MainChart: React.VFC<MainChartProps> = (props) => {
 
   return (
     <Grid.Container className={props.className}>
+      <Typography
+        variant="h2"
+        family="mono"
+        transform="uppercase"
+        className={styles.title}
+      >
+        Earn more with autocompound automate
+      </Typography>
       <Paper className={styles.chart}>
         <div className={styles.header}>
           <Typography variant="h4">What can you earn with</Typography>
