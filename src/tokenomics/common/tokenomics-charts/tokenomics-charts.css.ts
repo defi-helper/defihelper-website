@@ -6,7 +6,7 @@ export const root = style({});
 
 export const grid = style({
   display: 'grid',
-  padding: '24px 32px',
+  padding: '24px 0',
   gridGap: 58,
 
   '@media': {

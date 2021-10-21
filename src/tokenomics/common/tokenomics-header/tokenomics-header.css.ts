@@ -10,7 +10,7 @@ export const root = style({
   margin: '0 auto',
 
   '@media': {
-    [theme.mediaQueries.up(1919)]: {
+    [theme.mediaQueries.up(1921)]: {
       overflow: 'visible'
     }
   }

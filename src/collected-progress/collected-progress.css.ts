@@ -49,5 +49,6 @@ export const bottomTitle = style({
 });
 
 export const description = style({
-  marginTop: 10
+  marginTop: 10,
+  color: theme.palette.grey1
 });
