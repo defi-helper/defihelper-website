@@ -8,6 +8,7 @@ import { ReactComponent as automation } from 'src/assets/icons/automation.svg';
 import { ReactComponent as scenarios } from 'src/assets/icons/scenarios.svg';
 import { ReactComponent as bucket } from 'src/assets/icons/bucket.svg';
 import { ReactComponent as hand } from 'src/assets/icons/hand.svg';
+import { ReactComponent as haveanidea } from 'src/assets/icons/haveanidea.svg';
 import { Grid } from 'src/common/grid';
 import { Button } from 'src/common/button';
 import { Typography } from 'src/common/typography';
@@ -34,7 +35,8 @@ const SERVICES = [
   {
     image: security,
     title: 'Security',
-    description: 'DFH doesn’t have access to your private keys. The app performs only the actions that you authorize via a special contract that is always under your control.'
+    description:
+      "DFH doesn't have access to your private keys. The app performs only the actions that you authorize via a special contract that is always under your control."
   },
   {
     image: automation,
@@ -66,7 +68,7 @@ const SERVICES = [
       'Create automation strategies for your portfolio in a few clicks or turn on existing tested strategies to earn more.'
   },
   {
-    image: hand,
+    image: haveanidea,
     title: 'Have an idea?',
     description:
       'Just create a proposal,  vote for it and we will implement this feature for you.',

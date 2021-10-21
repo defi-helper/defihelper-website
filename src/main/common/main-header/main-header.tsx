@@ -1,10 +1,9 @@
 import clsx from 'clsx';
 import React from 'react';
 
-import { Button } from 'src/common/button';
 import { Grid } from 'src/common/grid';
 import { Typography } from 'src/common/typography';
-import { config } from 'src/config';
+import logo from 'src/assets/images/logo.png';
 import * as styles from './main-header.css';
 
 export type MainHeaderProps = {
@@ -18,25 +17,15 @@ export const MainHeader: React.VFC<MainHeaderProps> = (props) => {
       <Grid.Container className={styles.hero}>
         <Grid.Row>
           <div className={styles.text}>
-            <Typography
-              transform="uppercase"
-              family="mono"
-              variant="h1"
-              className={styles.title}
-            >
-              Autopilot for your DeFi portfolio
-            </Typography>
-            <Typography variant="h3" className={styles.subtitle}>
+            <img src={logo} alt="" className={styles.logo} />
+            <Typography variant="h2" className={styles.subtitle} align="center">
               Automate your DeFi strategies across chains, earn more with
               autostaking feature
             </Typography>
-            <Button color="primary" as="a" href={config.LAUNCH_APP_URL}>
-              Launch App
-            </Button>
           </div>
         </Grid.Row>
       </Grid.Container>
-      <Grid.Container>
+      <Grid.Container className={styles.bottom}>
         <Grid.Row justify="spaceBetween">
           {React.isValidElement(props.progress) &&
             React.cloneElement(props.progress, {

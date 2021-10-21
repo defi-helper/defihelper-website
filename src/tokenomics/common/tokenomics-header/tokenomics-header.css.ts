@@ -3,17 +3,47 @@ import { composeStyles, style } from '@vanilla-extract/css';
 import { theme } from 'src/common/theme';
 
 export const root = style({
-  overflowX: 'hidden'
+  overflow: 'hidden',
+  position: 'relative',
+  zIndex: 1,
+  maxWidth: 1920,
+  margin: '0 auto',
+
+  '@media': {
+    [theme.mediaQueries.up(1919)]: {
+      overflow: 'visible'
+    }
+  }
 });
 
 export const col = style({});
 
 export const hero = style({
-  marginBottom: 112,
+  minHeight: 'calc(100vh - 84px)',
+  display: 'flex',
+  flexDirection: 'column',
+
+  '@media': {
+    [theme.mediaQueries.md()]: {
+      minHeight: 'calc(100vh - 116px)'
+    }
+  }
+});
+
+export const img = style({
+  width: '100%',
+  maxWidth: 638,
+  position: 'absolute',
+  right: -25,
+  top: 0,
+  bottom: 0,
+  objectFit: 'contain',
+  display: 'none',
+  zIndex: -1,
 
   '@media': {
     [theme.mediaQueries.lg()]: {
-      marginBottom: 156
+      display: 'block'
     }
   }
 });
@@ -30,6 +60,9 @@ export const subtitle = style({
 export const text = composeStyles(
   col,
   style({
+    marginTop: 'auto',
+    marginBottom: 'auto',
+
     '@media': {
       [theme.mediaQueries.lg()]: {
         width: '63%',
@@ -43,6 +76,7 @@ export const text = composeStyles(
 export const grid = style({
   display: 'grid',
   padding: '24px 32px',
+  marginBottom: 32,
 
   '@media': {
     [theme.mediaQueries.lg()]: {
@@ -61,5 +95,5 @@ export const factoidSubtitle = style({
 });
 
 export const progressContainer = style({
-  marginBottom: 12
+  marginBottom: 20
 });

@@ -29,10 +29,8 @@ export const Faq: React.VFC<BagFaqProps> = (props) => {
     <>
       {props.children.map((faqItem) => (
         <Accordion key={faqItem.title}>
-          <Accordion.Summary expandIcon={<ExpandIcon width="32" height="32" />}>
-            <Typography variant="h4" family="mono" transform="uppercase">
-              {faqItem.title}
-            </Typography>
+          <Accordion.Summary expandIcon={<ExpandIcon width="16" height="16" />}>
+            <Typography>{faqItem.title}</Typography>
           </Accordion.Summary>
           <Accordion.Details className={styles.detail}>
             <ReactMarkdown renderers={renderers}>{faqItem.body}</ReactMarkdown>

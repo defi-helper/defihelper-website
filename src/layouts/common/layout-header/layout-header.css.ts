@@ -7,7 +7,7 @@ export const root = style({
 
   '@media': {
     [theme.mediaQueries.lg()]: {
-      padding: '48px 0'
+      padding: '40px 0'
     }
   }
 });

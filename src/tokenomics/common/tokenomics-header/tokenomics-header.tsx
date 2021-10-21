@@ -6,6 +6,7 @@ import { Button } from 'src/common/button';
 import { Grid } from 'src/common/grid';
 import { Paper } from 'src/common/paper';
 import { Typography } from 'src/common/typography';
+import tokenomics from 'src/assets/images/tokenomics.png';
 import * as styles from './tokenomics-header.css';
 
 export type TokenomicsHeaderProps = {
@@ -20,8 +21,8 @@ export type TokenomicsHeaderProps = {
 
 export const TokenomicsHeader: React.VFC<TokenomicsHeaderProps> = (props) => {
   return (
-    <div className={clsx(styles.root, props.className)}>
-      <Grid.Container className={styles.hero}>
+    <div className={clsx(styles.root)}>
+      <Grid.Container className={clsx(styles.hero, props.className)}>
         <div className={styles.text}>
           <Typography
             transform="uppercase"
@@ -29,7 +30,7 @@ export const TokenomicsHeader: React.VFC<TokenomicsHeaderProps> = (props) => {
             variant="h1"
             className={styles.title}
           >
-            Tokenomics
+            DefiHelper Tokenomics
           </Typography>
           <Typography variant="h3" className={styles.subtitle}>
             The DFH token (ERC-20) will be used for governance and profit
@@ -40,10 +41,11 @@ export const TokenomicsHeader: React.VFC<TokenomicsHeaderProps> = (props) => {
             Get DFH
           </Button>
         </div>
+        <Grid.Row justify="spaceBetween" className={styles.progressContainer}>
+          {props.progress}
+        </Grid.Row>
       </Grid.Container>
-      <Grid.Container className={styles.progressContainer}>
-        <Grid.Row justify="spaceBetween">{props.progress}</Grid.Row>
-      </Grid.Container>
+      <img src={tokenomics} alt="" className={styles.img} />
       <Grid.Container>
         <Paper className={styles.grid}>
           <div className={styles.col}>

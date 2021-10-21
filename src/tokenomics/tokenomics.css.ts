@@ -3,7 +3,7 @@ import { style } from '@vanilla-extract/css';
 import { theme } from 'src/common/theme';
 
 export const header = style({
-  marginBottom: 32
+  marginBottom: 200
 });
 
 export const section = style({

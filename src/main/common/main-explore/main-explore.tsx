@@ -52,19 +52,19 @@ export const MainExplore: React.VFC<MainExploreProps> = (props) => {
                   <Typography className={styles.listItemTitle}>
                     Estimated circulating supply
                   </Typography>
-                  <Typography>520,000,000 DFH</Typography>
+                  <Typography family="mono">520,000,000 DFH</Typography>
                 </li>
                 <li className={styles.listItem}>
                   <Typography className={styles.listItemTitle}>
                     Total supply
                   </Typography>
-                  <Typography>1,000,000,000 DFH</Typography>
+                  <Typography family="mono">1,000,000,000 DFH</Typography>
                 </li>
                 <li className={styles.listItem}>
                   <Typography className={styles.listItemTitle}>
                     Max supply
                   </Typography>
-                  <Typography>1,000,000,000 DFH</Typography>
+                  <Typography family="mono">1,000,000,000 DFH</Typography>
                 </li>
               </ul>
             </Paper>
