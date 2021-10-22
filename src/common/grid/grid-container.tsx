@@ -1,7 +1,7 @@
 import React from 'react';
 import clsx from 'clsx';
 
-import * as styles from './gird.css';
+import * as styles from './grid.css';
 
 export type GridContainerProps = {
   className?: string;

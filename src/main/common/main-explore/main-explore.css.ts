@@ -11,7 +11,7 @@ export const title = style({
   marginBottom: 40,
 
   '@media': {
-    [theme.mediaQueries.lg()]: {
+    [theme.mediaQueries.md()]: {
       marginBottom: 64
     }
   }
@@ -36,10 +36,10 @@ export const colContent = style({
   flexDirection: 'column',
   alignItems: 'flex-start',
   position: 'relative',
-  padding: '40px 20px',
+  padding: 24,
 
   '@media': {
-    [theme.mediaQueries.lg()]: {
+    [theme.mediaQueries.md()]: {
       padding: '64px 40px 40px'
     }
   }
@@ -48,10 +48,19 @@ export const colContent = style({
 export const logo = style({
   width: 80,
   height: 80,
+  marginRight: 23,
   marginLeft: 'auto',
-  marginTop: 'auto',
+  marginTop: -50,
   marginBottom: 'auto',
-  marginRight: 14
+  position: 'relative',
+  zIndex: 5,
+
+  '@media': {
+    [theme.mediaQueries.md()]: {
+      marginRight: 14,
+      marginTop: 'auto'
+    }
+  }
 });
 
 export const list = style({
@@ -77,6 +86,35 @@ export const listItemDescription = style({
   marginBottom: 'auto'
 });
 
+export const listTitle = style({
+  fontSize: 24,
+  lineHeight: '32px',
+
+  '@media': {
+    [theme.mediaQueries.md()]: {
+      fontSize: 40,
+      lineHeight: '48px'
+    }
+  }
+});
+
 export const button = style({
-  marginTop: 20
+  marginTop: 20,
+  width: '100%',
+
+  '@media': {
+    [theme.mediaQueries.md()]: {
+      width: 'auto'
+    }
+  }
+});
+
+export const explore = style({
+  marginTop: 51,
+
+  '@media': {
+    [theme.mediaQueries.md()]: {
+      marginTop: 20
+    }
+  }
 });

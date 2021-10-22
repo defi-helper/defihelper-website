@@ -1,14 +1,10 @@
-import React, { useState } from 'react';
+import React from 'react';
 import clsx from 'clsx';
 import { Link as ReactRouterLink, NavLink } from 'react-router-dom';
 import { useMedia } from 'react-use';
 
-import { ButtonBase } from 'src/common/button-base';
 import { Button } from 'src/common/button';
 import { ReactComponent as Logo } from 'src/assets/icons/logo-mini.svg';
-import { ReactComponent as BurgerIcon } from 'src/assets/icons/burger.svg';
-import { ReactComponent as CloseIcon } from 'src/assets/icons/close-burger.svg';
-import { useBodyScrollLock } from 'src/common/hooks';
 import { Grid } from 'src/common/grid';
 import { config } from 'src/config';
 import { URLS } from 'src/router/urls';
@@ -20,15 +16,7 @@ export type LayoutHeaderProps = {
 };
 
 export const LayoutHeader: React.VFC<LayoutHeaderProps> = (props) => {
-  const isDesktop = useMedia('(min-width: 700px)');
-  const [open, setOpen] = useState(false);
-  const [ref, setRef] = useState<HTMLElement | null>(null);
-
-  const handleToggle = () => {
-    setOpen(!open);
-  };
-
-  useBodyScrollLock(ref);
+  const isDesktop = useMedia('(min-width: 960px)');
 
   return (
     <header className={clsx(styles.root, props.className)}>
@@ -37,23 +25,19 @@ export const LayoutHeader: React.VFC<LayoutHeaderProps> = (props) => {
           <ReactRouterLink to={URLS.main} className={styles.logo}>
             <Logo />
           </ReactRouterLink>
-          {isDesktop && (
-            <div className={styles.menu}>
-              <Link
-                as={NavLink}
-                className={styles.navLink}
-                to={URLS.tokenomics}
-              >
-                Tokenomics
-              </Link>
-              <Link
-                className={styles.navLink}
-                href={URLS.litepaper}
-                target="_blank"
-                rel="noreferrer"
-              >
-                litepaper
-              </Link>
+          <div className={styles.menu}>
+            <Link as={NavLink} className={styles.navLink} to={URLS.tokenomics}>
+              Tokenomics
+            </Link>
+            <Link
+              className={styles.navLink}
+              href={URLS.litepaper}
+              target="_blank"
+              rel="noreferrer"
+            >
+              litepaper
+            </Link>
+            {isDesktop && (
               <Button
                 variant="contained"
                 color="secondary"
@@ -62,47 +46,8 @@ export const LayoutHeader: React.VFC<LayoutHeaderProps> = (props) => {
               >
                 Launch App
               </Button>
-            </div>
-          )}
-          {!isDesktop && (
-            <>
-              <ButtonBase className={styles.burger} onClick={handleToggle}>
-                {!open ? (
-                  <BurgerIcon width="30" height="30" />
-                ) : (
-                  <CloseIcon width="30" height="30" />
-                )}
-              </ButtonBase>
-              {open && (
-                <div className={styles.mobileMenu} ref={setRef}>
-                  <Link
-                    as={NavLink}
-                    className={styles.navLink}
-                    to={URLS.tokenomics}
-                  >
-                    Tokenomics
-                  </Link>
-                  <Link
-                    className={styles.navLink}
-                    href={URLS.litepaper}
-                    target="_blank"
-                    rel="noreferrer"
-                  >
-                    litepaper
-                  </Link>
-                  <Button
-                    variant="contained"
-                    color="secondary"
-                    as="a"
-                    href={config.LAUNCH_APP_URL}
-                    className={styles.launchButtonMobile}
-                  >
-                    Launch App
-                  </Button>
-                </div>
-              )}
-            </>
-          )}
+            )}
+          </div>
         </Grid.Row>
       </Grid.Container>
     </header>

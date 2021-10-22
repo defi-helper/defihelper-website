@@ -1,12 +1,15 @@
 import clsx from 'clsx';
 import React from 'react';
+import { useMedia } from 'react-use';
 
 import { bignumberUtils } from 'src/common/bignumber-utils';
 import { Button } from 'src/common/button';
 import { Grid } from 'src/common/grid';
 import { Paper } from 'src/common/paper';
 import { Typography } from 'src/common/typography';
+import { config } from 'src/config';
 import tokenomics from 'src/assets/images/tokenomics.png';
+import tokenomicsMobile from 'src/assets/images/tokenomics-mobile.png';
 import * as styles from './tokenomics-header.css';
 
 export type TokenomicsHeaderProps = {
@@ -20,6 +23,8 @@ export type TokenomicsHeaderProps = {
 };
 
 export const TokenomicsHeader: React.VFC<TokenomicsHeaderProps> = (props) => {
+  const isDesktop = useMedia('(min-width: 960px)');
+
   return (
     <div className={clsx(styles.root)}>
       <Grid.Container className={clsx(styles.hero, props.className)}>
@@ -40,7 +45,19 @@ export const TokenomicsHeader: React.VFC<TokenomicsHeaderProps> = (props) => {
           <Button color="primary" onClick={props.onGetDFH}>
             Get DFH
           </Button>
+          {!isDesktop && (
+            <Button
+              variant="contained"
+              color="secondary"
+              as="a"
+              href={config.LAUNCH_APP_URL}
+              className={styles.launchButton}
+            >
+              Launch App
+            </Button>
+          )}
         </div>
+        <img src={tokenomicsMobile} alt="" className={styles.imgMobile} />
         <Grid.Row justify="spaceBetween" className={styles.progressContainer}>
           {props.progress}
         </Grid.Row>
