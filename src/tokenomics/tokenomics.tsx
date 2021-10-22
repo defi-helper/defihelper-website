@@ -1,3 +1,4 @@
+import { useMedia } from 'react-use';
 import React from 'react';
 
 import { useDialog } from 'src/common/dialog';
@@ -24,6 +25,8 @@ const NETWORK = config.IS_DEV ? 3 : 1;
 const CONTRACT_ADDRESS = '0xa57fEd13d1558116E90009f872AeC868D710D605';
 
 export const Tokenomics: React.VFC<TokenomicsProps> = () => {
+  const isDesktop = useMedia('(min-width: 960px)');
+
   const [{ data }] = useGovTokenQuery({
     variables: {
       filter: {
@@ -52,9 +55,7 @@ export const Tokenomics: React.VFC<TokenomicsProps> = () => {
         progress={
           <CollectedProgress
             className={styles.progress}
-            count={55}
-            width={12}
-            height={24}
+            count={isDesktop ? 55 : 29}
             topTitle
           />
         }

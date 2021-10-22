@@ -31,13 +31,16 @@ export const MainExplore: React.VFC<MainExploreProps> = (props) => {
         <Grid.Row>
           <div className={styles.col}>
             <Paper className={styles.colContent}>
-              <Typography variant="h3" className={styles.listItemDescription}>
+              <Typography
+                variant="h3"
+                className={clsx(styles.listItemDescription, styles.listTitle)}
+              >
                 The DFH token is a governance and yield-generating token
               </Typography>
               <img src={dfhlogo} alt="" className={styles.logo} />
               <Button
                 variant="outlined"
-                className={styles.button}
+                className={clsx(styles.button, styles.explore)}
                 as={ReactRouterLink}
                 to={URLS.tokenomics}
               >

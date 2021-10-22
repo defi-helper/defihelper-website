@@ -19,7 +19,7 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
       loading,
       variant = 'contained',
       color = 'primary',
-      size = 'large',
+      size = 'medium',
       ...props
     },
     ref

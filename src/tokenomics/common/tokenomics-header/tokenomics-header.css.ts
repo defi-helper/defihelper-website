@@ -48,8 +48,34 @@ export const img = style({
   }
 });
 
+export const imgMobile = style({
+  objectFit: 'contain',
+  display: 'block',
+  zIndex: -1,
+  marginBottom: 28,
+  position: 'relative',
+  right: -22,
+
+  '@media': {
+    [theme.mediaQueries.lg()]: {
+      display: 'none'
+    }
+  }
+});
+
 export const title = style({
-  marginBottom: 16
+  marginTop: 57,
+  marginBottom: 16,
+
+  '@media': {
+    [theme.mediaQueries.lg()]: {
+      marginTop: 0
+    }
+  }
+});
+
+export const launchButton = style({
+  marginLeft: 16
 });
 
 export const subtitle = style({

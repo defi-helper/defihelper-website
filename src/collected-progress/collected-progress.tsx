@@ -1,6 +1,7 @@
 import clsx from 'clsx';
 import React from 'react';
 import { Link as ReactRouterLink } from 'react-router-dom';
+import { useMedia } from 'react-use';
 import { bignumberUtils } from 'src/common/bignumber-utils';
 
 import { Link } from 'src/common/link';
@@ -13,8 +14,6 @@ import * as styles from './collected-progress.css';
 export type CollectedProgressProps = {
   className?: string;
   count: number;
-  width: number;
-  height: number;
   topTitle?: boolean;
   bottomTitle?: boolean;
   mainPage?: boolean;
@@ -26,6 +25,8 @@ const createArrayNumber = (num: number) =>
   Array.from(Array(Math.floor(num)), (_, i) => i);
 
 export const CollectedProgress: React.VFC<CollectedProgressProps> = (props) => {
+  const isDesktop = useMedia('(min-width: 960px)');
+
   const [{ data }] = useTreasuryQuery();
 
   const fees = data?.treasury.balanceUSD ?? 0;
@@ -36,7 +37,13 @@ export const CollectedProgress: React.VFC<CollectedProgressProps> = (props) => {
   const countArray = createArrayNumber(props.count);
 
   return (
-    <div className={clsx(styles.root, props.className)}>
+    <div
+      className={clsx(
+        styles.root,
+        props.className,
+        props.topTitle && styles.top
+      )}
+    >
       {props.topTitle && (
         <Typography
           variant="body2"
@@ -48,7 +55,7 @@ export const CollectedProgress: React.VFC<CollectedProgressProps> = (props) => {
             {bignumberUtils.format(fees)}/${bignumberUtils.format(MAX)} IN FEES
             COLLECTED
           </span>
-          {props.mainPage && (
+          {props.mainPage && isDesktop && (
             <Link
               as={ReactRouterLink}
               to={URLS.tokenomics}
@@ -63,13 +70,19 @@ export const CollectedProgress: React.VFC<CollectedProgressProps> = (props) => {
         {countArray.map((item) => (
           <div
             key={item}
-            style={{ maxWidth: props.width, height: props.height }}
             className={clsx(styles.item, {
-              [styles.filledItem]: filledArray[item] !== undefined
+              [styles.filledItem]: filledArray[item] !== undefined,
+              [styles.big]: props.topTitle,
+              [styles.small]: props.bottomTitle
             })}
           />
         ))}
       </div>
+      {props.mainPage && !isDesktop && (
+        <Link as={ReactRouterLink} to={URLS.tokenomics} className={styles.link}>
+          Learn More
+        </Link>
+      )}
       {props.topTitle && (
         <Typography className={styles.description} variant="body2">
           The DFH token will be launched only after the protocol collects at

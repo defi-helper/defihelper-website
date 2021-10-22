@@ -4,12 +4,17 @@ import { theme } from '../theme';
 
 export const container = style({
   margin: '0 auto',
-  padding: '0 16px'
+  padding: '0 16px',
+  width: '100%'
 });
 
 export const variants = styleVariants({
   lg: {
     '@media': {
+      [theme.mediaQueries.md()]: {
+        width: '896px' as string
+      },
+
       [theme.mediaQueries.lg()]: {
         width: '1344px' as string
       }

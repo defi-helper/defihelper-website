@@ -22,7 +22,7 @@ export const grid = style({
   padding: 0,
   listStyle: 'none',
   gridTemplateColumns: `repeat(auto-fit, minmax(${width}, 1fr))`,
-  gridGap: 16,
+  gridGap: 40,
   margin: '0 0 16px',
 
   '@media': {
@@ -58,10 +58,12 @@ export const card = style({
 export const cardImage = style({
   marginBottom: 16,
   opacity: 0.64,
+  maxWidth: 46,
 
   '@media': {
     [theme.mediaQueries.lg()]: {
-      marginBottom: 24
+      marginBottom: 24,
+      maxWidth: 'none'
     }
   }
 });
