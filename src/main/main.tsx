@@ -1,5 +1,5 @@
 import React, { useMemo, useState } from 'react';
-import { useThrottle } from 'react-use';
+import { useMedia, useThrottle } from 'react-use';
 
 import { useDialog } from 'src/common/dialog';
 import { ContactAnnounce } from 'src/contacts/contact-announce';
@@ -21,6 +21,8 @@ import {
 import * as styles from './main.css';
 
 export const Main: React.VFC = () => {
+  const isDesktop = useMedia('(min-width: 960px)');
+
   const [sum, setSum] = useState(10000);
   const [apy, setApy] = useState(100);
 
@@ -61,13 +63,7 @@ export const Main: React.VFC = () => {
       <MainHeader
         className={styles.header}
         progress={
-          <CollectedProgress
-            count={55}
-            width={12}
-            height={24}
-            topTitle
-            mainPage
-          />
+          <CollectedProgress count={isDesktop ? 55 : 29} topTitle mainPage />
         }
       />
       <MainChart
@@ -82,9 +78,7 @@ export const Main: React.VFC = () => {
       <MainExplore
         className={styles.section}
         onNotify={handleOpenAnnounce}
-        progress={
-          <CollectedProgress count={8} width={34} height={80} bottomTitle />
-        }
+        progress={<CollectedProgress count={8} bottomTitle />}
       />
       <MainEditor className={styles.section} />
       <MainTable className={styles.section} />

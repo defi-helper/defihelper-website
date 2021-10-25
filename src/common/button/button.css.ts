@@ -48,9 +48,21 @@ export const varinats = styleVariants({
 });
 
 export const sizes = styleVariants({
-  small: {},
+  small: {
+    fontSize: 14,
+    lineHeight: '20px',
+    padding: '6px 12px'
+  },
 
-  medium: {},
+  medium: {
+    fontSize: 16,
+    lineHeight: '24px',
+    padding: '8px 16px'
+  },
 
-  large: {}
+  large: {
+    fontSize: 20,
+    lineHeight: '28px',
+    padding: '12px 20px'
+  }
 });

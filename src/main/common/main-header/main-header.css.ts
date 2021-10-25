@@ -31,13 +31,32 @@ export const bottom = style({
 export const subtitle = style({
   marginBottom: 24,
   color: theme.palette.grey1,
-  fontSize: 34,
-  lineHeight: '42px'
+  fontSize: 18,
+  lineHeight: '26px',
+
+  '@media': {
+    [theme.mediaQueries.lg()]: {
+      fontSize: 34,
+      lineHeight: '42px'
+    },
+
+    [theme.mediaQueries.xl()]: {
+      fontSize: 48,
+      lineHeight: '42px'
+    }
+  }
+});
+
+export const launchButton = style({
+  margin: '0 auto'
 });
 
 export const text = composeStyles(
   col,
   style({
+    display: 'flex',
+    flexDirection: 'column',
+
     '@media': {
       [theme.mediaQueries.lg()]: {
         paddingTop: 64,

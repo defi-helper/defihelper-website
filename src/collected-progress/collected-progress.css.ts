@@ -1,9 +1,24 @@
 import { style } from '@vanilla-extract/css';
+
 import { theme } from 'src/common/theme';
 
 export const root = style({
   width: '100%',
   color: theme.palette.blue
+});
+
+export const top = style({
+  display: 'flex',
+  alignItems: 'center',
+  flexDirection: 'column',
+  textAlign: 'center',
+
+  '@media': {
+    [theme.mediaQueries.md()]: {
+      textAlign: 'left',
+      display: 'block'
+    }
+  }
 });
 
 export const progress = style({
@@ -40,8 +55,16 @@ export const topTitle = style({
 });
 
 export const link = style({
-  marginLeft: 'auto',
-  color: theme.palette.white
+  color: theme.palette.white,
+  textTransform: 'uppercase',
+  marginTop: 8,
+
+  '@media': {
+    [theme.mediaQueries.md()]: {
+      marginTop: 0,
+      marginLeft: 'auto'
+    }
+  }
 });
 
 export const bottomTitle = style({
@@ -49,5 +72,29 @@ export const bottomTitle = style({
 });
 
 export const description = style({
-  marginTop: 10
+  marginTop: 10,
+  color: theme.palette.grey1,
+
+  '@media': {
+    [theme.mediaQueries.down(959)]: {
+      textAlign: 'center'
+    }
+  }
+});
+
+export const big = style({
+  width: 8,
+  height: 24,
+
+  '@media': {
+    [theme.mediaQueries.md()]: {
+      width: 12,
+      height: 24
+    }
+  }
+});
+
+export const small = style({
+  width: 34,
+  height: 80
 });

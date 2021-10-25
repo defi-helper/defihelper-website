@@ -48,7 +48,7 @@ export const TokenomicsHolders: React.VFC<TokenomicsHoldersProps> = (props) => {
       </Typography>
       <div className={styles.grid}>
         {DATA.map((dataItem) => (
-          <div key={dataItem.title}>
+          <div key={dataItem.title} className={styles.card}>
             <dataItem.icon className={clsx(styles.opacity, styles.cardIcon)} />
             <Typography
               variant="h4"

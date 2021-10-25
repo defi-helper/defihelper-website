@@ -14,6 +14,12 @@ export const title = style({
   }
 });
 
+export const card = style({
+  display: 'flex',
+  flexDirection: 'column',
+  minHeight: '100%'
+});
+
 export const grid = style({
   display: 'grid',
   gridRowGap: 44,
@@ -36,7 +42,5 @@ export const cardIcon = style({
 });
 
 export const cardTitle = style({
-  marginBottom: 16
+  marginTop: 'auto'
 });
-
-export const cardDescription = style({});
