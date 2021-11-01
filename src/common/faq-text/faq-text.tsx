@@ -63,7 +63,7 @@ The smart contract and funds are always under the user's control. Security is pa
 
   {
     title: 'Which blockchains does DeFiHelper support?',
-    body: `The following blockchains are supported: Ethereum, Binance Smart Chain, Waves and Polygon. Support for other popular networks will be added in the near future.`
+    body: `The following blockchains are supported: Ethereum, Binance Smart Chain, Avalanche, Waves and Polygon. Support for other popular networks will be added in the near future.`
   },
 
   {
