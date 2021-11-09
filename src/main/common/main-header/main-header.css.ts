@@ -36,7 +36,7 @@ export const subtitle = style({
 
   '@media': {
     [theme.mediaQueries.lg()]: {
-      fontSize: 34,
+      fontSize: 32,
       lineHeight: '42px'
     },
 

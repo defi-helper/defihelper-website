@@ -39,7 +39,7 @@ const TEAM: Array<Team> = [
     name: 'Vladislav Komisarov',
     role: 'CEO and founder',
     description:
-      'Vlad has over 17 years of experience in web development. He launched and managed a number of major ICT products and services on the CIS market.',
+      'Vlad has over 17 years of experience in web development. He has launched and managed a number of major ICT products and services on the CIS market.',
     actions: [
       <ButtonBase
         as={Link}
@@ -85,7 +85,7 @@ const TEAM: Array<Team> = [
     name: 'Igor Varnavsky',
     role: 'CMO',
     description:
-      'A long-time crypto proponent, Igor has 17 years of experience in journalism and 11 years of experience in marketing. Previously worked at Mango.Rocks, VK',
+      'A long-time crypto proponent, Igor has 17 years of experience in journalism and 11 years of experience in marketing. He has previously worked at Mango.Rocks, VK',
     actions: [
       <ButtonBase
         as={Link}
@@ -108,7 +108,7 @@ const TEAM: Array<Team> = [
     name: 'CT Lek',
     role: 'Community lead',
     description:
-      'Been in the space since double-digit ETH, Lek is a DeFi believer with 10 years of consultancy experience to funds and multinational corporations.',
+      'Lek has been involved in this sphere since double-digit ETH, and is a DeFi believer with 10 years of consultancy experience to funds and multinational corporations.',
     actions: []
   },
   {
@@ -116,7 +116,7 @@ const TEAM: Array<Team> = [
     name: 'Ilya Munerman',
     role: 'Head of R&D',
     description:
-      'Author of the DFH mathematical model. Head of Scoring and Analytics at Interfax, has a PhD in economics, and works as an Assistant Professor at New Economic School and HSE University.',
+      'Ilya is the author of our DFH mathematical model. He is the Head of Scoring and Analytics at Interfax, has a PhD in economics, and works as an Assistant Professor at New Economic School and HSE University.',
     actions: [
       <ButtonBase
         as={Link}
@@ -132,7 +132,7 @@ const TEAM: Array<Team> = [
     name: 'Waves Technologies',
     role: 'Partner',
     description:
-      'All-encompassing gateway blockchain protocol advancing technological frontiers of today for the pioneering developers of tomorrow. ',
+      'All-encompassing gateway blockchain protocol advancing technological the frontiers of today for the pioneering developers of tomorrow. ',
     actions: [
       <ButtonBase
         as={Link}

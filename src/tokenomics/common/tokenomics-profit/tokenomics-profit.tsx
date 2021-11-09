@@ -14,13 +14,13 @@ const DATA = [
   {
     title: 'No-code automation',
     description: 'DFH charges $1 per executed automation (blockchain fee not included)',
-    estimate: '$4,000,000 / first year'
+    estimate: '$4,300,000'
   },
 
   {
     title: 'Notifications',
     description: `Notifications are available starting from $10 per 1,000 messages`,
-    estimate: '$450,000 / first year'
+    estimate: '$450,000'
   },
 
   {
@@ -59,7 +59,7 @@ export const TokenomicsProfit: React.VFC<TokenomicsProfitProps> = (props) => {
               {dataItem.description}
             </Typography>
             <Typography className={styles.estimateTitle}>
-              Estimate profit in a year
+              Estimated Yearly Profit
             </Typography>
             <Typography variant="h4" className={styles.estimateSubtitle}>
               {dataItem.estimate}

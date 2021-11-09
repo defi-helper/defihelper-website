@@ -36,7 +36,7 @@ const SERVICES = [
     image: security,
     title: 'Security',
     description:
-      "DFH doesn't have access to your private keys. The app performs only the actions that you authorize via a special contract that is always under your control."
+      "DFH doesn't have access to your private keys. The app only performs the actions that you authorize via a special contract that is always under your control."
   },
   {
     image: automation,
@@ -54,7 +54,7 @@ const SERVICES = [
   {
     image: bucket,
     title: 'scenarios Marketplace',
-    description: 'Use proven strategies and share your own for rewards.',
+    description: 'Use proven strategies and share your own to earn rewards.',
     action: (
       <Typography as="span" className={styles.comingSoon}>
         Coming soon

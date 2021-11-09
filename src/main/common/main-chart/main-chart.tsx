@@ -70,7 +70,7 @@ export const MainChart: React.VFC<MainChartProps> = (props) => {
         transform="uppercase"
         className={styles.title}
       >
-        Earn more with autocompound automate
+        Earn more with our autostaking feature
       </Typography>
       <Paper className={styles.chart}>
         <div className={styles.header}>
@@ -94,7 +94,7 @@ export const MainChart: React.VFC<MainChartProps> = (props) => {
         </div>
         <div className={styles.grid}>
           <MainChartCard
-            title="Restake manualy"
+            title="Restake manually"
             color="restake"
             sum={lastRestakeValue?.v}
             apy={bignumberUtils.mul(

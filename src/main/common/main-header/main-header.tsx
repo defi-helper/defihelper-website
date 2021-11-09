@@ -24,7 +24,7 @@ export const MainHeader: React.VFC<MainHeaderProps> = (props) => {
           <div className={styles.text}>
             <img src={logo} alt="" className={styles.logo} />
             <Typography variant="h2" className={styles.subtitle} align="center">
-              Automate your DeFi strategies across chains, earn more with
+              Automate your DeFi strategies across chains, earn more with our
               autostaking feature
             </Typography>
             {!isDesktop && (
