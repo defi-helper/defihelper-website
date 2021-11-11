@@ -107,7 +107,7 @@ const DATA = [
     ]
   },
   {
-    title: 'Development grants',
+    title: 'Development',
     subtitle: ['developersYears', 'developersTokens'],
     description: [
       {

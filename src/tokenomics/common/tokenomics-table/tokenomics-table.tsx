@@ -26,7 +26,7 @@ const HEAD = [
 
 const BODY = [
   [
-    'Development grants',
+    'Development',
     '30%',
     '3 years (on demand)',
     '300,000,000',
@@ -34,7 +34,7 @@ const BODY = [
     connect new protocols and blockchains, and improve automation scripts — and as a result to increase the volume of protocol commissions.`
   ],
   [
-    'Core contributors',
+    'Team',
     '19%',
     '1-year vesting',
     '190,000,000',
@@ -42,9 +42,9 @@ const BODY = [
     The main goal is to ensure the sustained development and proper operation of the protocol.`
   ],
   [
-    'Early investors',
+    'Private sale',
     '15%',
-    '4-month moratorium on sale',
+    '6-month moratorium on sale',
     '150,000,000',
     `Rewards for seed investors who fund the development and launch of the protocol.`
   ],
@@ -77,7 +77,7 @@ const BODY = [
     `Rewards for helping with protocol promotion.`
   ],
   [
-    'Core contributors Launch Bonus',
+    'Team launch bonus',
     '1%',
     '1-month moratorium on sale',
     '10,000,000',
@@ -122,6 +122,9 @@ export const TokenomicsTable: React.VFC<TokenomicsTableProps> = (props) => {
           ))}
         </TableBody>
       </Table>
+      <Typography className={styles.description}>
+        * The tokenomics model may change in response to market conditions
+      </Typography>
     </Grid.Container>
   );
 };

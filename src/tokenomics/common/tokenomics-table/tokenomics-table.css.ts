@@ -14,6 +14,11 @@ export const title = style({
   }
 });
 
+export const description = style({
+  marginTop: 40,
+  color: theme.palette.grey1
+});
+
 export const head = style({
   color: theme.palette.grey1
 });
