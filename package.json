@@ -6,7 +6,7 @@
     "@amcharts/amcharts4": "^4.10.22",
     "@babel/core": "7.14.3",
     "@binance-chain/bsc-connector": "^1.0.0",
-    "@defihelper/networks": "^0.0.16",
+    "@defihelper/networks": "^1.0.0",
     "@graphql-codegen/typescript-urql": "^3.0.0",
     "@matejmazur/react-katex": "^3.1.3",
     "@sentry/react": "^6.5.1",
