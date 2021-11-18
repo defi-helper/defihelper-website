@@ -84,7 +84,7 @@ export const MainChart: React.VFC<MainChartProps> = (props) => {
           />
           <Typography variant="h4">in a year with</Typography>
           <MainInputSlider
-            max={999}
+            max={9999}
             value={props.apy}
             onChange={props.onChangeApy}
             rightSection="APY"
