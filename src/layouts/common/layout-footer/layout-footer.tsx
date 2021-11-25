@@ -52,12 +52,12 @@ const PROTOCOL = [
     title: 'Math behind DFH (RU)',
     link: articleRU,
     target: '_blank'
+  },
+  {
+    title: 'Contracts',
+    link: URLS.contracts,
+    target: ''
   }
-  // {
-  //   title: 'Contracts',
-  //   link: URLS.contracts,
-  //   target: ''
-  // }
 ];
 
 const SOCIAL = [
