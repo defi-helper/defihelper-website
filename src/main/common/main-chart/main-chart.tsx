@@ -76,7 +76,7 @@ export const MainChart: React.VFC<MainChartProps> = (props) => {
         <div className={styles.header}>
           <Typography variant="h4">What can you earn with</Typography>
           <MainInputSlider
-            max={10000}
+            max={100000}
             value={props.sum}
             onChange={props.onChangeSum}
             rightSection="$"
