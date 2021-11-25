@@ -42,12 +42,12 @@ DeFiHelper monitors and reports on sudden changes in profitability, important ma
     body: `Part of DeFiHelper's functionality is available on a paid basis. It includes notifications ($10 per 1,000 messages) and automation ($1 per executed action plus network fee).`
   },
 
-//   {
-//     title: 'How secure is DeFiHelper?',
-//     body: `DeFiHelper does not have access to users' private keys. The service performs only the actions that users authorize via a special contract that is always under their control.
-//
-// The code behind DeFiHelper has been audited by [MixBytes](https://mixbytes.io/). The results of the audit will be made available within a few weeks after the public launch.`
-//   },
+  //   {
+  //     title: 'How secure is DeFiHelper?',
+  //     body: `DeFiHelper does not have access to users' private keys. The service performs only the actions that users authorize via a special contract that is always under their control.
+  //
+  // The code behind DeFiHelper has been audited by [MixBytes](https://mixbytes.io/). The results of the audit will be made available within a few weeks after the public launch.`
+  //   },
 
   {
     title: 'How does the automation functionality of DFH work?',
@@ -108,10 +108,10 @@ If you do not have any programming skills, you can help in other ways by creatin
     body: `We have decided to release the token onto the market only after the business model of the protocol has been validated. A progress bar on the main page of the DFH website indicates the amount of fees the protocol has collected. The token and the governance system will be launched when $10,000 in ETH have been collected.`
   },
 
-  // {
-  //   title: 'What are the addresses of DFH smart contracts?',
-  //   body: `You can find all DFH smart contract addresses on the [Contracts](/contracts) page.`
-  // },
+  {
+    title: 'What are the addresses of DFH smart contracts?',
+    body: `You can find all DFH smart contract addresses on the [Contracts](/contracts) page.`
+  },
 
   {
     title: 'Who is on the DeFiHelper team?',
