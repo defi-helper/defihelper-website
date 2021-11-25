@@ -121,17 +121,16 @@ export const MainChartCard: React.VFC<MainChartCardProps> = (props) => {
     [props.data]
   );
 
+  const sum = bignumberUtils.formatMax(props.sum, 1000000);
+
   return (
-    <div>
+    <div className={styles.root}>
       <Typography className={clsx(styles.title, styles.grey)}>
         {props.title}
       </Typography>
       <div className={styles.subtitle}>
         <Typography variant="inherit" transform="uppercase" as="div">
-          $
-          {bignumberUtils.lt(props.sum, 0)
-            ? 0
-            : bignumberUtils.format(props.sum)}
+          ${bignumberUtils.lt(props.sum, 0) ? 0 : sum}
         </Typography>
         <Typography
           variant="inherit"
@@ -141,7 +140,7 @@ export const MainChartCard: React.VFC<MainChartCardProps> = (props) => {
         >
           {bignumberUtils.lt(props.apy, 0)
             ? 0
-            : bignumberUtils.format(props.apy)}
+            : bignumberUtils.formatMax(props.apy, 10000)}
           % APY
         </Typography>
       </div>
