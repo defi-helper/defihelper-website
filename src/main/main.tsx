@@ -23,7 +23,7 @@ import * as styles from './main.css';
 export const Main: React.VFC = () => {
   const isDesktop = useMedia('(min-width: 960px)');
 
-  const [sum, setSum] = useState(1000);
+  const [sum, setSum] = useState(10000);
   const [apy, setApy] = useState(100);
 
   const [openAnnouce] = useDialog(ContactAnnounce);
