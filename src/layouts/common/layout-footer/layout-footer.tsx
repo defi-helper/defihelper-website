@@ -57,6 +57,16 @@ const PROTOCOL = [
     title: 'Contracts',
     link: URLS.contracts,
     target: ''
+  },
+  {
+    title: 'Coingecko',
+    link: 'https://www.coingecko.com/en/coins/defihelper-governance-token',
+    target: '_blank'
+  },
+  {
+    title: 'Etherscan',
+    link: 'https://etherscan.io/token/0x5f2080542ab6ae7e0b06778f0b2d263006297840',
+    target: '_blank'
   }
 ];
 
