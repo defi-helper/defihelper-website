@@ -19,7 +19,6 @@ export type TokenomicsHeaderProps = {
   circulatingSupply?: string;
   totalSupply?: string;
   onGetDFH: () => void;
-  progress: React.ReactNode;
 };
 
 export const TokenomicsHeader: React.VFC<TokenomicsHeaderProps> = (props) => {
@@ -58,9 +57,6 @@ export const TokenomicsHeader: React.VFC<TokenomicsHeaderProps> = (props) => {
           )}
         </div>
         <img src={tokenomicsMobile} alt="" className={styles.imgMobile} />
-        <Grid.Row justify="spaceBetween" className={styles.progressContainer}>
-          {props.progress}
-        </Grid.Row>
       </Grid.Container>
       <img src={tokenomics} alt="" className={styles.img} />
       <Grid.Container>

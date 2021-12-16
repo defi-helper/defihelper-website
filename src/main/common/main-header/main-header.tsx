@@ -11,7 +11,6 @@ import * as styles from './main-header.css';
 
 export type MainHeaderProps = {
   className?: string;
-  progress: React.ReactNode;
 };
 
 export const MainHeader: React.VFC<MainHeaderProps> = (props) => {
@@ -40,15 +39,6 @@ export const MainHeader: React.VFC<MainHeaderProps> = (props) => {
               </Button>
             )}
           </div>
-        </Grid.Row>
-      </Grid.Container>
-      <Grid.Container className={styles.bottom}>
-        <Grid.Row justify="spaceBetween">
-          {React.isValidElement(props.progress) &&
-            React.cloneElement(props.progress, {
-              ...props.progress.props,
-              className: styles.col
-            })}
         </Grid.Row>
       </Grid.Container>
     </div>

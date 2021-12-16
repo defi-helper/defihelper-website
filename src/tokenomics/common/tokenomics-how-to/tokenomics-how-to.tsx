@@ -27,7 +27,7 @@ const DATA = [
     description: [
       {
         title:
-          'The DFH token will be launched only after the protocol collects at least $10,000 in fees as proof of concept.',
+          'Check the token sale details',
         subtitle: '',
         action: [
           config.UNISWAP_URL ? (

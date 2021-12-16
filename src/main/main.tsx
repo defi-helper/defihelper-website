@@ -7,7 +7,6 @@ import { ContactSuccess } from 'src/contacts/contact-success';
 import { useRestakeStrategyQuery } from 'src/graphql/_generated-hooks';
 import { LandingLayout } from 'src/layouts';
 import { FaqText } from 'src/common/faq-text';
-import { CollectedProgress } from 'src/collected-progress';
 import { Head } from 'src/common/head';
 import {
   MainChart,
@@ -62,9 +61,6 @@ export const Main: React.VFC = () => {
       <Head title="Autopilot for your DeFi portfolio" />
       <MainHeader
         className={styles.header}
-        progress={
-          <CollectedProgress count={isDesktop ? 55 : 29} topTitle mainPage />
-        }
       />
       <MainChart
         className={styles.section}
@@ -78,7 +74,6 @@ export const Main: React.VFC = () => {
       <MainExplore
         className={styles.section}
         onNotify={handleOpenAnnounce}
-        progress={<CollectedProgress count={8} bottomTitle />}
       />
       <MainEditor className={styles.section} />
       <MainTable className={styles.section} />

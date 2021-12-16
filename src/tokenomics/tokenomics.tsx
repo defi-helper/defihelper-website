@@ -13,6 +13,7 @@ import {
   TokenomicsHeader,
   TokenomicsHowTo,
   TokenomicsHolders,
+  TokenomicsPrivate,
   TokenomicsProfit,
   TokenomicsTable,
   TokenomicsCharts
@@ -52,16 +53,10 @@ export const Tokenomics: React.VFC<TokenomicsProps> = () => {
         totalSupply={data?.govToken.totalSupply}
         className={styles.header}
         onGetDFH={handleOpenLinkDialog}
-        progress={
-          <CollectedProgress
-            className={styles.progress}
-            count={isDesktop ? 55 : 29}
-            topTitle
-          />
-        }
       />
-      <TokenomicsCharts className={styles.section} />
+      {/*<TokenomicsCharts className={styles.section} />*/}
       <TokenomicsTable className={styles.section} />
+      <TokenomicsPrivate className={styles.section} />
       <TokenomicsProfit className={styles.section} />
       <TokenomicsHolders className={styles.section} />
       <TokenomicsHowTo

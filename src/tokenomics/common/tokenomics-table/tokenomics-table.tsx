@@ -27,26 +27,25 @@ const HEAD = [
 const BODY = [
   [
     'Development',
-    '30%',
+    '28%',
     '3 years (on demand)',
-    '300,000,000',
+    '280,000,000',
     `Grants for outsourced developers. The goal is to scale up the development of DFH — add new features,
     connect new protocols and blockchains, and improve automation scripts — and as a result to increase the volume of protocol commissions.`
   ],
   [
     'Team',
     '19%',
-    '1-year vesting',
+    '1-year lock, 24-month linear release',
     '190,000,000',
-    `Development of basic functionality and protocol governance during the first year of operation.
-    The main goal is to ensure the sustained development and proper operation of the protocol.`
+    `Core team allocation. The main goal is to ensure the sustained development and proper operation of the protocol.`
   ],
   [
-    'Private sale',
-    '15%',
-    '6-month moratorium on sale',
-    '150,000,000',
-    `Rewards for seed investors who fund the development and launch of the protocol.`
+    'Token Sale',
+    '17%',
+    'Dependent on round',
+    '170,000,000',
+    `Private and public token rounds, which help fund the development and launch of the protocol.`
   ],
   [
     'Marketing',
