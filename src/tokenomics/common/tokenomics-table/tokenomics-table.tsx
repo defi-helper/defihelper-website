@@ -28,7 +28,7 @@ const BODY = [
   [
     'Development',
     '28%',
-    '3 years (on demand)',
+    '3-years (on demand)',
     '280,000,000',
     `Grants for outsourced developers. The goal is to scale up the development of DFH — add new features,
     connect new protocols and blockchains, and improve automation scripts — and as a result to increase the volume of protocol commissions.`
