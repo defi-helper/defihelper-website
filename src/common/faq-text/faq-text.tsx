@@ -104,11 +104,6 @@ If you do not have any programming skills, you can help in other ways by creatin
   },
 
   {
-    title: 'Why are DFH tokens not available yet?',
-    body: `We have decided to release the token onto the market only after the business model of the protocol has been validated. A progress bar on the main page of the DFH website indicates the amount of fees the protocol has collected. The token and the governance system will be launched when $10,000 in ETH have been collected.`
-  },
-
-  {
     title: 'What are the addresses of DFH smart contracts?',
     body: `You can find all DFH smart contract addresses on the [Contracts](/contracts) page.`
   },
