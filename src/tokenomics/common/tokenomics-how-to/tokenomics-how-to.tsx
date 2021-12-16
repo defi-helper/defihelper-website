@@ -112,7 +112,7 @@ const DATA = [
     description: [
       {
         title: 'Build new features and earn ample rewards in DFH',
-        subtitle: '30% of total supply',
+        subtitle: '28% of total supply',
         action: [
           <Button
             as="a"
