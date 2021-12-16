@@ -3108,7 +3108,7 @@ export const RestakeStrategyDocument = gql`
     $balance: Float!
     $apy: Float!
     $blockchain: BlockchainEnum = ethereum
-    $network: String = "1"
+    $network: String = "43114"
   ) {
     restakeStrategy(
       balance: $balance
