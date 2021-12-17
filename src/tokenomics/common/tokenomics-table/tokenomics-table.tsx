@@ -45,7 +45,7 @@ const BODY = [
     '17%',
     'Dependent on round',
     '170,000,000',
-    `Private and public token rounds, which help fund the development and launch of the protocol.`
+    `Private and public token sale rounds, which help fund the development and launch of the protocol.`
   ],
   [
     'Marketing',

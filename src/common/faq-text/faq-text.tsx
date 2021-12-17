@@ -82,9 +82,9 @@ If you do not have any programming skills, you can help in other ways by creatin
     title: 'What is the supply and distribution of DFH tokens?',
     body: `The initial supply will be set at 1 billion DFH tokens. The tokens will be distributed in accordance with the following percentages:
 
-* 300,000,000 (30%) — grants for development during the first three years of operation.
-* 190,000,000 (19%) — team tokens with vesting for a period of one year.
-* 150,000,000 (15%) — tokens allocated for seed investors with a 4-month moratorium on sales.
+* 280,000,000 (28%) — grants for development during the first three years of operation.
+* 190,000,000 (19%) — core team allocation.
+* 170,000,000 (17%) — Private and public token sale rounds.
 * 100,000,000 (10%) — marketing budget for the first year of operation.
 * 100,000,000 (10%) — tokens allocated for distribution through liquidity pools during the first year of operation.
 * 80,000,000 (8%) — bonus tokens for early adopters with vesting for a period of 6 months.
@@ -96,6 +96,7 @@ If you do not have any programming skills, you can help in other ways by creatin
     title: 'How do I buy DFH tokens?',
     body: `DFH tokens are not available yet. After the launch, they can be obtained in several ways:
 
+* Private and public token sale rounds.
 * Purchased on exchanges (Uniswap, Waves, Pancakeswap).
 * Received in exchange for liquidity (staking).
 * Received as a development grant.
