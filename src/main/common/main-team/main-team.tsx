@@ -73,7 +73,7 @@ const TEAM: Array<Team> = [
       </ButtonBase>,
       <ButtonBase
         as={Link}
-        href="https://linkedin.com/in/artem-tolkachev"
+        href="https://linkedin.com/in/artemtolkachev/"
         target="_blank"
       >
         <LinkedInIcon />
