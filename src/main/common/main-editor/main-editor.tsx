@@ -47,8 +47,7 @@ export const MainEditor: React.VFC<MainEditorProps> = (props) => {
             </Typography>
             <Typography className={styles.cardDescription}>
               If you find your competencies on this list and want to earn well,
-              then please contact us and we will discuss the
-              details.
+              then please contact us and we will discuss the details.
             </Typography>
             <Button
               variant="outlined"

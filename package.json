@@ -156,7 +156,8 @@
     "build-analyze": "cross-env ANALYZE=true node scripts/build.js",
     "test": "node scripts/test.js",
     "codegen": "graphql-codegen --config config.yml",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "lint": "eslint --fix --ext .ts,.tsx ./src"
   },
   "browserslist": {
     "production": [

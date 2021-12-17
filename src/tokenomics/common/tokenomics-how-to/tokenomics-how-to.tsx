@@ -26,8 +26,7 @@ const DATA = [
     subtitle: ['marketCap', 'circulatingSupply'],
     description: [
       {
-        title:
-          'Check the token sale details',
+        title: 'Check the token sale details',
         subtitle: '',
         action: [
           config.UNISWAP_URL ? (

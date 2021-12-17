@@ -59,9 +59,7 @@ export const Main: React.VFC = () => {
   return (
     <LandingLayout>
       <Head title="Autopilot for your DeFi portfolio" />
-      <MainHeader
-        className={styles.header}
-      />
+      <MainHeader className={styles.header} />
       <MainChart
         className={styles.section}
         onChangeApy={handleChangeApy}
@@ -71,10 +69,7 @@ export const Main: React.VFC = () => {
         data={data?.restakeStrategy}
       />
       <MainServices className={styles.section} />
-      <MainExplore
-        className={styles.section}
-        onNotify={handleOpenAnnounce}
-      />
+      <MainExplore className={styles.section} onNotify={handleOpenAnnounce} />
       <MainEditor className={styles.section} />
       <MainTable className={styles.section} />
       <MainTeam className={styles.section} />
