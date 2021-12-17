@@ -84,7 +84,7 @@ If you do not have any programming skills, you can help in other ways by creatin
 
 * 280,000,000 (28%) — grants for development during the first three years of operation.
 * 190,000,000 (19%) — core team allocation.
-* 170,000,000 (17%) — Private and public token sale rounds.
+* 170,000,000 (17%) — private and public token sale rounds.
 * 100,000,000 (10%) — marketing budget for the first year of operation.
 * 100,000,000 (10%) — tokens allocated for distribution through liquidity pools during the first year of operation.
 * 80,000,000 (8%) — bonus tokens for early adopters with vesting for a period of 6 months.

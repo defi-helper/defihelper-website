@@ -13,23 +13,27 @@ export type TokenomicsPrivateProps = {
 const DATA = [
   {
     title: 'Pre-seed',
-    description: '10% unlock on TGE, followed by 12 months lock and 24 month linear unlock.',
-    price: '$0.01 for 50,000,000 tokens'
+    description: '10% unlock on TGE, followed by 12-months lock and 24-month linear unlock.',
+    price: '$0.01',
+    tokens: '50,000,000'
   },
   {
     title: 'Seed round',
-    description: `25% unlock on TGE, followed by 12 months lock and 24 month linear unlock.`,
-    price: '$0.03 for 70,000,000 tokens'
+    description: `25% unlock on TGE, followed by 12-months lock and 24-month linear unlock.`,
+    price: '$0.03',
+    tokens: '70,000,000'
   },
   {
     title: 'Strategic round',
-    description: `25% unlock on TGE, followed by 12 months lock and 18 month linear unlock.`,
-    price: '$0.04 for 40,000,000 tokens'
+    description: `25% unlock on TGE, followed by 12-months lock and 18-month linear unlock.`,
+    price: '$0.04',
+    tokens: '40,000,000'
   },
   {
     title: 'Public round',
     description: `100% unlock on TGE.`,
-    price: '$0.05 for 10,000,000 tokens'
+    price: '$0.05',
+    tokens: '10,000,000'
   }
 ];
 
@@ -64,7 +68,10 @@ export const TokenomicsPrivate: React.VFC<TokenomicsPrivateProps> = (props) => {
               Price
             </Typography>
             <Typography variant="h4" className={styles.estimateSubtitle}>
-              {dataItem.price}
+              {dataItem.price} /
+            </Typography>
+            <Typography variant="h4" className={styles.estimateSubtitle}>
+              {dataItem.tokens} tokens
             </Typography>
           </Paper>
         ))}
