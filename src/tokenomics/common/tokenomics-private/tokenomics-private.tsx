@@ -14,19 +14,19 @@ const DATA = [
   {
     title: 'Pre-seed',
     description:
-      '10% unlock on TGE, followed by 12-months lock and 24-month linear unlock.',
+      '10% unlock on TGE, 5% monthly unlock thereafter.',
     price: '$0.01',
     tokens: '50,000,000'
   },
   {
     title: 'Seed round',
-    description: `25% unlock on TGE, followed by 12-months lock and 24-month linear unlock.`,
+    description: `25% unlock on TGE, 6.25% monthly unlock thereafter.`,
     price: '$0.03',
     tokens: '70,000,000'
   },
   {
     title: 'Strategic round',
-    description: `25% unlock on TGE, followed by 12-months lock and 18-month linear unlock.`,
+    description: `25% unlock on TGE, 7.5% monthly unlock thereafter.`,
     price: '$0.04',
     tokens: '40,000,000'
   },
