@@ -29,7 +29,7 @@ export const bottom = style({
 });
 
 export const subtitle = style({
-  marginBottom: 24,
+  marginBottom: 40,
   color: theme.palette.grey1,
   fontSize: 18,
   lineHeight: '26px',
@@ -69,4 +69,18 @@ export const text = composeStyles(
 export const logo = style({
   maxWidth: '100%',
   marginBottom: 40
+});
+
+export const counters = style({
+  color: theme.palette.pink,
+  display: 'flex',
+  flexDirection: 'column',
+  marginBottom: 40,
+
+  '@media': {
+    [theme.mediaQueries.up(760)]: {
+      justifyContent: 'space-between',
+      flexDirection: 'row'
+    }
+  }
 });

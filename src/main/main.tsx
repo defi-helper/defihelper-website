@@ -1,10 +1,13 @@
 import React, { useMemo, useState } from 'react';
-import { useMedia, useThrottle } from 'react-use';
+import { useThrottle } from 'react-use';
 
 import { useDialog } from 'src/common/dialog';
 import { ContactAnnounce } from 'src/contacts/contact-announce';
 import { ContactSuccess } from 'src/contacts/contact-success';
-import { useRestakeStrategyQuery } from 'src/graphql/_generated-hooks';
+import {
+  useRestakeStrategyQuery,
+  useTreasuryQuery
+} from 'src/graphql/_generated-hooks';
 import { LandingLayout } from 'src/layouts';
 import { FaqText } from 'src/common/faq-text';
 import { Head } from 'src/common/head';
@@ -20,13 +23,13 @@ import {
 import * as styles from './main.css';
 
 export const Main: React.VFC = () => {
-  const isDesktop = useMedia('(min-width: 960px)');
-
   const [sum, setSum] = useState(10000);
   const [apy, setApy] = useState(100);
 
   const [openAnnouce] = useDialog(ContactAnnounce);
   const [openSuccess] = useDialog(ContactSuccess);
+
+  const [{ data: treasuryData }] = useTreasuryQuery();
 
   const [throttledSum, throttledApy] = useThrottle(
     useMemo(() => [sum, apy / 100], [sum, apy]),
@@ -59,7 +62,12 @@ export const Main: React.VFC = () => {
   return (
     <LandingLayout>
       <Head title="Autopilot for your DeFi portfolio" />
-      <MainHeader className={styles.header} />
+      <MainHeader
+        className={styles.header}
+        portfoliosCount={treasuryData?.treasury.portfoliosCount ?? 0}
+        protocolsCount={treasuryData?.treasury.protocolsCount ?? 0}
+        trackedUSD={treasuryData?.treasury.trackedUSD ?? 0}
+      />
       <MainChart
         className={styles.section}
         onChangeApy={handleChangeApy}
