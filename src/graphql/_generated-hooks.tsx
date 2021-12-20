@@ -242,6 +242,7 @@ export type AutomateContractListFilterInputType = {
   protocol?: Maybe<Scalars['UuidType']>;
   contract?: Maybe<Array<Scalars['UuidType']>>;
   address?: Maybe<Array<Scalars['String']>>;
+  archived?: Maybe<Scalars['Boolean']>;
 };
 
 export type AutomateContractListPaginationInputType = {
@@ -267,6 +268,13 @@ export enum AutomateContractListSortInputTypeColumnEnum {
   CreatedAt = 'createdAt'
 }
 
+export type AutomateContractMetricType = {
+  __typename?: 'AutomateContractMetricType';
+  staked: Scalars['String'];
+  earned: Scalars['String'];
+  apyBoost: Scalars['String'];
+};
+
 export type AutomateContractType = {
   __typename?: 'AutomateContractType';
   /** Identificator */
@@ -288,6 +296,9 @@ export type AutomateContractType = {
   /** Verification status */
   verification: AutomateContractVerificationStatusEnum;
   rejectReason: Scalars['String'];
+  metric: AutomateContractMetricType;
+  /** Date at archived contract */
+  archivedAt?: Maybe<Scalars['DateTimeType']>;
 };
 
 export type AutomateContractUpdateInputType = {
@@ -653,6 +664,7 @@ export type ContractMetricType = {
   aprYear: Scalars['String'];
   myStaked: Scalars['String'];
   myEarned: Scalars['String'];
+  myAPYBoost: Scalars['String'];
 };
 
 export type ContractMetricWalletFilterInputType = {
@@ -919,6 +931,7 @@ export type Mutation = {
   userUpdate: UserType;
   protocolCreate: ProtocolType;
   protocolUpdate: ProtocolType;
+  protocolResolveContracts: Scalars['Boolean'];
   protocolDelete: Scalars['Boolean'];
   protocolFavorite: Scalars['Boolean'];
   contractCreate: ContractType;
@@ -992,6 +1005,11 @@ export type MutationProtocolCreateArgs = {
 export type MutationProtocolUpdateArgs = {
   id: Scalars['UuidType'];
   input: ProtocolUpdateInputType;
+};
+
+export type MutationProtocolResolveContractsArgs = {
+  id: Scalars['UuidType'];
+  input: ProtocolResolveContractsInputType;
 };
 
 export type MutationProtocolDeleteArgs = {
@@ -1439,7 +1457,17 @@ export type ProtocolMetricType = {
   myAPY: Scalars['String'];
   myStaked: Scalars['String'];
   myEarned: Scalars['String'];
+  myAPYBoost: Scalars['String'];
   myMinUpdatedAt?: Maybe<Scalars['DateTimeType']>;
+};
+
+export type ProtocolResolveContractsInputType = {
+  /** Blockchain type */
+  blockchain: BlockchainEnum;
+  /** Blockchain network id */
+  network: Scalars['String'];
+  /** Blockchain network id */
+  events: Array<Scalars['String']>;
 };
 
 export type ProtocolSocialPostListFilterInputType = {
@@ -1916,7 +1944,8 @@ export type TokenAliasFilterInputType = {
 export enum TokenAliasLiquidityEnum {
   Stable = 'stable',
   Unstable = 'unstable',
-  Trash = 'trash'
+  Trash = 'trash',
+  Unknown = 'unknown'
 }
 
 export type TokenAliasListFilterInputType = {
@@ -2067,6 +2096,9 @@ export type TokenUpdateInputType = {
 export type TreasuryType = {
   __typename?: 'TreasuryType';
   balanceUSD: Scalars['Float'];
+  portfoliosCount: Scalars['Int'];
+  protocolsCount: Scalars['Int'];
+  trackedUSD: Scalars['Float'];
 };
 
 export type UserBillingBillListFilterInputType = {
@@ -2974,7 +3006,10 @@ export type WalletUpdateInputType = {
 export type TreasuryQueryVariables = Exact<{ [key: string]: never }>;
 
 export type TreasuryQuery = { __typename?: 'Query' } & {
-  treasury: { __typename?: 'TreasuryType' } & Pick<TreasuryType, 'balanceUSD'>;
+  treasury: { __typename?: 'TreasuryType' } & Pick<
+    TreasuryType,
+    'balanceUSD' | 'portfoliosCount' | 'protocolsCount' | 'trackedUSD'
+  >;
 };
 
 export type ProtocolsQueryVariables = Exact<{ [key: string]: never }>;
@@ -3073,6 +3108,9 @@ export const TreasuryDocument = gql`
   query Treasury {
     treasury {
       balanceUSD
+      portfoliosCount
+      protocolsCount
+      trackedUSD
     }
   }
 `;
