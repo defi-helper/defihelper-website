@@ -106,8 +106,8 @@ export const MainChart: React.VFC<MainChartProps> = (props) => {
             )}
             description={
               <>
-                With manual restaking, you may lose more than you had earned due
-                to high transaction fees and price fluctuations
+                With manual restaking, you may lose more than you could have
+                earned due to high transaction fees and price fluctuations
               </>
             }
             dataFields={DATA_FIELDS}
