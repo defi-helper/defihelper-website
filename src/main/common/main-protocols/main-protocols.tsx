@@ -66,7 +66,7 @@ export const MainProtocols: React.VFC<MainProtocolsProps> = (props) => {
               color="secondary"
               className={clsx(styles.protocol, styles.protocolButton)}
               as={Link}
-              href={`${config.LAUNCH_APP_URL}proposals`}
+              href={`${config.LAUNCH_APP_URL}roadmap`}
             >
               +ADD Protocol
             </Button>
