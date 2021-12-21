@@ -67,6 +67,11 @@ const PROTOCOL = [
     title: 'Etherscan',
     link: 'https://etherscan.io/token/0x5f2080542ab6ae7e0b06778f0b2d263006297840',
     target: '_blank'
+  },
+  {
+    title: 'Audit by HashEx',
+    link: 'https://github.com/HashEx/public_audits/blob/master/defi-helper/Defi-Helper_audit-report.pdf',
+    target: '_blank'
   }
 ];
 
