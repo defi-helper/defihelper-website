@@ -15,6 +15,7 @@ const networks: Record<string, string> = {
   // 1666600000: 'Harmony',
   56: 'Binance Smart Chain',
   137: 'Polygon',
+  1285: 'Moonriver',
   43114: 'Avalanche',
   waves: 'Waves'
   // main: 'Waves',
