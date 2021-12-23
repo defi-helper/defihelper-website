@@ -72,6 +72,11 @@ const PROTOCOL = [
     title: 'Audit by HashEx',
     link: 'https://github.com/HashEx/public_audits/blob/master/defi-helper/Defi-Helper_audit-report.pdf',
     target: '_blank'
+  },
+  {
+    title: 'Roadmap',
+    link: 'https://bitter-drain-b3e.notion.site/fd2f13ff00a344579890d56906a160c8?v=7e9ba5539e2a4fe4ae216b1da21bf057',
+    target: '_blank'
   }
 ];
 
