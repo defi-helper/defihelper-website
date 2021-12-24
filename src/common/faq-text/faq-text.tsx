@@ -82,14 +82,14 @@ If you do not have any programming skills, you can help in other ways by creatin
     title: 'What is the supply and distribution of DFH tokens?',
     body: `The initial supply will be set at 1 billion DFH tokens. The tokens will be distributed in accordance with the following percentages:
 
-* 280,000,000 (28%) — grants for development during the first three years of operation.
-* 190,000,000 (19%) — core team allocation.
+* 250,000,000 (25%) — grants for development during the first three years of operation.
 * 170,000,000 (17%) — private and public token sale rounds.
-* 100,000,000 (10%) — marketing budget for the first year of operation.
+* 120,000,000 (12%) — core team allocation.
+* 110,000,000 (11%) — marketing budget for the first year of operation.
+* 100,000,000 (10%) — Rewards for early investors who fund the development and launch of the protocol.
 * 100,000,000 (10%) — tokens allocated for distribution through liquidity pools during the first year of operation.
 * 80,000,000 (8%) — bonus tokens for early adopters with vesting for a period of 6 months.
-* 70,000,000 (7%) — grants for DeFiHelper Ambassadors.
-* 10,000,000 (1%) — bonus for the team following launch with a one month moratorium on sales.`
+* 70,000,000 (7%) — grants for DeFiHelper Ambassadors.`
   },
 
   {

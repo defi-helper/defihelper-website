@@ -13,26 +13,26 @@ export type TokenomicsPrivateProps = {
 const DATA = [
   {
     title: 'Pre-seed',
-    description: '10% unlock on TGE, 5% monthly unlock thereafter.',
+    description: '2% unlock on TGE, 5% monthly unlock thereafter.',
     price: '$0.01',
     tokens: '50,000,000'
   },
   {
     title: 'Seed round',
-    description: `25% unlock on TGE, 6.25% monthly unlock thereafter.`,
-    price: '$0.03',
+    description: `3% unlock on TGE, 6.25% monthly unlock thereafter.`,
+    price: '$0.02',
     tokens: '70,000,000'
   },
   {
     title: 'Strategic round',
-    description: `25% unlock on TGE, 7.5% monthly unlock thereafter.`,
-    price: '$0.04',
+    description: `3% unlock on TGE, 7.5% monthly unlock thereafter.`,
+    price: '$0.025',
     tokens: '40,000,000'
   },
   {
     title: 'Public round',
     description: `100% unlock on TGE.`,
-    price: '$0.05',
+    price: '$0.03',
     tokens: '10,000,000'
   }
 ];
