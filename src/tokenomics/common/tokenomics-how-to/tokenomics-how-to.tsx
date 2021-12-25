@@ -26,7 +26,7 @@ const DATA = [
     subtitle: ['marketCap', 'circulatingSupply'],
     description: [
       {
-        title: 'Check the token sale details',
+        title: 'Join the private and public token sale',
         subtitle: '',
         action: [
           config.UNISWAP_URL ? (
@@ -86,7 +86,7 @@ const DATA = [
     ]
   },
   {
-    title: 'Community grants',
+    title: 'Advisors',
     subtitle: ['communityDays', 'communityTokens'],
     description: [
       {
@@ -111,7 +111,7 @@ const DATA = [
     description: [
       {
         title: 'Build new features and earn ample rewards in DFH',
-        subtitle: '28% of total supply',
+        subtitle: '25% of total supply',
         action: [
           <Button
             as="a"
