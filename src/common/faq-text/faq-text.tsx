@@ -88,8 +88,8 @@ If you do not have any programming skills, you can help in other ways by creatin
 * 110,000,000 (11%) — marketing budget for the first year of operation.
 * 100,000,000 (10%) — Rewards for early investors who fund the development and launch of the protocol.
 * 100,000,000 (10%) — tokens allocated for distribution through liquidity pools during the first year of operation.
-* 80,000,000 (8%) — bonus tokens for early adopters with vesting for a period of 6 months.
-* 70,000,000 (7%) — grants for DeFiHelper Ambassadors.`
+* 80,000,000 (8%) — bonus tokens for early adopters.
+* 70,000,000 (7%) — grants for DeFiHelper Advisors.`
   },
 
   {
