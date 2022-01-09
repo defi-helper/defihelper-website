@@ -57,7 +57,7 @@ const BODY = [
   [
     'Early investors',
     '10%',
-    '2% unlock on TGE, 3-months cliff, 5% monthly per block unlock thereafter.',
+    '2% unlock on TGE, 3-months cliff, 5% monthly per block unlock thereafter',
     '100,000,000',
     `Rewards for early investors who fund the development and launch of the protocol.`
   ],

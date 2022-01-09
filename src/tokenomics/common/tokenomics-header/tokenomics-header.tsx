@@ -63,7 +63,7 @@ export const TokenomicsHeader: React.VFC<TokenomicsHeaderProps> = (props) => {
         <Paper className={styles.grid}>
           <div className={styles.col}>
             <Typography as="h3" className={styles.factoidTitle}>
-              Circulating supply
+              Initial circulating supply
             </Typography>
             <Typography
               family="mono"
@@ -71,12 +71,12 @@ export const TokenomicsHeader: React.VFC<TokenomicsHeaderProps> = (props) => {
               variant="h4"
               className={styles.factoidSubtitle}
             >
-              {bignumberUtils.format(props.circulatingSupply)} dfh
+              27,000,000 DFH (2,7%)
             </Typography>
           </div>
           <div className={styles.col}>
             <Typography as="h3" className={styles.factoidTitle}>
-              Total supply
+              Market Cap at Public round
             </Typography>
             <Typography
               family="mono"
@@ -84,7 +84,7 @@ export const TokenomicsHeader: React.VFC<TokenomicsHeaderProps> = (props) => {
               variant="h4"
               className={styles.factoidSubtitle}
             >
-              {bignumberUtils.format(props.totalSupply)} dfh
+              $809,000
             </Typography>
           </div>
           <div className={styles.col}>
@@ -97,7 +97,7 @@ export const TokenomicsHeader: React.VFC<TokenomicsHeaderProps> = (props) => {
               variant="h4"
               className={styles.factoidSubtitle}
             >
-              {bignumberUtils.format('1000000000')} dfh
+              1,000,000,000 DFH
             </Typography>
           </div>
         </Paper>
