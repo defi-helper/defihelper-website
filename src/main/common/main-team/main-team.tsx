@@ -9,7 +9,6 @@ import { Carousel } from 'src/common/carousel';
 import { Button } from 'src/common/button';
 import vlad_komissarov from 'src/assets/images/team/vlad_komissarov.png';
 import artem_tolkachev from 'src/assets/images/team/artem_tolkachev.png';
-import bondappetit from 'src/assets/images/team/bondappetit.png';
 import igor_varnavsky from 'src/assets/images/team/igor_varnavsky.jpg';
 import ct_lek from 'src/assets/images/team/ct_lek.jpg';
 import waves from 'src/assets/images/team/waves.png';
@@ -138,22 +137,6 @@ const TEAM: Array<Team> = [
         as={Link}
         target="_blank"
         href="https://twitter.com/wavesplatform"
-      >
-        <TwitterIcon />
-      </ButtonBase>
-    ]
-  },
-  {
-    photo: bondappetit,
-    name: 'BondAppetit',
-    role: 'Partner',
-    description:
-      'The first decentralized lending protocol with a stablecoin 100% backed by yield‑generating bonds',
-    actions: [
-      <ButtonBase
-        as={Link}
-        target="_blank"
-        href="https://twitter.com/DefiBonds"
       >
         <TwitterIcon />
       </ButtonBase>
