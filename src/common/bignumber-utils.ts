@@ -11,7 +11,7 @@ export const bignumberUtils = {
       .multipliedBy(new BigNumber(10).pow(decimals))
       .toString(10),
 
-  format: (amount?: string | number | null, decimal = 4, negative = true) => {
+  format: (amount?: string | number | null, decimal = 2, negative = true) => {
     const result = new BigNumber(amount || 0);
 
     const localDecimal = result.isInteger() ? 0 : decimal;
@@ -20,17 +20,17 @@ export const bignumberUtils = {
 
     if (result.lt('10')) return result.toFormat(localDecimal);
 
-    if (result.lt('10000')) return result.toFormat(localDecimal);
+    if (result.lt('10000')) return result.toFormat(0);
 
-    if (result.lt('100000')) return result.toFormat(localDecimal);
+    if (result.lt('100000')) return result.toFormat(0);
 
-    if (result.lt('1000000')) return result.toFormat(localDecimal);
+    if (result.lt('1000000')) return result.toFormat(0);
 
     if (result.isGreaterThanOrEqualTo('1000000000')) {
-      return `${result.div('1000000000').toFormat(localDecimal)}B`;
+      return `${result.div('1000000000').toFormat(0)}B`;
     }
 
-    return `${result.div('1000000').toFormat(localDecimal)}M`;
+    return `${result.div('1000000').toFormat(0)}M`;
   },
 
   formatMax: (amount: string | number | null, max: number) => {
