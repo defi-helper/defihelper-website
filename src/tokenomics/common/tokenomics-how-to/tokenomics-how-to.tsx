@@ -116,7 +116,7 @@ const DATA = [
           <Button
             as="a"
             variant="outlined"
-            href="mailto:hello@defiheper.io"
+            href="mailto:hello@defihelper.io"
             target="_blank"
           >
             Join our team
@@ -131,17 +131,17 @@ const DATA = [
     description: [
       {
         title: 'Earn rewards by using automations',
-        subtitle: '3% of total supply',
+        subtitle: '',
         action: []
       },
       {
         title: 'Earn rewards by inviting friends',
-        subtitle: '2% of total supply',
+        subtitle: '',
         action: []
       },
       {
         title: 'Earn rewards by using notifications',
-        subtitle: '1% of total supply',
+        subtitle: '',
         action: []
       }
     ]

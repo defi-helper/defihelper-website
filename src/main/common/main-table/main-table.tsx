@@ -30,8 +30,8 @@ const HEAD = [
 const BODY = {
   'Portfolio tracker': [1, 1, 1, 1, 0],
   Autostaking: [1, 0, 0, 0, 1],
-  'Smart notifications': [1, 0, 0, 1, 0],
-  'No-code automation': [1, 1, 1, 0, 0]
+  'Smart notifications': [1, 0, 0, 0, 0],
+  'No-code automation': [1, 1, 0, 0, 0]
 };
 
 export const MainTable: React.VFC<MainTableProps> = (props) => {

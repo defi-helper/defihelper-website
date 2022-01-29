@@ -10,7 +10,7 @@ import { Button } from 'src/common/button';
 import vlad_komissarov from 'src/assets/images/team/vlad_komissarov.png';
 import artem_tolkachev from 'src/assets/images/team/artem_tolkachev.png';
 import igor_varnavsky from 'src/assets/images/team/igor_varnavsky.jpg';
-import ct_lek from 'src/assets/images/team/ct_lek.jpg';
+import ben_ashworth from 'src/assets/images/team/ben_ashworth.jpg';
 import waves from 'src/assets/images/team/waves.png';
 import join_us from 'src/assets/images/team/join_us.png';
 import ilya_munerman from 'src/assets/images/team/ilya_munerman.jpeg';
@@ -103,11 +103,11 @@ const TEAM: Array<Team> = [
     ]
   },
   {
-    photo: ct_lek,
-    name: 'CT Lek',
-    role: 'Community lead',
+    photo: ben_ashworth,
+    name: 'Ben Ashworth',
+    role: 'Investor Relations',
     description:
-      'Lek has been involved in this sphere since double-digit ETH, and is a DeFi believer with 10 years of consultancy experience to funds and multinational corporations.',
+      'Ben graduated with a law degree from Newcastle University before travelling the world, becoming bi-lingual in Spanish during his travels. Ben has over 4 years experience in crypto and is a firm believer in DeFi.',
     actions: []
   },
   {
@@ -136,7 +136,7 @@ const TEAM: Array<Team> = [
       <ButtonBase
         as={Link}
         target="_blank"
-        href="https://twitter.com/wavesplatform"
+        href="https://twitter.com/wavesprotocol"
       >
         <TwitterIcon />
       </ButtonBase>
@@ -152,7 +152,7 @@ const TEAM: Array<Team> = [
       <Button
         as="a"
         variant="outlined"
-        href="mailto:hello@defiheper.io"
+        href="mailto:hello@defihelper.io"
         target="_blank"
       >
         Apply

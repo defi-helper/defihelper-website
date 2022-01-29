@@ -229,7 +229,7 @@ export const LayoutFooter: React.VFC<LayoutFooterProps> = (props) => {
             <Button
               variant="outlined"
               as="a"
-              href="mailto:hello@defiheper.io"
+              href="mailto:hello@defihelper.io"
               target="_blank"
             >
               Apply

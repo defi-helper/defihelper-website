@@ -52,7 +52,7 @@ export const MainEditor: React.VFC<MainEditorProps> = (props) => {
             <Button
               variant="outlined"
               as="a"
-              href="mailto:hello@defiheper.io"
+              href="mailto:hello@defihelper.io"
               target="_blank"
             >
               Join our team

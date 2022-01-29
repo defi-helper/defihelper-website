@@ -54,7 +54,7 @@ export const Tokenomics: React.VFC<TokenomicsProps> = () => {
         className={styles.header}
         onGetDFH={handleOpenLinkDialog}
       />
-      {/* <TokenomicsCharts className={styles.section} /> */}
+      <TokenomicsCharts className={styles.section} />
       <TokenomicsTable className={styles.section} />
       <TokenomicsPrivate className={styles.section} />
       <TokenomicsProfit className={styles.section} />
