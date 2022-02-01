@@ -38,7 +38,7 @@ export const MainHeader: React.VFC<MainHeaderProps> = (props) => {
             >
               <div>{props.portfoliosCount} portfolios</div>
               <div>
-                {bignumberUtils.format(props.trackedUSD)}$ tracked in portfolios
+                ${bignumberUtils.format(props.trackedUSD)} tracked in portfolios
               </div>
               <div>{props.protocolsCount} protocols connected</div>
             </Typography>
