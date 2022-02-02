@@ -47,6 +47,7 @@ export const MainHeader: React.VFC<MainHeaderProps> = (props) => {
                 href="https://www.producthunt.com/posts/defihelper?utm_source=badge-featured&utm_medium=badge&utm_souce=badge-defihelper"
                 target="_blank"
                 rel="noreferrer"
+                className={styles.productHunt}
               >
                 <img
                   src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=329836&theme=dark"
