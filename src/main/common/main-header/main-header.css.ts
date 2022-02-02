@@ -47,8 +47,11 @@ export const subtitle = style({
   }
 });
 
-export const launchButton = style({
-  margin: '0 auto'
+export const actions = style({
+  margin: '0 auto',
+  display: 'flex',
+  flexDirection: 'column',
+  gap: 10
 });
 
 export const text = composeStyles(
