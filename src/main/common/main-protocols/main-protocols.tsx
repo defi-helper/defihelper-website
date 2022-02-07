@@ -3,10 +3,10 @@ import React from 'react';
 
 import { Grid } from 'src/common/grid';
 import { Typography } from 'src/common/typography';
-import { Paper } from 'src/common/paper';
 import { Link } from 'src/common/link';
 import { Button } from 'src/common/button';
 import { config } from 'src/config';
+import { MainChip } from 'src/main/common/main-chip';
 import * as styles from './main-protocols.css';
 
 type Protocol = {
@@ -35,26 +35,12 @@ export const MainProtocols: React.VFC<MainProtocolsProps> = (props) => {
       <ul className={styles.list}>
         {props.protocols?.map((protocol) => (
           <li key={protocol.id} className={styles.listItem}>
-            <Paper className={styles.protocol}>
-              {protocol.icon && (
-                <img
-                  src={protocol.icon}
-                  alt=""
-                  className={styles.protocolIcon}
-                />
-              )}
-              <Typography transform="uppercase" variant="h4" family="mono">
-                {protocol.name}
-              </Typography>
-            </Paper>
+            <MainChip icon={protocol.icon ?? undefined} name={protocol.name} />
           </li>
         ))}
         {props.protocols && props.protocols.length > 64 && (
           <li className={styles.listItem}>
-            <Button
-              variant="outlined"
-              className={clsx(styles.protocol, styles.protocolButton)}
-            >
+            <Button variant="outlined" className={styles.protocolButton}>
               +64 more
             </Button>
           </li>
@@ -64,7 +50,7 @@ export const MainProtocols: React.VFC<MainProtocolsProps> = (props) => {
             <Button
               variant="outlined"
               color="secondary"
-              className={clsx(styles.protocol, styles.protocolButton)}
+              className={styles.protocolButton}
               as={Link}
               href={`${config.LAUNCH_APP_URL}roadmap`}
             >

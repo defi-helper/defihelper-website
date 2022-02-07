@@ -29,17 +29,3 @@ export const listItem = style({
     }
   }
 });
-
-export const protocolButton = style({
-  fontSize: 16,
-  lineHeight: '24px',
-  borderRadius: 16,
-  padding: 16,
-
-  '@media': {
-    [theme.mediaQueries.lg()]: {
-      fontSize: 24,
-      lineHeight: '32px'
-    }
-  }
-});
