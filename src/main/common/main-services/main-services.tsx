@@ -42,7 +42,7 @@ const SERVICES = [
     image: automation,
     title: 'Automation in one click',
     description:
-      'Automate your DeFi strategy and earn higher rewards with autostaking and other no-code tools.'
+      'Automate your DeFi strategy and earn higher rewards with auto-staking and other no-code tools.'
   },
   {
     image: scenarios,

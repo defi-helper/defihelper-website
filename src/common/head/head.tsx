@@ -14,7 +14,7 @@ export type HeadProps = {
 const SITE_URL = 'https://defihelper.io';
 
 const SITE_DESCRIPTION =
-  'Automate your DeFi strategies across chains, earn more with our autostaking feature';
+  'Automate your DeFi strategies across chains, earn more with our auto-staking feature';
 
 export const Head: React.FC<HeadProps> = (props) => {
   const siteTitle = ['DeFiHelper', props.title].filter(Boolean).join(' - ');
