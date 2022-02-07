@@ -70,7 +70,7 @@ export const MainChart: React.VFC<MainChartProps> = (props) => {
         transform="uppercase"
         className={styles.title}
       >
-        Earn more with our autostaking feature
+        Earn more with our auto-staking feature
       </Typography>
       <Paper className={styles.chart}>
         <div className={styles.header}>
@@ -130,7 +130,7 @@ export const MainChart: React.VFC<MainChartProps> = (props) => {
             id="hold"
           />
           <MainChartCard
-            title="Use autostaking"
+            title="Use auto-staking"
             color="autostaking"
             apy={bignumberUtils.mul(
               bignumberUtils.div(
@@ -142,7 +142,7 @@ export const MainChart: React.VFC<MainChartProps> = (props) => {
             sum={lastAutostakingValue?.v}
             description={
               <>
-                The autostaking feature increases your profits by restaking
+                The auto-staking feature increases your profits by restaking
                 tokens exactly when rewards are higher than the fees.{' '}
                 <Link
                   target="_blank"
