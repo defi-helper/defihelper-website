@@ -5,6 +5,7 @@ import { useDialog } from 'src/common/dialog';
 import { ContactAnnounce } from 'src/contacts/contact-announce';
 import { ContactSuccess } from 'src/contacts/contact-success';
 import {
+  useProtocolsQuery,
   useRestakeStrategyQuery,
   useTreasuryQuery
 } from 'src/graphql/_generated-hooks';
@@ -12,13 +13,17 @@ import { LandingLayout } from 'src/layouts';
 import { FaqText } from 'src/common/faq-text';
 import { Head } from 'src/common/head';
 import {
+  MainBlockchains,
   MainChart,
   MainEditor,
   MainExplore,
   MainHeader,
+  MainProtocols,
   MainServices,
   MainTable,
-  MainTeam
+  MainTeam,
+  MainPartners,
+  MainInvestors
 } from './common';
 import * as styles from './main.css';
 
@@ -30,6 +35,7 @@ export const Main: React.VFC = () => {
   const [openSuccess] = useDialog(ContactSuccess);
 
   const [{ data: treasuryData }] = useTreasuryQuery();
+  const [{ data: protocolsData }] = useProtocolsQuery();
 
   const [throttledSum, throttledApy] = useThrottle(
     useMemo(() => [sum, apy / 100], [sum, apy]),
@@ -77,11 +83,22 @@ export const Main: React.VFC = () => {
         data={data?.restakeStrategy}
       />
       <MainServices className={styles.section} />
+      <MainBlockchains className={styles.section} />
+      <MainProtocols
+        className={styles.section}
+        protocols={protocolsData?.protocols.list}
+      />
       <MainExplore className={styles.section} onNotify={handleOpenAnnounce} />
       <MainEditor className={styles.section} />
       <MainTable className={styles.section} />
       <MainTeam className={styles.section} />
       <FaqText className={styles.section} />
+      {false && (
+        <>
+          <MainInvestors className={styles.section} />
+          <MainPartners className={styles.section} />
+        </>
+      )}
     </LandingLayout>
   );
 };

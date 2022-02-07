@@ -6,3 +6,6 @@ export * from './main-protocols';
 export * from './main-explore';
 export * from './main-chart';
 export * from './main-table';
+export * from './main-blockchains';
+export * from './main-partners';
+export * from './main-investors';
