@@ -3327,7 +3327,6 @@ export const GovTokenFragmentFragmentDoc = gql`
 export const TreasuryDocument = gql`
   query Treasury {
     treasury {
-      balanceUSD
       portfoliosCount
       protocolsCount
       trackedUSD
