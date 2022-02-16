@@ -108,7 +108,15 @@ const TEAM: Array<Team> = [
     role: 'Investor Relations',
     description:
       'Ben graduated with a law degree from Newcastle University before travelling the world, becoming bi-lingual in Spanish during his travels. Ben has over 4 years experience in crypto and is a firm believer in DeFi.',
-    actions: []
+    actions: [
+      <ButtonBase
+        as={Link}
+        href="https://www.linkedin.com/in/ben-ashworth-kwasnik-9897a8140/"
+        target="_blank"
+      >
+        <LinkedInIcon />
+      </ButtonBase>
+    ]
   },
   {
     photo: ilya_munerman,
