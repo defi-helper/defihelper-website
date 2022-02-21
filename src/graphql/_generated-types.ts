@@ -199,7 +199,8 @@ export enum AutomateConditionTypeEnum {
   Schedule = 'schedule',
   EthereumAvgGasPrice = 'ethereumAvgGasPrice',
   EthereumBalance = 'ethereumBalance',
-  EthereumOptimalAutomateRun = 'ethereumOptimalAutomateRun'
+  EthereumOptimalAutomateRun = 'ethereumOptimalAutomateRun',
+  ContractMetric = 'contractMetric'
 }
 
 export type AutomateConditionUpdateInputType = {
@@ -217,6 +218,7 @@ export type AutomateConditionsDescriptionType = {
   ethereumAvgGasPrice: AutomateDescriptionType;
   ethereumBalance: AutomateDescriptionType;
   ethereumOptimalAutomateRun: AutomateDescriptionType;
+  contractMetric: AutomateDescriptionType;
 };
 
 export type AutomateContractCreateInputType = {
@@ -423,6 +425,8 @@ export type AutomateTriggerType = {
   lastCallAt?: Maybe<Scalars['DateTimeType']>;
   /** Created at date */
   createdAt: Scalars['DateTimeType'];
+  /** Next restake date */
+  restakeAt?: Maybe<Scalars['DateTimeType']>;
   conditions: AutomateConditionListType;
   actions: AutomateActionListType;
   callHistory: AutomateTriggerCallHistoryListQuery;
@@ -569,12 +573,22 @@ export type BlockchainFilterInputType = {
   network?: Maybe<Scalars['String']>;
 };
 
+export type ContractAutomatesBuyLiquidityType = {
+  __typename?: 'ContractAutomatesBuyLiquidityType';
+  /** Liquidity pool router address */
+  router: Scalars['String'];
+  /** Target pool address */
+  pair: Scalars['String'];
+};
+
 export type ContractAutomatesType = {
   __typename?: 'ContractAutomatesType';
   /** Usable automate adapters */
   adapters: Array<Scalars['String']>;
   /** Autorestake adapter name */
   autorestake?: Maybe<Scalars['String']>;
+  /** Buy liquidity automate config */
+  buyLiquidity?: Maybe<ContractAutomatesBuyLiquidityType>;
 };
 
 export type ContractCreateInputType = {
@@ -1424,6 +1438,7 @@ export type ProtocolListFilterInputType = {
   favorite?: Maybe<Scalars['Boolean']>;
   hidden?: Maybe<Scalars['Boolean']>;
   search?: Maybe<Scalars['String']>;
+  isDebank?: Maybe<Scalars['Boolean']>;
 };
 
 export type ProtocolListPaginationInputType = {
@@ -1490,6 +1505,30 @@ export type ProtocolMetricChartPaginationInputType = {
   /** Offset */
   offset?: Maybe<Scalars['Int']>;
 };
+
+export type ProtocolMetricChartProtocolsFilterInputType = {
+  /** Created at equals or greater */
+  dateAfter?: Maybe<Scalars['DateTimeType']>;
+  /** Created at less */
+  dateBefore?: Maybe<Scalars['DateTimeType']>;
+};
+
+export type ProtocolMetricChartProtocolsPaginationInputType = {
+  /** Limit */
+  limit?: Maybe<Scalars['Int']>;
+  /** Offset */
+  offset?: Maybe<Scalars['Int']>;
+};
+
+export type ProtocolMetricChartProtocolsSortInputType = {
+  column: ProtocolMetricChartProtocolsSortInputTypeColumnEnum;
+  order?: Maybe<SortOrderEnum>;
+};
+
+export enum ProtocolMetricChartProtocolsSortInputTypeColumnEnum {
+  Date = 'date',
+  Value = 'value'
+}
 
 export type ProtocolMetricChartSortInputType = {
   column: ProtocolMetricChartSortInputTypeColumnEnum;
@@ -1604,6 +1643,8 @@ export type ProtocolType = {
   id: Scalars['UuidType'];
   /** Adapter name */
   adapter: Scalars['String'];
+  /** Debank Identifier */
+  debankId?: Maybe<Scalars['String']>;
   /** Name */
   name: Scalars['String'];
   /** Description */
@@ -1616,9 +1657,12 @@ export type ProtocolType = {
   links: ProtocolLinkMapType;
   /** Is hidden */
   hidden: Scalars['Boolean'];
+  /** Preview picture */
+  previewPicture?: Maybe<Scalars['String']>;
   favorite: Scalars['Boolean'];
   contracts: ContractListType;
   metricChart: Array<MetricChartType>;
+  metricChartProtocols: Array<MetricChartType>;
   metricChartContracts: Array<MetricChartType>;
   metricChartUsers: Array<MetricChartType>;
   metric: ProtocolMetricType;
@@ -1639,6 +1683,14 @@ export type ProtocolTypeMetricChartArgs = {
   filter?: Maybe<ProtocolMetricChartFilterInputType>;
   sort?: Maybe<Array<ProtocolMetricChartSortInputType>>;
   pagination?: Maybe<ProtocolMetricChartPaginationInputType>;
+};
+
+export type ProtocolTypeMetricChartProtocolsArgs = {
+  metric: Scalars['MetricColumnType'];
+  group: MetricGroupEnum;
+  filter?: Maybe<ProtocolMetricChartProtocolsFilterInputType>;
+  sort?: Maybe<Array<ProtocolMetricChartProtocolsSortInputType>>;
+  pagination?: Maybe<ProtocolMetricChartProtocolsPaginationInputType>;
 };
 
 export type ProtocolTypeMetricChartContractsArgs = {
@@ -2212,7 +2264,6 @@ export type TokenUpdateInputType = {
 
 export type TreasuryType = {
   __typename?: 'TreasuryType';
-  balanceUSD: Scalars['Float'];
   portfoliosCount: Scalars['Int'];
   protocolsCount: Scalars['Int'];
   trackedUSD: Scalars['Float'];
@@ -2792,6 +2843,7 @@ export type UserTypeWalletsArgs = {
 };
 
 export type UserTypeExchangesArgs = {
+  filter?: Maybe<WalletExchangexListFilterInputType>;
   sort?: Maybe<Array<WalletExchangeListSortInputType>>;
   pagination?: Maybe<WalletExchangeListPaginationInputType>;
 };
@@ -3056,6 +3108,25 @@ export type WalletExchangeListType = {
   pagination: Pagination;
 };
 
+export type WalletExchangeTokenAliasListFilterInputType = {
+  /** Liquidity token */
+  liquidity?: Maybe<Array<TokenAliasLiquidityEnum>>;
+};
+
+export type WalletExchangeTokenAliasListPaginationInputType = {
+  /** Limit */
+  limit?: Maybe<Scalars['Int']>;
+  /** Offset */
+  offset?: Maybe<Scalars['Int']>;
+};
+
+export type WalletExchangeTokenAliasListType = {
+  __typename?: 'WalletExchangeTokenAliasListType';
+  /** Elements */
+  list?: Maybe<Array<WalletTokenAliasType>>;
+  pagination: Pagination;
+};
+
 export type WalletExchangeType = {
   __typename?: 'WalletExchangeType';
   /** Identifier */
@@ -3064,15 +3135,26 @@ export type WalletExchangeType = {
   name: Scalars['String'];
   /** Exchange type */
   exchange: WalletExchangeTypeEnum;
+  tokenAliases: WalletExchangeTokenAliasListType;
+  balance: Scalars['String'];
   /** Account */
   account: Scalars['String'];
   /** Date of created account */
   createdAt: Scalars['DateTimeType'];
 };
 
+export type WalletExchangeTypeTokenAliasesArgs = {
+  filter?: Maybe<WalletExchangeTokenAliasListFilterInputType>;
+  pagination?: Maybe<WalletExchangeTokenAliasListPaginationInputType>;
+};
+
 export enum WalletExchangeTypeEnum {
   Binance = 'binance'
 }
+
+export type WalletExchangexListFilterInputType = {
+  id?: Maybe<Scalars['UuidType']>;
+};
 
 export type WalletListFilterInputType = {
   id?: Maybe<Scalars['UuidType']>;
@@ -3225,7 +3307,7 @@ export type TreasuryQueryVariables = Exact<{ [key: string]: never }>;
 export type TreasuryQuery = { __typename?: 'Query' } & {
   treasury: { __typename?: 'TreasuryType' } & Pick<
     TreasuryType,
-    'balanceUSD' | 'portfoliosCount' | 'protocolsCount' | 'trackedUSD'
+    'portfoliosCount' | 'protocolsCount' | 'trackedUSD'
   >;
 };
 
@@ -3237,7 +3319,7 @@ export type ProtocolsQuery = { __typename?: 'Query' } & {
       Array<
         { __typename?: 'ProtocolType' } & Pick<
           ProtocolType,
-          'id' | 'name' | 'icon' | 'link'
+          'id' | 'name' | 'icon' | 'link' | 'adapter'
         >
       >
     >;
