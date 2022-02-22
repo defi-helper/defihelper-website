@@ -1,0 +1,46 @@
+stages:
+  - build
+
+build_image:
+  stage: build
+  image:
+    name: gcr.io/kaniko-project/executor:debug
+    entrypoint: [""]
+  variables:
+      APP_NAME: website
+      IMAGE_NAME: "$REGISTRY_HOST/$CI_PROJECT_NAMESPACE/$APP_NAME"
+      IMAGE_TAG: "$CI_COMMIT_REF_SLUG-$CI_COMMIT_SHORT_SHA"
+      IMAGE_CACHE: "true"
+      DOCKERFILE_PATH: "./deployments/dockerfiles/$APP_NAME/Dockerfile"
+  script:
+    - CONTEXT="${CI_PROJECT_DIR}/${BUILD_DIR}"
+    - IMAGE="${IMAGE_NAME}:${IMAGE_TAG}"
+    - mkdir -p /kaniko/.docker
+    - |
+      cat <<EOF > /kaniko/.docker/config.json
+      {
+        "auths": {
+          "${REGISTRY_HOST}": {
+            "auth": "${REGISTRY_CREDENTIALS}"
+          }
+        }
+      }
+      EOF
+    - |
+      echo "[Build Info]:"
+      echo "App: ${APP_NAME}"
+      echo "Namespace: ${APP_NAMESPACE}"
+      echo "Environment: ${ENVIRONMENT}"
+      echo "Image: ${IMAGE}"
+      echo "Dockerfile: ${DOCKERFILE_PATH}"
+      echo "Context path: ${CONTEXT}"
+      echo "Build args: ${BUILD_ARGS}"
+    - /kaniko/executor --cache=${IMAGE_CACHE} --context "$CONTEXT" ${BUILD_ARGS} --dockerfile "$DOCKERFILE_PATH" --destination "$IMAGE"
+  retry:
+    max: 1
+    when:
+      - runner_system_failure
+      - stuck_or_timeout_failure
+      - script_failure
+  tags:
+    - adcorn-dev
