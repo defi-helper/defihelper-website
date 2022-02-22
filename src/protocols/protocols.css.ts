@@ -12,6 +12,10 @@ export const root = style({
   }
 });
 
+export const title = style({
+  marginBottom: 30
+});
+
 export const head = style({
   color: theme.palette.grey1
 });

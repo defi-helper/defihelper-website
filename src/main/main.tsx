@@ -93,9 +93,9 @@ export const Main: React.VFC = () => {
       <MainTable className={styles.section} />
       <MainTeam className={styles.section} />
       <FaqText className={styles.section} />
+      <MainInvestors className={styles.section} />
       {false && (
         <>
-          <MainInvestors className={styles.section} />
           <MainPartners className={styles.section} />
         </>
       )}
