@@ -3,12 +3,39 @@ import React from 'react';
 
 import { Grid } from 'src/common/grid';
 import { Typography } from 'src/common/typography';
-import bbc from 'src/assets/images/bbc.png';
+import crypto_omg from 'src/assets/images/crypto_omg.png';
+import big_brain_holdings from 'src/assets/images/big_brain_holdings.png';
+import starter from 'src/assets/images/starter.png';
+import huckleberry from 'src/assets/images/huckleberry.png';
+import { Link } from 'src/common/link';
 import * as styles from './main-investors.css';
 
 export type MainInvestorsProps = {
   className?: string;
 };
+
+const LINKS = [
+  {
+    title: 'bigbrainholdings',
+    link: 'https://www.bigbrain.holdings/',
+    image: big_brain_holdings
+  },
+  {
+    title: 'starter',
+    link: 'https://6kstarter.com/',
+    image: starter
+  },
+  {
+    title: 'cryptoomg',
+    link: 'https://cryptoomg.com/',
+    image: crypto_omg
+  },
+  {
+    title: 'huckleberry',
+    link: 'https://www.huckleberry.finance/',
+    image: huckleberry
+  }
+];
 
 export const MainInvestors: React.FC<MainInvestorsProps> = (props) => {
   return (
@@ -19,12 +46,14 @@ export const MainInvestors: React.FC<MainInvestorsProps> = (props) => {
         transform="uppercase"
         className={styles.title}
       >
-        Investors
+        Investors and partners
       </Typography>
       <ul className={styles.list}>
-        {Array.from({ length: 7 }).map((_, i) => (
-          <li className={styles.listItem} key={String(i)}>
-            <img src={bbc} alt="" className={styles.img} />
+        {LINKS.map((link) => (
+          <li className={styles.listItem} key={link.link}>
+            <Link href={link.link} target="_blank">
+              <img src={link.image} alt={link.title} className={styles.img} />
+            </Link>
           </li>
         ))}
       </ul>

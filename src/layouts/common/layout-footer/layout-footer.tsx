@@ -6,6 +6,7 @@ import { ReactComponent as TwitterIcon } from 'src/assets/icons/social/twitter.s
 import { ReactComponent as GithubIcon } from 'src/assets/icons/social/github.svg';
 import { ReactComponent as MediumIcon } from 'src/assets/icons/social/medium.svg';
 import { ReactComponent as TelegramIcon } from 'src/assets/icons/social/telegram.svg';
+import { ReactComponent as EmailIcon } from 'src/assets/icons/social/email.svg';
 import { ReactComponent as DiscordIcon } from 'src/assets/icons/social/discord.svg';
 import articleEN from 'src/assets/pdf/Math_Behind_DeFiHelper.pdf';
 import articleRU from 'src/assets/pdf/Как_устроен_алгоритм_автостейкинга_DeFiHelper.pdf';
@@ -131,7 +132,7 @@ const SOCIAL = [
   },
   {
     title: 'Email',
-    icon: TelegramIcon,
+    icon: EmailIcon,
     link: 'mailto:hello@defihelper.io',
     target: '_blank'
   }

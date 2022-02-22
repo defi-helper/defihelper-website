@@ -13,6 +13,7 @@ import { useProtocolsQuery } from 'src/graphql/_generated-hooks';
 import { LandingLayout } from 'src/layouts';
 import { ReactComponent as CheckedIcon } from 'src/assets/icons/checked.svg';
 import { ReactComponent as UncheckedIcon } from 'src/assets/icons/unchecked.svg';
+import { Head } from 'src/common/head';
 import * as styles from './protocols.css';
 
 export type ProtocolsProps = unknown;
@@ -22,7 +23,16 @@ export const Protocols: React.VFC<ProtocolsProps> = () => {
 
   return (
     <LandingLayout>
+      <Head title="Supported protocols" />
       <Grid.Container className={styles.root}>
+        <Typography
+          variant="h2"
+          family="mono"
+          transform="uppercase"
+          className={styles.title}
+        >
+          Supported protocols
+        </Typography>
         <Table>
           <TableHead className={styles.head}>
             <TableRow className={styles.row}>
