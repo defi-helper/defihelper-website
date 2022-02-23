@@ -16,7 +16,7 @@ ENV REACT_APP_LAUNCH_APP_URL https://app.defihelper.io/api
 
 RUN apk --update add git
 COPY package*.json ./
-RUN npm install husky -g
+RUN npm install -g husky cross-env
 RUN npm ci
 COPY . .
 RUN npm run build
