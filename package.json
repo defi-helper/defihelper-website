@@ -151,8 +151,6 @@
     "start": "node scripts/start.js",
     "build": "cross-env CI='' cross-env GENERATE_SOURCEMAP=false node scripts/build.js",
     "postbuild": "rimraf ./build/index_dev.html",
-    "build-dev": "cross-env CI='' cross-env GENERATE_SOURCEMAP=false node scripts/build.js",
-    "postbuild-dev": "rimraf ./build/index_prod.html",
     "build-analyze": "cross-env ANALYZE=true node scripts/build.js",
     "test": "node scripts/test.js",
     "codegen": "graphql-codegen --config config.yml",
