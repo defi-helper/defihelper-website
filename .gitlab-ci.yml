@@ -13,6 +13,7 @@ default:
 variables:
   APP_NAME: "website"
   APP_NAMESPACE: website
+  ENVIRONMENT: dev
 
 stages:
   - build
