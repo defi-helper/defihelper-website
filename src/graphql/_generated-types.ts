@@ -646,6 +646,7 @@ export enum ContractListSortInputTypeColumnEnum {
   CreatedAt = 'createdAt',
   Tvl = 'tvl',
   AprYear = 'aprYear',
+  AprWeekReal = 'aprWeekReal',
   MyStaked = 'myStaked'
 }
 
@@ -691,6 +692,7 @@ export type ContractMetricType = {
   aprWeek: Scalars['String'];
   aprMonth: Scalars['String'];
   aprYear: Scalars['String'];
+  aprWeekReal?: Maybe<Scalars['String']>;
   myStaked: Scalars['String'];
   myEarned: Scalars['String'];
   myAPYBoost: Scalars['String'];
@@ -991,6 +993,8 @@ export type Mutation = {
   proposalDelete: Scalars['Boolean'];
   vote: VoteType;
   unvote: Scalars['Boolean'];
+  proposalTag: Array<ProposalTagType>;
+  proposalUntag: Scalars['Boolean'];
   userContactCreate: UserContactType;
   userContactUpdate: UserContactType;
   userContactEmailConfirm: Scalars['Boolean'];
@@ -1149,6 +1153,16 @@ export type MutationUnvoteArgs = {
   proposal: Scalars['UuidType'];
 };
 
+export type MutationProposalTagArgs = {
+  proposal: Scalars['UuidType'];
+  tag: Array<ProposalTagEnum>;
+};
+
+export type MutationProposalUntagArgs = {
+  proposal: Scalars['UuidType'];
+  tag: Array<ProposalTagEnum>;
+};
+
 export type MutationUserContactCreateArgs = {
   input: UserContactCreateInputType;
 };
@@ -1286,6 +1300,7 @@ export type ProposalFilterInputType = {
 export type ProposalListFilterInputType = {
   author?: Maybe<Scalars['UuidType']>;
   status?: Maybe<ProposalStatusEnum>;
+  tag?: Maybe<Array<ProposalTagEnum>>;
   search?: Maybe<Scalars['String']>;
 };
 
@@ -1325,6 +1340,26 @@ export enum ProposalStatusEnum {
   Defeated = 'defeated'
 }
 
+export enum ProposalTagEnum {
+  TokenRequest = 'tokenRequest',
+  ProtocolRequest = 'protocolRequest',
+  BlockchainRequest = 'blockchainRequest',
+  FeatureRequest = 'featureRequest',
+  BugReport = 'bugReport'
+}
+
+export type ProposalTagType = {
+  __typename?: 'ProposalTagType';
+  /** Identificator */
+  id: Scalars['UuidType'];
+  /** Voting user */
+  user: UserType;
+  /** Tag value */
+  tag: ProposalTagEnum;
+  /** Date of created */
+  createdAt: Scalars['DateTimeType'];
+};
+
 export type ProposalType = {
   __typename?: 'ProposalType';
   /** Identificator */
@@ -1338,6 +1373,7 @@ export type ProposalType = {
   /** Author */
   author?: Maybe<UserType>;
   votes: VoteListType;
+  tags: Array<ProposalTagEnum>;
   /** Planned date */
   plannedAt?: Maybe<Scalars['DateTimeType']>;
   /** Released date */
@@ -2181,6 +2217,7 @@ export type TokenListQuery = {
 export type TokenListQueryFilterInputType = {
   blockchain?: Maybe<BlockchainFilterInputType>;
   address?: Maybe<Array<Scalars['String']>>;
+  tradable?: Maybe<Scalars['Boolean']>;
   search?: Maybe<Scalars['String']>;
 };
 
@@ -2236,7 +2273,7 @@ export type TokenType = {
   /** Identificator */
   id: Scalars['UuidType'];
   /** Token alias id */
-  alias: Scalars['String'];
+  alias?: Maybe<TokenAlias>;
   /** Blockchain type */
   blockchain: BlockchainEnum;
   /** Blockchain network id */
@@ -2266,6 +2303,7 @@ export type TreasuryType = {
   __typename?: 'TreasuryType';
   portfoliosCount: Scalars['Int'];
   protocolsCount: Scalars['Int'];
+  contractsCount: Scalars['Int'];
   trackedUSD: Scalars['Float'];
 };
 
@@ -3307,7 +3345,7 @@ export type TreasuryQueryVariables = Exact<{ [key: string]: never }>;
 export type TreasuryQuery = { __typename?: 'Query' } & {
   treasury: { __typename?: 'TreasuryType' } & Pick<
     TreasuryType,
-    'portfoliosCount' | 'protocolsCount' | 'trackedUSD'
+    'portfoliosCount' | 'protocolsCount' | 'contractsCount'
   >;
 };
 

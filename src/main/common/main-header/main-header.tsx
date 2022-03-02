@@ -7,14 +7,13 @@ import { Typography } from 'src/common/typography';
 import logo from 'src/assets/images/logo.png';
 import { Button } from 'src/common/button';
 import { config } from 'src/config';
-import { bignumberUtils } from 'src/common/bignumber-utils';
 import * as styles from './main-header.css';
 
 export type MainHeaderProps = {
   className?: string;
   portfoliosCount: number;
   protocolsCount: number;
-  trackedUSD: number;
+  contractsCount: number;
 };
 
 export const MainHeader: React.VFC<MainHeaderProps> = (props) => {
@@ -37,9 +36,7 @@ export const MainHeader: React.VFC<MainHeaderProps> = (props) => {
               className={styles.counters}
             >
               <div>{props.portfoliosCount} portfolios</div>
-              <div>
-                ${bignumberUtils.format(props.trackedUSD)} tracked in portfolios
-              </div>
+              <div>{props.contractsCount} staking contracts</div>
               <div>{props.protocolsCount} protocols connected</div>
             </Typography>
             <div className={styles.actions}>
