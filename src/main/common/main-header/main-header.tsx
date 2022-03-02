@@ -7,7 +7,6 @@ import { Typography } from 'src/common/typography';
 import logo from 'src/assets/images/logo.png';
 import { Button } from 'src/common/button';
 import { config } from 'src/config';
-import { bignumberUtils } from 'src/common/bignumber-utils';
 import * as styles from './main-header.css';
 
 export type MainHeaderProps = {
