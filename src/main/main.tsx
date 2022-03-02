@@ -72,7 +72,7 @@ export const Main: React.VFC = () => {
         className={styles.header}
         portfoliosCount={treasuryData?.treasury.portfoliosCount ?? 0}
         protocolsCount={treasuryData?.treasury.protocolsCount ?? 0}
-        trackedUSD={treasuryData?.treasury.trackedUSD ?? 0}
+        contractsCount={treasuryData?.treasury.contractsCount ?? 0}
       />
       <MainChart
         className={styles.section}

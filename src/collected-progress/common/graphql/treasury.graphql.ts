@@ -5,7 +5,7 @@ export const TREASURY = gql`
     treasury {
       portfoliosCount
       protocolsCount
-      trackedUSD
+      contractsCount
     }
   }
 `;
