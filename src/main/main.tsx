@@ -12,6 +12,14 @@ import {
 import { LandingLayout } from 'src/layouts';
 import { FaqText } from 'src/common/faq-text';
 import { Head } from 'src/common/head';
+import crypto_omg from 'src/assets/images/crypto_omg.png';
+import big_brain_holdings from 'src/assets/images/big_brain_holdings.png';
+import starter from 'src/assets/images/starter.png';
+import huckleberry from 'src/assets/images/huckleberry.png';
+import russ_vench from 'src/assets/images/russ_vench.svg';
+import vc from 'src/assets/images/vc.svg';
+import cointelgraph from 'src/assets/images/cointelgraph.svg';
+import hackernoon from 'src/assets/images/hackernoon.svg';
 import {
   MainBlockchains,
   MainChart,
@@ -26,6 +34,52 @@ import {
   MainInvestors
 } from './common';
 import * as styles from './main.css';
+
+const INVESTORS = [
+  {
+    title: 'bigbrainholdings',
+    link: 'https://www.bigbrain.holdings/',
+    image: big_brain_holdings
+  },
+  {
+    title: 'starter',
+    link: 'https://6kstarter.com/',
+    image: starter
+  },
+  {
+    title: 'cryptoomg',
+    link: 'https://cryptoomg.com/',
+    image: crypto_omg
+  },
+  {
+    title: 'huckleberry',
+    link: 'https://www.huckleberry.finance/',
+    image: huckleberry
+  }
+];
+
+const PRESS = [
+  {
+    title: 'russ_vench',
+    link: 'https://rusven.com/',
+    image: russ_vench
+  },
+  {
+    title: 'vc',
+    link: 'https://vc.ru/popular',
+    image: vc
+  },
+  {
+    title: 'cointelgraph',
+    link: 'https://cointelegraph.com/',
+    image: cointelgraph
+  },
+  {
+    title: 'huckleberry',
+    link: 'https://hackernoon.com/',
+    image: hackernoon
+  }
+];
 
 export const Main: React.VFC = () => {
   const [sum, setSum] = useState(10000);
@@ -93,7 +147,12 @@ export const Main: React.VFC = () => {
       <MainTable className={styles.section} />
       <MainTeam className={styles.section} />
       <FaqText className={styles.section} />
-      <MainInvestors className={styles.section} />
+      <MainInvestors title="Investors and partners" className={styles.section}>
+        {INVESTORS}
+      </MainInvestors>
+      <MainInvestors title="Press" className={styles.section}>
+        {PRESS}
+      </MainInvestors>
       {false && (
         <>
           <MainPartners className={styles.section} />
