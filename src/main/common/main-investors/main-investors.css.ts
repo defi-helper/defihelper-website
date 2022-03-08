@@ -31,5 +31,6 @@ export const listItem = style({
 });
 
 export const img = style({
-  maxWidth: 150
+  maxWidth: 150,
+  width: '100%'
 });
