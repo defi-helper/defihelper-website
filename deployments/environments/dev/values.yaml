@@ -9,7 +9,6 @@ image:
   pullPolicy: IfNotPresent
   tag: ""
   dockerconfigjson: ""
-imagePullSecrets: docker-registry-secret
 
 service:
   type: ClusterIP
