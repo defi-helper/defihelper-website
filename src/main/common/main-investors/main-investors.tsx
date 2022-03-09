@@ -30,7 +30,11 @@ export const MainInvestors: React.VFC<MainInvestorsProps> = (props) => {
       <ul className={styles.list}>
         {props.children.map((link) => (
           <li className={styles.listItem} key={link.link}>
-            <Link href={link.link} target="_blank">
+            <Link
+              href={link.link}
+              target="_blank"
+              className={clsx(!link.link && styles.inactive)}
+            >
               <img src={link.image} alt={link.title} className={styles.img} />
             </Link>
           </li>

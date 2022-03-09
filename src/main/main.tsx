@@ -61,22 +61,22 @@ const INVESTORS = [
 const PRESS = [
   {
     title: 'russ_vench',
-    link: 'https://rusven.com/',
+    link: '',
     image: russ_vench
   },
   {
     title: 'vc',
-    link: 'https://vc.ru/popular',
+    link: '',
     image: vc
   },
   {
     title: 'cointelgraph',
-    link: 'https://cointelegraph.com/',
+    link: '',
     image: cointelgraph
   },
   {
     title: 'huckleberry',
-    link: 'https://hackernoon.com/',
+    link: '',
     image: hackernoon
   }
 ];

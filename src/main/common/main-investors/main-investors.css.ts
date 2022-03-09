@@ -34,3 +34,7 @@ export const img = style({
   maxWidth: 150,
   width: '100%'
 });
+
+export const inactive = style({
+  pointerEvents: 'none'
+});
