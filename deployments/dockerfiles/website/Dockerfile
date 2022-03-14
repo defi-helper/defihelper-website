@@ -24,6 +24,7 @@ RUN npm run build
 FROM nginx:stable-alpine
 WORKDIR /app
 COPY deployments/dockerfiles/website/default.conf /etc/nginx/conf.d/default.conf
+COPY deployments/dockerfiles/website/prerenderer.conf /etc/nginx/prerenderer.conf
 COPY deployments/dockerfiles/website/nginx.conf /etc/nginx/nginx.conf
 COPY --from=build /app/build .
 EXPOSE 8080
