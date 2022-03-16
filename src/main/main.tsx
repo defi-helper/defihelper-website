@@ -31,7 +31,8 @@ import {
   MainTable,
   MainTeam,
   MainPartners,
-  MainInvestors
+  MainInvestors,
+  MainMedium
 } from './common';
 import * as styles from './main.css';
 
@@ -143,9 +144,10 @@ export const Main: React.VFC = () => {
         protocols={protocolsData?.protocols.list}
       />
       <MainExplore className={styles.section} onNotify={handleOpenAnnounce} />
-      <MainEditor className={styles.section} />
       <MainTable className={styles.section} />
       <MainTeam className={styles.section} />
+      <MainEditor className={styles.section} />
+      {false && <MainMedium className={styles.section} />}
       <FaqText className={styles.section} />
       <MainInvestors title="Investors and partners" className={styles.section}>
         {INVESTORS}

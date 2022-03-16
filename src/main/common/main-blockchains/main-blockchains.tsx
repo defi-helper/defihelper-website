@@ -3,6 +3,9 @@ import React from 'react';
 
 import { Grid } from 'src/common/grid';
 import { Typography } from 'src/common/typography';
+import { Link } from 'src/common/link';
+import { Button } from 'src/common/button';
+import { config } from 'src/config';
 import { MainChip } from 'src/main/common/main-chip';
 import { networksConfig } from 'src/network-config';
 import * as styles from './main-blockchains.css';
@@ -30,6 +33,18 @@ export const MainBlockchains: React.VFC<MainBlockchainsProps> = (props) => {
             <MainChip icon={protocol.icon ?? undefined} name={protocol.title} />
           </li>
         ))}
+        <li className={styles.listItem}>
+          <Button
+            variant="outlined"
+            color="secondary"
+            className={styles.protocolButton}
+            as={Link}
+            target="_blank"
+            href={`${config.LAUNCH_APP_URL}roadmap`}
+          >
+            + Suggest Blockchain
+          </Button>
+        </li>
       </ul>
     </Grid.Container>
   );
