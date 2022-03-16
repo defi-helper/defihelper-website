@@ -39,8 +39,8 @@ export const MainProtocols: React.VFC<MainProtocolsProps> = (props) => {
         {props.protocols?.length ?? 0} protocols Connected
       </Typography>
       <ul className={styles.list}>
-        {protocols.map((protocol) => (
-          <li key={protocol.id} className={styles.listItem}>
+        {protocols.map((protocol, index) => (
+          <li key={String(index)} className={styles.listItem}>
             <MainChip icon={protocol.icon ?? undefined} name={protocol.name} />
           </li>
         ))}
@@ -65,7 +65,7 @@ export const MainProtocols: React.VFC<MainProtocolsProps> = (props) => {
             target="_blank"
             href={`${config.LAUNCH_APP_URL}roadmap`}
           >
-            +ADD Protocol
+            + suggest protocol
           </Button>
         </li>
       </ul>

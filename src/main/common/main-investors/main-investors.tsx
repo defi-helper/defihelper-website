@@ -28,8 +28,8 @@ export const MainInvestors: React.VFC<MainInvestorsProps> = (props) => {
         {props.title}
       </Typography>
       <ul className={styles.list}>
-        {props.children.map((link) => (
-          <li className={styles.listItem} key={link.link}>
+        {props.children.map((link, index) => (
+          <li className={styles.listItem} key={String(index)}>
             <Link
               href={link.link}
               target="_blank"

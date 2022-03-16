@@ -16,10 +16,13 @@ import { Button } from 'src/common/button';
 import { Link } from 'src/common/link';
 import { config } from 'src/config';
 import { URLS } from 'src/router/urls';
+import { useContactForm } from 'src/contacts/common/contact-form';
+import { Input } from 'src/common/input';
 import * as styles from './layout-footer.css';
 
 export type LayoutFooterProps = {
   onSubscribe?: () => void;
+  onSubmit: (formValues: { name: string; email: string }) => Promise<void>;
   className?: string;
 };
 
@@ -139,8 +142,59 @@ const SOCIAL = [
 ];
 
 export const LayoutFooter: React.VFC<LayoutFooterProps> = (props) => {
+  const formik = useContactForm(props.onSubmit);
+
   return (
     <footer className={clsx(styles.root, props.className)}>
+      <Grid.Container>
+        <Grid.Row
+          className={styles.feedback}
+          onSubmit={formik.handleSubmit}
+          items="center"
+          as="form"
+        >
+          <Typography
+            variant="h4"
+            family="mono"
+            transform="uppercase"
+            className={styles.feedbackText}
+          >
+            Get DeFiHelper Updates to your Inbox
+          </Typography>
+          <div className={styles.feedbackCol}>
+            <Input
+              name="email"
+              placeholder="e.g. hello@defihelper.io"
+              value={formik.values.email}
+              disabled={formik.isSubmitting}
+              onChange={formik.handleChange}
+              className={styles.input}
+              error={Boolean(formik.errors.email)}
+            />
+          </div>
+          <div className={styles.feedbackCol}>
+            <Input
+              name="name"
+              placeholder="name"
+              disabled={formik.isSubmitting}
+              value={formik.values.name}
+              onChange={formik.handleChange}
+              className={styles.input}
+              error={Boolean(formik.errors.name)}
+            />
+          </div>
+          <div className={styles.feedbackButton}>
+            <Button
+              color="secondary"
+              type="submit"
+              loading={formik.isSubmitting}
+            >
+              Join Mailing List
+            </Button>
+          </div>
+        </Grid.Row>
+      </Grid.Container>
+      <Grid.Container className={styles.separator} />
       <Grid.Container>
         <Grid.Row>
           <div className={clsx(styles.col, styles.logo)}>

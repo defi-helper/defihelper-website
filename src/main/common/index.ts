@@ -9,3 +9,4 @@ export * from './main-table';
 export * from './main-blockchains';
 export * from './main-partners';
 export * from './main-investors';
+export * from './main-medium';
