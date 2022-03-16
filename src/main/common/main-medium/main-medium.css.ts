@@ -19,20 +19,20 @@ export const grid = style({
   padding: 0,
   margin: 0,
   listStyle: 'none',
-  rowGap: 32,
+  rowGap: 32
 
-  '@media': {
-    [theme.mediaQueries.md()]: {
-      gridTemplateRows: '1fr 1fr 1fr',
-      gridTemplateColumns: 'calc(45% - 50px) 55%',
-      columnGap: 50
-    },
+  // '@media': {
+  //   [theme.mediaQueries.md()]: {
+  //     gridTemplateRows: '1fr 1fr 1fr',
+  //     gridTemplateColumns: 'calc(45% - 50px) 55%',
+  //     columnGap: 50
+  //   },
 
-    [theme.mediaQueries.lg()]: {
-      gridTemplateColumns: 'calc(45% - 112px) 55%',
-      columnGap: 112
-    }
-  }
+  //   [theme.mediaQueries.lg()]: {
+  //     gridTemplateColumns: 'calc(45% - 112px) 55%',
+  //     columnGap: 112
+  //   }
+  // }
 });
 
 export const gridItem = style({
