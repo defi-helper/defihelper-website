@@ -66,6 +66,8 @@ export type AuthWavesInputType = {
   message: Scalars['String'];
   /** Signed message */
   signature: Scalars['String'];
+  /** Merged target account to current account */
+  merge?: Maybe<Scalars['Boolean']>;
 };
 
 export type AutomateActionCreateInputType = {
@@ -125,7 +127,8 @@ export type AutomateActionType = {
 
 export enum AutomateActionTypeEnum {
   Notification = 'notification',
-  EthereumAutomateRun = 'ethereumAutomateRun'
+  EthereumAutomateRun = 'ethereumAutomateRun',
+  WavesAutomateRun = 'wavesAutomateRun'
 }
 
 export type AutomateActionUpdateInputType = {
@@ -141,6 +144,7 @@ export type AutomateActionsDescriptionType = {
   __typename?: 'AutomateActionsDescriptionType';
   notification: AutomateDescriptionType;
   ethereumAutomateRun: AutomateDescriptionType;
+  wavesAutomateRun: AutomateDescriptionType;
 };
 
 export type AutomateConditionCreateInputType = {
@@ -937,6 +941,18 @@ export type IntegrationBinanceConnectInputType = {
   apiKey: Scalars['String'];
   /** Api secret */
   apiSecret: Scalars['String'];
+};
+
+export type LandingMediumPostType = {
+  __typename?: 'LandingMediumPostType';
+  /** Title */
+  title: Scalars['String'];
+  /** Text */
+  text: Scalars['String'];
+  /** Link */
+  link: Scalars['String'];
+  /** Posted at */
+  createdAt: Scalars['DateTimeType'];
 };
 
 export enum LocaleEnum {
@@ -1782,6 +1798,7 @@ export type Query = {
   protocols: ProtocolListQuery;
   proposal?: Maybe<ProposalType>;
   proposals: ProposalListQuery;
+  landingMediumPosts: Array<LandingMediumPostType>;
   userContact?: Maybe<UserContactType>;
   userContacts: UserContactListQuery;
   userNotifications: Array<UserNotificationType>;
@@ -3352,6 +3369,17 @@ export type TreasuryQuery = { __typename?: 'Query' } & {
   >;
 };
 
+export type LandingMediumPostsQueryVariables = Exact<{ [key: string]: never }>;
+
+export type LandingMediumPostsQuery = { __typename?: 'Query' } & {
+  landingMediumPosts: Array<
+    { __typename?: 'LandingMediumPostType' } & Pick<
+      LandingMediumPostType,
+      'title' | 'text' | 'link' | 'createdAt'
+    >
+  >;
+};
+
 export type ProtocolsQueryVariables = Exact<{ [key: string]: never }>;
 
 export type ProtocolsQuery = { __typename?: 'Query' } & {
@@ -3458,6 +3486,28 @@ export function useTreasuryQuery(
   options: Omit<Urql.UseQueryArgs<TreasuryQueryVariables>, 'query'> = {}
 ) {
   return Urql.useQuery<TreasuryQuery>({ query: TreasuryDocument, ...options });
+}
+export const LandingMediumPostsDocument = gql`
+  query LandingMediumPosts {
+    landingMediumPosts {
+      title
+      text
+      link
+      createdAt
+    }
+  }
+`;
+
+export function useLandingMediumPostsQuery(
+  options: Omit<
+    Urql.UseQueryArgs<LandingMediumPostsQueryVariables>,
+    'query'
+  > = {}
+) {
+  return Urql.useQuery<LandingMediumPostsQuery>({
+    query: LandingMediumPostsDocument,
+    ...options
+  });
 }
 export const ProtocolsDocument = gql`
   query Protocols {

@@ -5,6 +5,7 @@ import { useDialog } from 'src/common/dialog';
 import { ContactAnnounce } from 'src/contacts/contact-announce';
 import { ContactSuccess } from 'src/contacts/contact-success';
 import {
+  useLandingMediumPostsQuery,
   useProtocolsQuery,
   useRestakeStrategyQuery,
   useTreasuryQuery
@@ -91,6 +92,7 @@ export const Main: React.VFC = () => {
 
   const [{ data: treasuryData }] = useTreasuryQuery();
   const [{ data: protocolsData }] = useProtocolsQuery();
+  const [{ data: mediumData }] = useLandingMediumPostsQuery();
 
   const [throttledSum, throttledApy] = useThrottle(
     useMemo(() => [sum, apy / 100], [sum, apy]),
@@ -147,7 +149,10 @@ export const Main: React.VFC = () => {
       <MainTable className={styles.section} />
       <MainTeam className={styles.section} />
       <MainEditor className={styles.section} />
-      {false && <MainMedium className={styles.section} />}
+      <MainMedium
+        landingMediumPosts={(mediumData?.landingMediumPosts ?? []).slice(0, 4)}
+        className={styles.section}
+      />
       <FaqText className={styles.section} />
       <MainInvestors title="Investors and partners" className={styles.section}>
         {INVESTORS}
