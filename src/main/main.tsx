@@ -17,6 +17,7 @@ import crypto_omg from 'src/assets/images/crypto_omg.png';
 import big_brain_holdings from 'src/assets/images/big_brain_holdings.png';
 import starter from 'src/assets/images/starter.png';
 import huckleberry from 'src/assets/images/huckleberry.png';
+import perpetual from 'src/assets/images/perpetual.png';
 import russ_vench from 'src/assets/images/russ_vench.svg';
 import vc from 'src/assets/images/vc.svg';
 import cointelgraph from 'src/assets/images/cointelgraph.svg';
@@ -57,6 +58,11 @@ const INVESTORS = [
     title: 'huckleberry',
     link: 'https://www.huckleberry.finance/',
     image: huckleberry
+  },
+  {
+    title: 'perpetual',
+    link: 'https://perp.com/',
+    image: perpetual
   }
 ];
 
