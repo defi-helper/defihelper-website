@@ -13,7 +13,9 @@ import { useProtocolsQuery } from 'src/graphql/_generated-hooks';
 import { LandingLayout } from 'src/layouts';
 import { ReactComponent as CheckedIcon } from 'src/assets/icons/checked.svg';
 import { ReactComponent as UncheckedIcon } from 'src/assets/icons/unchecked.svg';
+import { Link } from 'src/common/link';
 import { Head } from 'src/common/head';
+import { config } from 'src/config';
 import * as styles from './protocols.css';
 
 export type ProtocolsProps = unknown;
@@ -32,6 +34,16 @@ export const Protocols: React.VFC<ProtocolsProps> = () => {
           className={styles.title}
         >
           Supported protocols
+        </Typography>
+        <Typography className={styles.subtitle}>
+          Don&apos;t see your favourite platform here?{' '}
+          <Link
+            target="_blank"
+            href={`${config.LAUNCH_APP_URL}roadmap?tag=protocolRequest`}
+            color="blue"
+          >
+            Submit it here
+          </Link>
         </Typography>
         <Table>
           <TableHead className={styles.head}>

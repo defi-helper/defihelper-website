@@ -13,6 +13,10 @@ export const root = style({
 });
 
 export const title = style({
+  marginBottom: 10
+});
+
+export const subtitle = style({
   marginBottom: 30
 });
 

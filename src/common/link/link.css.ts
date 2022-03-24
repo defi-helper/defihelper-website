@@ -40,5 +40,7 @@ export const colors = styleVariants({
     color: 'currentColor'
   },
 
-  blue: {}
+  blue: {
+    color: theme.palette.blue
+  }
 });

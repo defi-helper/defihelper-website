@@ -29,7 +29,7 @@ export const input = style({
   color: 'currentcolor',
 
   '::placeholder': {
-    color: 'inherit'
+    color: theme.palette.grey1
   }
 });
 

@@ -63,7 +63,7 @@ export const MainProtocols: React.VFC<MainProtocolsProps> = (props) => {
             className={styles.protocolButton}
             as={Link}
             target="_blank"
-            href={`${config.LAUNCH_APP_URL}roadmap`}
+            href={`${config.LAUNCH_APP_URL}roadmap?tag=protocolRequest`}
           >
             + suggest protocol
           </Button>
