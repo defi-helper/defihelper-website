@@ -68,7 +68,7 @@ const PROTOCOL = [
     target: '_blank'
   },
   {
-    title: 'Coinmarketcap',
+    title: 'CoinMarketCap',
     link: 'https://coinmarketcap.com/currencies/defihelper/',
     target: '_blank'
   },
