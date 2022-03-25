@@ -68,6 +68,11 @@ const PROTOCOL = [
     target: '_blank'
   },
   {
+    title: 'Coinmarketcap',
+    link: 'https://coinmarketcap.com/currencies/defihelper/',
+    target: '_blank'
+  },
+  {
     title: 'Etherscan',
     link: 'https://etherscan.io/token/0x5f2080542ab6ae7e0b06778f0b2d263006297840',
     target: '_blank'
