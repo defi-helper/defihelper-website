@@ -8,7 +8,6 @@ import { Typography } from 'src/common/typography';
 import { Head } from 'src/common/head';
 
 import * as styles from './contracts.css';
-import { header } from './contracts.css';
 
 const networks: Record<string, string> = {
   1: 'Ethereum',

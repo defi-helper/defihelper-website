@@ -145,33 +145,7 @@
     "workbox-routing": "^5.1.4",
     "workbox-strategies": "^5.1.4",
     "workbox-streams": "^5.1.4",
-    "workbox-webpack-plugin": "6.1.5"
-  },
-  "scripts": {
-    "start": "node scripts/start.js",
-    "build": "cross-env CI='' cross-env GENERATE_SOURCEMAP=false node scripts/build.js",
-    "postbuild": "rimraf ./build/index_dev.html",
-    "build-dev": "cross-env CI='' cross-env GENERATE_SOURCEMAP=false node scripts/build.js",
-    "postbuild-dev": "rimraf ./build/index_prod.html",
-    "build-analyze": "cross-env ANALYZE=true node scripts/build.js",
-    "test": "node scripts/test.js",
-    "codegen": "graphql-codegen --config config.yml",
-    "prepare": "husky install",
-    "lint": "eslint --fix --ext .ts,.tsx ./src"
-  },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
-  },
-  "devDependencies": {
+    "workbox-webpack-plugin": "6.1.5",
     "@graphql-codegen/add": "^2.0.2",
     "@graphql-codegen/cli": "1.21.3",
     "@graphql-codegen/fragment-matcher": "2.0.1",
@@ -197,6 +171,28 @@
     "typechain": "^5.0.0",
     "typescript": "^4.3.2",
     "wbpk-5-cra-utils": "^11.0.3"
+  },
+  "scripts": {
+    "start": "node scripts/start.js",
+    "build": "cross-env CI='' cross-env GENERATE_SOURCEMAP=false node scripts/build.js",
+    "postbuild": "rimraf ./build/index_dev.html",
+    "build-analyze": "cross-env ANALYZE=true node scripts/build.js",
+    "test": "node scripts/test.js",
+    "codegen": "graphql-codegen --config config.yml",
+    "prepare": "husky install",
+    "lint": "eslint --fix --ext .ts,.tsx ./src"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
   },
   "lint-staged": {
     "src/*.{ts,tsx,js}": [

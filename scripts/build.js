@@ -1,8 +1,8 @@
 'use strict';
 
 // Do this as the first thing so that any code reading it knows the right env.
-process.env.BABEL_ENV = process.env.NODE_ENV || 'production';
-process.env.NODE_ENV = process.env.NODE_ENV || 'production';
+process.env.BABEL_ENV = 'production';
+process.env.NODE_ENV = 'production';
 process.env.IMAGE_INLINE_SIZE_LIMIT = '0';
 
 // Makes the script crash on unhandled rejections instead of silently
@@ -167,14 +167,18 @@ function build(previousFileSizes) {
           warnings: []
         });
       } else {
-        const jsonStats = stats.toJson({ all: false, warnings: true, errors: true });
+        const jsonStats = stats.toJson({
+          all: false,
+          warnings: true,
+          errors: true
+        });
 
         if (jsonStats.errors) {
-          jsonStats.errors = jsonStats.errors.map(error => error.message);
+          jsonStats.errors = jsonStats.errors.map((error) => error.message);
         }
 
         if (jsonStats.warnings) {
-          jsonStats.warnings = jsonStats.warnings.map(warn => warn.message);
+          jsonStats.warnings = jsonStats.warnings.map((warn) => warn.message);
         }
 
         messages = formatWebpackMessages(jsonStats);
@@ -214,7 +218,6 @@ function build(previousFileSizes) {
 function copyPublicFolder() {
   fs.copySync(paths.appPublic, paths.appBuild, {
     dereference: true,
-    filter: (file) =>
-      file !== paths.appHtml
+    filter: (file) => file !== paths.appHtml
   });
 }

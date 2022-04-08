@@ -6,6 +6,7 @@ import { ReactComponent as TwitterIcon } from 'src/assets/icons/social/twitter.s
 import { ReactComponent as GithubIcon } from 'src/assets/icons/social/github.svg';
 import { ReactComponent as MediumIcon } from 'src/assets/icons/social/medium.svg';
 import { ReactComponent as TelegramIcon } from 'src/assets/icons/social/telegram.svg';
+import { ReactComponent as EmailIcon } from 'src/assets/icons/social/email.svg';
 import { ReactComponent as DiscordIcon } from 'src/assets/icons/social/discord.svg';
 import articleEN from 'src/assets/pdf/Math_Behind_DeFiHelper.pdf';
 import articleRU from 'src/assets/pdf/Как_устроен_алгоритм_автостейкинга_DeFiHelper.pdf';
@@ -15,10 +16,13 @@ import { Button } from 'src/common/button';
 import { Link } from 'src/common/link';
 import { config } from 'src/config';
 import { URLS } from 'src/router/urls';
+import { useContactForm } from 'src/contacts/common/contact-form';
+import { Input } from 'src/common/input';
 import * as styles from './layout-footer.css';
 
 export type LayoutFooterProps = {
   onSubscribe?: () => void;
+  onSubmit: (formValues: { name: string; email: string }) => Promise<void>;
   className?: string;
 };
 
@@ -61,6 +65,11 @@ const PROTOCOL = [
   {
     title: 'Coingecko',
     link: 'https://www.coingecko.com/en/coins/defihelper-governance-token',
+    target: '_blank'
+  },
+  {
+    title: 'CoinMarketCap',
+    link: 'https://coinmarketcap.com/currencies/defihelper/',
     target: '_blank'
   },
   {
@@ -131,15 +140,66 @@ const SOCIAL = [
   },
   {
     title: 'Email',
-    icon: TelegramIcon,
+    icon: EmailIcon,
     link: 'mailto:hello@defihelper.io',
     target: '_blank'
   }
 ];
 
 export const LayoutFooter: React.VFC<LayoutFooterProps> = (props) => {
+  const formik = useContactForm(props.onSubmit);
+
   return (
     <footer className={clsx(styles.root, props.className)}>
+      <Grid.Container>
+        <Grid.Row
+          className={styles.feedback}
+          onSubmit={formik.handleSubmit}
+          items="center"
+          as="form"
+        >
+          <Typography
+            variant="h4"
+            family="mono"
+            transform="uppercase"
+            className={styles.feedbackText}
+          >
+            Get DeFiHelper Updates to your Inbox
+          </Typography>
+          <div className={styles.feedbackCol}>
+            <Input
+              name="email"
+              placeholder="e.g. hello@defihelper.io"
+              value={formik.values.email}
+              disabled={formik.isSubmitting}
+              onChange={formik.handleChange}
+              className={styles.input}
+              error={Boolean(formik.errors.email)}
+            />
+          </div>
+          <div className={styles.feedbackCol}>
+            <Input
+              name="name"
+              placeholder="name"
+              disabled={formik.isSubmitting}
+              value={formik.values.name}
+              onChange={formik.handleChange}
+              className={styles.input}
+              error={Boolean(formik.errors.name)}
+            />
+          </div>
+          <div className={styles.feedbackButton}>
+            <Button
+              color="secondary"
+              type="submit"
+              loading={formik.isSubmitting}
+            >
+              Join Mailing List
+            </Button>
+          </div>
+        </Grid.Row>
+      </Grid.Container>
+      <Grid.Container className={styles.separator} />
       <Grid.Container>
         <Grid.Row>
           <div className={clsx(styles.col, styles.logo)}>

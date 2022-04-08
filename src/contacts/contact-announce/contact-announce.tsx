@@ -1,12 +1,11 @@
 import React from 'react';
-import { useFormik } from 'formik';
 
 import { Input } from 'src/common/input';
 import { Button } from 'src/common/button';
-import { isEmail } from 'src/common/is-email';
 import { Dialog } from 'src/common/dialog';
 import { contactsApi } from '../common/contacts-api';
 import * as styles from './contact-announce.css';
+import { useContactForm } from '../common/contact-form';
 
 export type ContactAnnounceProps = {
   open: boolean;
@@ -17,42 +16,14 @@ export type ContactAnnounceProps = {
 const LIST_ID = '2';
 
 export const ContactAnnounce: React.VFC<ContactAnnounceProps> = (props) => {
-  const formik = useFormik({
-    initialValues: {
-      email: '',
-      name: ''
-    },
+  const formik = useContactForm(async (formValues) => {
+    try {
+      await contactsApi.sendForm(LIST_ID, formValues);
 
-    validateOnBlur: false,
-    validateOnChange: false,
-
-    validate: (formValues) => {
-      const errors: Partial<typeof formValues> = {};
-
-      if (!formValues.email) {
-        errors.email = 'Required';
-      }
-
-      if (!formValues.name) {
-        errors.name = 'Required';
-      }
-
-      if (!isEmail(formValues.email)) {
-        errors.email = 'invalid email';
-      }
-
-      return errors;
-    },
-
-    onSubmit: async (formValues) => {
-      try {
-        await contactsApi.sendForm(LIST_ID, formValues);
-
-        props.onConfirm(formValues.name);
-      } catch (error) {
-        if (error instanceof Error) {
-          console.error(error.message);
-        }
+      props.onConfirm(formValues.name);
+    } catch (error) {
+      if (error instanceof Error) {
+        console.error(error.message);
       }
     }
   });

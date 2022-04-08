@@ -7,7 +7,6 @@ import { bignumberUtils } from 'src/common/bignumber-utils';
 import { Link } from 'src/common/link';
 import { Typography } from 'src/common/typography';
 import { config } from 'src/config';
-import { useTreasuryQuery } from 'src/graphql/_generated-hooks';
 import { URLS } from 'src/router/urls';
 import * as styles from './collected-progress.css';
 
@@ -27,9 +26,7 @@ const createArrayNumber = (num: number) =>
 export const CollectedProgress: React.VFC<CollectedProgressProps> = (props) => {
   const isDesktop = useMedia('(min-width: 960px)');
 
-  const [{ data }] = useTreasuryQuery();
-
-  const fees = data?.treasury.balanceUSD ?? 0;
+  const fees = 0;
 
   const filledArray = createArrayNumber(
     ((fees / MAX) * 100 * props.count) / 100

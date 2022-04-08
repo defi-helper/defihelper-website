@@ -11,7 +11,6 @@ import vlad_komissarov from 'src/assets/images/team/vlad_komissarov.png';
 import artem_tolkachev from 'src/assets/images/team/artem_tolkachev.png';
 import igor_varnavsky from 'src/assets/images/team/igor_varnavsky.jpg';
 import ben_ashworth from 'src/assets/images/team/ben_ashworth.jpg';
-import waves from 'src/assets/images/team/waves.png';
 import join_us from 'src/assets/images/team/join_us.png';
 import ilya_munerman from 'src/assets/images/team/ilya_munerman.jpeg';
 import { ReactComponent as TwitterIcon } from 'src/assets/icons/social/twitter.svg';
@@ -108,7 +107,15 @@ const TEAM: Array<Team> = [
     role: 'Investor Relations',
     description:
       'Ben graduated with a law degree from Newcastle University before travelling the world, becoming bi-lingual in Spanish during his travels. Ben has over 4 years experience in crypto and is a firm believer in DeFi.',
-    actions: []
+    actions: [
+      <ButtonBase
+        as={Link}
+        href="https://www.linkedin.com/in/ben-ashworth-kwasnik-9897a8140/"
+        target="_blank"
+      >
+        <LinkedInIcon />
+      </ButtonBase>
+    ]
   },
   {
     photo: ilya_munerman,
@@ -123,22 +130,6 @@ const TEAM: Array<Team> = [
         target="_blank"
       >
         <LinkedInIcon />
-      </ButtonBase>
-    ]
-  },
-  {
-    photo: waves,
-    name: 'Waves Technologies',
-    role: 'Partner',
-    description:
-      'All-encompassing gateway blockchain protocol advancing technological the frontiers of today for the pioneering developers of tomorrow. ',
-    actions: [
-      <ButtonBase
-        as={Link}
-        target="_blank"
-        href="https://twitter.com/wavesprotocol"
-      >
-        <TwitterIcon />
       </ButtonBase>
     ]
   },
