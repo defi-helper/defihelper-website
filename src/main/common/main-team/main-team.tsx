@@ -58,7 +58,7 @@ const TEAM: Array<Team> = [
   {
     photo: artem_tolkachev,
     name: 'Artem Tolkachev',
-    role: 'CBDO and co-founder',
+    role: 'Co-founder',
     description:
       'Former head of the Blockchain Lab at Deloitte. For over seven years, Artem has been one of the key opinion leaders in the CIS region in blockchain and tokenization.',
     actions: [
