@@ -2,7 +2,6 @@ import clsx from 'clsx';
 import React from 'react';
 import { useMedia } from 'react-use';
 
-import { bignumberUtils } from 'src/common/bignumber-utils';
 import { Button } from 'src/common/button';
 import { Grid } from 'src/common/grid';
 import { Paper } from 'src/common/paper';
