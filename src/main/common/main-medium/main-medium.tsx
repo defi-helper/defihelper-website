@@ -30,7 +30,7 @@ export const MainMedium: React.VFC<MainMediumProps> = (props) => {
             <li key={String(index)} className={styles.gridItem}>
               <Link href={article.link} target="_blank" className={styles.card}>
                 <Typography className={styles.cardDate} variant="body2">
-                  {dateUtils.format(article.createdAt, 'MMM DD, YYYY')}
+                  {dateUtils.format(article.createdAt, 'MMM D, YYYY')}
                 </Typography>
                 <Typography
                   variant="h4"
