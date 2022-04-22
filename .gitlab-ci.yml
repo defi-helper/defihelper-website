@@ -12,7 +12,7 @@ default:
 
 variables:
   APP_NAME: "website"
-  APP_NAMESPACE: services
+  APP_NAMESPACE: website
   ENVIRONMENT: dev
 
 stages:
