@@ -23,6 +23,9 @@ build:
   stage: build
   extends: .build_image
   rules:
+    - if: $CI_COMMIT_REF_NAME == "master"
+      variables:
+        BUILD_ARGS: "--build-arg NODE_ENV=development --build-arg REACT_APP_API_URL=https://backend-dev.defihelper.info/api --build-arg REACT_APP_LAUNCH_APP_URL=https://app-dev.defihelper.info/"
     - if: '$CI_PIPELINE_SOURCE == "merge_request_event" || $CI_COMMIT_BRANCH'
 
 deploy:
