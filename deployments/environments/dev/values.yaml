@@ -18,7 +18,7 @@ ingress:
   enabled: true
   className: ""
   annotations:
-    cert-manager.io/cluster-issuer: "letsencrypt-staging"
+    cert-manager.io/cluster-issuer: "letsencrypt-production"
   hosts:
     - host: website-dev.defihelper.info
       paths:
