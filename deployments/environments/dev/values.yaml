@@ -19,14 +19,14 @@ ingress:
   className: ""
   annotations: {}
   hosts:
-    - host: defihelper.io
+    - host: website.dev.defihelper.info
       paths:
         - path: /
           pathType: ImplementationSpecific
   tls:
     - secretName: website-tls
       hosts:
-        - defihelper.io
+        - website.dev.defihelper.info
 
 resources: {}
 autoscaling:
