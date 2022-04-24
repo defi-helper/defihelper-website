@@ -12,7 +12,7 @@ default:
 
 variables:
   APP_NAME: "website"
-  APP_NAMESPACE: website
+  APP_NAMESPACE: "${CI_PROJECT_ROOT_NAMESPACE}-{$CI_PROJECT_NAME}"
   ENVIRONMENT: dev
 
 stages:
