@@ -11,7 +11,7 @@ default:
     - adcorn-dev
 
 variables:
-  APP_NAME: "website"
+  APP_NAME: "app"
   APP_NAMESPACE: "${CI_PROJECT_ROOT_NAMESPACE}-${CI_PROJECT_NAME}"
   ENVIRONMENT: dev
 
