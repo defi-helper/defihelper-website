@@ -14,6 +14,8 @@ export type MainMediumProps = {
 };
 
 export const MainMedium: React.VFC<MainMediumProps> = (props) => {
+  if (!props.landingMediumPosts.length) return <></>;
+
   return (
     <div className={clsx(styles.root, props.className)}>
       <Grid.Container>
