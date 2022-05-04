@@ -30,7 +30,7 @@ const SERVICES = [
     image: help,
     title: 'smart notifications',
     description:
-      'See how whales move, be instantly aware when big changes happen. Create custom notifications, use your imagination.'
+      'See how whales move, be instantly alerted when big changes happen. Create custom notifications, use your imagination.'
   },
   {
     image: security,
@@ -40,9 +40,9 @@ const SERVICES = [
   },
   {
     image: automation,
-    title: 'Automation in a click',
+    title: 'Automation in one click',
     description:
-      'Automate your DeFi strategy and earn higher rewards with autostaking and other no-code tools.'
+      'Automate your DeFi strategy and earn higher rewards with auto-staking and other no-code tools.'
   },
   {
     image: scenarios,
@@ -77,7 +77,7 @@ const SERVICES = [
         variant="outlined"
         className={styles.request}
         as="a"
-        href={`${config.LAUNCH_APP_URL}proposals`}
+        href={`${config.LAUNCH_APP_URL}roadmap`}
       >
         Request feature
       </Button>

@@ -27,61 +27,60 @@ const HEAD = [
 const BODY = [
   [
     'Development',
-    '30%',
-    '3 years (on demand)',
-    '300,000,000',
+    '25%',
+    '3-years (locked in treasury, allocation by governance voting)',
+    '250,000,000',
     `Grants for outsourced developers. The goal is to scale up the development of DFH — add new features,
     connect new protocols and blockchains, and improve automation scripts — and as a result to increase the volume of protocol commissions.`
   ],
   [
-    'Team',
-    '19%',
-    '1-year vesting',
-    '190,000,000',
-    `Development of basic functionality and protocol governance during the first year of operation.
-    The main goal is to ensure the sustained development and proper operation of the protocol.`
+    'Token Sale',
+    '17%',
+    'Dependent on round',
+    '170,000,000',
+    `Private and public token sale rounds, which help fund the development and launch of the protocol.`
   ],
   [
-    'Private sale',
-    '15%',
-    '6-month moratorium on sale',
-    '150,000,000',
-    `Rewards for seed investors who fund the development and launch of the protocol.`
+    'Team',
+    '12%',
+    '1-year lock, 24-month linear release',
+    '120,000,000',
+    `Core team allocation. The main goal is to ensure the sustained development and proper operation of the protocol.`
   ],
   [
     'Marketing',
-    '10%',
+    '11%',
     '1-year (on demand)',
-    '100,000,000',
+    '110,000,000',
     `Marketing budget to expand audience reach, increase awareness about DFH, and work with partner projects.`
+  ],
+  [
+    'Early investors',
+    '10%',
+    '2% unlock on TGE, 3-months cliff, 5% monthly per block unlock thereafter',
+    '100,000,000',
+    `Rewards for early investors who fund the development and launch of the protocol.`
   ],
   [
     'Liquidity rewards',
     '10%',
-    '1-year (on demand)',
+    '12-month (on demand per block vesting)',
     '100,000,000',
     `Rewards for liquidity providers for creating a liquid DFH token market.`
   ],
   [
     'Early ecosystem reward',
     '8%',
-    '6-month vesting',
+    '12-months per block vesting',
     '80,000,000',
     `Bonuses to early adopters for using the protocol and referring it to friends.`
   ],
   [
-    'Community grants',
+    'Advisors',
     '7%',
-    '1-year (on demand)',
+    '1-year lock, 12-month per-block release',
     '70,000,000',
     `Rewards for helping with protocol promotion.`
-  ],
-  [
-    'Team launch bonus',
-    '1%',
-    '1-month moratorium on sale',
-    '10,000,000',
-    `A small bonus to the core team for protocol launch.`
   ]
 ];
 

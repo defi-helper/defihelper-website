@@ -14,391 +14,545 @@ export type TokenomicsChartsProps = {
 const UNLOCK_DATA = [
   {
     'Development': '0',
-    Marketing: '0',
+    'Marketing': '0',
     'Liquidity rewards': '0',
-    'Community grants': '0',
+    'Advisors': '0',
     'Team': '0',
-    'Private sale': '0',
+    'Token sale': '0',
     'Early ecosystem rewards': '0',
-    'Team launch bonus': '0',
-    date: new Date(2021, 11, 1)
-  },
-  {
-    'Development': '0',
-    Marketing: '0',
-    'Liquidity rewards': '0',
-    'Community grants': '0',
-    'Team': '0',
-    'Private sale': '0',
-    'Early ecosystem rewards': '0',
-    'Team launch bonus': '0',
-    date: new Date(2021, 12, 1)
+    'Early investors': '0',
+    date: new Date(2022, 2, 1)
   },
 
   {
-    'Development': '8333333.33333333',
-    Marketing: '8333333.33333333',
-    'Liquidity rewards': '8333333.33333333',
-    'Community grants': '5833333.33333333',
-    'Team': '15833333.3333333',
-    'Private sale': '0',
-    'Early ecosystem rewards': '13333333.3333333',
-    'Team launch bonus': '0',
-    date: new Date(2022, 1, 1)
-  },
-  {
-    'Development': '16666666.6666667',
-    Marketing: '16666666.6666667',
-    'Liquidity rewards': '16666666.6666667',
-    'Community grants': '11666666.6666667',
-    'Team': '31666666.6666666',
-    'Private sale': '150000000',
-    'Early ecosystem rewards': '26666666.6666666',
-    'Team launch bonus': '10000000',
-    date: new Date(2022, 2, 1)
-  },
-  {
-    'Development': '25000000',
-    Marketing: '25000000',
-    'Liquidity rewards': '25000000',
-    'Community grants': '17500000',
-    'Team': '47499999.9999999',
-    'Private sale': '150000000',
-    'Early ecosystem rewards': '39999999.9999999',
-    'Team launch bonus': '10000000',
+    'Development': '0',
+    'Marketing': '9166667',
+    'Liquidity rewards': '0',
+    'Advisors': '0',
+    'Team': '0',
+    'Token sale': '14300000',
+    'Early ecosystem rewards': '0',
+    'Early investors': '2000000',
     date: new Date(2022, 3, 1)
   },
   {
-    'Development': '33333333.3333333',
-    Marketing: '33333333.3333333',
-    'Liquidity rewards': '33333333.3333333',
-    'Community grants': '23333333.3333333',
-    'Team': '63333333.3333332',
-    'Private sale': '150000000',
-    'Early ecosystem rewards': '53333333.3333332',
-    'Team launch bonus': '10000000',
+    'Development': '0',
+    'Marketing': '18333333',
+    'Liquidity rewards': '8333333',
+    'Advisors': '0',
+    'Team': '0',
+    'Token sale': '14300000',
+    'Early ecosystem rewards': '6666667',
+    'Early investors': '2000000',
     date: new Date(2022, 4, 1)
   },
   {
-    'Development': '41666666.6666666',
-    Marketing: '41666666.6666666',
-    'Liquidity rewards': '41666666.6666666',
-    'Community grants': '29166666.6666666',
-    'Team': '79166666.6666665',
-    'Private sale': '150000000',
-    'Early ecosystem rewards': '66666666.6666665',
-    'Team launch bonus': '10000000',
+    'Development': '0',
+    'Marketing': '27500000',
+    'Liquidity rewards': '16666667',
+    'Advisors': '0',
+    'Team': '0',
+    'Token sale': '14300000',
+    'Early ecosystem rewards': '13333333',
+    'Early investors': '2000000',
     date: new Date(2022, 5, 1)
   },
   {
-    'Development': '49999999.9999999',
-    Marketing: '49999999.9999999',
-    'Liquidity rewards': '49999999.9999999',
-    'Community grants': '34999999.9999999',
-    'Team': '94999999.9999998',
-    'Private sale': '150000000',
-    'Early ecosystem rewards': '79999999.9999998',
-    'Team launch bonus': '10000000',
+    'Development': '0',
+    'Marketing': '36666667',
+    'Liquidity rewards': '25000000',
+    'Advisors': '0',
+    'Team': '0',
+    'Token sale': '14300000',
+    'Early ecosystem rewards': '20000000',
+    'Early investors': '2000000',
     date: new Date(2022, 6, 1)
   },
   {
-    'Development': '58333333.3333332',
-    Marketing: '58333333.3333332',
-    'Liquidity rewards': '58333333.3333332',
-    'Community grants': '40833333.3333332',
-    'Team': '110833333.333333',
-    'Private sale': '150000000',
-    'Early ecosystem rewards': '79999999.9999998',
-    'Team launch bonus': '10000000',
+    'Development': '0',
+    'Marketing': '45833333',
+    'Liquidity rewards': '33333333',
+    'Advisors': '0',
+    'Team': '0',
+    'Token sale': '24175000',
+    'Early ecosystem rewards': '26666667',
+    'Early investors': '7000000',
     date: new Date(2022, 7, 1)
   },
   {
-    'Development': '66666666.6666665',
-    Marketing: '66666666.6666665',
-    'Liquidity rewards': '66666666.6666665',
-    'Community grants': '46666666.6666665',
-    'Team': '126666666.666666',
-    'Private sale': '150000000',
-    'Early ecosystem rewards': '79999999.9999998',
-    'Team launch bonus': '10000000',
+    'Development': '0',
+    'Marketing': '55000000',
+    'Liquidity rewards': '41666667',
+    'Advisors': '0',
+    'Team': '0',
+    'Token sale': '34050000',
+    'Early ecosystem rewards': '33333333',
+    'Early investors': '12000000',
     date: new Date(2022, 8, 1)
   },
   {
-    'Development': '74999999.9999998',
-    Marketing: '74999999.9999998',
-    'Liquidity rewards': '74999999.9999998',
-    'Community grants': '52499999.9999998',
-    'Team': '142499999.999999',
-    'Private sale': '150000000',
-    'Early ecosystem rewards': '79999999.9999998',
-    'Team launch bonus': '10000000',
+    'Development': '0',
+    'Marketing': '64166667',
+    'Liquidity rewards': '50000000',
+    'Advisors': '0',
+    'Team': '0',
+    'Token sale': '43925000',
+    'Early ecosystem rewards': '40000000',
+    'Early investors': '17000000',
     date: new Date(2022, 9, 1)
   },
   {
-    'Development': '83333333.3333331',
-    Marketing: '83333333.3333331',
-    'Liquidity rewards': '83333333.3333331',
-    'Community grants': '58333333.3333331',
-    'Team': '158333333.333332',
-    'Private sale': '150000000',
-    'Early ecosystem rewards': '79999999.9999998',
-    'Team launch bonus': '10000000',
+    'Development': '0',
+    'Marketing': '73333333',
+    'Liquidity rewards': '58333333',
+    'Advisors': '0',
+    'Team': '0',
+    'Token sale': '53800000',
+    'Early ecosystem rewards': '46666667',
+    'Early investors': '22000000',
     date: new Date(2022, 10, 1)
   },
   {
-    'Development': '91666666.6666664',
-    Marketing: '91666666.6666664',
-    'Liquidity rewards': '91666666.6666664',
-    'Community grants': '64166666.6666664',
-    'Team': '174166666.666665',
-    'Private sale': '150000000',
-    'Early ecosystem rewards': '79999999.9999998',
-    'Team launch bonus': '10000000',
+    'Development': '0',
+    'Marketing': '82500000',
+    'Liquidity rewards': '66666667',
+    'Advisors': '0',
+    'Team': '0',
+    'Token sale': '63675000',
+    'Early ecosystem rewards': '53333333',
+    'Early investors': '27000000',
     date: new Date(2022, 11, 1)
   },
   {
-    'Development': '99999999.9999997',
-    Marketing: '99999999.9999997',
-    'Liquidity rewards': '99999999.9999997',
-    'Community grants': '69999999.9999997',
-    'Team': '189999999.999998',
-    'Private sale': '150000000',
-    'Early ecosystem rewards': '79999999.9999998',
-    'Team launch bonus': '10000000',
+    'Development': '0',
+    'Marketing': '91666667',
+    'Liquidity rewards': '75000000',
+    'Advisors': '0',
+    'Team': '0',
+    'Token sale': '73550000',
+    'Early ecosystem rewards': '60000000',
+    'Early investors': '32000000',
     date: new Date(2022, 12, 1)
   },
-
   {
-    'Development': '108333333.333333',
-    Marketing: '99999999.9999997',
-    'Liquidity rewards': '99999999.9999997',
-    'Community grants': '69999999.9999997',
-    'Team': '189999999.999998',
-    'Private sale': '150000000',
-    'Early ecosystem rewards': '79999999.9999998',
-    'Team launch bonus': '10000000',
+    'Development': '0',
+    'Marketing': '100833333',
+    'Liquidity rewards': '83333333',
+    'Advisors': '0',
+    'Team': '0',
+    'Token sale': '83425000',
+    'Early ecosystem rewards': '66666667',
+    'Early investors': '37000000',
     date: new Date(2023, 1, 1)
   },
   {
-    'Development': '116666666.666666',
-    Marketing: '99999999.9999997',
-    'Liquidity rewards': '99999999.9999997',
-    'Community grants': '69999999.9999997',
-    'Team': '189999999.999998',
-    'Private sale': '150000000',
-    'Early ecosystem rewards': '79999999.9999998',
-    'Team launch bonus': '10000000',
+    'Development': '0',
+    'Marketing': '110000000',
+    'Liquidity rewards': '91666667',
+    'Advisors': '0',
+    'Team': '0',
+    'Token sale': '93300000',
+    'Early ecosystem rewards': '73333333',
+    'Early investors': '42000000',
     date: new Date(2023, 2, 1)
-  },
-  {
-    'Development': '124999999.999999',
-    Marketing: '99999999.9999997',
-    'Liquidity rewards': '99999999.9999997',
-    'Community grants': '69999999.9999997',
-    'Team': '189999999.999998',
-    'Private sale': '150000000',
-    'Early ecosystem rewards': '79999999.9999998',
-    'Team launch bonus': '10000000',
-    date: new Date(2023, 3, 1)
-  },
-  {
-    'Development': '133333333.333332',
-    Marketing: '99999999.9999997',
-    'Liquidity rewards': '99999999.9999997',
-    'Community grants': '69999999.9999997',
-    'Team': '189999999.999998',
-    'Private sale': '150000000',
-    'Early ecosystem rewards': '79999999.9999998',
-    'Team launch bonus': '10000000',
-    date: new Date(2023, 4, 1)
-  },
-  {
-    'Development': '141666666.666665',
-    Marketing: '99999999.9999997',
-    'Liquidity rewards': '99999999.9999997',
-    'Community grants': '69999999.9999997',
-    'Team': '189999999.999998',
-    'Private sale': '150000000',
-    'Early ecosystem rewards': '79999999.9999998',
-    'Team launch bonus': '10000000',
-    date: new Date(2023, 5, 1)
-  },
-  {
-    'Development': '149999999.999998',
-    Marketing: '99999999.9999997',
-    'Liquidity rewards': '99999999.9999997',
-    'Community grants': '69999999.9999997',
-    'Team': '189999999.999998',
-    'Private sale': '150000000',
-    'Early ecosystem rewards': '79999999.9999998',
-    'Team launch bonus': '10000000',
-    date: new Date(2023, 6, 1)
-  },
-  {
-    'Development': '158333333.333331',
-    Marketing: '99999999.9999997',
-    'Liquidity rewards': '99999999.9999997',
-    'Community grants': '69999999.9999997',
-    'Team': '189999999.999998',
-    'Private sale': '150000000',
-    'Early ecosystem rewards': '79999999.9999998',
-    'Team launch bonus': '10000000',
-    date: new Date(2023, 7, 1)
-  },
-  {
-    'Development': '166666666.666664',
-    Marketing: '99999999.9999997',
-    'Liquidity rewards': '99999999.9999997',
-    'Community grants': '69999999.9999997',
-    'Team': '189999999.999998',
-    'Private sale': '150000000',
-    'Early ecosystem rewards': '79999999.9999998',
-    'Team launch bonus': '10000000',
-    date: new Date(2023, 8, 1)
-  },
-  {
-    'Development': '174999999.999997',
-    Marketing: '99999999.9999997',
-    'Liquidity rewards': '99999999.9999997',
-    'Community grants': '69999999.9999997',
-    'Team': '189999999.999998',
-    'Private sale': '150000000',
-    'Early ecosystem rewards': '79999999.9999998',
-    'Team launch bonus': '10000000',
-    date: new Date(2023, 9, 1)
-  },
-  {
-    'Development': '183333333.33333',
-    Marketing: '99999999.9999997',
-    'Liquidity rewards': '99999999.9999997',
-    'Community grants': '69999999.9999997',
-    'Team': '189999999.999998',
-    'Private sale': '150000000',
-    'Early ecosystem rewards': '79999999.9999998',
-    'Team launch bonus': '10000000',
-    date: new Date(2023, 10, 1)
-  },
-  {
-    'Development': '191666666.666663',
-    Marketing: '99999999.9999997',
-    'Liquidity rewards': '99999999.9999997',
-    'Community grants': '69999999.9999997',
-    'Team': '189999999.999998',
-    'Private sale': '150000000',
-    'Early ecosystem rewards': '79999999.9999998',
-    'Team launch bonus': '10000000',
-    date: new Date(2023, 11, 1)
-  },
-  {
-    'Development': '199999999.999996',
-    Marketing: '99999999.9999997',
-    'Liquidity rewards': '99999999.9999997',
-    'Community grants': '69999999.9999997',
-    'Team': '189999999.999998',
-    'Private sale': '150000000',
-    'Early ecosystem rewards': '79999999.9999998',
-    'Team launch bonus': '10000000',
-    date: new Date(2023, 12, 1)
   },
 
   {
-    'Development': '208333333.333329',
-    Marketing: '99999999.9999997',
-    'Liquidity rewards': '99999999.9999997',
-    'Community grants': '69999999.9999997',
-    'Team': '189999999.999998',
-    'Private sale': '150000000',
-    'Early ecosystem rewards': '79999999.9999998',
-    'Team launch bonus': '10000000',
+    'Development': '6944444',
+    'Marketing': '110000000',
+    'Liquidity rewards': '100000000',
+    'Advisors': '5833333',
+    'Team': '4992000',
+    'Token sale': '103175000',
+    'Early ecosystem rewards': '80000000',
+    'Early investors': '47000000',
+    date: new Date(2023, 3, 1)
+  },
+  {
+    'Development': '13888889',
+    'Marketing': '110000000',
+    'Liquidity rewards': '100000000',
+    'Advisors': '11666667',
+    'Team': '9984000',
+    'Token sale': '113050000',
+    'Early ecosystem rewards': '80000000',
+    'Early investors': '52000000',
+    date: new Date(2023, 4, 1)
+  },
+  {
+    'Development': '20833333',
+    'Marketing': '110000000',
+    'Liquidity rewards': '100000000',
+    'Advisors': '17500000',
+    'Team': '14976000',
+    'Token sale': '122925000',
+    'Early ecosystem rewards': '80000000',
+    'Early investors': '57000000',
+    date: new Date(2023, 5, 1)
+  },
+  {
+    'Development': '27777778',
+    'Marketing': '110000000',
+    'Liquidity rewards': '100000000',
+    'Advisors': '23333333',
+    'Team': '19968000',
+    'Token sale': '132800000',
+    'Early ecosystem rewards': '80000000',
+    'Early investors': '62000000',
+    date: new Date(2023, 6, 1)
+  },
+  {
+    'Development': '34722222',
+    'Marketing': '110000000',
+    'Liquidity rewards': '100000000',
+    'Advisors': '29166667',
+    'Team': '24960000',
+    'Token sale': '142475000',
+    'Early ecosystem rewards': '80000000',
+    'Early investors': '67000000',
+    date: new Date(2023, 7, 1)
+  },
+  {
+    'Development': '41666667',
+    'Marketing': '110000000',
+    'Liquidity rewards': '100000000',
+    'Advisors': '35000000',
+    'Team': '29952000',
+    'Token sale': '149350000',
+    'Early ecosystem rewards': '80000000',
+    'Early investors': '72000000',
+    date: new Date(2023, 8, 1)
+  },
+  {
+    'Development': '48611111',
+    'Marketing': '110000000',
+    'Liquidity rewards': '100000000',
+    'Advisors': '40833333',
+    'Team': '34944000',
+    'Token sale': '156225000',
+    'Early ecosystem rewards': '80000000',
+    'Early investors': '77000000',
+    date: new Date(2023, 9, 1)
+  },
+  {
+    'Development': '55555556',
+    'Marketing': '110000000',
+    'Liquidity rewards': '100000000',
+    'Advisors': '46666667',
+    'Team': '39936000',
+    'Token sale': '161000000',
+    'Early ecosystem rewards': '80000000',
+    'Early investors': '82000000',
+    date: new Date(2023, 10, 1)
+  },
+  {
+    'Development': '62500000',
+    'Marketing': '110000000',
+    'Liquidity rewards': '100000000',
+    'Advisors': '52500000',
+    'Team': '44928000',
+    'Token sale': '163500000',
+    'Early ecosystem rewards': '80000000',
+    'Early investors': '87000000',
+    date: new Date(2023, 11, 1)
+  },
+  {
+    'Development': '69444445',
+    'Marketing': '110000000',
+    'Liquidity rewards': '100000000',
+    'Advisors': '58333333',
+    'Team': '49920000',
+    'Token sale': '166000000',
+    'Early ecosystem rewards': '80000000',
+    'Early investors': '92000000',
+    date: new Date(2023, 12, 1)
+  },
+  {
+    'Development': '76388889',
+    'Marketing': '110000000',
+    'Liquidity rewards': '100000000',
+    'Advisors': '64166667',
+    'Team': '54912000',
+    'Token sale': '168500000',
+    'Early ecosystem rewards': '80000000',
+    'Early investors': '97000000',
     date: new Date(2024, 1, 1)
   },
   {
-    'Development': '216666666.666662',
-    Marketing: '99999999.9999997',
-    'Liquidity rewards': '99999999.9999997',
-    'Community grants': '69999999.9999997',
-    'Team': '189999999.999998',
-    'Private sale': '150000000',
-    'Early ecosystem rewards': '79999999.9999998',
-    'Team launch bonus': '10000000',
+    'Development': '83333333',
+    'Marketing': '110000000',
+    'Liquidity rewards': '100000000',
+    'Advisors': '70000000',
+    'Team': '59904000',
+    'Token sale': '170000000',
+    'Early ecosystem rewards': '80000000',
+    'Early investors': '100000000',
     date: new Date(2024, 2, 1)
   },
+
   {
-    'Development': '224999999.999995',
-    Marketing: '99999999.9999997',
-    'Liquidity rewards': '99999999.9999997',
-    'Community grants': '69999999.9999997',
-    'Team': '189999999.999998',
-    'Private sale': '150000000',
-    'Early ecosystem rewards': '79999999.9999998',
-    'Team launch bonus': '10000000',
+    'Development': '90277778',
+    'Marketing': '110000000',
+    'Liquidity rewards': '100000000',
+    'Advisors': '70000000',
+    'Team': '64896000',
+    'Token sale': '170000000',
+    'Early ecosystem rewards': '80000000',
+    'Early investors': '100000000',
     date: new Date(2024, 3, 1)
   },
   {
-    'Development': '233333333.333328',
-    Marketing: '99999999.9999997',
-    'Liquidity rewards': '99999999.9999997',
-    'Community grants': '69999999.9999997',
-    'Team': '189999999.999998',
-    'Private sale': '150000000',
-    'Early ecosystem rewards': '79999999.9999998',
-    'Team launch bonus': '10000000',
+    'Development': '97222222',
+    'Marketing': '110000000',
+    'Liquidity rewards': '100000000',
+    'Advisors': '70000000',
+    'Team': '69888000',
+    'Token sale': '170000000',
+    'Early ecosystem rewards': '80000000',
+    'Early investors': '100000000',
     date: new Date(2024, 4, 1)
   },
   {
-    'Development': '241666666.666661',
-    Marketing: '99999999.9999997',
-    'Liquidity rewards': '99999999.9999997',
-    'Community grants': '69999999.9999997',
-    'Team': '189999999.999998',
-    'Private sale': '150000000',
-    'Early ecosystem rewards': '79999999.9999998',
-    'Team launch bonus': '10000000',
+    'Development': '104166667',
+    'Marketing': '110000000',
+    'Liquidity rewards': '100000000',
+    'Advisors': '70000000',
+    'Team': '74880000',
+    'Token sale': '170000000',
+    'Early ecosystem rewards': '80000000',
+    'Early investors': '100000000',
     date: new Date(2024, 5, 1)
   },
   {
-    'Development': '249999999.999994',
-    Marketing: '99999999.9999997',
-    'Liquidity rewards': '99999999.9999997',
-    'Community grants': '69999999.9999997',
-    'Team': '189999999.999998',
-    'Private sale': '150000000',
-    'Early ecosystem rewards': '79999999.9999998',
-    'Team launch bonus': '10000000',
+    'Development': '111111111',
+    'Marketing': '110000000',
+    'Liquidity rewards': '100000000',
+    'Advisors': '70000000',
+    'Team': '79872000',
+    'Token sale': '170000000',
+    'Early ecosystem rewards': '80000000',
+    'Early investors': '100000000',
     date: new Date(2024, 6, 1)
   },
   {
-    'Development': '258333333.333327',
-    Marketing: '99999999.9999997',
-    'Liquidity rewards': '99999999.9999997',
-    'Community grants': '69999999.9999997',
-    'Team': '189999999.999998',
-    'Private sale': '150000000',
-    'Early ecosystem rewards': '79999999.9999998',
-    'Team launch bonus': '10000000',
+    'Development': '118055556',
+    'Marketing': '110000000',
+    'Liquidity rewards': '100000000',
+    'Advisors': '70000000',
+    'Team': '84864000',
+    'Token sale': '170000000',
+    'Early ecosystem rewards': '80000000',
+    'Early investors': '100000000',
     date: new Date(2024, 7, 1)
   },
   {
-    'Development': '266666666.66666',
-    Marketing: '99999999.9999997',
-    'Liquidity rewards': '99999999.9999997',
-    'Community grants': '69999999.9999997',
-    'Team': '189999999.999998',
-    'Private sale': '150000000',
-    'Early ecosystem rewards': '79999999.9999998',
-    'Team launch bonus': '10000000',
+    'Development': '125000000',
+    'Marketing': '110000000',
+    'Liquidity rewards': '100000000',
+    'Advisors': '70000000',
+    'Team': '89856000',
+    'Token sale': '170000000',
+    'Early ecosystem rewards': '80000000',
+    'Early investors': '100000000',
     date: new Date(2024, 8, 1)
   },
   {
-    'Development': '274999999.999993',
-    Marketing: '99999999.9999997',
-    'Liquidity rewards': '99999999.9999997',
-    'Community grants': '69999999.9999997',
-    'Team': '189999999.999998',
-    'Private sale': '150000000',
-    'Early ecosystem rewards': '79999999.9999998',
-    'Team launch bonus': '10000000',
+    'Development': '131944445',
+    'Marketing': '110000000',
+    'Liquidity rewards': '100000000',
+    'Advisors': '70000000',
+    'Team': '94848000',
+    'Token sale': '170000000',
+    'Early ecosystem rewards': '80000000',
+    'Early investors': '100000000',
     date: new Date(2024, 9, 1)
+  },
+  {
+    'Development': '138888889',
+    'Marketing': '110000000',
+    'Liquidity rewards': '100000000',
+    'Advisors': '70000000',
+    'Team': '99840000',
+    'Token sale': '170000000',
+    'Early ecosystem rewards': '80000000',
+    'Early investors': '100000000',
+    date: new Date(2024, 10, 1)
+  },
+  {
+    'Development': '145833333',
+    'Marketing': '110000000',
+    'Liquidity rewards': '100000000',
+    'Advisors': '70000000',
+    'Team': '104832000',
+    'Token sale': '170000000',
+    'Early ecosystem rewards': '80000000',
+    'Early investors': '100000000',
+    date: new Date(2024, 11, 1)
+  },
+  {
+    'Development': '152777778',
+    'Marketing': '110000000',
+    'Liquidity rewards': '100000000',
+    'Advisors': '70000000',
+    'Team': '109824000',
+    'Token sale': '170000000',
+    'Early ecosystem rewards': '80000000',
+    'Early investors': '100000000',
+    date: new Date(2024, 12, 1)
+  },
+  {
+    'Development': '159722222',
+    'Marketing': '110000000',
+    'Liquidity rewards': '100000000',
+    'Advisors': '70000000',
+    'Team': '114816000',
+    'Token sale': '170000000',
+    'Early ecosystem rewards': '80000000',
+    'Early investors': '100000000',
+    date: new Date(2025, 1, 1)
+  },
+  {
+    'Development': '166666667',
+    'Marketing': '110000000',
+    'Liquidity rewards': '100000000',
+    'Advisors': '70000000',
+    'Team': '119808000',
+    'Token sale': '170000000',
+    'Early ecosystem rewards': '80000000',
+    'Early investors': '100000000',
+    date: new Date(2025, 2, 1)
+  },
+  {
+    'Development': '173611111',
+    'Marketing': '110000000',
+    'Liquidity rewards': '100000000',
+    'Advisors': '70000000',
+    'Team': '120000000',
+    'Token sale': '170000000',
+    'Early ecosystem rewards': '80000000',
+    'Early investors': '100000000',
+    date: new Date(2025, 3, 1)
+  },
+  {
+    'Development': '180555556',
+    'Marketing': '110000000',
+    'Liquidity rewards': '100000000',
+    'Advisors': '70000000',
+    'Team': '120000000',
+    'Token sale': '170000000',
+    'Early ecosystem rewards': '80000000',
+    'Early investors': '100000000',
+    date: new Date(2025, 4, 1)
+  },
+  {
+    'Development': '187500000',
+    'Marketing': '110000000',
+    'Liquidity rewards': '100000000',
+    'Advisors': '70000000',
+    'Team': '120000000',
+    'Token sale': '170000000',
+    'Early ecosystem rewards': '80000000',
+    'Early investors': '100000000',
+    date: new Date(2025, 5, 1)
+  },
+  {
+    'Development': '194444445',
+    'Marketing': '110000000',
+    'Liquidity rewards': '100000000',
+    'Advisors': '70000000',
+    'Team': '120000000',
+    'Token sale': '170000000',
+    'Early ecosystem rewards': '80000000',
+    'Early investors': '100000000',
+    date: new Date(2025, 6, 1)
+  },
+  {
+    'Development': '201388889',
+    'Marketing': '110000000',
+    'Liquidity rewards': '100000000',
+    'Advisors': '70000000',
+    'Team': '120000000',
+    'Token sale': '170000000',
+    'Early ecosystem rewards': '80000000',
+    'Early investors': '100000000',
+    date: new Date(2025, 7, 1)
+  },
+  {
+    'Development': '208333334',
+    'Marketing': '110000000',
+    'Liquidity rewards': '100000000',
+    'Advisors': '70000000',
+    'Team': '120000000',
+    'Token sale': '170000000',
+    'Early ecosystem rewards': '80000000',
+    'Early investors': '100000000',
+    date: new Date(2025, 8, 1)
+  },
+  {
+    'Development': '215277778',
+    'Marketing': '110000000',
+    'Liquidity rewards': '100000000',
+    'Advisors': '70000000',
+    'Team': '120000000',
+    'Token sale': '170000000',
+    'Early ecosystem rewards': '80000000',
+    'Early investors': '100000000',
+    date: new Date(2025, 9, 1)
+  },
+  {
+    'Development': '222222222',
+    'Marketing': '110000000',
+    'Liquidity rewards': '100000000',
+    'Advisors': '70000000',
+    'Team': '120000000',
+    'Token sale': '170000000',
+    'Early ecosystem rewards': '80000000',
+    'Early investors': '100000000',
+    date: new Date(2025, 10, 1)
+  },
+  {
+    'Development': '229166667',
+    'Marketing': '110000000',
+    'Liquidity rewards': '100000000',
+    'Advisors': '70000000',
+    'Team': '120000000',
+    'Token sale': '170000000',
+    'Early ecosystem rewards': '80000000',
+    'Early investors': '100000000',
+    date: new Date(2025, 11, 1)
+  },
+  {
+    'Development': '236111111',
+    'Marketing': '110000000',
+    'Liquidity rewards': '100000000',
+    'Advisors': '70000000',
+    'Team': '120000000',
+    'Token sale': '170000000',
+    'Early ecosystem rewards': '80000000',
+    'Early investors': '100000000',
+    date: new Date(2025, 12, 1)
+  },
+  {
+    'Development': '243055556',
+    'Marketing': '110000000',
+    'Liquidity rewards': '100000000',
+    'Advisors': '70000000',
+    'Team': '120000000',
+    'Token sale': '170000000',
+    'Early ecosystem rewards': '80000000',
+    'Early investors': '100000000',
+    date: new Date(2026, 1, 1)
+  },
+  {
+    'Development': '250000000',
+    'Marketing': '110000000',
+    'Liquidity rewards': '100000000',
+    'Advisors': '70000000',
+    'Team': '120000000',
+    'Token sale': '170000000',
+    'Early ecosystem rewards': '80000000',
+    'Early investors': '100000000',
+    date: new Date(2026, 2, 1)
   }
 ];
 
@@ -419,7 +573,7 @@ const UNLOCK_DATA_FIELDS = [
     color: '#CCFF3C'
   },
   {
-    valueY: 'Community grants',
+    valueY: 'Advisors',
     dateX: 'date',
     color: '#EBD8BC'
   },
@@ -429,7 +583,7 @@ const UNLOCK_DATA_FIELDS = [
     color: '#4463EE'
   },
   {
-    valueY: 'Private sale',
+    valueY: 'Token sale',
     dateX: 'date',
     color: '#E9CC67'
   },
@@ -439,7 +593,7 @@ const UNLOCK_DATA_FIELDS = [
     color: '#F08BA9'
   },
   {
-    valueY: 'Team launch bonus',
+    valueY: 'Early investors',
     dateX: 'date',
     color: '#E35137'
   }
@@ -448,146 +602,201 @@ const UNLOCK_DATA_FIELDS = [
 const RELEASE_DATA = [
   {
     Modeled: '0',
-    date: new Date(2021, 11, 1)
-  },
-  {
-    Modeled: '0',
-    date: new Date(2021, 12, 1)
-  },
-
-  {
-    Modeled: '59999999.9999999',
-    date: new Date(2022, 1, 1)
-  },
-  {
-    Modeled: '280000000',
     date: new Date(2022, 2, 1)
   },
   {
-    Modeled: '340000000',
+    Modeled: '25466667',
     date: new Date(2022, 3, 1)
   },
   {
-    Modeled: '400000000',
+    Modeled: '49633334',
     date: new Date(2022, 4, 1)
   },
   {
-    Modeled: '460000000',
+    Modeled: '73800001',
     date: new Date(2022, 5, 1)
   },
   {
-    Modeled: '520000000',
+    Modeled: '97966668',
     date: new Date(2022, 6, 1)
   },
   {
-    Modeled: '566666666.666667',
+    Modeled: '136133334',
     date: new Date(2022, 7, 1)
   },
   {
-    Modeled: '613333333.333334',
+    Modeled: '174300001',
     date: new Date(2022, 8, 1)
   },
   {
-    Modeled: '660000000.000001',
+    Modeled: '212466668',
     date: new Date(2022, 9, 1)
   },
   {
-    Modeled: '706666666.666668',
+    Modeled: '250633334',
     date: new Date(2022, 10, 1)
   },
   {
-    Modeled: '753333333.333335',
+    Modeled: '288800001',
     date: new Date(2022, 11, 1)
   },
   {
-    Modeled: '800000000.000002',
+    Modeled: '326966668',
     date: new Date(2022, 12, 1)
   },
-
   {
-    Modeled: '808333333.333335',
+    Modeled: '365133334',
     date: new Date(2023, 1, 1)
   },
   {
-    Modeled: '816666666.666668',
+    Modeled: '403300001',
     date: new Date(2023, 2, 1)
-  },
-  {
-    Modeled: '825000000.000001',
-    date: new Date(2023, 3, 1)
-  },
-  {
-    Modeled: '833333333.333334',
-    date: new Date(2023, 4, 1)
-  },
-  {
-    Modeled: '841666666.666667',
-    date: new Date(2023, 5, 1)
-  },
-  {
-    Modeled: '850000000',
-    date: new Date(2023, 6, 1)
-  },
-  {
-    Modeled: '858333333.333333',
-    date: new Date(2023, 7, 1)
-  },
-  {
-    Modeled: '866666666.666666',
-    date: new Date(2023, 8, 1)
-  },
-  {
-    Modeled: '874999999.999999',
-    date: new Date(2023, 9, 1)
-  },
-  {
-    Modeled: '883333333.333332',
-    date: new Date(2023, 10, 1)
-  },
-  {
-    Modeled: '891666666.666665',
-    date: new Date(2023, 11, 1)
-  },
-  {
-    Modeled: '899999999.999998',
-    date: new Date(2023, 12, 1)
   },
 
   {
-    Modeled: '908333333.333331',
+    Modeled: '450069779',
+    date: new Date(2023, 3, 1)
+  },
+  {
+    Modeled: '481839557',
+    date: new Date(2023, 4, 1)
+  },
+  {
+    Modeled: '513609334',
+    date: new Date(2023, 5, 1)
+  },
+  {
+    Modeled: '545379112',
+    date: new Date(2023, 6, 1)
+  },
+  {
+    Modeled: '576948890',
+    date: new Date(2023, 7, 1)
+  },
+  {
+    Modeled: '605718668',
+    date: new Date(2023, 8, 1)
+  },
+  {
+    Modeled: '630988445',
+    date: new Date(2023, 9, 1)
+  },
+  {
+    Modeled: '656258223',
+    date: new Date(2023, 10, 1)
+  },
+  {
+    Modeled: '681528001',
+    date: new Date(2023, 11, 1)
+  },
+  {
+    Modeled: '706797779',
+    date: new Date(2023, 12, 1)
+  },
+  {
+    Modeled: '732067557',
     date: new Date(2024, 1, 1)
   },
   {
-    Modeled: '916666666.666664',
+    Modeled: '755337334',
     date: new Date(2024, 2, 1)
   },
+
   {
-    Modeled: '924999999.999997',
+    Modeled: '769773779',
     date: new Date(2024, 3, 1)
   },
   {
-    Modeled: '933333333.33333',
+    Modeled: '784210223',
     date: new Date(2024, 4, 1)
   },
   {
-    Modeled: '941666666.666663',
+    Modeled: '798646668',
     date: new Date(2024, 5, 1)
   },
   {
-    Modeled: '949999999.999996',
+    Modeled: '813083112',
     date: new Date(2024, 6, 1)
   },
   {
-    Modeled: '958333333.333329',
+    Modeled: '827519557',
     date: new Date(2024, 7, 1)
   },
   {
-    Modeled: '966666666.666662',
+    Modeled: '841956001',
     date: new Date(2024, 8, 1)
   },
   {
-    Modeled: '974999999.999995',
+    Modeled: '856392446',
     date: new Date(2024, 9, 1)
+  },
+  {
+    Modeled: '868728890',
+    date: new Date(2024, 10, 1)
+  },
+  {
+    Modeled: '880665334',
+    date: new Date(2024, 11, 1)
+  },
+  {
+    Modeled: '892601779',
+    date: new Date(2024, 12, 1)
+  },
+  {
+    Modeled: '904538223',
+    date: new Date(2025, 1, 1)
+  },
+  {
+    Modeled: '916474668',
+    date: new Date(2025, 2, 1)
+  },
+  {
+    Modeled: '923611112',
+    date: new Date(2025, 3, 1)
+  },
+  {
+    Modeled: '930555557',
+    date: new Date(2025, 4, 1)
+  },
+  {
+    Modeled: '937500001',
+    date: new Date(2025, 5, 1)
+  },
+  {
+    Modeled: '944444446',
+    date: new Date(2025, 6, 1)
+  },
+  {
+    Modeled: '951388890',
+    date: new Date(2025, 7, 1)
+  },
+  {
+    Modeled: '958333335',
+    date: new Date(2025, 8, 1)
+  },
+  {
+    Modeled: '965277779',
+    date: new Date(2025, 9, 1)
+  },
+  {
+    Modeled: '972222223',
+    date: new Date(2025, 10, 1)
+  },
+  {
+    Modeled: '979166668',
+    date: new Date(2025, 11, 1)
+  },
+  {
+    Modeled: '986111112',
+    date: new Date(2025, 12, 1)
+  },
+  {
+    Modeled: '993055557',
+    date: new Date(2026, 1, 1)
+  },
+  {
+    Modeled: '1000000000',
+    date: new Date(2026, 2, 1)
   }
 ];
 

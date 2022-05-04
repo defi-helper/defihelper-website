@@ -6,17 +6,17 @@ export const header = style({
 
   '@media': {
     [theme.mediaQueries.lg()]: {
-      marginBottom: 180
+      marginBottom: 120
     }
   }
 });
 
 export const section = style({
-  marginBottom: 160,
+  marginBottom: 100,
 
   '@media': {
     [theme.mediaQueries.lg()]: {
-      marginBottom: 264
+      marginBottom: 204
     }
   }
 });

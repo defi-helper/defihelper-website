@@ -13,7 +13,6 @@ import * as styles from './main-explore.css';
 export type MainExploreProps = {
   className?: string;
   onNotify: () => void;
-  progress: React.ReactNode;
 };
 
 export const MainExplore: React.VFC<MainExploreProps> = (props) => {
@@ -53,15 +52,15 @@ export const MainExplore: React.VFC<MainExploreProps> = (props) => {
               <ul className={styles.list}>
                 <li className={styles.listItem}>
                   <Typography className={styles.listItemTitle}>
-                    Estimated circulating supply
+                    Initial circulating supply
                   </Typography>
-                  <Typography family="mono">520,000,000 DFH</Typography>
+                  <Typography family="mono">27,000,000 DFH (2,7%)</Typography>
                 </li>
                 <li className={styles.listItem}>
                   <Typography className={styles.listItemTitle}>
-                    Total supply
+                    Market Cap at Public round
                   </Typography>
-                  <Typography family="mono">1,000,000,000 DFH</Typography>
+                  <Typography family="mono">$809,000</Typography>
                 </li>
                 <li className={styles.listItem}>
                   <Typography className={styles.listItemTitle}>
@@ -70,22 +69,6 @@ export const MainExplore: React.VFC<MainExploreProps> = (props) => {
                   <Typography family="mono">1,000,000,000 DFH</Typography>
                 </li>
               </ul>
-            </Paper>
-          </div>
-          <div className={styles.col}>
-            <Paper className={styles.colContent}>
-              {props.progress}
-              <Typography className={styles.listItemDescription}>
-                The DFH token will be launched only after the protocol collects
-                at least $10,000 in fees as proof of concept
-              </Typography>
-              <Button
-                variant="outlined"
-                className={styles.button}
-                onClick={props.onNotify}
-              >
-                Notify me
-              </Button>
             </Paper>
           </div>
         </Grid.Row>

@@ -1,0 +1,48 @@
+# Default values for website.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+replicaCount: 1
+
+images:
+  app:
+    name: app
+
+service:
+  type: ClusterIP
+  port: 8080
+
+ingress:
+  enabled: true
+  className: ""
+  annotations:
+    cert-manager.io/cluster-issuer: "letsencrypt-production"
+  hosts:
+    - host: website-dev.defihelper.info
+      paths:
+        - path: /
+          pathType: ImplementationSpecific
+  tls:
+    - secretName: website-tls
+      hosts:
+        - website-dev.defihelper.info
+
+resources: {}
+autoscaling:
+  enabled: false
+  minReplicas: 1
+  maxReplicas: 1
+  targetCPUUtilizationPercentage: 80
+  targetMemoryUtilizationPercentage: 80
+nodeSelector: {}
+tolerations: []
+affinity: {}
+nameOverride: ""
+fullnameOverride: ""
+serviceAccount:
+  create: true
+  annotations: {}
+  name: ""
+podAnnotations: {}
+podSecurityContext: {}
+securityContext: {}

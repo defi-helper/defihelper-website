@@ -2,7 +2,6 @@ import clsx from 'clsx';
 import React from 'react';
 import { useMedia } from 'react-use';
 
-import { bignumberUtils } from 'src/common/bignumber-utils';
 import { Button } from 'src/common/button';
 import { Grid } from 'src/common/grid';
 import { Paper } from 'src/common/paper';
@@ -19,7 +18,6 @@ export type TokenomicsHeaderProps = {
   circulatingSupply?: string;
   totalSupply?: string;
   onGetDFH: () => void;
-  progress: React.ReactNode;
 };
 
 export const TokenomicsHeader: React.VFC<TokenomicsHeaderProps> = (props) => {
@@ -58,16 +56,13 @@ export const TokenomicsHeader: React.VFC<TokenomicsHeaderProps> = (props) => {
           )}
         </div>
         <img src={tokenomicsMobile} alt="" className={styles.imgMobile} />
-        <Grid.Row justify="spaceBetween" className={styles.progressContainer}>
-          {props.progress}
-        </Grid.Row>
       </Grid.Container>
       <img src={tokenomics} alt="" className={styles.img} />
       <Grid.Container>
         <Paper className={styles.grid}>
           <div className={styles.col}>
             <Typography as="h3" className={styles.factoidTitle}>
-              Circulating supply
+              Initial circulating supply
             </Typography>
             <Typography
               family="mono"
@@ -75,12 +70,12 @@ export const TokenomicsHeader: React.VFC<TokenomicsHeaderProps> = (props) => {
               variant="h4"
               className={styles.factoidSubtitle}
             >
-              {bignumberUtils.format(props.circulatingSupply)} dfh
+              27,000,000 DFH (2,7%)
             </Typography>
           </div>
           <div className={styles.col}>
             <Typography as="h3" className={styles.factoidTitle}>
-              Total supply
+              Market Cap at Public round
             </Typography>
             <Typography
               family="mono"
@@ -88,7 +83,7 @@ export const TokenomicsHeader: React.VFC<TokenomicsHeaderProps> = (props) => {
               variant="h4"
               className={styles.factoidSubtitle}
             >
-              {bignumberUtils.format(props.totalSupply)} dfh
+              $809,000
             </Typography>
           </div>
           <div className={styles.col}>
@@ -101,7 +96,7 @@ export const TokenomicsHeader: React.VFC<TokenomicsHeaderProps> = (props) => {
               variant="h4"
               className={styles.factoidSubtitle}
             >
-              {bignumberUtils.format('1000000000')} dfh
+              1,000,000,000 DFH
             </Typography>
           </div>
         </Paper>

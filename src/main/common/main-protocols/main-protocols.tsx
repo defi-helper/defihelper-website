@@ -1,12 +1,14 @@
 import clsx from 'clsx';
 import React from 'react';
+import { Link as ReactRouterLink } from 'react-router-dom';
 
 import { Grid } from 'src/common/grid';
 import { Typography } from 'src/common/typography';
-import { Paper } from 'src/common/paper';
 import { Link } from 'src/common/link';
 import { Button } from 'src/common/button';
 import { config } from 'src/config';
+import { URLS } from 'src/router/urls';
+import { MainChip } from 'src/main/common/main-chip';
 import * as styles from './main-protocols.css';
 
 type Protocol = {
@@ -21,7 +23,11 @@ export type MainProtocolsProps = {
   protocols?: Protocol[] | null;
 };
 
+const MAX_PROTOCOLS = 28;
+
 export const MainProtocols: React.VFC<MainProtocolsProps> = (props) => {
+  const protocols = props.protocols?.slice(0, MAX_PROTOCOLS) ?? [];
+
   return (
     <Grid.Container className={clsx(props.className)}>
       <Typography
@@ -33,45 +39,35 @@ export const MainProtocols: React.VFC<MainProtocolsProps> = (props) => {
         {props.protocols?.length ?? 0} protocols Connected
       </Typography>
       <ul className={styles.list}>
-        {props.protocols?.map((protocol) => (
-          <li key={protocol.id} className={styles.listItem}>
-            <Paper className={styles.protocol}>
-              {protocol.icon && (
-                <img
-                  src={protocol.icon}
-                  alt=""
-                  className={styles.protocolIcon}
-                />
-              )}
-              <Typography transform="uppercase" variant="h4" family="mono">
-                {protocol.name}
-              </Typography>
-            </Paper>
+        {protocols.map((protocol, index) => (
+          <li key={String(index)} className={styles.listItem}>
+            <MainChip icon={protocol.icon ?? undefined} name={protocol.name} />
           </li>
         ))}
-        {props.protocols && props.protocols.length > 64 && (
+        {props.protocols && props.protocols.length > MAX_PROTOCOLS && (
           <li className={styles.listItem}>
             <Button
               variant="outlined"
-              className={clsx(styles.protocol, styles.protocolButton)}
+              className={styles.protocolButton}
+              as={ReactRouterLink}
+              to={URLS.protocols}
             >
-              +64 more
+              +{props.protocols.length - MAX_PROTOCOLS} more
             </Button>
           </li>
         )}
-        {config.SHOW_ADD_PROTOCOL_BUTTON && (
-          <li className={styles.listItem}>
-            <Button
-              variant="outlined"
-              color="secondary"
-              className={clsx(styles.protocol, styles.protocolButton)}
-              as={Link}
-              href={`${config.LAUNCH_APP_URL}proposals`}
-            >
-              +ADD Protocol
-            </Button>
-          </li>
-        )}
+        <li className={styles.listItem}>
+          <Button
+            variant="outlined"
+            color="secondary"
+            className={styles.protocolButton}
+            as={Link}
+            target="_blank"
+            href={`${config.LAUNCH_APP_URL}roadmap?tag=protocolRequest`}
+          >
+            + suggest protocol
+          </Button>
+        </li>
       </ul>
     </Grid.Container>
   );

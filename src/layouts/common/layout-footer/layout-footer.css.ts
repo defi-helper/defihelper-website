@@ -1,4 +1,4 @@
-import { style } from '@vanilla-extract/css';
+import { style, composeStyles } from '@vanilla-extract/css';
 
 import { theme } from 'src/common/theme';
 
@@ -34,15 +34,102 @@ export const mb56mobile = style({
   }
 });
 
-export const col = style({
-  width: '50%',
-  padding: '0 16px',
+export const padding = style({
+  padding: '0 16px'
+});
 
-  '@media': {
-    [theme.mediaQueries.lg()]: {
-      width: '20%'
+export const col = composeStyles(
+  padding,
+  style({
+    width: '50%',
+
+    '@media': {
+      [theme.mediaQueries.lg()]: {
+        width: '20%'
+      }
     }
-  }
+  })
+);
+
+export const feedback = style({
+  marginTop: 50,
+  marginBottom: 50
+});
+
+export const input = style({
+  background: theme.color.paper
+});
+
+export const feedbackText = composeStyles(
+  padding,
+  style({
+    marginRight: 'auto',
+    width: '100%',
+    marginBottom: 10,
+
+    '@media': {
+      [theme.mediaQueries.sm()]: {
+        width: '30%',
+        marginBottom: 0
+      },
+
+      [theme.mediaQueries.md()]: {
+        width: '46%'
+      }
+    }
+  })
+);
+
+export const feedbackCol = composeStyles(
+  padding,
+  style({
+    width: '100%',
+    marginBottom: 10,
+
+    '@media': {
+      [theme.mediaQueries.sm()]: {
+        width: '35%',
+        marginBottom: 0
+      },
+
+      [theme.mediaQueries.md()]: {
+        width: '27%'
+      },
+
+      [theme.mediaQueries.lg()]: {
+        width: '18%'
+      }
+    }
+  })
+);
+
+export const feedbackButton = composeStyles(
+  padding,
+  style({
+    width: '100%',
+    marginTop: 10,
+    display: 'flex',
+    flexDirection: 'column',
+
+    '@media': {
+      [theme.mediaQueries.md()]: {
+        flexDirection: 'row',
+        justifyContent: 'flex-end'
+      },
+
+      [theme.mediaQueries.lg()]: {
+        flexDirection: 'column',
+        width: '18%',
+        marginTop: 0
+      }
+    }
+  })
+);
+
+export const separator = style({
+  margin: '50px auto',
+  background: theme.color.paper,
+  height: 1
 });
 
 export const mb = style({

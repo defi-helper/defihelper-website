@@ -11,12 +11,32 @@ export const bignumberUtils = {
       .multipliedBy(new BigNumber(10).pow(decimals))
       .toString(10),
 
-  format: (amount?: string | number | null) => {
-    const result = new BigNumber(amount || 0).toFormat(1);
+  format: (amount?: string | number | null, decimal = 2, negative = true) => {
+    const result = new BigNumber(amount || 0);
 
-    const [integerValue, floatValue] = result.split('.');
+    const localDecimal = result.isInteger() ? 0 : decimal;
 
-    return new BigNumber(floatValue).isZero() ? integerValue : result;
+    if (result.isNaN() || (negative && result.isLessThan(0))) return '0';
+
+    if (result.lt('10')) return result.toFormat(localDecimal);
+
+    if (result.lt('10000')) return result.toFormat(0);
+
+    if (result.lt('100000')) return result.toFormat(0);
+
+    if (result.lt('1000000')) return result.toFormat(0);
+
+    if (result.isGreaterThanOrEqualTo('1000000000')) {
+      return `${result.div('1000000000').toFormat(0)}B`;
+    }
+
+    return `${result.div('1000000').toFormat(0)}M`;
+  },
+
+  formatMax: (amount: string | number | null, max: number) => {
+    return bignumberUtils.gt(amount, max)
+      ? `${bignumberUtils.format(max)}+`
+      : bignumberUtils.format(amount);
   },
 
   getPercentage: (

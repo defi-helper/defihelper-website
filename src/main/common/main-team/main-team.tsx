@@ -9,10 +9,8 @@ import { Carousel } from 'src/common/carousel';
 import { Button } from 'src/common/button';
 import vlad_komissarov from 'src/assets/images/team/vlad_komissarov.png';
 import artem_tolkachev from 'src/assets/images/team/artem_tolkachev.png';
-import bondappetit from 'src/assets/images/team/bondappetit.png';
 import igor_varnavsky from 'src/assets/images/team/igor_varnavsky.jpg';
-import ct_lek from 'src/assets/images/team/ct_lek.jpg';
-import waves from 'src/assets/images/team/waves.png';
+import ben_ashworth from 'src/assets/images/team/ben_ashworth.jpg';
 import join_us from 'src/assets/images/team/join_us.png';
 import ilya_munerman from 'src/assets/images/team/ilya_munerman.jpeg';
 import { ReactComponent as TwitterIcon } from 'src/assets/icons/social/twitter.svg';
@@ -60,7 +58,7 @@ const TEAM: Array<Team> = [
   {
     photo: artem_tolkachev,
     name: 'Artem Tolkachev',
-    role: 'CBDO and co-founder',
+    role: 'Co-founder',
     description:
       'Former head of the Blockchain Lab at Deloitte. For over seven years, Artem has been one of the key opinion leaders in the CIS region in blockchain and tokenization.',
     actions: [
@@ -73,7 +71,7 @@ const TEAM: Array<Team> = [
       </ButtonBase>,
       <ButtonBase
         as={Link}
-        href="https://linkedin.com/in/artem-tolkachev"
+        href="https://linkedin.com/in/artemtolkachev/"
         target="_blank"
       >
         <LinkedInIcon />
@@ -104,12 +102,20 @@ const TEAM: Array<Team> = [
     ]
   },
   {
-    photo: ct_lek,
-    name: 'CT Lek',
-    role: 'Community lead',
+    photo: ben_ashworth,
+    name: 'Ben Ashworth',
+    role: 'Investor Relations',
     description:
-      'Lek has been involved in this sphere since double-digit ETH, and is a DeFi believer with 10 years of consultancy experience to funds and multinational corporations.',
-    actions: []
+      'Ben graduated with a law degree from Newcastle University before travelling the world, becoming bi-lingual in Spanish during his travels. Ben has over 4 years experience in crypto and is a firm believer in DeFi.',
+    actions: [
+      <ButtonBase
+        as={Link}
+        href="https://www.linkedin.com/in/ben-ashworth-kwasnik-9897a8140/"
+        target="_blank"
+      >
+        <LinkedInIcon />
+      </ButtonBase>
+    ]
   },
   {
     photo: ilya_munerman,
@@ -128,38 +134,6 @@ const TEAM: Array<Team> = [
     ]
   },
   {
-    photo: waves,
-    name: 'Waves Technologies',
-    role: 'Partner',
-    description:
-      'All-encompassing gateway blockchain protocol advancing technological the frontiers of today for the pioneering developers of tomorrow. ',
-    actions: [
-      <ButtonBase
-        as={Link}
-        target="_blank"
-        href="https://twitter.com/wavesplatform"
-      >
-        <TwitterIcon />
-      </ButtonBase>
-    ]
-  },
-  {
-    photo: bondappetit,
-    name: 'BondAppetit',
-    role: 'Partner',
-    description:
-      'The first decentralized lending protocol with a stablecoin 100% backed by yield‑generating bonds',
-    actions: [
-      <ButtonBase
-        as={Link}
-        target="_blank"
-        href="https://twitter.com/DefiBonds"
-      >
-        <TwitterIcon />
-      </ButtonBase>
-    ]
-  },
-  {
     photo: join_us,
     name: 'Join Us',
     role: '?',
@@ -169,7 +143,7 @@ const TEAM: Array<Team> = [
       <Button
         as="a"
         variant="outlined"
-        href="mailto:hello@defiheper.io"
+        href="mailto:hello@defihelper.io"
         target="_blank"
       >
         Apply

@@ -1,37 +1,33 @@
 import contracts from '@defihelper/networks/contracts.json';
 import React from 'react';
 
-import { config } from 'src/config';
 import { MarkdownCode } from 'src/common/markdown-code';
 import { LandingLayout } from 'src/layouts';
+import { networksConfig } from 'src/network-config';
 import { Grid } from 'src/common/grid';
 import { Typography } from 'src/common/typography';
 import { Head } from 'src/common/head';
 
-type ContractsType = typeof contracts[keyof typeof contracts];
-
-const contractMap = Object.entries(contracts).reduce((acc, [key, contract]) => {
-  acc.set(key, contract);
-
-  return acc;
-}, new Map<string, ContractsType>());
+import * as styles from './contracts.css';
 
 export const Contracts: React.VFC = () => {
-  const currentNetworkContracts = contractMap.get(config.IS_DEV ? '3' : '1');
-
   return (
     <LandingLayout>
       <Head title="Contracts" />
-      <Grid.Container>
-        {currentNetworkContracts &&
-          Object.entries(currentNetworkContracts).map(
-            ([contractName, { address }]) => (
-              <div key={contractName}>
+      <Grid.Container variant="md">
+        {Object.entries(contracts).map(([network, contract]) => (
+          <div key={network}>
+            <Typography variant="h3" className={styles.header}>
+              {networksConfig[network]?.title}
+            </Typography>
+            {Object.entries(contract).map(([contractName, { address }]) => (
+              <div key={contractName} className={styles.section}>
                 <Typography>{contractName}</Typography>
                 <MarkdownCode value={address}>{address}</MarkdownCode>
               </div>
-            )
-          )}
+            ))}
+          </div>
+        ))}
       </Grid.Container>
     </LandingLayout>
   );

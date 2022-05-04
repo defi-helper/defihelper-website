@@ -26,8 +26,7 @@ const DATA = [
     subtitle: ['marketCap', 'circulatingSupply'],
     description: [
       {
-        title:
-          'The DFH token will be launched only after the protocol collects at least $10,000 in fees as proof of concept.',
+        title: 'Join the private and public token sale',
         subtitle: '',
         action: [
           config.UNISWAP_URL ? (
@@ -87,7 +86,7 @@ const DATA = [
     ]
   },
   {
-    title: 'Community grants',
+    title: 'Advisors',
     subtitle: ['communityDays', 'communityTokens'],
     description: [
       {
@@ -112,12 +111,12 @@ const DATA = [
     description: [
       {
         title: 'Build new features and earn ample rewards in DFH',
-        subtitle: '30% of total supply',
+        subtitle: '25% of total supply',
         action: [
           <Button
             as="a"
             variant="outlined"
-            href="mailto:hello@defiheper.io"
+            href="mailto:hello@defihelper.io"
             target="_blank"
           >
             Join our team
@@ -132,17 +131,17 @@ const DATA = [
     description: [
       {
         title: 'Earn rewards by using automations',
-        subtitle: '3% of total supply',
+        subtitle: '',
         action: []
       },
       {
         title: 'Earn rewards by inviting friends',
-        subtitle: '2% of total supply',
+        subtitle: '',
         action: []
       },
       {
         title: 'Earn rewards by using notifications',
-        subtitle: '1% of total supply',
+        subtitle: '',
         action: []
       }
     ]

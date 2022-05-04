@@ -15,7 +15,7 @@ export const ContactSuccess: React.VFC<ContactSuccessProps> = (props) => {
     <Dialog className={styles.root}>
       <Typography variant="h5" align="center" as="div" className={styles.text}>
         Thank you, {props.name}!<br />
-        We will notify you once the DFH app is launched.
+        We will notify you about our updates.
       </Typography>
       <Button onClick={props.onConfirm} className={styles.button}>
         Got It
