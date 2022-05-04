@@ -9,5 +9,6 @@ export const URLS = {
     list: '/docs',
     detail: (contractName = ':contractName') => `/docs/${contractName}` as const
   },
-  contracts: '/contracts'
+  contracts: '/contracts',
+  referral: '/p/:code'
 } as const;
