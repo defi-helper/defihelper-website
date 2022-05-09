@@ -5,13 +5,15 @@ import Cookies from 'js-cookie';
 
 export const Referral: React.VFC = () => {
   const { code } = useParams<{ code: string }>();
-  const [{ data }] = useUserReferrerQuery({
+  const [{ data, fetching }] = useUserReferrerQuery({
     variables: {
       code
     }
   });
 
   useEffect(() => {
+    if (fetching) return;
+
     if (!data) {
       window.location.href = 'https://app.defihelper.io';
       return;
@@ -22,7 +24,7 @@ export const Referral: React.VFC = () => {
       domain: 'defihelper.io'
     });
     window.location.href = data.userReferrer.redirectTo;
-  }, [data]);
+  }, [data, fetching]);
 
   return <div style={{ textAlign: 'center', padding: 15 }}>Wait...</div>;
 };
