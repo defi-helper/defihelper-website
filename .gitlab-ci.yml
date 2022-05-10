@@ -26,11 +26,14 @@ build:
     KUBERNETES_CPU_REQUEST: 500m
     KUBERNETES_CPU_LIMIT: 2
     KUBERNETES_MEMORY_REQUEST: 2048Mi
-    KUBERNETES_MEMORY_LIMIT: 6144Mi
+    KUBERNETES_MEMORY_LIMIT: 4096Mi
   rules:
     - if: $CI_COMMIT_REF_NAME == "master"
       variables:
         BUILD_ARGS: "--build-arg NODE_ENV=development --build-arg REACT_APP_API_URL=https://backend-dev.defihelper.info/api --build-arg REACT_APP_LAUNCH_APP_URL=https://app-dev.defihelper.info/"
+    - if: $CI_COMMIT_REF_NAME == "release"
+      variables:
+        BUILD_ARGS: "--build-arg NODE_ENV=production --build-arg REACT_APP_API_URL=https://backend.defihelper.io/api --build-arg REACT_APP_LAUNCH_APP_URL=https://app.defihelper.io/"
     - if: '$CI_PIPELINE_SOURCE == "merge_request_event" || $CI_COMMIT_BRANCH'
 
 deploy:
