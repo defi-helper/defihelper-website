@@ -34,6 +34,7 @@ export const card = style({
   display: 'flex',
   flexDirection: 'column',
   padding: '32px 20px',
+  position: 'relative',
 
   '@media': {
     [theme.mediaQueries.lg()]: {
@@ -58,4 +59,25 @@ export const estimateTitle = style({
 
 export const estimateSubtitle = style({
   color: theme.palette.softpink
+});
+
+export const completedWrap = style({
+  position: 'absolute',
+  top: '50%',
+  left: '50%',
+  transform: 'translate(-50%, -50%)'
+});
+
+export const completed = style({
+  width: 348,
+  height: 103,
+  background: theme.palette.green1,
+  color: theme.palette.black1,
+  fontSize: 40,
+  lineHeight: '20px',
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center',
+  borderRadius: 20,
+  transform: 'rotate(-24.5deg)'
 });
