@@ -166,11 +166,7 @@ export const Main: React.VFC = () => {
       <MainInvestors title="Press" className={styles.section}>
         {PRESS}
       </MainInvestors>
-      {false && (
-        <>
-          <MainPartners className={styles.section} />
-        </>
-      )}
+      {false && <MainPartners className={styles.section} />}
     </LandingLayout>
   );
 };
