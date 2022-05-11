@@ -41,5 +41,5 @@ deploy:
   stage: deploy
   rules:
     - if: '$CI_PIPELINE_SOURCE == "merge_request_event"'
-      when: never
+      when: manual
     - if: '$CI_COMMIT_REF_NAME == "master" || $CI_COMMIT_REF_NAME == "release"'
