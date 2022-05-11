@@ -47,3 +47,4 @@ deploy:
       variables:
         KUBECONFIG_B64: $PROD_KUBECONFIG_B64
         ENVIRONMENT: prod
+    - if: '$CI_COMMIT_REF_NAME == "master"'
