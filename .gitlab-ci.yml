@@ -34,6 +34,7 @@ build:
     - if: $CI_COMMIT_REF_NAME == "release"
       variables:
         BUILD_ARGS: "--build-arg NODE_ENV=production --build-arg REACT_APP_API_URL=https://backend.defihelper.io/api --build-arg REACT_APP_LAUNCH_APP_URL=https://app.defihelper.io/"
+        ENVIRONMENT: prod
     - if: '$CI_PIPELINE_SOURCE == "merge_request_event" || $CI_COMMIT_BRANCH'
 
 deploy:
