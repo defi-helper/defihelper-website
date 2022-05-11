@@ -32,6 +32,8 @@ build:
       variables:
         BUILD_ARGS: "--build-arg NODE_ENV=development --build-arg REACT_APP_API_URL=https://backend-dev.defihelper.info/api --build-arg REACT_APP_LAUNCH_APP_URL=https://app-dev.defihelper.info/"
     - if: $CI_COMMIT_REF_NAME == "release"
+      tags:
+        - adcorn-prod
       variables:
         BUILD_ARGS: "--build-arg NODE_ENV=production --build-arg REACT_APP_API_URL=https://backend.defihelper.io/api --build-arg REACT_APP_LAUNCH_APP_URL=https://app.defihelper.io/"
         ENVIRONMENT: prod
@@ -44,5 +46,8 @@ deploy:
     - if: '$CI_PIPELINE_SOURCE == "merge_request_event"'
       when: manual
     - if: '$CI_COMMIT_REF_NAME == "release"'
+      tags:
+        - adcorn-prod
       variables:
         KUBECONFIG_B64: $PROD_KUBECONFIG_B64
+        ENVIRONMENT: prod
