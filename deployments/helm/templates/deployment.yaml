@@ -47,18 +47,6 @@ spec:
             {{- toYaml .Values.resources | nindent 12 }}
         - name: prerenderer
           image: tvanro/prerender-alpine
-          ports:
-            - name: prerenderer
-              containerPort: 3000
-              protocol: TCP
-          livenessProbe:
-            httpGet:
-              path: /
-              port: prerenderer
-          readinessProbe:
-            httpGet:
-              path: /
-              port: prerenderer
       {{- with .Values.nodeSelector }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}
