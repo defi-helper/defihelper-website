@@ -15,6 +15,39 @@ export type LayoutHeaderProps = {
   className?: string;
 };
 
+const LINKS: Omit<React.ComponentProps<typeof Link>, 'className'>[] = [
+  {
+    children: 'Portfolio manager',
+    to: URLS.portfolioManager,
+    as: NavLink
+  },
+  {
+    children: 'No-code automation',
+    to: URLS.noCode,
+    as: NavLink
+  },
+  {
+    children: 'Security',
+    to: URLS.security,
+    as: NavLink
+  },
+  {
+    children: 'Portfolio tracker',
+    to: URLS.portfolioTracker,
+    as: NavLink
+  },
+  {
+    children: 'Tokenomics',
+    to: URLS.tokenomics,
+    as: NavLink
+  },
+  {
+    children: 'Litepaper',
+    target: '_blank',
+    href: URLS.litepaper
+  }
+];
+
 export const LayoutHeader: React.VFC<LayoutHeaderProps> = (props) => {
   const isDesktop = useMedia('(min-width: 960px)');
 
@@ -26,17 +59,9 @@ export const LayoutHeader: React.VFC<LayoutHeaderProps> = (props) => {
             <Logo />
           </ReactRouterLink>
           <div className={styles.menu}>
-            <Link as={NavLink} className={styles.navLink} to={URLS.tokenomics}>
-              Tokenomics
-            </Link>
-            <Link
-              className={styles.navLink}
-              href={URLS.litepaper}
-              target="_blank"
-              rel="noreferrer"
-            >
-              litepaper
-            </Link>
+            {LINKS.map((link, index) => (
+              <Link className={styles.navLink} key={String(index)} {...link} />
+            ))}
             {isDesktop && (
               <Button
                 variant="contained"

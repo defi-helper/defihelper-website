@@ -11,5 +11,9 @@ export const URLS = {
   },
   contracts: '/contracts',
   referral: '/p/:code',
-  protocols: '/protocols'
+  protocols: '/protocols',
+  portfolioTracker: '/portfolio-tracker',
+  noCode: '/no-code',
+  security: '/security',
+  portfolioManager: '/portfolio-manager'
 } as const;
