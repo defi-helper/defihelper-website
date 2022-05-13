@@ -49,17 +49,7 @@ export const subtitle = style({
 
 export const actions = style({
   display: 'flex',
-  flexDirection: 'column',
-  alignItems: 'center',
   gap: 10
-});
-
-export const productHunt = style({
-  '@media': {
-    [theme.mediaQueries.md()]: {
-      marginRight: 'auto'
-    }
-  }
 });
 
 export const text = composeStyles(
