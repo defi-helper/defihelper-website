@@ -40,23 +40,25 @@ export const MainHeader: React.VFC<MainHeaderProps> = (props) => {
               <div>{props.protocolsCount} protocols connected</div>
             </Typography>
             <div className={styles.actions}>
-              <a
-                href="https://www.producthunt.com/posts/defihelper?utm_source=badge-featured&utm_medium=badge&utm_souce=badge-defihelper"
-                target="_blank"
-                rel="noreferrer"
-                className={styles.productHunt}
-              >
-                <img
-                  src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=329836&theme=dark"
-                  alt="DeFiHelper - Advanced assistant for managing DeFi portfolios of any size | Product Hunt"
-                  style={{
-                    width: 250,
-                    height: 54
-                  }}
-                  width="250"
-                  height="54"
-                />
-              </a>
+              {false && (
+                <a
+                  href="https://www.producthunt.com/posts/defihelper?utm_source=badge-featured&utm_medium=badge&utm_souce=badge-defihelper"
+                  target="_blank"
+                  rel="noreferrer"
+                  className={styles.productHunt}
+                >
+                  <img
+                    src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=329836&theme=dark"
+                    alt="DeFiHelper - Advanced assistant for managing DeFi portfolios of any size | Product Hunt"
+                    style={{
+                      width: 250,
+                      height: 54
+                    }}
+                    width="250"
+                    height="54"
+                  />
+                </a>
+              )}
               {!isDesktop && (
                 <Button
                   variant="contained"
