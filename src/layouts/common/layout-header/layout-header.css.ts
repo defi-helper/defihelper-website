@@ -4,6 +4,12 @@ import { theme } from 'src/common/theme';
 
 export const root = style({
   padding: '24px 0',
+  position: 'fixed',
+  top: 0,
+  left: 0,
+  width: '100%',
+  background: theme.color.background,
+  zIndex: 100,
 
   '@media': {
     [theme.mediaQueries.lg()]: {
