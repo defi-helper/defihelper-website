@@ -19,12 +19,12 @@ export const header = style({
 });
 
 export const title = style({
-  margin: '60px 0',
   maxWidth: 523,
+  margin: '60px 0',
 
   '@media': {
     [theme.mediaQueries.md()]: {
-      margin: '180px 0'
+      margin: '80px 0'
     }
   }
 });

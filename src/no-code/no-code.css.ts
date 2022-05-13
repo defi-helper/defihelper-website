@@ -24,7 +24,7 @@ export const title = style({
 
   '@media': {
     [theme.mediaQueries.md()]: {
-      margin: '180px 0'
+      margin: '80px 0'
     }
   }
 });
