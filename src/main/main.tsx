@@ -20,8 +20,15 @@ import huckleberry from 'src/assets/images/huckleberry.png';
 import perpetual from 'src/assets/images/perpetual.png';
 import russ_vench from 'src/assets/images/russ_vench.svg';
 import vc from 'src/assets/images/vc.svg';
+import { PortfolioManagerScheme } from 'src/portfolio-manager/common';
+import { Grid } from 'src/common/grid';
 import cointelgraph from 'src/assets/images/cointelgraph.svg';
+import { Typography } from 'src/common/typography';
 import hackernoon from 'src/assets/images/hackernoon.svg';
+import { NoCodeScheme } from 'src/no-code/common';
+import { PortfolioTrackerScheme } from 'src/portfolio-tracker/common';
+import { SecurityHow } from 'src/security/common';
+import { Video } from 'src/common/video';
 import {
   MainBlockchains,
   MainChart,
@@ -29,7 +36,6 @@ import {
   MainExplore,
   MainHeader,
   MainProtocols,
-  MainServices,
   MainTable,
   MainTeam,
   MainPartners,
@@ -137,6 +143,7 @@ export const Main: React.VFC = () => {
         protocolsCount={treasuryData?.treasury.protocolsCount ?? 0}
         contractsCount={treasuryData?.treasury.contractsCount ?? 0}
       />
+      <Video className={styles.section} title="WHAT IS DEFIHELPER?" />
       <MainChart
         className={styles.section}
         onChangeApy={handleChangeApy}
@@ -145,7 +152,55 @@ export const Main: React.VFC = () => {
         sum={sum}
         data={data?.restakeStrategy}
       />
-      <MainServices className={styles.section} />
+      <Grid.Container className={styles.section}>
+        <div className={styles.indevelopmentHeader}>
+          <Typography variant="h2" family="mono" transform="uppercase">
+            PORTFOLIO TRACKER
+          </Typography>
+        </div>
+        <PortfolioTrackerScheme />
+      </Grid.Container>
+      <Grid.Container className={styles.section}>
+        <div className={styles.indevelopmentHeader}>
+          <Typography variant="h2" family="mono" transform="uppercase">
+            NO-CODE AUTOMATION
+          </Typography>
+        </div>
+        <NoCodeScheme className={styles.nocode} />
+        <div className={styles.nocodeText}>
+          <Typography variant="h4">
+            Create automated investment strategies without having to know
+            coding:{' '}
+            <Typography variant="inherit" className={styles.nocodeGreenText}>
+              &apos;Take Profit&apos;, &apos;Stop Loss&apos;, &apos;Send a
+              Notification If {'<Condition>'}
+            </Typography>{' '}
+            and many others
+          </Typography>
+          <Typography variant="h4">
+            Find ready-made high-yield strategies on the investment marketplace
+            (soon)
+          </Typography>
+        </div>
+      </Grid.Container>
+      <Grid.Container className={styles.section}>
+        <div className={styles.indevelopmentHeader}>
+          <Typography variant="h2" family="mono" transform="uppercase">
+            PORTFOLIO MANAGER
+          </Typography>
+          <Typography
+            variant="h4"
+            family="mono"
+            className={styles.indevelopment}
+          >
+            In development
+          </Typography>
+        </div>
+        <PortfolioManagerScheme />
+      </Grid.Container>
+      <Grid.Container className={styles.section}>
+        <SecurityHow />
+      </Grid.Container>
       <MainBlockchains className={styles.section} />
       <MainProtocols
         className={styles.section}
