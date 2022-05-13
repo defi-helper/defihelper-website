@@ -3,6 +3,7 @@ import React from 'react';
 
 import { Factoid } from 'src/common/factoid';
 import { Grid } from 'src/common/grid';
+import { Head } from 'src/common/head';
 import { Typography } from 'src/common/typography';
 import { Video } from 'src/common/video';
 import { LandingLayout } from 'src/layouts';
@@ -42,6 +43,7 @@ const TEXTS = [
 export const NoCode: React.VFC<NoCodeProps> = () => {
   return (
     <LandingLayout>
+      <Head title="No-code automation" />
       <Grid.Container className={clsx(styles.header, styles.mb)}>
         <Typography
           variant="h1"

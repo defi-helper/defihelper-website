@@ -1,5 +1,6 @@
 import clsx from 'clsx';
 import React from 'react';
+import { Head } from 'src/common/head';
 
 import { LandingLayout } from 'src/layouts';
 import { Grid } from 'src/common/grid';
@@ -12,6 +13,7 @@ export type PortfolioManagerProps = unknown;
 export const PortfolioManager: React.VFC<PortfolioManagerProps> = () => {
   return (
     <LandingLayout>
+      <Head title="Portfolio manager" />
       <Grid.Container className={clsx(styles.header, styles.mb)}>
         <Typography
           variant="h1"
