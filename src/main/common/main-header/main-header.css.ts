@@ -49,7 +49,14 @@ export const subtitle = style({
 
 export const actions = style({
   display: 'flex',
-  gap: 10
+  gap: 10,
+  flexDirection: 'column',
+
+  '@media': {
+    [theme.mediaQueries.sm()]: {
+      flexDirection: 'row'
+    }
+  }
 });
 
 export const text = composeStyles(

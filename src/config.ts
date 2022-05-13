@@ -17,5 +17,6 @@ export const config = {
   PANCAKESWAP_URL: process.env.REACT_APP_PANCAKESWAP_URL,
   WAVES_URL: process.env.REACT_APP_WAVES_URL,
   UNISWAP_URL: process.env.REACT_APP_UNISWAP_URL,
+  DEMO_LINK: process.env.REACT_APP_DEMO_LINK,
   MAX_FEE: 10000
 };

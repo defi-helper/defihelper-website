@@ -46,6 +46,17 @@ export const MainHeader: React.VFC<MainHeaderProps> = (props) => {
               >
                 Launch App
               </Button>
+              {config.DEMO_LINK && (
+                <Button
+                  variant="outlined"
+                  color="secondary"
+                  as="a"
+                  href={config.DEMO_LINK}
+                  size="large"
+                >
+                  Demo account
+                </Button>
+              )}
             </div>
           </div>
         </Grid.Row>
