@@ -57,6 +57,7 @@ export const Security: React.VFC<SecurityProps> = () => {
       </Grid.Container>
       <Video
         className={styles.mb}
+        videoId="8tY0KjVn4so"
         title={
           <div className={styles.videoTitle}>
             How DeFiHelper Keeps Your Funds Safe

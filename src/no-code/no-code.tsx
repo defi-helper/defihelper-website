@@ -60,6 +60,7 @@ export const NoCode: React.VFC<NoCodeProps> = () => {
       </Grid.Container>
       <Video
         className={styles.mb}
+        videoId="1C7UM2Tm1Sk"
         title={
           <div className={styles.videoTitle}>
             How to Enable Auto-Staking In DeFiHelper
