@@ -61,7 +61,7 @@ export const PortfolioManagerScheme: React.VFC<PortfolioManagerSchemeProps> = (
             variant="h4"
             as="p"
           >
-            Investment recommendation and management
+            Investment recommendations and management
           </Typography>
           <Typography
             variant="body2"

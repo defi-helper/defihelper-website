@@ -12,7 +12,7 @@ export type SecurityHowProps = {
 const LISTS = [
   [
     'Decentralized',
-    'Non-Custodial',
+    'Non-custodial',
     'No vaults or pools. You always stay in control of your funds'
   ],
 

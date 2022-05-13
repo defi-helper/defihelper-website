@@ -90,7 +90,7 @@ export const MainExplore: React.VFC<MainExploreProps> = (props) => {
                 </li>
                 <li className={styles.tokenUtilityListItem}>
                   <Typography className={styles.listItemTitle}>
-                    Discounts and perks for paid users
+                    Discounts and perks for token holders
                   </Typography>
                 </li>
               </ul>

@@ -7,10 +7,8 @@ import {
 } from 'react-router-dom';
 import { useClickAway } from 'react-use';
 
-import { Button } from 'src/common/button';
 import { ReactComponent as Logo } from 'src/assets/icons/logo-mini.svg';
 import { Grid } from 'src/common/grid';
-import { config } from 'src/config';
 import { URLS } from 'src/router/urls';
 import { Link } from 'src/common/link';
 import { ButtonBase } from 'src/common/button-base';
@@ -30,18 +28,13 @@ const LINKS: Omit<React.ComponentProps<typeof Link>, 'className'>[] = [
     as: NavLink
   },
   {
-    children: 'No-code automation',
-    to: URLS.noCode,
+    children: 'Portfolio tracker',
+    to: URLS.portfolioTracker,
     as: NavLink
   },
   {
     children: 'Security',
     to: URLS.security,
-    as: NavLink
-  },
-  {
-    children: 'Portfolio tracker',
-    to: URLS.portfolioTracker,
     as: NavLink
   },
   {
@@ -53,6 +46,11 @@ const LINKS: Omit<React.ComponentProps<typeof Link>, 'className'>[] = [
     children: 'Litepaper',
     target: '_blank',
     href: URLS.litepaper
+  },
+  {
+    children: 'No-code automation',
+    to: URLS.noCode,
+    as: NavLink
   }
 ];
 
@@ -80,14 +78,6 @@ export const LayoutHeader: React.VFC<LayoutHeaderProps> = (props) => {
             {LINKS.map((link, index) => (
               <Link className={styles.navLink} key={String(index)} {...link} />
             ))}
-            <Button
-              variant="contained"
-              color="secondary"
-              as="a"
-              href={config.LAUNCH_APP_URL}
-            >
-              Launch App
-            </Button>
           </div>
           <div className={styles.menuMobile}>
             <ButtonBase onClick={() => setOpen(!isOpen)}>
@@ -107,16 +97,6 @@ export const LayoutHeader: React.VFC<LayoutHeaderProps> = (props) => {
                   <Link className={styles.navLink} {...link} />
                 </div>
               ))}
-              <div className={styles.menuMobileItem}>
-                <Button
-                  variant="contained"
-                  color="secondary"
-                  as="a"
-                  href={config.LAUNCH_APP_URL}
-                >
-                  Launch App
-                </Button>
-              </div>
             </Paper>
           </div>
         </Grid.Row>
