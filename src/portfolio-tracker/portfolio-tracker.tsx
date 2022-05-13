@@ -58,6 +58,7 @@ export const PortfolioTracker: React.VFC<PortfolioTrackerProps> = () => {
       </Grid.Container>
       <Video
         className={styles.mb}
+        videoId="pVTxnp0qujw"
         title={
           <div className={styles.videoTitle}>
             What is DeFiHelper? A complete overview

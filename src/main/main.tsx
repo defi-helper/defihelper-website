@@ -143,7 +143,11 @@ export const Main: React.VFC = () => {
         protocolsCount={treasuryData?.treasury.protocolsCount ?? 0}
         contractsCount={treasuryData?.treasury.contractsCount ?? 0}
       />
-      <Video className={styles.section} title="WHAT IS DEFIHELPER?" />
+      <Video
+        className={styles.section}
+        title="WHAT IS DEFIHELPER?"
+        videoId="DkIH_DMhgcs"
+      />
       <MainChart
         className={styles.section}
         onChangeApy={handleChangeApy}
