@@ -78,6 +78,7 @@ export const Protocols: React.VFC<ProtocolsProps> = () => {
                 <TableRow className={styles.row} key={protocol.id}>
                   <TableCell>
                     <Link
+                      target="_blank"
                       href={`https://app.defihelper.io/protocols${
                         isDebank ? '/readonly' : ''
                       }/${protocol.id}`}
