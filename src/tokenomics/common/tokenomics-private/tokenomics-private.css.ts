@@ -54,11 +54,22 @@ export const cardDescription = style({
 
 export const estimateTitle = style({
   color: theme.palette.pink,
-  marginBottom: 8
+
+  selectors: {
+    '&:not(:last-child)': {
+      marginBottom: 16
+    }
+  }
 });
 
 export const estimateSubtitle = style({
-  color: theme.palette.softpink
+  color: theme.palette.softpink,
+
+  selectors: {
+    '&:not(:last-child)': {
+      marginBottom: 16
+    }
+  }
 });
 
 export const completedWrap = style({
@@ -80,4 +91,10 @@ export const completed = style({
   justifyContent: 'center',
   borderRadius: 20,
   transform: 'rotate(-24.5deg)'
+});
+
+export const flex = style({
+  display: 'flex',
+  alignItems: 'center',
+  gap: 10
 });

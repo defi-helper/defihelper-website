@@ -118,3 +118,20 @@ export const explore = style({
     }
   }
 });
+
+export const tokenUtilityTitle = style({
+  marginBottom: 20
+});
+
+export const tokenUtilityList = style({
+  paddingLeft: 20,
+  margin: 0
+});
+
+export const tokenUtilityListItem = style({
+  selectors: {
+    '&:not(:last-child)': {
+      marginBottom: 20
+    }
+  }
+});

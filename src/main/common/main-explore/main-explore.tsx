@@ -58,15 +58,40 @@ export const MainExplore: React.VFC<MainExploreProps> = (props) => {
                 </li>
                 <li className={styles.listItem}>
                   <Typography className={styles.listItemTitle}>
-                    Market Cap at Public round
+                    2.7% of total supply will be in circulation upon launch
                   </Typography>
-                  <Typography family="mono">$809,000</Typography>
                 </li>
                 <li className={styles.listItem}>
                   <Typography className={styles.listItemTitle}>
                     Max supply
                   </Typography>
                   <Typography family="mono">1,000,000,000 DFH</Typography>
+                </li>
+              </ul>
+            </Paper>
+          </div>
+          <div className={styles.col}>
+            <Paper className={styles.colContent}>
+              <Typography
+                className={clsx(styles.listItemTitle, styles.tokenUtilityTitle)}
+              >
+                Token Utility
+              </Typography>
+              <ul className={styles.tokenUtilityList}>
+                <li className={styles.tokenUtilityListItem}>
+                  <Typography className={styles.listItemTitle}>
+                    Governance
+                  </Typography>
+                </li>
+                <li className={styles.tokenUtilityListItem}>
+                  <Typography className={styles.listItemTitle}>
+                    Profits distribution
+                  </Typography>
+                </li>
+                <li className={styles.tokenUtilityListItem}>
+                  <Typography className={styles.listItemTitle}>
+                    Discounts and perks for token holders
+                  </Typography>
                 </li>
               </ul>
             </Paper>

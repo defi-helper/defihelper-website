@@ -12,6 +12,10 @@ export const radius = styleVariants({
     borderRadius: 8
   },
 
+  10: {
+    borderRadius: 10
+  },
+
   24: {
     borderRadius: 16,
 

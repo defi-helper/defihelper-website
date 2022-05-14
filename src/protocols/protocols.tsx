@@ -77,22 +77,28 @@ export const Protocols: React.VFC<ProtocolsProps> = () => {
               return (
                 <TableRow className={styles.row} key={protocol.id}>
                   <TableCell>
-                    <Typography
-                      variant="body2"
-                      as="span"
-                      className={styles.protcolName}
+                    <Link
+                      href={`https://app.defihelper.io/protocols${
+                        isDebank ? '/readonly' : ''
+                      }/${protocol.id}`}
                     >
-                      {protocol.icon ? (
-                        <img
-                          src={protocol.icon}
-                          alt=""
-                          className={styles.protocolIcon}
-                        />
-                      ) : (
-                        <span className={styles.placeholder} />
-                      )}
-                      {protocol.name}
-                    </Typography>
+                      <Typography
+                        variant="body2"
+                        as="span"
+                        className={styles.protcolName}
+                      >
+                        {protocol.icon ? (
+                          <img
+                            src={protocol.icon}
+                            alt=""
+                            className={styles.protocolIcon}
+                          />
+                        ) : (
+                          <span className={styles.placeholder} />
+                        )}
+                        {protocol.name}
+                      </Typography>
+                    </Link>
                   </TableCell>
                   <TableCell>
                     <Typography variant="body2" as="span">
