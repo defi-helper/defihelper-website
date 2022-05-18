@@ -70,12 +70,12 @@ export const TokenomicsHeader: React.VFC<TokenomicsHeaderProps> = (props) => {
               variant="h4"
               className={styles.factoidSubtitle}
             >
-              27,000,000 DFH (2,7%)
+              36,900,000 DFH (3,69%)
             </Typography>
           </div>
           <div className={styles.col}>
             <Typography as="h3" className={styles.factoidTitle}>
-              Market Cap at Public round
+              Public Valuation
             </Typography>
             <Typography
               family="mono"
@@ -83,7 +83,7 @@ export const TokenomicsHeader: React.VFC<TokenomicsHeaderProps> = (props) => {
               variant="h4"
               className={styles.factoidSubtitle}
             >
-              $809,000
+              $30,000,000 FDV
             </Typography>
           </div>
           <div className={styles.col}>

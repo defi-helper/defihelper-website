@@ -50,35 +50,35 @@ const BODY = [
   [
     'Marketing',
     '11%',
-    '1-year (on demand)',
+    '2-year (on demand)',
     '110,000,000',
     `Marketing budget to expand audience reach, increase awareness about DFH, and work with partner projects.`
   ],
   [
     'Early investors',
     '10%',
-    '2% unlock on TGE, 3-months cliff, 5% monthly per block unlock thereafter',
+    '2% unlock on TGE, 5% monthly per-block unlock thereafter',
     '100,000,000',
     `Rewards for early investors who fund the development and launch of the protocol.`
   ],
   [
     'Liquidity rewards',
     '10%',
-    '12-month (on demand per block vesting)',
+    '12-month (on demand per-block vesting)',
     '100,000,000',
     `Rewards for liquidity providers for creating a liquid DFH token market.`
   ],
   [
     'Early ecosystem reward',
     '8%',
-    '12-months per block vesting',
+    '24-months per-block vesting',
     '80,000,000',
     `Bonuses to early adopters for using the protocol and referring it to friends.`
   ],
   [
     'Advisors',
     '7%',
-    '1-year lock, 12-month per-block release',
+    '12-month per-block release',
     '70,000,000',
     `Rewards for helping with protocol promotion.`
   ]
