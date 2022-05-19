@@ -14,6 +14,8 @@ import { Link } from 'src/common/link';
 import { ButtonBase } from 'src/common/button-base';
 import { ReactComponent as BurgerIcon } from 'src/assets/icons/burger.svg';
 import { ReactComponent as CloseBurgerIcon } from 'src/assets/icons/close-burger.svg';
+import { Button } from 'src/common/button';
+import { config } from 'src/config';
 import { Paper } from 'src/common/paper';
 import * as styles from './layout-header.css';
 
@@ -78,6 +80,15 @@ export const LayoutHeader: React.VFC<LayoutHeaderProps> = (props) => {
             {LINKS.map((link, index) => (
               <Link className={styles.navLink} key={String(index)} {...link} />
             ))}
+            <Button
+              variant="contained"
+              color="secondary"
+              as="a"
+              href={config.LAUNCH_APP_URL}
+              size="medium"
+            >
+              Launch App
+            </Button>
           </div>
           <div className={styles.menuMobile}>
             <ButtonBase onClick={() => setOpen(!isOpen)}>
@@ -97,6 +108,15 @@ export const LayoutHeader: React.VFC<LayoutHeaderProps> = (props) => {
                   <Link className={styles.navLink} {...link} />
                 </div>
               ))}
+              <Button
+                variant="contained"
+                color="secondary"
+                as="a"
+                href={config.LAUNCH_APP_URL}
+                size="medium"
+              >
+                Launch App
+              </Button>
             </Paper>
           </div>
         </Grid.Row>
