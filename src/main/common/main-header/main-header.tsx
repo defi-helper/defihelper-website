@@ -37,15 +37,17 @@ export const MainHeader: React.VFC<MainHeaderProps> = (props) => {
               <div>{props.protocolsCount} protocols connected</div>
             </Typography>
             <div className={styles.actions}>
-              <Button
-                variant="contained"
-                color="secondary"
-                as="a"
-                href={config.LAUNCH_APP_URL}
-                size="large"
-              >
-                Launch App
-              </Button>
+              {config.DEMO_LINK && (
+                <Button
+                  variant="outlined"
+                  color="secondary"
+                  as="a"
+                  href={config.DEMO_LINK}
+                  size="large"
+                >
+                  Demo account
+                </Button>
+              )}
             </div>
           </div>
         </Grid.Row>
