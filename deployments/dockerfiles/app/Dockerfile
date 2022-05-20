@@ -9,6 +9,7 @@ ENV REACT_APP_API_URL ${REACT_APP_API_URL:-https://backend.defihelper.io/api}
 ARG REACT_APP_LAUNCH_APP_URL
 ENV REACT_APP_LAUNCH_APP_URL ${REACT_APP_LAUNCH_APP_URL:-https://app.defihelper.io/}
 ARG REACT_APP_AMCHARTS_LICENCE
+ARG REACT_APP_DEMO_LINK
 
 RUN apk --update add git
 COPY package*.json ./
