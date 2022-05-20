@@ -6,6 +6,11 @@ import Moonriver from './assets/icons/blockchains/moonriver.svg';
 import FantomIcon from './assets/icons/blockchains/fantom.svg';
 import CronosIcon from './assets/icons/blockchains/cronos.svg';
 import ArbitrumIcon from './assets/icons/blockchains/arbitrum.svg';
+import PolygonIcon from './assets/icons/blockchains/polygon.svg';
+import OptimismIcon from './assets/icons/blockchains/optimism.svg';
+import HarmonyIcon from './assets/icons/blockchains/harmony.svg';
+import MoonbeamIcon from './assets/icons/blockchains/moonbeam.svg';
+import AuroraIcon from './assets/icons/blockchains/aurora.svg';
 
 type Network = {
   title: string;
@@ -28,6 +33,29 @@ const prodNetworks: Record<string, Network> = {
     blockchain: BlockchainEnum.Ethereum,
     icon: EthereumIcon
   },
+  1313161554: {
+    chainId: 1313161554,
+    title: 'Aurora',
+    explorerUrl: 'https://aurorascan.dev',
+    coin: 'ETH',
+    decimals: 18,
+    blockchain: BlockchainEnum.Ethereum,
+    icon: AuroraIcon,
+    rpcUrls: ['https://mainnet.aurora.dev', 'https://mainnet.aurora.dev']
+  },
+  1284: {
+    chainId: 1284,
+    title: 'MoonBeam',
+    explorerUrl: 'https://moonbeam.moonscan.io',
+    coin: 'GLMR',
+    decimals: 18,
+    blockchain: BlockchainEnum.Ethereum,
+    icon: MoonbeamIcon,
+    rpcUrls: [
+      'https://rpc.api.moonbeam.network',
+      'https://rpc.api.moonbeam.network'
+    ]
+  },
   56: {
     chainId: 56,
     title: 'Binance Smart Chain',
@@ -40,6 +68,19 @@ const prodNetworks: Record<string, Network> = {
       'https://bsc-dataseed.binance.org/',
       'https://bsc-dataseed1.defibit.io/',
       'https://bsc-dataseed1.ninicoin.io/'
+    ]
+  },
+  137: {
+    chainId: 137,
+    title: 'Polygon',
+    explorerUrl: 'https://polygonscan.com',
+    coin: 'MATIC',
+    decimals: 18,
+    blockchain: BlockchainEnum.Ethereum,
+    icon: PolygonIcon,
+    rpcUrls: [
+      'https://rpc-mainnet.maticvigil.com/',
+      'https://rpc-mainnet.maticvigil.com/'
     ]
   },
   1285: {
@@ -105,7 +146,7 @@ const prodNetworks: Record<string, Network> = {
     coin: 'ETH',
     decimals: 18,
     blockchain: BlockchainEnum.Ethereum,
-    icon: EthereumIcon,
+    icon: OptimismIcon,
     rpcUrls: ['https://mainnet.optimism.io']
   }
 };
