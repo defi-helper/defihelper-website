@@ -52,9 +52,11 @@ export const menuDesktop = composeStyles(
 );
 
 export const menuMobile = style({
-  display: 'block',
+  display: 'flex',
+  alignItems: 'center',
   marginLeft: 'auto',
   position: 'relative',
+  gap: 15,
 
   '@media': {
     [theme.mediaQueries.lg()]: {
