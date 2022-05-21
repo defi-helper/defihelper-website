@@ -90,7 +90,7 @@ export const LayoutHeader: React.VFC<LayoutHeaderProps> = (props) => {
               Launch App
             </Button>
           </div>
-          <div className={styles.menuMobile}>
+          <div className={styles.menuMobile} ref={ref}>
             <Button
               variant="contained"
               color="secondary"
@@ -110,7 +110,6 @@ export const LayoutHeader: React.VFC<LayoutHeaderProps> = (props) => {
             <Paper
               className={styles.menuMobileInner}
               style={{ display: isOpen ? 'block' : 'none' }}
-              ref={ref}
             >
               {LINKS.map((link, index) => (
                 <div className={styles.menuMobileItem} key={String(index)}>
