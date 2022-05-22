@@ -90,7 +90,16 @@ export const LayoutHeader: React.VFC<LayoutHeaderProps> = (props) => {
               Launch App
             </Button>
           </div>
-          <div className={styles.menuMobile}>
+          <div className={styles.menuMobile} ref={ref}>
+            <Button
+              variant="contained"
+              color="secondary"
+              as="a"
+              href={config.LAUNCH_APP_URL}
+              size="small"
+            >
+              Launch App
+            </Button>
             <ButtonBase onClick={() => setOpen(!isOpen)}>
               {!isOpen ? (
                 <BurgerIcon width="40" height="40" />
@@ -101,22 +110,12 @@ export const LayoutHeader: React.VFC<LayoutHeaderProps> = (props) => {
             <Paper
               className={styles.menuMobileInner}
               style={{ display: isOpen ? 'block' : 'none' }}
-              ref={ref}
             >
               {LINKS.map((link, index) => (
                 <div className={styles.menuMobileItem} key={String(index)}>
                   <Link className={styles.navLink} {...link} />
                 </div>
               ))}
-              <Button
-                variant="contained"
-                color="secondary"
-                as="a"
-                href={config.LAUNCH_APP_URL}
-                size="medium"
-              >
-                Launch App
-              </Button>
             </Paper>
           </div>
         </Grid.Row>
