@@ -30,16 +30,7 @@ const DATA = [
     completed: false
   },
   {
-    title: 'Strategic round',
-    description: `3% unlock on TGE, 7.5% monthly per block unlock thereafter.`,
-    price: '$0.025',
-    amount: '40m tokens',
-    value: '$1,000,000',
-    valuation: '$25,000,000',
-    completed: false
-  },
-  {
-    title: 'Public round',
+    title: 'IDO',
     description: `100% unlock on TGE.`,
     price: '$0.03',
     amount: '10m tokens',
