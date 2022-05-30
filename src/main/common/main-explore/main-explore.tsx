@@ -54,11 +54,11 @@ export const MainExplore: React.VFC<MainExploreProps> = (props) => {
                   <Typography className={styles.listItemTitle}>
                     Initial circulating supply
                   </Typography>
-                  <Typography family="mono">36,900,000 DFH (3,69%)</Typography>
+                  <Typography family="mono">34,000,000 DFH (3.4%)</Typography>
                 </li>
                 <li className={styles.listItem}>
                   <Typography className={styles.listItemTitle}>
-                    3.69% of total supply will be in circulation upon launch
+                    3.4% of total supply will be in circulation upon launch
                   </Typography>
                 </li>
                 <li className={styles.listItem}>

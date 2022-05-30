@@ -70,7 +70,7 @@ export const TokenomicsHeader: React.VFC<TokenomicsHeaderProps> = (props) => {
               variant="h4"
               className={styles.factoidSubtitle}
             >
-              36,900,000 DFH (3,69%)
+              34,000,000 DFH (3,4%)
             </Typography>
           </div>
           <div className={styles.col}>
