@@ -28,6 +28,7 @@ build:
     KUBERNETES_CPU_LIMIT: 2
     KUBERNETES_MEMORY_REQUEST: 2048Mi
     KUBERNETES_MEMORY_LIMIT: 4096Mi
+    APP_NAME: "app"
   rules:
     - if: $CI_COMMIT_REF_NAME == "master"
       variables:
