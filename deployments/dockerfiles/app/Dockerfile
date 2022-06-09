@@ -14,7 +14,8 @@ ARG REACT_APP_DEMO_LINK
 RUN apk --update add git
 COPY package*.json ./
 RUN npm install -g husky cross-env
-RUN npm ci
+#RUN npm ci
+RUN npm i
 COPY . .
 RUN npm run build
 
