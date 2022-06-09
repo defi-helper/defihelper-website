@@ -25,3 +25,7 @@ export const title = style({
 export const description = style({
   color: theme.palette.grey1
 });
+
+export const icon = style({
+  marginBottom: 25
+});
