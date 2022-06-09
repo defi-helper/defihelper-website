@@ -31,7 +31,12 @@ const BODY = {
   'Portfolio tracker': [1, 1, 1, 1, 0],
   'Auto-staking': [1, 0, 0, 0, 1],
   'Smart notifications': [1, 0, 0, 0, 0],
-  'No-code automation': [1, 1, 0, 0, 0]
+  'No-code automation': [1, 1, 0, 0, 0],
+  'Buy LP': [1, 0, 0, 0, 0],
+  'Integration with CEXes': [1, 0, 0, 0, 0],
+  'Offline tracking': [1, 0, 0, 0, 0],
+  Bridges: [1, 1, 1, 0, 1],
+  'Trailing stop loss / take profit': [1, 0, 0, 0, 0]
 };
 
 export const MainTable: React.VFC<MainTableProps> = (props) => {
