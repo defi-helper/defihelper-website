@@ -24,14 +24,13 @@ export const Contracts: React.VFC = () => {
             {Object.entries(contract).map(([contractName, { address }]) => (
               <div key={contractName} className={styles.section}>
                 <Typography>{contractName}</Typography>
-
-                <Link
-                    href={networksConfig[network]?.explorerUrl + `/address/${address}`}
-                    target="_blank"
-                    className={styles.addressLink}
-                  >
-                  <MarkdownCode value={address}>{address}</MarkdownCode>
-                </Link>
+                  <MarkdownCode value={address}>
+                    <Link
+                      href={networksConfig[network]?.explorerUrl + `/address/${address}`}
+                      target="_blank"
+                      className={styles.addressLink}
+                    >{address}</Link>
+                </MarkdownCode>
               </div>
             ))}
           </div>

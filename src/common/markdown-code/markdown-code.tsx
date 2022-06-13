@@ -16,10 +16,7 @@ export const MarkdownCode: React.FC<MarkdownCodeProps> = (props) => {
       <code>{props.value}</code>
       <ButtonBase
         className={styles.button}
-        onClick={(e) => {
-          e.preventDefault();
-          copyToClipboard(props.value);
-        }}
+        onClick={() => copyToClipboard(props.value)}
       >
         {state.value && <>copied</>}
         {!state.value && <>copy</>}
