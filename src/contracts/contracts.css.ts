@@ -6,6 +6,10 @@ export const header = style({
   marginBottom: 20
 });
 
+export const addressLink = style({
+  width: '100%'
+});
+
 export const section = style({
   marginLeft: 40,
 
