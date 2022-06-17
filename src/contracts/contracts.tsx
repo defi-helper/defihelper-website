@@ -8,8 +8,8 @@ import { Grid } from 'src/common/grid';
 import { Typography } from 'src/common/typography';
 import { Head } from 'src/common/head';
 
-import * as styles from './contracts.css';
 import { Link } from 'src/common/link';
+import * as styles from './contracts.css';
 
 export const Contracts: React.VFC = () => {
   return (
@@ -24,13 +24,13 @@ export const Contracts: React.VFC = () => {
             {Object.entries(contract).map(([contractName, { address }]) => (
               <div key={contractName} className={styles.section}>
                 <Typography>{contractName}</Typography>
-                  <MarkdownCode value={address}>
-                    <Link
-                      href={networksConfig[network]?.explorerUrl + `/address/${address}`}
-                      target="_blank"
-                      className={styles.addressLink}
-                    >{address}</Link>
-                </MarkdownCode>
+                <Link
+                  href={`${networksConfig[network]?.explorerUrl}/address/${address}`}
+                  target="_blank"
+                  className={styles.addressLink}
+                >
+                  <MarkdownCode value={address}>{address}</MarkdownCode>
+                </Link>
               </div>
             ))}
           </div>
