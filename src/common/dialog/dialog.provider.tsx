@@ -66,7 +66,7 @@ export const DialogProvider: React.FC = (props) => {
             className={styles.root}
           >
             <node.Dialog
-              {...node.props}
+              {...(node.props as Record<string, unknown>)}
               onCancel={handleClose(node.id)}
               onConfirm={handleOnConfirm(node.id)}
             />
