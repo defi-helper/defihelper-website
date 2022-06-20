@@ -16,25 +16,27 @@ export const Contracts: React.VFC = () => {
     <LandingLayout>
       <Head title="Contracts" />
       <Grid.Container variant="md">
-        {Object.entries(contracts).map(([network, contract]) => (
-          <div key={network}>
-            <Typography variant="h3" className={styles.header}>
-              {networksConfig[network]?.title}
-            </Typography>
-            {Object.entries(contract).map(([contractName, { address }]) => (
-              <div key={contractName} className={styles.section}>
-                <Typography>{contractName}</Typography>
-                <Link
-                  href={`${networksConfig[network]?.explorerUrl}/address/${address}`}
-                  target="_blank"
-                  className={styles.addressLink}
-                >
-                  <MarkdownCode value={address}>{address}</MarkdownCode>
-                </Link>
-              </div>
-            ))}
-          </div>
-        ))}
+        {Object.entries(contracts)
+          .filter(([network]) => networksConfig[network])
+          .map(([network, contract]) => (
+            <div key={network}>
+              <Typography variant="h3" className={styles.header}>
+                {networksConfig[network]?.title}
+              </Typography>
+              {Object.entries(contract).map(([contractName, { address }]) => (
+                <div key={contractName} className={styles.section}>
+                  <Typography>{contractName}</Typography>
+                  <Link
+                    href={`${networksConfig[network]?.explorerUrl}/address/${address}`}
+                    target="_blank"
+                    className={styles.addressLink}
+                  >
+                    <MarkdownCode value={address}>{address}</MarkdownCode>
+                  </Link>
+                </div>
+              ))}
+            </div>
+          ))}
       </Grid.Container>
     </LandingLayout>
   );
