@@ -22,9 +22,8 @@ export const MainHeader: React.VFC<MainHeaderProps> = (props) => {
         <Grid.Row>
           <div className={styles.text}>
             <img src={logo} alt="" className={styles.logo} />
-            <Typography variant="h2" className={styles.subtitle} align="center">
-              Automate your DeFi strategies across chains, earn more with our
-              auto-staking feature
+            <Typography variant="h1" className={styles.subtitle} align="center">
+              DeFi Yield Aggregator & Yield Optimizer
             </Typography>
             <Typography
               family="mono"
