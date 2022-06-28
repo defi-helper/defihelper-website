@@ -11,6 +11,7 @@ import * as styles from './main-header.css';
 export type MainHeaderProps = {
   className?: string;
   portfoliosCount: number;
+  walletsCount: number;
   protocolsCount: number;
   contractsCount: number;
 };
@@ -32,6 +33,7 @@ export const MainHeader: React.VFC<MainHeaderProps> = (props) => {
               className={styles.counters}
             >
               <div>{props.portfoliosCount} portfolios</div>
+              <div>{props.walletsCount} wallets</div>
               <div>{props.contractsCount} staking contracts</div>
               <div>{props.protocolsCount} protocols connected</div>
             </Typography>
