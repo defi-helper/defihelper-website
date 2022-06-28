@@ -15,9 +15,6 @@ export type HeadProps = {
 
 const SITE_URL = 'https://defihelper.io';
 
-const SITE_DESCRIPTION =
-  'Automate your DeFi strategies across chains, earn more with our auto-staking feature';
-
 export const Head: React.FC<HeadProps> = (props) => {
   const siteTitle = [props.title ?? 'Portfolio Tracker', 'DeFiHelper'].join(
     ' | '
@@ -28,19 +25,19 @@ export const Head: React.FC<HeadProps> = (props) => {
   const {
     ogImage = opengraph,
     ogUrl = SITE_URL,
-    description = SITE_DESCRIPTION,
     keywords = undefined,
-    status = 200
+    status = 200,
+    description
   } = props;
 
   const image = [ogUrl, ogImage].join('');
-
   const url = [ogUrl, location.pathname].join('');
 
   return (
     <Helmet>
       <title>{siteTitle}</title>
       {keywords && <meta name="keywords" content={keywords.join(',')} />}
+      <meta property="description" content={description} />
       <meta property="og:title" content={siteTitle} />
       <meta property="og:title" content={siteTitle} />
       <meta name="twitter:description" content={description} />
