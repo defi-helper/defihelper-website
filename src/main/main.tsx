@@ -136,7 +136,20 @@ export const Main: React.VFC = () => {
 
   return (
     <LandingLayout>
-      <Head title="Autopilot for your DeFi portfolio" />
+      <Head
+        title="Yield Aggregator & Yield Optimizer"
+        keywords={[
+          'Yield Aggregator',
+          'Yield Optimizer',
+          'defihelper',
+          'cross chain yield aggregator',
+          'best yield aggregator',
+          'best yiled optimizer',
+          'yield aggregator crypto',
+          'auto compound yield farming'
+        ]}
+        description="Best Cross-chain Yield Aggregator and Yield Optimizer for crypto. Automate your DeFi strategies across chains, earn more with our auto-staking feature"
+      />
       <MainHeader
         className={styles.header}
         portfoliosCount={treasuryData?.treasury.portfoliosCount ?? 0}

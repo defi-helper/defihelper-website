@@ -13,7 +13,19 @@ export type PortfolioManagerProps = unknown;
 export const PortfolioManager: React.VFC<PortfolioManagerProps> = () => {
   return (
     <LandingLayout>
-      <Head title="Portfolio manager" />
+      <Head
+        keywords={[
+          'crypto portfolio manager',
+          'best crypto portfolio manager',
+          'cryptocurrency portfolio management',
+          'crypto portfolio management app',
+          'crypto trading portfolio management',
+          'managing crypto portfolio',
+          'crypto portfolio management system'
+        ]}
+        title="Best Crypto Portfolio Manager"
+        description="DeFi Helper - Best App for Managing Crypto Portfolio. Best cryptocurrency portfolio manager with investment recommendations and management. "
+      />
       <Grid.Container className={clsx(styles.header, styles.mb)}>
         <Typography
           variant="h1"
@@ -21,7 +33,7 @@ export const PortfolioManager: React.VFC<PortfolioManagerProps> = () => {
           transform="uppercase"
           className={styles.title}
         >
-          Portfolio manager
+          Best Cryptocurrency Portfolio Manager
         </Typography>
         <PortfolioManagerScheme className={styles.scheme} />
       </Grid.Container>

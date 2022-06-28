@@ -41,7 +41,18 @@ const TEXTS = [
 export const PortfolioTracker: React.VFC<PortfolioTrackerProps> = () => {
   return (
     <LandingLayout>
-      <Head title="Portfolio tracker" />
+      <Head
+        keywords={[
+          'Crypto Portfolio tracker',
+          'best crypto portfolio tracker',
+          'binance portfolio tracker',
+          'cryptocurrency portfolio tracker',
+          'portfolio tracker crypto',
+          'track your crypto portfolio'
+        ]}
+        title="Best Crypto Portfolio Tracker"
+        description="Best Way to Track Crypto Portfolio for free - DeFiHelper Crypto Portfrolio Tracker. Track your crypto portfolio everywhere - Wallets, DeFi Protocols, CEXes. "
+      />
       <Grid.Container className={clsx(styles.header, styles.mb)}>
         <Typography
           variant="h1"
@@ -49,7 +60,7 @@ export const PortfolioTracker: React.VFC<PortfolioTrackerProps> = () => {
           transform="uppercase"
           className={styles.title}
         >
-          Portfolio tracker
+          Free Crypto Portfolio Tracker
         </Typography>
         <PortfolioTrackerScheme />
       </Grid.Container>

@@ -9,6 +9,7 @@ export type HeadProps = {
   description?: string;
   ogImage?: string;
   ogUrl?: string;
+  keywords?: string[];
   status?: number;
 };
 
@@ -18,7 +19,9 @@ const SITE_DESCRIPTION =
   'Automate your DeFi strategies across chains, earn more with our auto-staking feature';
 
 export const Head: React.FC<HeadProps> = (props) => {
-  const siteTitle = ['DeFiHelper', props.title].filter(Boolean).join(' - ');
+  const siteTitle = [props.title ?? 'Portfolio Tracker', 'DeFiHelper'].join(
+    ' | '
+  );
 
   const location = useLocation();
 
@@ -26,6 +29,7 @@ export const Head: React.FC<HeadProps> = (props) => {
     ogImage = opengraph,
     ogUrl = SITE_URL,
     description = SITE_DESCRIPTION,
+    keywords = undefined,
     status = 200
   } = props;
 
@@ -36,6 +40,9 @@ export const Head: React.FC<HeadProps> = (props) => {
   return (
     <Helmet>
       <title>{siteTitle}</title>
+      {keywords && <meta name="keywords" content={keywords.join(',')} />}
+      <meta property="description" content={description} />
+      <meta property="og:title" content={siteTitle} />
       <meta property="og:title" content={siteTitle} />
       <meta name="twitter:description" content={description} />
       <meta property="og:description" content={description} />
