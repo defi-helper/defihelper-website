@@ -6,6 +6,7 @@ export const TREASURY = gql`
       portfoliosCount
       protocolsCount
       contractsCount
+      walletsCount
     }
   }
 `;
