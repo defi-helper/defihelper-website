@@ -153,6 +153,7 @@ export const Main: React.VFC = () => {
       <MainHeader
         className={styles.header}
         portfoliosCount={treasuryData?.treasury.portfoliosCount ?? 0}
+        walletsCount={treasuryData?.treasury.walletsCount ?? 0}
         protocolsCount={treasuryData?.treasury.protocolsCount ?? 0}
         contractsCount={treasuryData?.treasury.contractsCount ?? 0}
       />
