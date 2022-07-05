@@ -114,5 +114,6 @@ interface Window {
     request?: (arg: object) => Promise<void>;
   };
   dataLayer?: string[];
+  amplitude?: { logEvent: (name: string, params: Object) => void };
   ym?: (id: number, type: string, event: string) => void;
 }

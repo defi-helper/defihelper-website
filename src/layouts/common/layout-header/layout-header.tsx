@@ -17,6 +17,7 @@ import { ReactComponent as CloseBurgerIcon } from 'src/assets/icons/close-burger
 import { Button } from 'src/common/button';
 import { config } from 'src/config';
 import { Paper } from 'src/common/paper';
+import { analytics } from 'src/analytics';
 import * as styles from './layout-header.css';
 
 export type LayoutHeaderProps = {
@@ -86,6 +87,7 @@ export const LayoutHeader: React.VFC<LayoutHeaderProps> = (props) => {
               as="a"
               href={config.LAUNCH_APP_URL}
               size="medium"
+              onClick={() => analytics.send('header_launch_app_click')}
             >
               Launch App
             </Button>
@@ -97,6 +99,7 @@ export const LayoutHeader: React.VFC<LayoutHeaderProps> = (props) => {
               as="a"
               href={config.LAUNCH_APP_URL}
               size="small"
+              onClick={() => analytics.send('header_launch_app_click')}
             >
               Launch App
             </Button>

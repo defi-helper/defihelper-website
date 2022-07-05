@@ -1,6 +1,7 @@
 import clsx from 'clsx';
 import React from 'react';
 import { Link as ReactRouterLink } from 'react-router-dom';
+import { analytics } from 'src/analytics';
 
 import dfhlogo from 'src/assets/images/dfh-logo.png';
 import { Button } from 'src/common/button';
@@ -42,6 +43,7 @@ export const MainExplore: React.VFC<MainExploreProps> = (props) => {
                 className={clsx(styles.button, styles.explore)}
                 as={ReactRouterLink}
                 to={URLS.tokenomics}
+                onClick={() => analytics.send('main_expore_dfh_click')}
               >
                 Explore DFH
               </Button>

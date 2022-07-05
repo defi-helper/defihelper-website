@@ -11,6 +11,7 @@ import { ReactComponent as CakeIcon } from 'src/assets/icons/protocols/cake.svg'
 import { GovTokenCirculationType } from 'src/graphql/_generated-hooks';
 import { bignumberUtils } from 'src/common/bignumber-utils';
 import { config } from 'src/config';
+import { analytics } from 'src/analytics';
 import * as styles from './tokenomics-how-to.css';
 
 export type TokenomicsHowToProps = {
@@ -118,6 +119,7 @@ const DATA = [
             variant="outlined"
             href="mailto:hello@defihelper.io"
             target="_blank"
+            onClick={() => analytics.send('main_join_our_team_click')}
           >
             Join our team
           </Button>

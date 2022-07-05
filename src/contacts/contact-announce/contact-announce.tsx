@@ -6,6 +6,7 @@ import { Dialog } from 'src/common/dialog';
 import { contactsApi } from '../common/contacts-api';
 import * as styles from './contact-announce.css';
 import { useContactForm } from '../common/contact-form';
+import { analytics } from 'src/analytics';
 
 export type ContactAnnounceProps = {
   open: boolean;
@@ -53,6 +54,7 @@ export const ContactAnnounce: React.VFC<ContactAnnounceProps> = (props) => {
           className={styles.button}
           type="submit"
           loading={formik.isSubmitting}
+          onClick={() => analytics.send('footer_pop_up_notify_me_click')}
         >
           Notify me
         </Button>

@@ -5,6 +5,7 @@ import { Typography } from 'src/common/typography';
 import { Grid } from 'src/common/grid';
 import { Paper } from 'src/common/paper';
 import { Button } from 'src/common/button';
+import { analytics } from 'src/analytics';
 import * as styles from './main-editor.css';
 
 export type MainEditorProps = {
@@ -54,6 +55,7 @@ export const MainEditor: React.VFC<MainEditorProps> = (props) => {
               as="a"
               href="mailto:hello@defihelper.io"
               target="_blank"
+              onClick={() => analytics.send('main_join_our_team_click')}
             >
               Join our team
             </Button>
