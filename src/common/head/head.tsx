@@ -41,8 +41,7 @@ export const Head: React.FC<HeadProps> = (props) => {
     <Helmet>
       <title>{siteTitle}</title>
       {keywords && <meta name="keywords" content={keywords.join(',')} />}
-      <meta property="description" content={description} />
-      <meta property="og:title" content={siteTitle} />
+      <meta name="description" content={description} />
       <meta property="og:title" content={siteTitle} />
       <meta name="twitter:description" content={description} />
       <meta property="og:description" content={description} />

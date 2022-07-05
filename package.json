@@ -6,7 +6,7 @@
     "@amcharts/amcharts4": "^4.10.22",
     "@babel/core": "7.14.3",
     "@binance-chain/bsc-connector": "^1.0.0",
-    "@defihelper/networks": "^1.0.4",
+    "@defihelper/networks": "^1.0.11",
     "@graphql-codegen/add": "^2.0.2",
     "@graphql-codegen/cli": "1.21.3",
     "@graphql-codegen/fragment-matcher": "2.0.1",
@@ -114,7 +114,6 @@
     "node-polyfill-webpack-plugin": "^1.1.2",
     "node-rsa": "^1.1.1",
     "normalize.css": "^8.0.1",
-    "optimize-css-assets-webpack-plugin": "6.0.0",
     "pnp-webpack-plugin": "1.6.4",
     "polished": "^4.0.3",
     "postcss-flexbugs-fixes": "5.0.2",
@@ -131,7 +130,7 @@
     "react-dev-utils": "^11.0.4",
     "react-dom": "^17.0.2",
     "react-helmet-async": "^1.0.7",
-    "react-jazzicon": "^0.1.3",
+    "react-jazzicon": "1.0.4",
     "react-jss": "^10.4.0",
     "react-markdown": "^5.0.3",
     "react-router-dom": "^5.2.0",
@@ -171,7 +170,7 @@
     "workbox-routing": "^5.1.4",
     "workbox-strategies": "^5.1.4",
     "workbox-streams": "^5.1.4",
-    "workbox-webpack-plugin": "6.1.5"
+    "workbox-webpack-plugin": "^6.5.3"
   },
   "scripts": {
     "start": "node scripts/start.js",

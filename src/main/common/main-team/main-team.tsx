@@ -9,7 +9,6 @@ import { Carousel } from 'src/common/carousel';
 import { Button } from 'src/common/button';
 import vlad_komissarov from 'src/assets/images/team/vlad_komissarov.png';
 import artem_tolkachev from 'src/assets/images/team/artem_tolkachev.png';
-import igor_varnavsky from 'src/assets/images/team/igor_varnavsky.jpg';
 import ben_ashworth from 'src/assets/images/team/ben_ashworth.jpg';
 import join_us from 'src/assets/images/team/join_us.png';
 import ilya_munerman from 'src/assets/images/team/ilya_munerman.jpeg';
@@ -72,29 +71,6 @@ const TEAM: Array<Team> = [
       <ButtonBase
         as={Link}
         href="https://linkedin.com/in/artemtolkachev/"
-        target="_blank"
-      >
-        <LinkedInIcon />
-      </ButtonBase>
-    ]
-  },
-  {
-    photo: igor_varnavsky,
-    name: 'Igor Varnavsky',
-    role: 'CMO',
-    description:
-      'A long-time crypto proponent, Igor has 17 years of experience in journalism and 11 years of experience in marketing. He has previously worked at Mango.Rocks, VK',
-    actions: [
-      <ButtonBase
-        as={Link}
-        href="https://twitter.com/IgorVarnavsky"
-        target="_blank"
-      >
-        <TwitterIcon />
-      </ButtonBase>,
-      <ButtonBase
-        as={Link}
-        href="https://www.linkedin.com/in/igor-varnavsky-9868aa1/"
         target="_blank"
       >
         <LinkedInIcon />
