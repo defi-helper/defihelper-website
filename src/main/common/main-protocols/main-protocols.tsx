@@ -10,6 +10,7 @@ import { config } from 'src/config';
 import { URLS } from 'src/router/urls';
 import { MainChip } from 'src/main/common/main-chip';
 import * as styles from './main-protocols.css';
+import { analytics } from 'src/analytics';
 
 type Protocol = {
   id: string;
@@ -64,6 +65,7 @@ export const MainProtocols: React.VFC<MainProtocolsProps> = (props) => {
             as={Link}
             target="_blank"
             href={`${config.LAUNCH_APP_URL}roadmap?tag=protocolRequest`}
+            onClick={() => analytics.send('main_suggest_protocol_click')}
           >
             + suggest protocol
           </Button>

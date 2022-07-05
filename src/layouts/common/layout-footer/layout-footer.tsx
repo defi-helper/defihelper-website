@@ -18,6 +18,7 @@ import { config } from 'src/config';
 import { URLS } from 'src/router/urls';
 import { useContactForm } from 'src/contacts/common/contact-form';
 import { Input } from 'src/common/input';
+import { analytics } from 'src/analytics';
 import * as styles from './layout-footer.css';
 
 export type LayoutFooterProps = {
@@ -193,6 +194,7 @@ export const LayoutFooter: React.VFC<LayoutFooterProps> = (props) => {
               color="secondary"
               type="submit"
               loading={formik.isSubmitting}
+              onClick={() => analytics.send('footer_join_mailing_list_click')}
             >
               Join Mailing List
             </Button>
@@ -291,6 +293,7 @@ export const LayoutFooter: React.VFC<LayoutFooterProps> = (props) => {
               as="a"
               href="mailto:hello@defihelper.io"
               target="_blank"
+              onClick={() => analytics.send('footer_apply_click')}
             >
               Apply
             </Button>

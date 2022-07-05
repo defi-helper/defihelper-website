@@ -1,4 +1,5 @@
 import React from 'react';
+import { analytics } from 'src/analytics';
 
 import { useDialog } from 'src/common/dialog';
 import { contactsApi } from 'src/contacts/common/contacts-api';
@@ -12,6 +13,7 @@ export const LandingLayout: React.FC = (props) => {
   const [openSuccess] = useDialog(ContactSuccess);
 
   const handleOpenAnnounce = async () => {
+    analytics.send('footer_subscribe_click');
     try {
       const name = await openAnnouce();
 

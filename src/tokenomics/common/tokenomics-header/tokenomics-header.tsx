@@ -10,6 +10,7 @@ import { config } from 'src/config';
 import tokenomics from 'src/assets/images/tokenomics.png';
 import tokenomicsMobile from 'src/assets/images/tokenomics-mobile.png';
 import * as styles from './tokenomics-header.css';
+import { analytics } from 'src/analytics';
 
 export type TokenomicsHeaderProps = {
   className?: string;
@@ -50,6 +51,7 @@ export const TokenomicsHeader: React.VFC<TokenomicsHeaderProps> = (props) => {
               as="a"
               href={config.LAUNCH_APP_URL}
               className={styles.launchButton}
+              onClick={() => analytics.send('header_launch_app_click')}
             >
               Launch App
             </Button>
