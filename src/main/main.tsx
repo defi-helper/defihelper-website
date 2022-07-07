@@ -160,7 +160,7 @@ export const Main: React.VFC = () => {
       <Video
         className={styles.section}
         title="WHAT IS DEFIHELPER?"
-        videoId="DkIH_DMhgcs"
+        videoId="VYgoIHapVEM"
       />
       <MainChart
         className={styles.section}
