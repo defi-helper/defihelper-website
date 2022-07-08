@@ -94,34 +94,13 @@ export const MainChart: React.VFC<MainChartProps> = (props) => {
         </div>
         <div className={styles.grid}>
           <MainChartCard
-            title="Restake manually"
-            color="restake"
-            sum={lastRestakeValue?.v}
-            apy={bignumberUtils.mul(
-              bignumberUtils.div(
-                bignumberUtils.minus(lastRestakeValue?.v, props.sum),
-                props.sum
-              ),
-              100
-            )}
-            description={
-              <>
-                With manual restaking, you may lose more than you could have
-                earned due to high transaction fees and price fluctuations
-              </>
-            }
-            dataFields={DATA_FIELDS}
-            data={data ?? []}
-            id="restake"
-          />
-          <MainChartCard
             title="Just hold"
             color="hold"
             apy={props.apy}
             sum={lastHoldValue?.v}
             description={
               <>
-                By just holding your tokens on a contract, you may lose your
+                By just holding your bag on contract you will lost possible
                 compound interest
               </>
             }
@@ -142,15 +121,15 @@ export const MainChart: React.VFC<MainChartProps> = (props) => {
             sum={lastAutostakingValue?.v}
             description={
               <>
-                The auto-staking feature increases your profits by restaking
-                tokens exactly when rewards are higher than the fees.{' '}
+                Autostaking feature increases your rewards by restaking your bag
+                in right time when rewards is optimal over fees.{' '}
                 <Link
                   target="_blank"
                   href={articleEN}
                   className={styles.howItWorks}
                   underline="always"
                 >
-                  How it works in detail
+                  How it works in detail?
                 </Link>
               </>
             }

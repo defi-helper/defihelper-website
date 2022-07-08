@@ -56,8 +56,8 @@ export const grid = style({
 
   '@media': {
     [theme.mediaQueries.lg()]: {
-      gridTemplateColumns: '1fr 1fr 1fr',
-      gridGap: 156
+      gridTemplateColumns: '1fr 1fr',
+      gridGap: 128
     }
   }
 });
