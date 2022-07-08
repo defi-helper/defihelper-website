@@ -145,7 +145,7 @@ export const MainChartCard: React.VFC<MainChartCardProps> = (props) => {
         </Typography>
       </div>
       <div className={styles.chart} id={id} />
-      <Typography variant="body2" className={styles.grey}>
+      <Typography variant="body2" className={styles.description}>
         {props.description}
       </Typography>
     </div>
