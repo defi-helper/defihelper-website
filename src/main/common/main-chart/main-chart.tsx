@@ -36,7 +36,6 @@ const DATA_FIELDS = [
 ];
 
 type ChartData = {
-  restake: number;
   hold: number;
   autostaking: number;
   date: number;
@@ -48,7 +47,6 @@ export const MainChart: React.VFC<MainChartProps> = (props) => {
       return [
         ...acc,
         {
-          restake: everyDayItem.v,
           hold: props.data?.hold[index]?.v ?? 0,
           autostaking: props.data?.optimal[index]?.v ?? 0,
           date: everyDayItem.t
@@ -59,7 +57,6 @@ export const MainChart: React.VFC<MainChartProps> = (props) => {
   );
 
   const [lastHoldValue] = props.data?.hold.slice(-1) ?? [];
-  const [lastRestakeValue] = props.data?.everyDay.slice(-1) ?? [];
   const [lastAutostakingValue] = props.data?.optimal.slice(-1) ?? [];
 
   return (
