@@ -24,7 +24,7 @@ import { config } from 'src/config';
 import * as styles from './main-chart-card.css';
 
 export type MainChartCardProps = {
-  color: 'hold' | 'restake' | 'autostaking';
+  color: 'hold' | 'autostaking';
   title: React.ReactNode;
   apy: string | number;
   sum: string | number;
@@ -46,7 +46,6 @@ if (config.AMCHARTS_LICENCE) {
 const GREY_STROKE_COLOR = color('#444848');
 const STROKES = {
   hold: '#977854',
-  restake: '#E35137',
   autostaking: '#CCFF3C'
 };
 
