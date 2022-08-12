@@ -1,4 +1,4 @@
-import { composeStyles, style } from '@vanilla-extract/css';
+import { style } from '@vanilla-extract/css';
 
 import { theme } from 'src/common/theme';
 
@@ -83,7 +83,7 @@ export const subtitle = style({
   color: theme.palette.grey1
 });
 
-export const text = composeStyles(
+export const text = style([
   col,
   style({
     marginTop: 'auto',
@@ -97,7 +97,7 @@ export const text = composeStyles(
       }
     }
   })
-);
+]);
 
 export const grid = style({
   display: 'grid',

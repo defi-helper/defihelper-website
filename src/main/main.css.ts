@@ -77,3 +77,13 @@ export const nocodeText = style({
 export const nocodeGreenText = style({
   color: theme.palette.green1
 });
+
+export const security = style({
+  marginBottom: 32,
+
+  '@media': {
+    [theme.mediaQueries.md()]: {
+      marginBottom: 80
+    }
+  }
+});

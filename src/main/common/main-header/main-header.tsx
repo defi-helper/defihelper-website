@@ -6,6 +6,8 @@ import { Typography } from 'src/common/typography';
 import logo from 'src/assets/images/logo.png';
 import { Button } from 'src/common/button';
 import { config } from 'src/config';
+import { ButtonBase } from 'src/common/button-base';
+import { ReactComponent as PlayIcon } from 'src/assets/icons/play.svg';
 import * as styles from './main-header.css';
 
 export type MainHeaderProps = {
@@ -24,7 +26,7 @@ export const MainHeader: React.VFC<MainHeaderProps> = (props) => {
           <div className={styles.text}>
             <img src={logo} alt="" className={styles.logo} />
             <Typography variant="h1" className={styles.subtitle} align="center">
-              DeFi Yield Aggregator & Yield Optimizer
+              Earn more with smart trading and automatic portfolio management
             </Typography>
             <Typography
               family="mono"
@@ -49,6 +51,10 @@ export const MainHeader: React.VFC<MainHeaderProps> = (props) => {
                   Demo account
                 </Button>
               )}
+              <ButtonBase className={styles.watchPromo}>
+                <PlayIcon />
+                watch promo
+              </ButtonBase>
             </div>
           </div>
         </Grid.Row>

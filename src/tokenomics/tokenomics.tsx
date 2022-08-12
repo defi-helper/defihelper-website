@@ -1,4 +1,3 @@
-import { useMedia } from 'react-use';
 import React from 'react';
 
 import { useDialog } from 'src/common/dialog';
@@ -7,7 +6,6 @@ import { useGovTokenQuery } from 'src/graphql/_generated-hooks';
 import { LandingLayout } from 'src/layouts';
 import { LinkDialog } from 'src/common/link-dialog';
 import { FaqText } from 'src/common/faq-text';
-import { CollectedProgress } from 'src/collected-progress';
 import { Head } from 'src/common/head';
 import {
   TokenomicsHeader,
@@ -26,8 +24,6 @@ const NETWORK = config.IS_DEV ? 3 : 1;
 const CONTRACT_ADDRESS = '0xa57fEd13d1558116E90009f872AeC868D710D605';
 
 export const Tokenomics: React.VFC<TokenomicsProps> = () => {
-  const isDesktop = useMedia('(min-width: 960px)');
-
   const [{ data }] = useGovTokenQuery({
     variables: {
       filter: {

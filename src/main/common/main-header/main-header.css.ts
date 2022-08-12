@@ -1,4 +1,4 @@
-import { composeStyles, style } from '@vanilla-extract/css';
+import { style } from '@vanilla-extract/css';
 
 import { theme } from 'src/common/theme';
 
@@ -36,7 +36,7 @@ export const subtitle = style({
 
   '@media': {
     [theme.mediaQueries.lg()]: {
-      fontSize: 32,
+      fontSize: 35,
       lineHeight: '42px'
     },
 
@@ -49,7 +49,7 @@ export const subtitle = style({
 
 export const actions = style({
   display: 'flex',
-  gap: 10,
+  gap: 32,
   flexDirection: 'column',
 
   '@media': {
@@ -59,7 +59,19 @@ export const actions = style({
   }
 });
 
-export const text = composeStyles(
+export const watchPromo = style({
+  color: theme.palette.blue,
+  fontSize: 20,
+  lineHeight: '28px',
+  textTransform: 'uppercase',
+  fontFamily: theme.fonts.mono,
+  display: 'flex',
+  gap: 8,
+  alignItems: 'center',
+  padding: '12px 14px'
+});
+
+export const text = style([
   col,
   style({
     display: 'flex',
@@ -72,7 +84,7 @@ export const text = composeStyles(
       }
     }
   })
-);
+]);
 
 export const logo = style({
   maxWidth: '100%',

@@ -10,3 +10,6 @@ export * from './main-blockchains';
 export * from './main-partners';
 export * from './main-investors';
 export * from './main-medium';
+export * from './main-join-community';
+export * from './main-security';
+export * from './main-earn';
