@@ -20,7 +20,7 @@ import {
 } from 'src/main/common';
 import { InvestHero } from './common/invest-hero';
 import { InvestHowWorks } from './common/invest-how-works';
-import { InvestPools } from './common/invest-pools';
+import { InvestPools } from './invest-pools';
 import { InvestWhy } from './common/invest-why';
 import * as styles from './invest.css';
 
