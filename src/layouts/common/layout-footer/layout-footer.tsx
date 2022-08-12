@@ -2,12 +2,6 @@ import clsx from 'clsx';
 import React from 'react';
 
 import { ReactComponent as LogoMini } from 'src/assets/icons/logo-mini.svg';
-import { ReactComponent as TwitterIcon } from 'src/assets/icons/social/twitter.svg';
-import { ReactComponent as GithubIcon } from 'src/assets/icons/social/github.svg';
-import { ReactComponent as MediumIcon } from 'src/assets/icons/social/medium.svg';
-import { ReactComponent as TelegramIcon } from 'src/assets/icons/social/telegram.svg';
-import { ReactComponent as EmailIcon } from 'src/assets/icons/social/email.svg';
-import { ReactComponent as DiscordIcon } from 'src/assets/icons/social/discord.svg';
 import articleEN from 'src/assets/pdf/Math_Behind_DeFiHelper.pdf';
 import articleRU from 'src/assets/pdf/Как_устроен_алгоритм_автостейкинга_DeFiHelper.pdf';
 import { Typography } from 'src/common/typography';
@@ -16,14 +10,12 @@ import { Button } from 'src/common/button';
 import { Link } from 'src/common/link';
 import { config } from 'src/config';
 import { URLS } from 'src/router/urls';
-import { useContactForm } from 'src/contacts/common/contact-form';
-import { Input } from 'src/common/input';
 import { analytics } from 'src/analytics';
+import { SOCIAL } from 'src/common/constants';
 import * as styles from './layout-footer.css';
 
 export type LayoutFooterProps = {
   onSubscribe?: () => void;
-  onSubmit: (formValues: { name: string; email: string }) => Promise<void>;
   className?: string;
 };
 
@@ -90,118 +82,9 @@ const PROTOCOL = [
   }
 ];
 
-const SOCIAL = [
-  {
-    title: 'News channel (EN)',
-    icon: TelegramIcon,
-    link: 'https://t.me/defihelper_news',
-    target: '_blank'
-  },
-  {
-    title: 'News channel (RU)',
-    icon: TelegramIcon,
-    link: 'https://t.me/defihelper_news_ru',
-    target: '_blank'
-  },
-  {
-    title: 'Community chat (EN)',
-    icon: TelegramIcon,
-    link: 'https://t.me/defihelper_chat',
-    target: '_blank'
-  },
-  {
-    title: 'Community chat (RU)',
-    icon: TelegramIcon,
-    link: 'https://t.me/defihelper_chat_ru',
-    target: '_blank'
-  },
-  {
-    title: 'Twitter',
-    icon: TwitterIcon,
-    link: 'https://twitter.com/defihelper',
-    target: '_blank'
-  },
-  {
-    title: 'Discord',
-    icon: DiscordIcon,
-    link: 'https://discord.gg/2sT3bmjPhf',
-    target: '_blank'
-  },
-  {
-    title: 'Medium',
-    icon: MediumIcon,
-    link: 'https://defihelper.medium.com\n',
-    target: '_blank'
-  },
-  {
-    title: 'Github',
-    icon: GithubIcon,
-    link: 'https://github.com/defi-helper',
-    target: '_blank'
-  },
-  {
-    title: 'Email',
-    icon: EmailIcon,
-    link: 'mailto:hello@defihelper.io',
-    target: '_blank'
-  }
-];
-
 export const LayoutFooter: React.VFC<LayoutFooterProps> = (props) => {
-  const formik = useContactForm(props.onSubmit);
-
   return (
     <footer className={clsx(styles.root, props.className)}>
-      <Grid.Container>
-        <Grid.Row
-          className={styles.feedback}
-          onSubmit={formik.handleSubmit}
-          items="center"
-          as="form"
-        >
-          <Typography
-            variant="h4"
-            family="mono"
-            transform="uppercase"
-            className={styles.feedbackText}
-          >
-            Get DeFiHelper Updates to your Inbox
-          </Typography>
-          <div className={styles.feedbackCol}>
-            <Input
-              name="email"
-              placeholder="e.g. hello@defihelper.io"
-              value={formik.values.email}
-              disabled={formik.isSubmitting}
-              onChange={formik.handleChange}
-              className={styles.input}
-              error={Boolean(formik.errors.email)}
-            />
-          </div>
-          <div className={styles.feedbackCol}>
-            <Input
-              name="name"
-              placeholder="name"
-              disabled={formik.isSubmitting}
-              value={formik.values.name}
-              onChange={formik.handleChange}
-              className={styles.input}
-              error={Boolean(formik.errors.name)}
-            />
-          </div>
-          <div className={styles.feedbackButton}>
-            <Button
-              color="secondary"
-              type="submit"
-              loading={formik.isSubmitting}
-              onClick={() => analytics.send('footer_join_mailing_list_click')}
-            >
-              Join Mailing List
-            </Button>
-          </div>
-        </Grid.Row>
-      </Grid.Container>
-      <Grid.Container className={styles.separator} />
       <Grid.Container>
         <Grid.Row>
           <div className={clsx(styles.col, styles.logo)}>
@@ -261,7 +144,7 @@ export const LayoutFooter: React.VFC<LayoutFooterProps> = (props) => {
               variant="body2"
               className={styles.mb}
             >
-              Subscribtion
+              Subscription
             </Typography>
             <Typography
               variant="body2"

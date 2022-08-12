@@ -1,8 +1,7 @@
 import React from 'react';
-import { analytics } from 'src/analytics';
 
+import { analytics } from 'src/analytics';
 import { useDialog } from 'src/common/dialog';
-import { contactsApi } from 'src/contacts/common/contacts-api';
 import { ContactAnnounce } from 'src/contacts/contact-announce';
 import { ContactSuccess } from 'src/contacts/contact-success';
 import { LayoutHeader, LayoutFooter, LayoutContainer } from '../common';
@@ -25,29 +24,11 @@ export const LandingLayout: React.FC = (props) => {
     }
   };
 
-  const handleSubscribe = async (formValues: {
-    name: string;
-    email: string;
-  }) => {
-    try {
-      await contactsApi.sendForm('2', formValues);
-
-      await openSuccess({ name: formValues.name });
-    } catch (error) {
-      if (error instanceof Error) {
-        console.error(error.message);
-      }
-    }
-  };
-
   return (
     <div className={styles.root}>
       <LayoutHeader />
       <LayoutContainer>{props.children}</LayoutContainer>
-      <LayoutFooter
-        onSubscribe={handleOpenAnnounce}
-        onSubmit={handleSubscribe}
-      />
+      <LayoutFooter onSubscribe={handleOpenAnnounce} />
     </div>
   );
 };

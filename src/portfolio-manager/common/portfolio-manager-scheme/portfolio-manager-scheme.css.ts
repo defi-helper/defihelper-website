@@ -1,4 +1,4 @@
-import { composeStyles, style } from '@vanilla-extract/css';
+import { style } from '@vanilla-extract/css';
 
 import { theme } from 'src/common/theme';
 
@@ -56,7 +56,7 @@ export const investmentRecommendation = style({
   }
 });
 
-export const investmentRecommendationText = composeStyles(
+export const investmentRecommendationText = style([
   paperText,
   style({
     '@media': {
@@ -65,7 +65,7 @@ export const investmentRecommendationText = composeStyles(
       }
     }
   })
-);
+]);
 
 export const investmentRecommendationIcon = style({
   width: 51,
@@ -79,7 +79,7 @@ export const investmentRecommendationIcon = style({
   }
 });
 
-export const investmentRecommendationTitle = composeStyles(
+export const investmentRecommendationTitle = style([
   title,
   style({
     '@media': {
@@ -88,7 +88,7 @@ export const investmentRecommendationTitle = composeStyles(
       }
     }
   })
-);
+]);
 
 export const investmentRecommendationDescription = style({
   '@media': {

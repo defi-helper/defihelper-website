@@ -1,4 +1,4 @@
-import { composeStyles, style } from '@vanilla-extract/css';
+import { style } from '@vanilla-extract/css';
 
 import { theme } from 'src/common/theme';
 
@@ -20,19 +20,6 @@ export const grid = style({
   margin: 0,
   listStyle: 'none',
   rowGap: 32
-
-  // '@media': {
-  //   [theme.mediaQueries.md()]: {
-  //     gridTemplateRows: '1fr 1fr 1fr',
-  //     gridTemplateColumns: 'calc(45% - 50px) 55%',
-  //     columnGap: 50
-  //   },
-
-  //   [theme.mediaQueries.lg()]: {
-  //     gridTemplateColumns: 'calc(45% - 112px) 55%',
-  //     columnGap: 112
-  //   }
-  // }
 });
 
 export const gridItem = style({
@@ -54,14 +41,14 @@ export const mb16 = style({
   marginBottom: 16
 });
 
-export const cardDate = composeStyles(mb16, style({}));
+export const cardDate = mb16;
 
-export const cardImg = composeStyles(
+export const cardImg = style([
   mb16,
   style({
     maxWidth: '100%'
   })
-);
+]);
 
 export const cardTitle = style({
   marginBottom: 8

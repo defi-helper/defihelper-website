@@ -13,7 +13,6 @@ import * as styles from './main-explore.css';
 
 export type MainExploreProps = {
   className?: string;
-  onNotify: () => void;
 };
 
 export const MainExplore: React.VFC<MainExploreProps> = (props) => {

@@ -15,5 +15,7 @@ export const URLS = {
   portfolioTracker: '/portfolio-tracker',
   noCode: '/no-code',
   security: '/security',
-  portfolioManager: '/portfolio-manager'
+  portfolioManager: '/portfolio-manager',
+  trade: '/trade',
+  invest: '/invest'
 } as const;

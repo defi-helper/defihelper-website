@@ -1,4 +1,4 @@
-import { composeStyles, style } from '@vanilla-extract/css';
+import { style } from '@vanilla-extract/css';
 
 import { theme } from 'src/common/theme';
 
@@ -39,11 +39,11 @@ export const protocolIcon = style({
   marginRight: 12
 });
 
-export const placeholder = composeStyles(
+export const placeholder = style([
   protocolIcon,
   style({
     background: theme.palette.grey1,
     borderRadius: '50%',
     display: 'block'
   })
-);
+]);
