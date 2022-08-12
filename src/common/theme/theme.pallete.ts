@@ -20,5 +20,7 @@ export const palette = {
   grey2: rgba('#fff', 0.4),
   grey3: rgba('#fff', 0.24),
   grey4: rgba('#fff', 0.16),
+  grey5: '#5e5e5e',
+  grey6: '#8a8f8f',
   red: '#e35137'
 } as const;

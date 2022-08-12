@@ -10,7 +10,6 @@ import { Typography } from '../typography';
 import * as styles from './faq.css';
 
 export type BagFaqProps = {
-  className?: string;
   children: {
     title: string;
     body: string;

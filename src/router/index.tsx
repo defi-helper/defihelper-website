@@ -7,10 +7,8 @@ import Tokenomics from 'src/tokenomics';
 import Contracts from 'src/contracts';
 import Referral from 'src/referral';
 import { Protocols } from 'src/protocols';
-import { PortfolioTracker } from 'src/portfolio-tracker';
-import { PortfolioManager } from 'src/portfolio-manager';
-import { NoCode } from 'src/no-code';
-import { Security } from 'src/security';
+import { Trade } from 'src/trade';
+import { Invest } from 'src/invest';
 import { ScrollToTop } from './scroll-to-top';
 import { URLS } from './urls';
 
@@ -34,17 +32,11 @@ const Router: React.FC = () => {
         <Route path={URLS.protocols}>
           <Protocols />
         </Route>
-        <Route path={URLS.portfolioTracker}>
-          <PortfolioTracker />
+        <Route path={URLS.trade}>
+          <Trade />
         </Route>
-        <Route path={URLS.portfolioManager}>
-          <PortfolioManager />
-        </Route>
-        <Route path={URLS.security}>
-          <Security />
-        </Route>
-        <Route path={URLS.noCode}>
-          <NoCode />
+        <Route path={URLS.invest}>
+          <Invest />
         </Route>
         <Route>
           <NotFound />

@@ -3,6 +3,7 @@ import clsx from 'clsx';
 import Slider from 'react-slick';
 
 import './slick.css';
+import { ButtonBase } from '../button-base';
 import * as styles from './carousel.css';
 
 export type CarouselProps = {
@@ -20,7 +21,13 @@ export const Carousel: React.FC<CarouselProps> = (props) => {
     arrows: false,
     centerMode: true,
     outerEdgeLimit: true,
-    dots: false
+    dots: true,
+    appendDots: (dots: React.ReactNode) => (
+      <div>
+        <ul className={styles.dots}>{dots}</ul>
+      </div>
+    ),
+    customPaging: () => <ButtonBase className={styles.dot} />
   };
 
   const renderChildren = (child: React.ReactElement) => {

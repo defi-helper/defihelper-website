@@ -1,4 +1,4 @@
-import { style, composeStyles } from '@vanilla-extract/css';
+import { style } from '@vanilla-extract/css';
 
 import { theme } from 'src/common/theme';
 
@@ -22,7 +22,7 @@ export const padding = style({
   padding: '0 16px'
 });
 
-export const logo = composeStyles(
+export const logo = style([
   padding,
   style({
     width: 21,
@@ -35,9 +35,9 @@ export const logo = composeStyles(
       }
     }
   })
-);
+]);
 
-export const menuDesktop = composeStyles(
+export const menuDesktop = style([
   padding,
   style({
     marginLeft: 'auto',
@@ -45,11 +45,11 @@ export const menuDesktop = composeStyles(
 
     '@media': {
       [theme.mediaQueries.lg()]: {
-        display: 'block'
+        display: 'flex'
       }
     }
   })
-);
+]);
 
 export const menuMobile = style({
   display: 'flex',
@@ -89,17 +89,21 @@ export const navLink = style({
   textDecoration: 'none',
   fontSize: 12,
   lineHeight: '16px',
+  display: 'block',
+  padding: '8px 30px',
 
   '@media': {
     [theme.mediaQueries.md()]: {
       fontSize: 16,
       lineHeight: '24px'
     }
-  },
-
-  selectors: {
-    '&:not(:last-child)': {
-      marginRight: 32
-    }
   }
+});
+
+export const coinPrice = style({
+  display: 'flex',
+  alignItems: 'center',
+  gap: 10,
+  marginRight: 24,
+  marginLeft: 40
 });

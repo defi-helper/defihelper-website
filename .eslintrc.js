@@ -39,6 +39,7 @@ module.exports = {
     '@typescript-eslint/explicit-function-return-type': 'off',
     '@typescript-eslint/no-loop-func': 'off',
     '@typescript-eslint/no-redeclare': 'off',
+    'react/require-default-props': 'off',
     'no-loop-func': 'error',
     'no-redeclare': 'error',
     'no-shadow': 'off',

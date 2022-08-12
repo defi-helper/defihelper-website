@@ -14,10 +14,13 @@ import { Link } from 'src/common/link';
 import { ButtonBase } from 'src/common/button-base';
 import { ReactComponent as BurgerIcon } from 'src/assets/icons/burger.svg';
 import { ReactComponent as CloseBurgerIcon } from 'src/assets/icons/close-burger.svg';
+import { ReactComponent as CoinLogoIcon } from 'src/assets/icons/coin-logo.svg';
 import { Button } from 'src/common/button';
 import { config } from 'src/config';
 import { Paper } from 'src/common/paper';
 import { analytics } from 'src/analytics';
+import { bignumberUtils } from 'src/common/bignumber-utils';
+import { Typography } from 'src/common/typography';
 import * as styles from './layout-header.css';
 
 export type LayoutHeaderProps = {
@@ -26,33 +29,13 @@ export type LayoutHeaderProps = {
 
 const LINKS: Omit<React.ComponentProps<typeof Link>, 'className'>[] = [
   {
-    children: 'Portfolio manager',
-    to: URLS.portfolioManager,
+    children: 'Trade',
+    to: URLS.trade,
     as: NavLink
   },
   {
-    children: 'Portfolio tracker',
-    to: URLS.portfolioTracker,
-    as: NavLink
-  },
-  {
-    children: 'Security',
-    to: URLS.security,
-    as: NavLink
-  },
-  {
-    children: 'Tokenomics',
-    to: URLS.tokenomics,
-    as: NavLink
-  },
-  {
-    children: 'Litepaper',
-    target: '_blank',
-    href: URLS.litepaper
-  },
-  {
-    children: 'No-code automation',
-    to: URLS.noCode,
+    children: 'Invest',
+    to: URLS.invest,
     as: NavLink
   }
 ];
@@ -78,9 +61,19 @@ export const LayoutHeader: React.VFC<LayoutHeaderProps> = (props) => {
             <Logo />
           </ReactRouterLink>
           <div className={styles.menuDesktop}>
-            {LINKS.map((link, index) => (
-              <Link className={styles.navLink} key={String(index)} {...link} />
+            {LINKS.map((link) => (
+              <Link
+                className={styles.navLink}
+                key={String(link.children)}
+                {...link}
+              />
             ))}
+            <div className={styles.coinPrice}>
+              <CoinLogoIcon />
+              <Typography variant="body2" family="mono">
+                ${bignumberUtils.format(0.03)}
+              </Typography>
+            </div>
             <Button
               variant="contained"
               color="secondary"
@@ -114,8 +107,11 @@ export const LayoutHeader: React.VFC<LayoutHeaderProps> = (props) => {
               className={styles.menuMobileInner}
               style={{ display: isOpen ? 'block' : 'none' }}
             >
-              {LINKS.map((link, index) => (
-                <div className={styles.menuMobileItem} key={String(index)}>
+              {LINKS.map((link) => (
+                <div
+                  className={styles.menuMobileItem}
+                  key={String(link.children)}
+                >
                   <Link className={styles.navLink} {...link} />
                 </div>
               ))}

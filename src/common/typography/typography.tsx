@@ -33,6 +33,7 @@ export type TypographyProps = {
   as?: TagNames | 'span' | 'div';
   family?: 'square' | 'circle' | 'mono';
   transform?: 'uppercase' | 'lowercase' | 'normal';
+  // eslint-disable-next-line react/no-unused-prop-types
   ref?:
     | ((instance: HTMLHeadingElement | null) => void)
     | React.MutableRefObject<HTMLHeadingElement | null>
