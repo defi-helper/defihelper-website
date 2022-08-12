@@ -5,10 +5,12 @@ export type Maybe<T> = T | null;
 export type Exact<T extends { [key: string]: unknown }> = {
   [K in keyof T]: T[K];
 };
-export type MakeOptional<T, K extends keyof T> = Omit<T, K> &
-  { [SubKey in K]?: Maybe<T[SubKey]> };
-export type MakeMaybe<T, K extends keyof T> = Omit<T, K> &
-  { [SubKey in K]: Maybe<T[SubKey]> };
+export type MakeOptional<T, K extends keyof T> = Omit<T, K> & {
+  [SubKey in K]?: Maybe<T[SubKey]>;
+};
+export type MakeMaybe<T, K extends keyof T> = Omit<T, K> & {
+  [SubKey in K]: Maybe<T[SubKey]>;
+};
 export type Omit<T, K extends keyof T> = Pick<T, Exclude<keyof T, K>>;
 /** All built-in and custom scalars, mapped to their actual values */
 export type Scalars = {
@@ -40,9 +42,9 @@ export type AuthEthereumInputType = {
   /** Wallet address */
   address: Scalars['String'];
   /** Message */
-  message: Scalars['String'];
+  message?: Maybe<Scalars['String']>;
   /** Signed message */
-  signature: Scalars['String'];
+  signature?: Maybe<Scalars['String']>;
   /** Code */
   code?: Maybe<Scalars['String']>;
   /** Timezone */
@@ -67,9 +69,9 @@ export type AuthWavesInputType = {
   /** Wallet address */
   address: Scalars['String'];
   /** Message */
-  message: Scalars['String'];
+  message?: Maybe<Scalars['String']>;
   /** Signed message */
-  signature: Scalars['String'];
+  signature?: Maybe<Scalars['String']>;
   /** Promo id */
   code?: Maybe<Scalars['String']>;
   /** Timezone */
@@ -129,8 +131,6 @@ export type AutomateActionType = {
   paramsDescription: Scalars['String'];
   /** Execution priority (ascending) */
   priority: Scalars['Int'];
-  /** Skip reason */
-  skipReason?: Maybe<AutomateSkipReasonEnum>;
   /** Created at date */
   createdAt: Scalars['DateTimeType'];
 };
@@ -210,8 +210,6 @@ export type AutomateConditionType = {
   priority: Scalars['Int'];
   /** Created at date */
   createdAt: Scalars['DateTimeType'];
-  /** Next restake date */
-  restakeAt?: Maybe<Scalars['DateTimeType']>;
 };
 
 export enum AutomateConditionTypeEnum {
@@ -321,6 +319,8 @@ export type AutomateContractType = {
   /** Verification status */
   verification: AutomateContractVerificationStatusEnum;
   rejectReason: Scalars['String'];
+  /** restake at */
+  restakeAt?: Maybe<Scalars['DateTimeType']>;
   metric: AutomateContractMetricType;
   /** Date at archived contract */
   archivedAt?: Maybe<Scalars['DateTimeType']>;
@@ -348,11 +348,6 @@ export type AutomateDescriptionType = {
   name: Scalars['String'];
   description: Scalars['String'];
 };
-
-export enum AutomateSkipReasonEnum {
-  LowFeeFunds = 'LowFeeFunds',
-  NotAvailableNotification = 'NotAvailableNotification'
-}
 
 export type AutomateTriggerCallHistoryListFilterInputType = {
   hasError?: Maybe<Scalars['Boolean']>;
@@ -458,8 +453,6 @@ export type AutomateTriggerType = {
   lastCallAt?: Maybe<Scalars['DateTimeType']>;
   /** Created at date */
   createdAt: Scalars['DateTimeType'];
-  /** Next restake date */
-  restakeAt?: Maybe<Scalars['DateTimeType']>;
   conditions: AutomateConditionListType;
   actions: AutomateActionListType;
   callHistory: AutomateTriggerCallHistoryListQuery;
@@ -679,8 +672,8 @@ export type ConfigWavesNetworkType = {
   icon: ConfigWavesNetworkIconEnum;
 };
 
-export type ContractAutomatesBuyLiquidityType = {
-  __typename?: 'ContractAutomatesBuyLiquidityType';
+export type ContractAutomateBuyLiquidityType = {
+  __typename?: 'ContractAutomateBuyLiquidityType';
   /** Liquidity pool router address */
   router: Scalars['String'];
   /** Target pool address */
@@ -693,8 +686,8 @@ export type ContractAutomatesType = {
   adapters: Array<Scalars['String']>;
   /** Autorestake adapter name */
   autorestake?: Maybe<Scalars['String']>;
-  /** Buy liquidity automate config */
-  buyLiquidity?: Maybe<ContractAutomatesBuyLiquidityType>;
+  /** Liquidity pool tokens manager automate config */
+  lpTokensManager?: Maybe<ContractAutomateBuyLiquidityType>;
 };
 
 export type ContractCreateInputType = {
@@ -726,9 +719,115 @@ export type ContractCreateInputType = {
   eventsToSubscribe?: Maybe<Array<Scalars['String']>>;
 };
 
+export type ContractDebankListFilterInputType = {
+  id?: Maybe<Scalars['UuidType']>;
+  protocol?: Maybe<Array<Scalars['UuidType']>>;
+  hidden?: Maybe<Scalars['Boolean']>;
+  deprecated?: Maybe<Scalars['Boolean']>;
+  search?: Maybe<Scalars['String']>;
+};
+
+export type ContractDebankListPaginationInputType = {
+  /** Limit */
+  limit?: Maybe<Scalars['Int']>;
+  /** Offset */
+  offset?: Maybe<Scalars['Int']>;
+};
+
+export type ContractDebankListSortInputType = {
+  column: ContractDebankListSortInputTypeColumnEnum;
+  order?: Maybe<SortOrderEnum>;
+};
+
+export enum ContractDebankListSortInputTypeColumnEnum {
+  Id = 'id',
+  Name = 'name',
+  Address = 'address',
+  CreatedAt = 'createdAt',
+  Tvl = 'tvl',
+  MyStaked = 'myStaked'
+}
+
+export type ContractDebankListType = {
+  __typename?: 'ContractDebankListType';
+  /** Elements */
+  list?: Maybe<Array<ContractDebankType>>;
+  pagination: Pagination;
+};
+
+export type ContractDebankMetricChartFilterInputType = {
+  /** Created at equals or greater */
+  dateAfter?: Maybe<Scalars['DateTimeType']>;
+  /** Created at less */
+  dateBefore?: Maybe<Scalars['DateTimeType']>;
+};
+
+export type ContractDebankMetricChartPaginationInputType = {
+  /** Limit */
+  limit?: Maybe<Scalars['Int']>;
+  /** Offset */
+  offset?: Maybe<Scalars['Int']>;
+};
+
+export type ContractDebankMetricChartSortInputType = {
+  column: ContractDebankMetricChartSortInputTypeColumnEnum;
+  order?: Maybe<SortOrderEnum>;
+};
+
+export enum ContractDebankMetricChartSortInputTypeColumnEnum {
+  Date = 'date',
+  Value = 'value'
+}
+
+export type ContractDebankMetricFilterInputType = {
+  wallet?: Maybe<ContractDebankMetricWalletFilterInputType>;
+};
+
+export type ContractDebankMetricWalletFilterInputType = {
+  type?: Maybe<Array<WalletBlockchainTypeEnum>>;
+};
+
+export type ContractDebankType = {
+  __typename?: 'ContractDebankType';
+  /** Identificator */
+  id: Scalars['UuidType'];
+  protocol: ProtocolType;
+  /** Layout name */
+  layout: Scalars['String'];
+  /** Address */
+  address: Scalars['String'];
+  /** Name */
+  name: Scalars['String'];
+  /** Description */
+  description: Scalars['String'];
+  /** View URL */
+  link?: Maybe<Scalars['String']>;
+  /** Is hidden */
+  hidden: Scalars['Boolean'];
+  /** Is deprecated */
+  deprecated: Scalars['Boolean'];
+  metricChart: Array<MetricChartType>;
+  metric: ContractMetricType;
+  tokens: ContractTokenLinkType;
+  /** Date of created account */
+  createdAt: Scalars['DateTimeType'];
+};
+
+export type ContractDebankTypeMetricChartArgs = {
+  metric: Scalars['MetricColumnType'];
+  group: MetricGroupEnum;
+  filter?: Maybe<ContractDebankMetricChartFilterInputType>;
+  sort?: Maybe<Array<ContractDebankMetricChartSortInputType>>;
+  pagination?: Maybe<ContractDebankMetricChartPaginationInputType>;
+};
+
+export type ContractDebankTypeMetricArgs = {
+  filter?: Maybe<ContractDebankMetricFilterInputType>;
+};
+
 export type ContractListAutomateFilterInputType = {
-  /** Has buy liquidity automate */
-  buyLiquidity?: Maybe<Scalars['Boolean']>;
+  /** Has LP tokens manager automate */
+  lpTokensManager?: Maybe<Scalars['Boolean']>;
   /** Has autorestake automate */
   autorestake?: Maybe<Scalars['Boolean']>;
   /** Is autorestake automate candidate */
@@ -740,6 +839,7 @@ export type ContractListFilterInputType = {
   protocol?: Maybe<Array<Scalars['UuidType']>>;
   blockchain?: Maybe<BlockchainFilterInputType>;
   hidden?: Maybe<Scalars['Boolean']>;
+  deprecated?: Maybe<Scalars['Boolean']>;
   userLink?: Maybe<ContractUserLinkTypeEnum>;
   automate?: Maybe<ContractListAutomateFilterInputType>;
   search?: Maybe<Scalars['String']>;
@@ -813,7 +913,9 @@ export type ContractMetricType = {
   aprYear: Scalars['String'];
   aprWeekReal?: Maybe<Scalars['String']>;
   myStaked: Scalars['String'];
+  myStakedChange: MetricChangeType;
   myEarned: Scalars['String'];
+  myEarnedChange: MetricChangeType;
   myAPYBoost: Scalars['String'];
 };
 
@@ -842,6 +944,8 @@ export type ContractType = {
   network: Scalars['String'];
   /** Address */
   address: Scalars['String'];
+  /** Watcher id */
+  watcherId?: Maybe<Scalars['String']>;
   /** Contract deployment block number */
   deployBlockNumber?: Maybe<Scalars['String']>;
   /** Usable automates */
@@ -1090,6 +1194,18 @@ export enum LocaleEnum {
   RuRu = 'ruRU'
 }
 
+export type MeInputType = {
+  /** Timezone */
+  timezone?: Maybe<Scalars['String']>;
+};
+
+export type MetricChangeType = {
+  __typename?: 'MetricChangeType';
+  day: Scalars['String'];
+  week: Scalars['String'];
+  month: Scalars['String'];
+};
+
 export type MetricChartType = {
   __typename?: 'MetricChartType';
   date: Scalars['DateTimeType'];
@@ -1191,6 +1307,7 @@ export type Mutation = {
   automateContractCreate: AutomateContractType;
   automateContractUpdate: AutomateContractType;
   automateContractDelete: Scalars['Boolean'];
+  tradingAuth?: Maybe<TradingAuthType>;
 };
 
 export type MutationUserUpdateArgs = {
@@ -1659,17 +1776,20 @@ export type ProtocolLinkType = {
   value: Scalars['String'];
 };
 
+export type ProtocolListFilterAutomateInputType = {
+  lpTokensManager?: Maybe<Scalars['Boolean']>;
+};
+
 export type ProtocolListFilterInputType = {
   /** Target ID */
   id?: Maybe<Array<Scalars['UuidType']>>;
   blockchain?: Maybe<BlockchainFilterInputType>;
-  /** Target user ID */
-  linked?: Maybe<Scalars['UuidType']>;
   /** Is favorite */
   favorite?: Maybe<Scalars['Boolean']>;
   hidden?: Maybe<Scalars['Boolean']>;
   search?: Maybe<Scalars['String']>;
   isDebank?: Maybe<Scalars['Boolean']>;
+  automate?: Maybe<ProtocolListFilterAutomateInputType>;
 };
 
 export type ProtocolListPaginationInputType = {
@@ -1694,7 +1814,6 @@ export type ProtocolListSortInputType = {
 export enum ProtocolListSortInputTypeColumnEnum {
   Id = 'id',
   Name = 'name',
-  Address = 'address',
   CreatedAt = 'createdAt'
 }
 
@@ -1804,7 +1923,9 @@ export type ProtocolMetricType = {
   uniqueWalletsCount: Scalars['String'];
   myAPY: Scalars['String'];
   myStaked: Scalars['String'];
+  myStakedChange: MetricChangeType;
   myEarned: Scalars['String'];
+  myEarnedChange: MetricChangeType;
   myAPYBoost: Scalars['String'];
   myMinUpdatedAt?: Maybe<Scalars['DateTimeType']>;
 };
@@ -1894,6 +2015,7 @@ export type ProtocolType = {
   previewPicture?: Maybe<Scalars['String']>;
   favorite: Scalars['Boolean'];
   contracts: ContractListType;
+  contractsDebank: ContractDebankListType;
   metricChart: Array<MetricChartType>;
   metricChartProtocols: Array<MetricChartType>;
   metricChartContracts: Array<MetricChartType>;
@@ -1908,6 +2030,12 @@ export type ProtocolTypeContractsArgs = {
   filter?: Maybe<ContractListFilterInputType>;
   sort?: Maybe<Array<ContractListSortInputType>>;
   pagination?: Maybe<ContractListPaginationInputType>;
+};
+
+export type ProtocolTypeContractsDebankArgs = {
+  filter?: Maybe<ContractDebankListFilterInputType>;
+  sort?: Maybe<Array<ContractDebankListSortInputType>>;
+  pagination?: Maybe<ContractDebankListPaginationInputType>;
 };
 
 export type ProtocolTypeMetricChartArgs = {
@@ -1976,6 +2104,7 @@ export type Query = {
   users: UserListQuery;
   protocol?: Maybe<ProtocolType>;
   protocols: ProtocolListQuery;
+  userProtocols: UserProtocolListQuery;
   contracts: ContractListType;
   proposal?: Maybe<ProposalType>;
   proposals: ProposalListQuery;
@@ -1987,6 +2116,7 @@ export type Query = {
   tokenAlias?: Maybe<TokenAlias>;
   tokensAlias: TokenAliasListQuery;
   products: StoreProductListQuery;
+  productPriceFeed: StoreProductPriceFeedType;
   billingBalance: BalanceMetaType;
   govProposal?: Maybe<GovProposalType>;
   govProposals: GovProposalListQuery;
@@ -2000,10 +2130,15 @@ export type Query = {
   restakeStrategy: RestakeStrategyType;
   treasury: TreasuryType;
   monitoringUsersRegisteringHistory: Array<MonitoringStatisticsPointType>;
+  monitoringWalletsRegisteringHistory: Array<MonitoringStatisticsPointType>;
   monitoringAutomateRunHistory: Array<MonitoringStatisticsPointType>;
   monitoringAutomatesCreationHistory: Array<MonitoringStatisticsPointType>;
   monitoringAutoRestakeAutomatesCreationHistory: Array<MonitoringStatisticsPointType>;
   monitoringProtocolEarningsHistory: Array<MonitoringStatisticsEarningsPointType>;
+};
+
+export type QueryMeArgs = {
+  input?: Maybe<MeInputType>;
 };
 
 export type QueryUserReferrerArgs = {
@@ -2024,6 +2159,12 @@ export type QueryProtocolsArgs = {
   filter?: Maybe<ProtocolListFilterInputType>;
   sort?: Maybe<Array<ProtocolListSortInputType>>;
   pagination?: Maybe<ProtocolListPaginationInputType>;
+};
+
+export type QueryUserProtocolsArgs = {
+  filter: UserProtocolListFilterInputType;
+  sort?: Maybe<Array<UserProtocolListSortInputType>>;
+  pagination?: Maybe<UserProtocolListPaginationInputType>;
 };
 
 export type QueryContractsArgs = {
@@ -2072,6 +2213,11 @@ export type QueryProductsArgs = {
   filter?: Maybe<StoreProductListQueryFilterInputType>;
   sort?: Maybe<Array<StoreProductListQuerySortInputType>>;
   pagination?: Maybe<StoreProductListQueryPaginationInputType>;
+};
+
+export type QueryProductPriceFeedArgs = {
+  network: Scalars['String'];
+  id: Scalars['UuidType'];
 };
 
 export type QueryBillingBalanceArgs = {
@@ -2201,6 +2347,13 @@ export enum StoreProductListQuerySortInputTypeColumnEnum {
   Name = 'name',
   CreatedAt = 'createdAt'
 }
+
+export type StoreProductPriceFeedType = {
+  __typename?: 'StoreProductPriceFeedType';
+  product: StoreProductType;
+  /** Price in native token */
+  price: Scalars['Float'];
+};
 
 export type StoreProductType = {
   __typename?: 'StoreProductType';
@@ -2401,6 +2554,7 @@ export type TokenAliasMetricType = {
   __typename?: 'TokenAliasMetricType';
   myBalance: Scalars['String'];
   myUSD: Scalars['String'];
+  myUSDChange: MetricChangeType;
   myPortfolioPercent: Scalars['String'];
 };
 
@@ -2619,6 +2773,13 @@ export type TokenUpdateInputType = {
   /** Decimals */
   decimals?: Maybe<Scalars['Int']>;
   priceFeed?: Maybe<TokenPriceFeedInputType>;
+};
+
+export type TradingAuthType = {
+  __typename?: 'TradingAuthType';
+  accessToken: Scalars['String'];
+  refreshToken?: Maybe<Scalars['String']>;
+  tokenExpired?: Maybe<Scalars['DateTimeType']>;
 };
 
 export type TreasuryType = {
@@ -2955,9 +3116,13 @@ export enum UserMetricChartSortInputTypeColumnEnum {
 export type UserMetricType = {
   __typename?: 'UserMetricType';
   balanceUSD: Scalars['String'];
+  balanceUSDChange: MetricChangeType;
   stakedUSD: Scalars['String'];
+  stakedUSDChange: MetricChangeType;
   earnedUSD: Scalars['String'];
+  earnedUSDChange: MetricChangeType;
   worth: Scalars['String'];
+  worthChange: MetricChangeType;
   apy: Scalars['String'];
 };
 
@@ -2980,6 +3145,38 @@ export type UserNotificationType = {
 export enum UserNotificationTypeEnum {
   PortfolioMetrics = 'portfolioMetrics',
   AutomateCallNotEnoughFunds = 'automateCallNotEnoughFunds'
+}
+
+export type UserProtocolListFilterInputType = {
+  /** Target user ID */
+  user: Scalars['UuidType'];
+  /** Only hidden/visible */
+  hidden?: Maybe<Scalars['Boolean']>;
+};
+
+export type UserProtocolListPaginationInputType = {
+  /** Limit */
+  limit?: Maybe<Scalars['Int']>;
+  /** Offset */
+  offset?: Maybe<Scalars['Int']>;
+};
+
+export type UserProtocolListQuery = {
+  __typename?: 'UserProtocolListQuery';
+  /** Elements */
+  list?: Maybe<Array<ProtocolType>>;
+  pagination: Pagination;
+};
+
+export type UserProtocolListSortInputType = {
+  column: UserProtocolListSortInputTypeColumnEnum;
+  order?: Maybe<SortOrderEnum>;
+};
+
+export enum UserProtocolListSortInputTypeColumnEnum {
+  Id = 'id',
+  Name = 'name',
+  CreatedAt = 'createdAt'
 }
 
 export type UserReferrerCodeType = {
@@ -3160,6 +3357,8 @@ export type UserType = {
   id: Scalars['UuidType'];
   /** Access role */
   role: UserRoleEnum;
+  /** User portfolio name */
+  name: Scalars['String'];
   /** Current user locale */
   locale: LocaleEnum;
   /** Current user timezone */
@@ -3184,7 +3383,7 @@ export type UserType = {
 };
 
 export type UserTypeTokenAliasesStakedMetricsArgs = {
-  filter?: Maybe<UserTokenAliasesStakedMetricsListFilterInputType>;
+  filter: UserTokenAliasesStakedMetricsListFilterInputType;
   pagination?: Maybe<UserTokenAliasesStakedMetricsListPaginationInputType>;
 };
 
@@ -3223,6 +3422,7 @@ export type UserTypeTokenMetricChartArgs = {
 
 export type UserUpdateInputType = {
   role?: Maybe<UserRoleEnum>;
+  name?: Maybe<Scalars['String']>;
   locale?: Maybe<LocaleEnum>;
 };
 
@@ -3605,10 +3805,14 @@ export type WalletMetricFilterInputType = {
 export type WalletMetricType = {
   __typename?: 'WalletMetricType';
   stakedUSD: Scalars['String'];
+  stakedUSDChange: MetricChangeType;
   earnedUSD: Scalars['String'];
+  earnedUSDChange: MetricChangeType;
   balance: Scalars['String'];
   usd: Scalars['String'];
+  usdChange: MetricChangeType;
   worth: Scalars['String'];
+  worthChange: MetricChangeType;
 };
 
 export type WalletMetricUpdatedEvent = {
@@ -3641,6 +3845,7 @@ export type WalletTokenAliasMetricType = {
   __typename?: 'WalletTokenAliasMetricType';
   balance: Scalars['String'];
   usd: Scalars['String'];
+  usdChange: MetricChangeType;
   portfolioPercent: Scalars['String'];
 };
 
@@ -3690,6 +3895,65 @@ export type TreasuryQuery = { __typename?: 'Query' } & {
     TreasuryType,
     'portfoliosCount' | 'protocolsCount' | 'contractsCount' | 'walletsCount'
   >;
+};
+
+export type InvestContractsQueryVariables = Exact<{ [key: string]: never }>;
+
+export type InvestContractsQuery = { __typename?: 'Query' } & {
+  contracts: { __typename?: 'ContractListType' } & {
+    list?: Maybe<
+      Array<
+        { __typename?: 'ContractType' } & Pick<
+          ContractType,
+          'id' | 'name' | 'network' | 'blockchain'
+        > & {
+            protocol: { __typename?: 'ProtocolType' } & Pick<
+              ProtocolType,
+              'id' | 'name' | 'icon'
+            >;
+            metric: { __typename?: 'ContractMetricType' } & Pick<
+              ContractMetricType,
+              | 'tvl'
+              | 'aprDay'
+              | 'aprWeek'
+              | 'aprMonth'
+              | 'aprYear'
+              | 'aprWeekReal'
+              | 'myAPYBoost'
+            >;
+            tokens: { __typename?: 'ContractTokenLinkType' } & {
+              stake: Array<
+                { __typename?: 'TokenType' } & Pick<
+                  TokenType,
+                  'network' | 'address' | 'name'
+                > & {
+                    alias?: Maybe<
+                      { __typename?: 'TokenAlias' } & Pick<
+                        TokenAlias,
+                        'logoUrl'
+                      >
+                    >;
+                  }
+              >;
+              reward: Array<
+                { __typename?: 'TokenType' } & Pick<
+                  TokenType,
+                  'network' | 'address' | 'name'
+                > & {
+                    alias?: Maybe<
+                      { __typename?: 'TokenAlias' } & Pick<
+                        TokenAlias,
+                        'logoUrl'
+                      >
+                    >;
+                  }
+              >;
+            };
+          }
+      >
+    >;
+    pagination: { __typename?: 'Pagination' } & Pick<Pagination, 'count'>;
+  };
 };
 
 export type LandingMediumPostsQueryVariables = Exact<{ [key: string]: never }>;
@@ -3828,9 +4092,65 @@ export const TreasuryDocument = gql`
 `;
 
 export function useTreasuryQuery(
-  options: Omit<Urql.UseQueryArgs<TreasuryQueryVariables>, 'query'> = {}
+  options?: Omit<Urql.UseQueryArgs<TreasuryQueryVariables>, 'query'>
 ) {
   return Urql.useQuery<TreasuryQuery>({ query: TreasuryDocument, ...options });
+}
+export const InvestContractsDocument = gql`
+  query InvestContracts {
+    contracts(filter: { hidden: false }, pagination: { limit: 10 }) {
+      list {
+        id
+        protocol {
+          id
+          name
+          icon
+        }
+        name
+        network
+        blockchain
+        metric {
+          tvl
+          aprDay
+          aprWeek
+          aprMonth
+          aprYear
+          aprWeekReal
+          myAPYBoost
+        }
+        tokens {
+          stake {
+            alias {
+              logoUrl
+            }
+            network
+            address
+            name
+          }
+          reward {
+            alias {
+              logoUrl
+            }
+            network
+            address
+            name
+          }
+        }
+      }
+      pagination {
+        count
+      }
+    }
+  }
+`;
+
+export function useInvestContractsQuery(
+  options?: Omit<Urql.UseQueryArgs<InvestContractsQueryVariables>, 'query'>
+) {
+  return Urql.useQuery<InvestContractsQuery>({
+    query: InvestContractsDocument,
+    ...options
+  });
 }
 export const LandingMediumPostsDocument = gql`
   query LandingMediumPosts {
@@ -3844,10 +4164,7 @@ export const LandingMediumPostsDocument = gql`
 `;
 
 export function useLandingMediumPostsQuery(
-  options: Omit<
-    Urql.UseQueryArgs<LandingMediumPostsQueryVariables>,
-    'query'
-  > = {}
+  options?: Omit<Urql.UseQueryArgs<LandingMediumPostsQueryVariables>, 'query'>
 ) {
   return Urql.useQuery<LandingMediumPostsQuery>({
     query: LandingMediumPostsDocument,
@@ -3869,7 +4186,7 @@ export const ProtocolsDocument = gql`
 `;
 
 export function useProtocolsQuery(
-  options: Omit<Urql.UseQueryArgs<ProtocolsQueryVariables>, 'query'> = {}
+  options?: Omit<Urql.UseQueryArgs<ProtocolsQueryVariables>, 'query'>
 ) {
   return Urql.useQuery<ProtocolsQuery>({
     query: ProtocolsDocument,
@@ -3906,7 +4223,7 @@ export const RestakeStrategyDocument = gql`
 `;
 
 export function useRestakeStrategyQuery(
-  options: Omit<Urql.UseQueryArgs<RestakeStrategyQueryVariables>, 'query'> = {}
+  options: Omit<Urql.UseQueryArgs<RestakeStrategyQueryVariables>, 'query'>
 ) {
   return Urql.useQuery<RestakeStrategyQuery>({
     query: RestakeStrategyDocument,
@@ -3923,7 +4240,7 @@ export const UserReferrerDocument = gql`
 `;
 
 export function useUserReferrerQuery(
-  options: Omit<Urql.UseQueryArgs<UserReferrerQueryVariables>, 'query'> = {}
+  options: Omit<Urql.UseQueryArgs<UserReferrerQueryVariables>, 'query'>
 ) {
   return Urql.useQuery<UserReferrerQuery>({
     query: UserReferrerDocument,
@@ -3960,7 +4277,7 @@ export const GovTokenDocument = gql`
 `;
 
 export function useGovTokenQuery(
-  options: Omit<Urql.UseQueryArgs<GovTokenQueryVariables>, 'query'> = {}
+  options: Omit<Urql.UseQueryArgs<GovTokenQueryVariables>, 'query'>
 ) {
   return Urql.useQuery<GovTokenQuery>({ query: GovTokenDocument, ...options });
 }
