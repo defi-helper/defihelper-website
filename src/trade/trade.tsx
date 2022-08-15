@@ -51,7 +51,19 @@ export const Trade: React.VFC<TradeProps> = () => {
 
   return (
     <LandingLayout>
-      <Head title="Trade on dex like a pro" />
+      <Head
+        title="DeFi Trading Platform"
+        description="Best DeFi trading platform - Use trailing buy or stop-loss/take-profit features to trade defi like a professional trader. "
+        keywords={[
+          'defi exchange',
+          'best defi exchange',
+          'trade defi',
+          'defi trading platform',
+          'defi exchange platform',
+          'best defi trading platform',
+          'defi crypto trading'
+        ]}
+      />
       <TradeHero className={styles.section} />
       <TradeSmart className={styles.section} />
       <TradeWhat className={styles.section} />

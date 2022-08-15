@@ -36,7 +36,7 @@ export const MainHeader: React.VFC<MainHeaderProps> = (props) => {
           <div className={styles.text}>
             <img src={logo} alt="" className={styles.logo} />
             <Typography variant="h1" className={styles.subtitle} align="center">
-              Earn more with smart trading and automatic portfolio management
+              Top DeFi Platform for Yield Farming & Trading
             </Typography>
             <Typography
               family="mono"

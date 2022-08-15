@@ -24,7 +24,7 @@ export const TradeHero: React.VFC<TradeHeroProps> = (props) => {
           as="h1"
           className={styles.title}
         >
-          TRADE ON DEX LIKE A PRO
+          Best DeFi Trading Platform
         </Typography>
         <Typography className={styles.description}>
           Use trailing buy or stop-loss/take-profit features to trade like a

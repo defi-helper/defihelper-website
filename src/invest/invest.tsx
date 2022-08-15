@@ -67,7 +67,20 @@ export const Invest: React.FC<InvestProps> = () => {
 
   return (
     <LandingLayout>
-      <Head title="DeFi Yield Aggregator & Yield Optimizer" />
+      <Head
+        title="Yield Aggregator & Yield Optimizer"
+        description="Best Cross-chain Yield Aggregator and Yield Optimizer for crypto. Automate your DeFi strategies across chains, earn more with our auto-staking feature"
+        keywords={[
+          'Yield Aggregator',
+          'Yield Optimizer',
+          'defihelper',
+          'cross chain yield aggregator',
+          'best yield aggregator',
+          'best yiled optimizer',
+          'yield aggregator crypto',
+          'auto compound yield farming'
+        ]}
+      />
       <InvestHero className={styles.section} />
       <InvestPools className={styles.section} />
       <InvestWhy className={styles.section} />

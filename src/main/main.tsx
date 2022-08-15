@@ -105,18 +105,18 @@ export const Main: React.VFC = () => {
   return (
     <LandingLayout>
       <Head
-        title="Yield Aggregator & Yield Optimizer"
+        title="Best DeFi Platform for Yield Farming & Trading"
         keywords={[
-          'Yield Aggregator',
-          'Yield Optimizer',
-          'defihelper',
-          'cross chain yield aggregator',
-          'best yield aggregator',
-          'best yiled optimizer',
-          'yield aggregator crypto',
-          'auto compound yield farming'
+          'top defi',
+          'defi platform',
+          'yield farming',
+          'defi yield farming',
+          'yieldfarming',
+          'best defi platform',
+          'top defi platform',
+          'defi decentralized finance'
         ]}
-        description="Best Cross-chain Yield Aggregator and Yield Optimizer for crypto. Automate your DeFi strategies across chains, earn more with our auto-staking feature"
+        description="Earn more with DeFiHelper - top DeFi Platform for Yield Farming and Trading. Automate your DeFi strategies across chains. Use trailing buy or stop-loss/take-profit features. "
       />
       <MainHeader
         className={styles.header}
