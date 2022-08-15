@@ -97,7 +97,7 @@ const DATA = [
           <Button
             variant="outlined"
             as="a"
-            href="https://t.me/kbandito"
+            href="https://t.me/vkomissarov"
             target="_blank"
           >
             Influence DFH
