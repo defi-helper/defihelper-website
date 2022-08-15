@@ -10,6 +10,7 @@ import step3 from 'src/assets/images/trade-step-3.png';
 import { Paper } from 'src/common/paper';
 import { Button } from 'src/common/button';
 import { Carousel } from 'src/common/carousel';
+import { config } from 'src/config';
 import * as styles from './trade-how-works.css';
 
 export type TradeHowWorksProps = {
@@ -96,8 +97,13 @@ export const TradeHowWorks: React.VFC<TradeHowWorksProps> = (props) => {
           </Paper>
         ))}
       </Steps>
-      <Button color="secondary" className={styles.connectWallet}>
-        connect wallet
+      <Button
+        color="secondary"
+        className={styles.connectWallet}
+        as="a"
+        href={config.LAUNCH_APP_URL}
+      >
+        Launch app
       </Button>
     </Grid.Container>
   );

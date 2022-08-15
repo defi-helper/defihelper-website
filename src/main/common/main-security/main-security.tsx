@@ -6,6 +6,7 @@ import { Paper } from 'src/common/paper';
 import { Typography } from 'src/common/typography';
 import { ReactComponent as LogoHashexIcon } from 'src/assets/icons/logo_hashex.svg';
 import { Button } from 'src/common/button';
+import { Link } from 'src/common/link';
 import * as styles from './main-security.css';
 
 export type MainSecurityProps = {
@@ -36,7 +37,14 @@ export const MainSecurity: React.VFC<MainSecurityProps> = (props) => {
             </Typography>
             <LogoHashexIcon />
             <div className={styles.auditsButton}>
-              <Button className={styles.auditsButtonInner}>Documents</Button>
+              <Button
+                className={styles.auditsButtonInner}
+                as={Link}
+                href="https://github.com/HashEx/public_audits/blob/master/defi-helper/Defi-Helper_audit-report.pdf"
+                target="_blank"
+              >
+                Documents
+              </Button>
             </div>
           </Paper>
           <Paper radius={8} className={styles.yourMoney}>

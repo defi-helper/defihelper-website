@@ -3,11 +3,13 @@ import clsx from 'clsx';
 import {
   Link as ReactRouterLink,
   NavLink,
-  useLocation
+  useLocation,
+  useRouteMatch
 } from 'react-router-dom';
-import { useClickAway } from 'react-use';
+import { useClickAway, useMedia } from 'react-use';
 
 import { ReactComponent as Logo } from 'src/assets/icons/logo-mini.svg';
+import { ReactComponent as LogoFull } from 'src/assets/icons/logo-full.svg';
 import { Grid } from 'src/common/grid';
 import { URLS } from 'src/router/urls';
 import { Link } from 'src/common/link';
@@ -30,17 +32,20 @@ export type LayoutHeaderProps = {
 const LINKS: Omit<React.ComponentProps<typeof Link>, 'className'>[] = [
   {
     children: 'Trade',
-    to: URLS.trade,
-    as: NavLink
+    to: URLS.trade
   },
   {
     children: 'Invest',
-    to: URLS.invest,
-    as: NavLink
+    to: URLS.invest
   }
 ];
 
 export const LayoutHeader: React.VFC<LayoutHeaderProps> = (props) => {
+  const isTrade = useRouteMatch(URLS.trade);
+  const isInvest = useRouteMatch(URLS.invest);
+
+  const isDesktop = useMedia('(min-width: 960px)');
+
   const [isOpen, setOpen] = useState(false);
 
   const ref = useRef(null);
@@ -57,20 +62,33 @@ export const LayoutHeader: React.VFC<LayoutHeaderProps> = (props) => {
     <header className={clsx(styles.root, props.className)}>
       <Grid.Container>
         <Grid.Row items="center">
-          <ReactRouterLink to={URLS.main} className={styles.logo}>
-            <Logo />
+          <ReactRouterLink
+            to={URLS.main}
+            className={clsx({
+              [styles.logo]: !(isTrade || isInvest) || !isDesktop,
+              [styles.logoFull]: (isTrade || isInvest) && isDesktop
+            })}
+          >
+            {(isTrade || isInvest) && isDesktop ? <LogoFull /> : <Logo />}
           </ReactRouterLink>
           <div className={styles.menuDesktop}>
             {LINKS.map((link) => (
               <Link
                 className={styles.navLink}
                 key={String(link.children)}
+                as={NavLink}
+                activeClassName={styles.activeClassName}
                 {...link}
               />
             ))}
             <div className={styles.coinPrice}>
               <CoinLogoIcon />
-              <Typography variant="body2" family="mono">
+              <Typography
+                variant="body2"
+                family="mono"
+                as={ReactRouterLink}
+                to={URLS.tokenomics}
+              >
                 ${bignumberUtils.format(0.03)}
               </Typography>
             </div>

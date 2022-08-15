@@ -1,27 +1,29 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 
 import { useDialog } from 'src/common/dialog';
 import { FaqText } from 'src/common/faq-text';
 import { Head } from 'src/common/head';
 import { contactsApi } from 'src/contacts/common/contacts-api';
 import { ContactSuccess } from 'src/contacts/contact-success';
-import { useProtocolsQuery } from 'src/graphql/_generated-hooks';
 import { LandingLayout } from 'src/layouts';
-import {
-  MainBlockchains,
-  MainJoinCommunity,
-  MainProtocols
-} from 'src/main/common';
+import { MainBlockchains, MainJoinCommunity } from 'src/main/common';
+import { TradeExchanges } from './common/trade-exchanges';
 import { TradeHero } from './common/trade-hero';
 import { TradeHowWorks } from './common/trade-how-works';
 import { TradeSmart } from './common/trade-smart';
 import { TradeWhat } from './common/trade-what';
+import { tradeApi } from './common/trade.api';
 import * as styles from './trade.css';
 
 export type TradeProps = unknown;
 
 export const Trade: React.VFC<TradeProps> = () => {
-  const [{ data: protocolsData }] = useProtocolsQuery();
+  const [exchanges, setExchanges] = useState<
+    Array<{
+      Icon: string;
+      Name: string;
+    }>
+  >([]);
 
   const [openSuccess] = useDialog(ContactSuccess);
 
@@ -40,6 +42,13 @@ export const Trade: React.VFC<TradeProps> = () => {
     }
   };
 
+  useEffect(() => {
+    tradeApi
+      .exchanges()
+      .then(({ data }) => setExchanges(data))
+      .catch(console.error);
+  }, []);
+
   return (
     <LandingLayout>
       <Head title="Trade on dex like a pro" />
@@ -48,10 +57,7 @@ export const Trade: React.VFC<TradeProps> = () => {
       <TradeWhat className={styles.section} />
       <TradeHowWorks className={styles.section} />
       <MainBlockchains className={styles.section} />
-      <MainProtocols
-        className={styles.section}
-        protocols={protocolsData?.protocols.list}
-      />
+      <TradeExchanges className={styles.section} exchanges={exchanges} />
       <FaqText className={styles.section} />
       <MainJoinCommunity
         className={styles.section}

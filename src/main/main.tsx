@@ -13,7 +13,6 @@ import big_brain_holdings from 'src/assets/images/big_brain_holdings.png';
 import starter from 'src/assets/images/starter.png';
 import huckleberry from 'src/assets/images/huckleberry.png';
 import perpetual from 'src/assets/images/perpetual.png';
-import russ_vench from 'src/assets/images/russ_vench.svg';
 import vc from 'src/assets/images/vc.svg';
 import cointelgraph from 'src/assets/images/cointelgraph.svg';
 import hackernoon from 'src/assets/images/hackernoon.svg';
@@ -64,11 +63,6 @@ const INVESTORS = [
 ];
 
 const PRESS = [
-  {
-    title: 'russ_vench',
-    link: '',
-    image: russ_vench
-  },
   {
     title: 'vc',
     link: '',
@@ -152,7 +146,10 @@ export const Main: React.VFC = () => {
       />
       {false && <MainPartners className={styles.section} />}
       <MainSecurity className={styles.security} />
-      <MainJoinCommunity onSubmit={handleSubscribe} />
+      <MainJoinCommunity
+        onSubmit={handleSubscribe}
+        className={styles.section}
+      />
     </LandingLayout>
   );
 };

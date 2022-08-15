@@ -16,8 +16,9 @@ export const Dialog: React.FC<DialogProps> = (props) => {
     event: React.MouseEvent<HTMLDivElement, MouseEvent>
   ) => event.stopPropagation();
 
-  const [contentElement, setContentElement] =
-    useState<HTMLDivElement | null>(null);
+  const [contentElement, setContentElement] = useState<HTMLDivElement | null>(
+    null
+  );
   useBodyScrollLock(contentElement);
 
   const handleSetContent = (instance: HTMLDivElement | null) => {

@@ -77,6 +77,13 @@ export const title = style({
 export const launchButton = style({
   marginLeft: 16
 });
+export const litepaper = style([
+  launchButton,
+  {
+    background: theme.palette.green,
+    borderColor: theme.palette.green
+  }
+]);
 
 export const subtitle = style({
   marginBottom: 24,

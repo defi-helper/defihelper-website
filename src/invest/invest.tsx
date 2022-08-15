@@ -87,7 +87,10 @@ export const Invest: React.FC<InvestProps> = () => {
       />
       <FaqText className={styles.section} />
       <MainSecurity className={styles.security} />
-      <MainJoinCommunity onSubmit={handleSubscribe} />
+      <MainJoinCommunity
+        onSubmit={handleSubscribe}
+        className={styles.section}
+      />
     </LandingLayout>
   );
 };

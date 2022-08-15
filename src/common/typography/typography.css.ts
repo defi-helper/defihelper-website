@@ -6,7 +6,8 @@ export const root = style({
   margin: 0,
   fontFamily: 'inherit',
   color: 'currentColor',
-  fontWeight: 'normal'
+  fontWeight: 'normal',
+  textDecoration: 'none'
 });
 
 export const variants = styleVariants({

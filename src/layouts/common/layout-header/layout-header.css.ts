@@ -1,4 +1,4 @@
-import { style } from '@vanilla-extract/css';
+import { globalStyle, style } from '@vanilla-extract/css';
 
 import { theme } from 'src/common/theme';
 
@@ -36,6 +36,17 @@ export const logo = style([
     }
   })
 ]);
+
+export const logoFull = style([
+  padding,
+  style({
+    height: 24
+  })
+]);
+
+globalStyle(`${logoFull} svg`, {
+  width: '100%'
+});
 
 export const menuDesktop = style([
   padding,
@@ -96,6 +107,12 @@ export const navLink = style({
     [theme.mediaQueries.md()]: {
       fontSize: 16,
       lineHeight: '24px'
+    },
+
+    [theme.mediaQueries.hover()]: {
+      ':hover': {
+        color: theme.palette.green1
+      }
     }
   }
 });
@@ -105,5 +122,17 @@ export const coinPrice = style({
   alignItems: 'center',
   gap: 10,
   marginRight: 24,
-  marginLeft: 40
+  marginLeft: 40,
+
+  '@media': {
+    [theme.mediaQueries.hover()]: {
+      ':hover': {
+        color: theme.palette.green1
+      }
+    }
+  }
+});
+
+export const activeClassName = style({
+  color: theme.palette.green1
 });
