@@ -1,11 +1,13 @@
 import clsx from 'clsx';
 import React from 'react';
+import { Link as ReactRouterLink } from 'react-router-dom';
 
 import { Grid } from 'src/common/grid';
 import { Typography } from 'src/common/typography';
 import earnmore1 from 'src/assets/images/earnmore1.png';
 import earnmore2 from 'src/assets/images/earnmore2.png';
 import { Button } from 'src/common/button';
+import { URLS } from 'src/router/urls';
 import * as styles from './main-earn.css';
 
 export type MainEarnProps = {
@@ -39,7 +41,9 @@ export const MainEarn: React.VFC<MainEarnProps> = (props) => {
             gravida blandit vitae id consequat risus. Faucibus amet, cum sit
             conse
           </Typography>
-          <Button color="secondary">trade</Button>
+          <Button color="secondary" as={ReactRouterLink} to={URLS.trade}>
+            trade
+          </Button>
         </div>
         <img src={earnmore1} alt="" className={styles.earnMore1Img} />
       </div>
@@ -60,7 +64,9 @@ export const MainEarn: React.VFC<MainEarnProps> = (props) => {
             gravida blandit vitae id consequat risus. Faucibus amet, cum sit
             conse
           </Typography>
-          <Button color="secondary">invest</Button>
+          <Button color="secondary" as={ReactRouterLink} to={URLS.invest}>
+            invest
+          </Button>
         </div>
       </div>
     </Grid.Container>

@@ -6,8 +6,12 @@ export const root = style({
   display: 'flex',
   flexDirection: 'column',
   gap: 29,
+  minHeight: 'calc(100vh - 84px)',
 
   '@media': {
+    [theme.mediaQueries.md()]: {
+      minHeight: 'calc(100vh - 116px)'
+    },
     [theme.mediaQueries.lg()]: {
       flexDirection: 'row-reverse',
       alignItems: 'center'

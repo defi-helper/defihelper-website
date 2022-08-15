@@ -13,7 +13,6 @@ import big_brain_holdings from 'src/assets/images/big_brain_holdings.png';
 import starter from 'src/assets/images/starter.png';
 import huckleberry from 'src/assets/images/huckleberry.png';
 import perpetual from 'src/assets/images/perpetual.png';
-import russ_vench from 'src/assets/images/russ_vench.svg';
 import vc from 'src/assets/images/vc.svg';
 import cointelgraph from 'src/assets/images/cointelgraph.svg';
 import hackernoon from 'src/assets/images/hackernoon.svg';
@@ -65,11 +64,6 @@ const INVESTORS = [
 
 const PRESS = [
   {
-    title: 'russ_vench',
-    link: '',
-    image: russ_vench
-  },
-  {
     title: 'vc',
     link: '',
     image: vc
@@ -111,18 +105,18 @@ export const Main: React.VFC = () => {
   return (
     <LandingLayout>
       <Head
-        title="Yield Aggregator & Yield Optimizer"
+        title="Best DeFi Platform for Yield Farming & Trading"
         keywords={[
-          'Yield Aggregator',
-          'Yield Optimizer',
-          'defihelper',
-          'cross chain yield aggregator',
-          'best yield aggregator',
-          'best yiled optimizer',
-          'yield aggregator crypto',
-          'auto compound yield farming'
+          'top defi',
+          'defi platform',
+          'yield farming',
+          'defi yield farming',
+          'yieldfarming',
+          'best defi platform',
+          'top defi platform',
+          'defi decentralized finance'
         ]}
-        description="Best Cross-chain Yield Aggregator and Yield Optimizer for crypto. Automate your DeFi strategies across chains, earn more with our auto-staking feature"
+        description="Earn more with DeFiHelper - top DeFi Platform for Yield Farming and Trading. Automate your DeFi strategies across chains. Use trailing buy or stop-loss/take-profit features. "
       />
       <MainHeader
         className={styles.header}
@@ -152,7 +146,10 @@ export const Main: React.VFC = () => {
       />
       {false && <MainPartners className={styles.section} />}
       <MainSecurity className={styles.security} />
-      <MainJoinCommunity onSubmit={handleSubscribe} />
+      <MainJoinCommunity
+        onSubmit={handleSubscribe}
+        className={styles.section}
+      />
     </LandingLayout>
   );
 };

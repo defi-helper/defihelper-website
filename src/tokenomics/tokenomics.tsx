@@ -43,10 +43,6 @@ export const Tokenomics: React.VFC<TokenomicsProps> = () => {
     <LandingLayout>
       <Head title="Tokenomics" />
       <TokenomicsHeader
-        price={data?.govToken.price}
-        marketCap={data?.govToken.marketCap}
-        circulatingSupply={data?.govToken.circulation.total}
-        totalSupply={data?.govToken.totalSupply}
         className={styles.header}
         onGetDFH={handleOpenLinkDialog}
       />

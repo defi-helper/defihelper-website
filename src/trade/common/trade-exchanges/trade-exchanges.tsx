@@ -9,25 +9,22 @@ import { Button } from 'src/common/button';
 import { config } from 'src/config';
 import { URLS } from 'src/router/urls';
 import { MainChip } from 'src/main/common/main-chip';
-import { analytics } from 'src/analytics';
-import * as styles from './main-protocols.css';
+import * as styles from './trade-exchanges.css';
 
-type Protocol = {
-  id: string;
-  name: string;
-  icon?: string | null;
-  link?: string | null;
+type Exchange = {
+  Icon: string;
+  Name: string;
 };
 
-export type MainProtocolsProps = {
+export type TradeExchangesProps = {
   className?: string;
-  protocols?: Protocol[] | null;
+  exchanges?: Exchange[] | null;
 };
 
-const MAX_PROTOCOLS = 28;
+const MAX_EXCHANGES = 28;
 
-export const MainProtocols: React.VFC<MainProtocolsProps> = (props) => {
-  const protocols = props.protocols?.slice(0, MAX_PROTOCOLS) ?? [];
+export const TradeExchanges: React.VFC<TradeExchangesProps> = (props) => {
+  const exchanges = props.exchanges?.slice(0, MAX_EXCHANGES) ?? [];
 
   return (
     <Grid.Container className={clsx(props.className)}>
@@ -37,22 +34,22 @@ export const MainProtocols: React.VFC<MainProtocolsProps> = (props) => {
         transform="uppercase"
         className={styles.title}
       >
-        {props.protocols?.length ?? 0} protocols Connected
+        {props.exchanges?.length ?? 0} exchanges supported
       </Typography>
       <ul className={styles.list}>
-        {protocols.map((protocol, index) => {
+        {exchanges.map((protocol, index) => {
           const key = index;
 
           return (
             <li key={key} className={styles.listItem}>
               <MainChip
-                icon={protocol.icon ?? undefined}
-                name={protocol.name}
+                icon={protocol.Icon ?? undefined}
+                name={protocol.Name}
               />
             </li>
           );
         })}
-        {props.protocols && props.protocols.length > MAX_PROTOCOLS && (
+        {props.exchanges && props.exchanges.length > MAX_EXCHANGES && (
           <li className={styles.listItem}>
             <Button
               variant="outlined"
@@ -60,7 +57,7 @@ export const MainProtocols: React.VFC<MainProtocolsProps> = (props) => {
               as={ReactRouterLink}
               to={URLS.protocols}
             >
-              +{props.protocols.length - MAX_PROTOCOLS} more
+              +{props.exchanges.length - MAX_EXCHANGES} more
             </Button>
           </li>
         )}
@@ -71,10 +68,9 @@ export const MainProtocols: React.VFC<MainProtocolsProps> = (props) => {
             className={styles.protocolButton}
             as={Link}
             target="_blank"
-            href={`${config.LAUNCH_APP_URL}roadmap?tag=protocolRequest`}
-            onClick={() => analytics.send('main_suggest_protocol_click')}
+            href={`${config.LAUNCH_APP_URL}roadmap?tag=exchangeRequest`}
           >
-            + suggest protocol
+            + suggest exchange
           </Button>
         </li>
       </ul>
