@@ -1,13 +1,11 @@
 import clsx from 'clsx';
 import React from 'react';
-import { Link as ReactRouterLink } from 'react-router-dom';
 
 import { Grid } from 'src/common/grid';
 import { Typography } from 'src/common/typography';
 import { Link } from 'src/common/link';
 import { Button } from 'src/common/button';
 import { config } from 'src/config';
-import { URLS } from 'src/router/urls';
 import { MainChip } from 'src/main/common/main-chip';
 import * as styles from './trade-exchanges.css';
 
@@ -21,10 +19,8 @@ export type TradeExchangesProps = {
   exchanges?: Exchange[] | null;
 };
 
-const MAX_EXCHANGES = 28;
-
 export const TradeExchanges: React.VFC<TradeExchangesProps> = (props) => {
-  const exchanges = props.exchanges?.slice(0, MAX_EXCHANGES) ?? [];
+  const exchanges = props.exchanges ?? [];
 
   return (
     <Grid.Container className={clsx(props.className)}>
@@ -49,18 +45,6 @@ export const TradeExchanges: React.VFC<TradeExchangesProps> = (props) => {
             </li>
           );
         })}
-        {props.exchanges && props.exchanges.length > MAX_EXCHANGES && (
-          <li className={styles.listItem}>
-            <Button
-              variant="outlined"
-              className={styles.protocolButton}
-              as={ReactRouterLink}
-              to={URLS.protocols}
-            >
-              +{props.exchanges.length - MAX_EXCHANGES} more
-            </Button>
-          </li>
-        )}
         <li className={styles.listItem}>
           <Button
             variant="outlined"
@@ -68,7 +52,7 @@ export const TradeExchanges: React.VFC<TradeExchangesProps> = (props) => {
             className={styles.protocolButton}
             as={Link}
             target="_blank"
-            href={`${config.LAUNCH_APP_URL}roadmap?tag=exchangeRequest`}
+            href={`${config.LAUNCH_APP_URL}roadmap?tag=featureRequest`}
           >
             + suggest exchange
           </Button>

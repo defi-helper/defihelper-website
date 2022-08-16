@@ -134,7 +134,13 @@ export const contractIcons = style({
 
 export const contractIconsItem = style({
   width: 20,
-  height: 20
+  height: 20,
+
+  selectors: {
+    '&:not(:first-child)': {
+      marginLeft: -4
+    }
+  }
 });
 
 export const contractIconsItemTokens = style({
@@ -142,13 +148,14 @@ export const contractIconsItemTokens = style({
   alignItems: 'center'
 });
 
-export const contractUnknownNetworkIcon = style({
-  width: 20,
-  height: 20,
-  display: 'flex',
-  alignItems: 'center',
-  justifyContent: 'center'
-});
+export const contractUnknownNetworkIcon = style([
+  contractIconsItem,
+  {
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center'
+  }
+]);
 
 export const protocol = style({
   display: 'flex',
@@ -204,4 +211,26 @@ export const loading = style({
   padding: '16px 25px',
   background: theme.color.paper,
   borderRadius: 8
+});
+
+export const apy = style({
+  display: 'inline-flex',
+  gap: 4,
+  alignItems: 'center'
+});
+
+export const tokenIconArrow = style({
+  margin: '0 6px'
+});
+
+export const colButton = style({
+  cursor: 'pointer'
+});
+
+export const green = style({
+  color: `${theme.palette.green1} !important`
+});
+
+export const red = style({
+  color: `${theme.palette.red} !important`
 });
