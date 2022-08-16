@@ -59,6 +59,7 @@ export const TokenomicsHeader: React.VFC<TokenomicsHeaderProps> = (props) => {
             as="a"
             href={URLS.litepaper}
             className={styles.litepaper}
+            target="_blank"
           >
             Litepaper
           </Button>

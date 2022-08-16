@@ -4039,7 +4039,10 @@ export type TreasuryQuery = { __typename?: 'Query' } & {
   >;
 };
 
-export type InvestContractsQueryVariables = Exact<{ [key: string]: never }>;
+export type InvestContractsQueryVariables = Exact<{
+  filter?: Maybe<ContractListFilterInputType>;
+  sort?: Maybe<Array<ContractListSortInputType> | ContractListSortInputType>;
+}>;
 
 export type InvestContractsQuery = { __typename?: 'Query' } & {
   contracts: { __typename?: 'ContractListType' } & {
@@ -4062,6 +4065,7 @@ export type InvestContractsQuery = { __typename?: 'Query' } & {
               | 'aprYear'
               | 'aprWeekReal'
               | 'myAPYBoost'
+              | 'myStaked'
             >;
             tokens: { __typename?: 'ContractTokenLinkType' } & {
               stake: Array<

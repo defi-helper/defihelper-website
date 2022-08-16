@@ -4042,7 +4042,10 @@ export type TreasuryQuery = { __typename?: 'Query' } & {
   >;
 };
 
-export type InvestContractsQueryVariables = Exact<{ [key: string]: never }>;
+export type InvestContractsQueryVariables = Exact<{
+  filter?: Maybe<ContractListFilterInputType>;
+  sort?: Maybe<Array<ContractListSortInputType> | ContractListSortInputType>;
+}>;
 
 export type InvestContractsQuery = { __typename?: 'Query' } & {
   contracts: { __typename?: 'ContractListType' } & {
@@ -4065,6 +4068,7 @@ export type InvestContractsQuery = { __typename?: 'Query' } & {
               | 'aprYear'
               | 'aprWeekReal'
               | 'myAPYBoost'
+              | 'myStaked'
             >;
             tokens: { __typename?: 'ContractTokenLinkType' } & {
               stake: Array<
@@ -4253,8 +4257,11 @@ export function useTreasuryQuery(
   return Urql.useQuery<TreasuryQuery>({ query: TreasuryDocument, ...options });
 }
 export const InvestContractsDocument = gql`
-  query InvestContracts {
-    contracts(filter: { hidden: false }, pagination: { limit: 10 }) {
+  query InvestContracts(
+    $filter: ContractListFilterInputType = {}
+    $sort: [ContractListSortInputType!] = [{ column: name, order: asc }]
+  ) {
+    contracts(filter: $filter, pagination: { limit: 10 }, sort: $sort) {
       list {
         id
         protocol {
@@ -4273,6 +4280,7 @@ export const InvestContractsDocument = gql`
           aprYear
           aprWeekReal
           myAPYBoost
+          myStaked
         }
         tokens {
           stake {

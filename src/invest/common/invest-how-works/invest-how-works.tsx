@@ -36,7 +36,7 @@ const STEPS = [
     text: (
       <>
         set up <br className={styles.stepsItemBr} />
-        order
+        contract
       </>
     )
   },

@@ -43,6 +43,7 @@ const LINKS: Omit<React.ComponentProps<typeof Link>, 'className'>[] = [
 export const LayoutHeader: React.VFC<LayoutHeaderProps> = (props) => {
   const isTrade = useRouteMatch(URLS.trade);
   const isInvest = useRouteMatch(URLS.invest);
+  const isTokenomics = useRouteMatch(URLS.tokenomics);
 
   const isDesktop = useMedia('(min-width: 960px)');
 
@@ -65,11 +66,17 @@ export const LayoutHeader: React.VFC<LayoutHeaderProps> = (props) => {
           <ReactRouterLink
             to={URLS.main}
             className={clsx({
-              [styles.logo]: !(isTrade || isInvest) || !isDesktop,
-              [styles.logoFull]: (isTrade || isInvest) && isDesktop
+              [styles.logo]:
+                !(isTrade || isInvest || isTokenomics) || !isDesktop,
+              [styles.logoFull]:
+                (isTrade || isInvest || isTokenomics) && isDesktop
             })}
           >
-            {(isTrade || isInvest) && isDesktop ? <LogoFull /> : <Logo />}
+            {(isTrade || isInvest || isTokenomics) && isDesktop ? (
+              <LogoFull />
+            ) : (
+              <Logo />
+            )}
           </ReactRouterLink>
           <div className={styles.menuDesktop}>
             {LINKS.map((link) => (
