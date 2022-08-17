@@ -135,6 +135,7 @@ export const InvestPools: React.VFC<InvestPoolsProps> = (props) => {
     variables: {
       filter: {
         hidden: false,
+        deprecated: false,
         automate: {
           autorestake: true
         }
