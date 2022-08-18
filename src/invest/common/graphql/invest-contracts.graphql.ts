@@ -1,8 +1,11 @@
 import { gql } from 'urql';
 
 export const INVEST_CONTRACTS = gql`
-  query InvestContracts {
-    contracts(filter: { hidden: false }, pagination: { limit: 10 }) {
+  query InvestContracts(
+    $filter: ContractListFilterInputType = {}
+    $sort: [ContractListSortInputType!] = [{ column: name, order: asc }]
+  ) {
+    contracts(filter: $filter, pagination: { limit: 10 }, sort: $sort) {
       list {
         id
         protocol {
@@ -21,6 +24,7 @@ export const INVEST_CONTRACTS = gql`
           aprYear
           aprWeekReal
           myAPYBoost
+          myStaked
         }
         tokens {
           stake {

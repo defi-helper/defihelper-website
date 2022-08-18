@@ -9,15 +9,12 @@ import { Typography } from 'src/common/typography';
 import { config } from 'src/config';
 import tokenomics from 'src/assets/images/tokenomics.png';
 import tokenomicsMobile from 'src/assets/images/tokenomics-mobile.png';
-import * as styles from './tokenomics-header.css';
 import { analytics } from 'src/analytics';
+import { URLS } from 'src/router/urls';
+import * as styles from './tokenomics-header.css';
 
 export type TokenomicsHeaderProps = {
   className?: string;
-  price?: string;
-  marketCap?: string;
-  circulatingSupply?: string;
-  totalSupply?: string;
   onGetDFH: () => void;
 };
 
@@ -56,6 +53,16 @@ export const TokenomicsHeader: React.VFC<TokenomicsHeaderProps> = (props) => {
               Launch App
             </Button>
           )}
+          <Button
+            variant="contained"
+            color="secondary"
+            as="a"
+            href={URLS.litepaper}
+            className={styles.litepaper}
+            target="_blank"
+          >
+            Litepaper
+          </Button>
         </div>
         <img src={tokenomicsMobile} alt="" className={styles.imgMobile} />
       </Grid.Container>

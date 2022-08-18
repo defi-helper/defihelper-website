@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import { HelmetProvider } from 'react-helmet-async';
 import smoothscroll from 'smoothscroll-polyfill';
 import 'normalize.css';
-import { createClient, Provider } from 'urql';
+import { Provider } from 'urql';
 
 import { DialogProvider } from './common/dialog';
 import { ThemeProvider } from './common/theme';
@@ -14,14 +14,11 @@ import * as serviceWorkerRegistration from './serviceWorkerRegistration';
 import './assets/fonts/Basier-Circle-regular-webfont/stylesheet.css';
 import './assets/fonts/Basier-Square-Mono-Regular-Webfont/stylesheet.css';
 import './assets/fonts/Basier-Square-regular-webfont/stylesheet.css';
+import { client } from './api-client';
 
 smoothscroll.polyfill();
 
 Sentry.init();
-
-const client = createClient({
-  url: config.API_URL ?? ''
-});
 
 ReactDOM.render(
   <React.StrictMode>

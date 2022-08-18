@@ -145,7 +145,7 @@ export const MainTeam: React.VFC<MainTeamProps> = (props) => {
         transform="uppercase"
         className={styles.title}
       >
-        Team
+        behind the scenes
       </Typography>
       <Wrap>
         {TEAM.map((teammate) => (
@@ -169,12 +169,14 @@ export const MainTeam: React.VFC<MainTeamProps> = (props) => {
               <Typography variant="body2">{teammate.description}</Typography>
             </div>
             <div>
-              {teammate.actions.map((action, index) =>
-                React.cloneElement(action, {
-                  key: String(index),
+              {teammate.actions.map((action, index) => {
+                const key = index;
+
+                return React.cloneElement(action, {
+                  key,
                   className: styles.cardAction
-                })
-              )}
+                });
+              })}
             </div>
           </Paper>
         ))}

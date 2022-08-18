@@ -8,6 +8,8 @@ import { Button } from 'src/common/button';
 import { config } from 'src/config';
 import { ButtonBase } from 'src/common/button-base';
 import { ReactComponent as PlayIcon } from 'src/assets/icons/play.svg';
+import { useDialog } from 'src/common/dialog';
+import { VideoDialog } from 'src/common/video-dialog';
 import * as styles from './main-header.css';
 
 export type MainHeaderProps = {
@@ -19,6 +21,14 @@ export type MainHeaderProps = {
 };
 
 export const MainHeader: React.VFC<MainHeaderProps> = (props) => {
+  const [openVideoDialog] = useDialog(VideoDialog);
+
+  const handleOpenVideoDialog = () => {
+    openVideoDialog({
+      videoId: 'DkIH_DMhgcs'
+    }).catch(console.error);
+  };
+
   return (
     <div className={clsx(styles.root, props.className)}>
       <Grid.Container className={styles.hero}>
@@ -26,7 +36,7 @@ export const MainHeader: React.VFC<MainHeaderProps> = (props) => {
           <div className={styles.text}>
             <img src={logo} alt="" className={styles.logo} />
             <Typography variant="h1" className={styles.subtitle} align="center">
-              Earn more with smart trading and automatic portfolio management
+              Top DeFi Platform for Yield Farming & Trading
             </Typography>
             <Typography
               family="mono"
@@ -51,7 +61,10 @@ export const MainHeader: React.VFC<MainHeaderProps> = (props) => {
                   Demo account
                 </Button>
               )}
-              <ButtonBase className={styles.watchPromo}>
+              <ButtonBase
+                className={styles.watchPromo}
+                onClick={handleOpenVideoDialog}
+              >
                 <PlayIcon />
                 watch promo
               </ButtonBase>

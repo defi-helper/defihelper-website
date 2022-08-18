@@ -26,14 +26,10 @@ export const bignumberUtils = {
 
     if (result.lt('1000000')) return result.toFormat(0);
 
-    if (result.isGreaterThanOrEqualTo('1000000000')) {
-      return `${result.div('1000000000').toFormat(0)}B`;
-    }
-
-    return `${result.div('1000000').toFormat(0)}M`;
+    return result.toFormat(0);
   },
 
-  formatMax: (amount: string | number | null, max: number) => {
+  formatMax: (amount?: string | number | null, max = 10000) => {
     return bignumberUtils.gt(amount, max)
       ? `${bignumberUtils.format(max)}+`
       : bignumberUtils.format(amount);
@@ -80,7 +76,7 @@ export const bignumberUtils = {
   plus: (num1?: string | number | null, num2?: string | number | null) =>
     new BigNumber(num1 || 0).plus(num2 || 0).toString(10),
 
-  mul: (num1?: string | number, num2?: string | number) =>
+  mul: (num1?: string | number | null, num2?: string | number) =>
     new BigNumber(num1 || 0).multipliedBy(num2 || 0).toString(10),
 
   div: (num1?: string | number, num2?: string | number) =>

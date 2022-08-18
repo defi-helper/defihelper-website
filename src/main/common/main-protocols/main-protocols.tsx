@@ -9,8 +9,8 @@ import { Button } from 'src/common/button';
 import { config } from 'src/config';
 import { URLS } from 'src/router/urls';
 import { MainChip } from 'src/main/common/main-chip';
-import * as styles from './main-protocols.css';
 import { analytics } from 'src/analytics';
+import * as styles from './main-protocols.css';
 
 type Protocol = {
   id: string;
@@ -40,11 +40,18 @@ export const MainProtocols: React.VFC<MainProtocolsProps> = (props) => {
         {props.protocols?.length ?? 0} protocols Connected
       </Typography>
       <ul className={styles.list}>
-        {protocols.map((protocol, index) => (
-          <li key={String(index)} className={styles.listItem}>
-            <MainChip icon={protocol.icon ?? undefined} name={protocol.name} />
-          </li>
-        ))}
+        {protocols.map((protocol, index) => {
+          const key = index;
+
+          return (
+            <li key={key} className={styles.listItem}>
+              <MainChip
+                icon={protocol.icon ?? undefined}
+                name={protocol.name}
+              />
+            </li>
+          );
+        })}
         {props.protocols && props.protocols.length > MAX_PROTOCOLS && (
           <li className={styles.listItem}>
             <Button

@@ -31,6 +31,8 @@ export const dateUtils = {
   isBeforeNow: (date: number | string) => dayjs(date).isBefore(dayjs()),
   isAfterNow: (date: number | string) => dayjs(date).isAfter(dayjs()),
 
+  isAfter: (date: number | string) => dayjs().isAfter(date),
+
   addSeconds: (seconds: number) => dayjs().add(seconds, 'second'),
 
   after: (

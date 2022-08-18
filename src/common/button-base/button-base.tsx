@@ -25,7 +25,7 @@ export const ButtonBase = React.forwardRef<HTMLButtonElement, ButtonBaseProps>(
     });
 
     return (
-      <Component ref={ref} className={classNames} {...restOfProps}>
+      <Component {...restOfProps} ref={ref} className={classNames}>
         {children}
       </Component>
     );
