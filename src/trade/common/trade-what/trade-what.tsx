@@ -13,11 +13,17 @@ export type TradeWhatProps = {
   className?: string;
 };
 
-const DATA = [
+const DATA: {
+  title: string;
+  text: string;
+  img: string;
+  inDev?: boolean;
+}[] = [
   {
     title: 'USE TRAILING BUY',
     text: 'Integer sagittis euismod vitae penatibus libero, facilisi. Nulla elit suspendisse mauris fringilla turpis posuere. Aliquam, amet gravida blandit vitae id consequat risus. Faucibus amet, cum sit conse',
-    img: what1
+    img: what1,
+    inDev: true
   },
   {
     title: 'STOP-LOSS and TAKE-PROFIT',
@@ -63,6 +69,17 @@ export const TradeWhat: React.VFC<TradeWhatProps> = (props) => {
               <Typography className={styles.cardDescription}>
                 {dataItem.text}
               </Typography>
+              {dataItem.inDev && (
+                <Typography
+                  variant="h4"
+                  as="div"
+                  transform="uppercase"
+                  family="mono"
+                  className={styles.cardInDev}
+                >
+                  in development
+                </Typography>
+              )}
             </div>
           </div>
         ))}

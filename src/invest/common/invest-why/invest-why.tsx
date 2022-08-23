@@ -13,7 +13,12 @@ export type InvestWhyProps = {
   className?: string;
 };
 
-const DATA = [
+const DATA: {
+  title: string;
+  text: string;
+  img: string;
+  inDev?: boolean;
+}[] = [
   {
     title: 'Use auto-staking to boost your APY',
     text: 'Integer sagittis euismod vitae penatibus libero, facilisi. Nulla elit suspendisse mauris fringilla turpis posuere. Aliquam, amet gravida blandit vitae id consequat risus. Faucibus amet, cum sit conse',
@@ -22,7 +27,8 @@ const DATA = [
   {
     title: 'Protect your money with stop-loss / take profit features',
     text: 'Integer sagittis euismod vitae penatibus libero, facilisi. Nulla elit suspendisse mauris fringilla turpis posuere. Aliquam, amet gravida blandit vitae id consequat risus. Faucibus amet, cum sit conse',
-    img: why2
+    img: why2,
+    inDev: true
   },
   {
     title: 'compare pools by REAL profitability',
@@ -63,6 +69,17 @@ export const InvestWhy: React.VFC<InvestWhyProps> = (props) => {
               <Typography className={styles.cardDescription}>
                 {dataItem.text}
               </Typography>
+              {dataItem.inDev && (
+                <Typography
+                  variant="h4"
+                  as="div"
+                  transform="uppercase"
+                  family="mono"
+                  className={styles.cardInDev}
+                >
+                  in development
+                </Typography>
+              )}
             </div>
           </div>
         ))}

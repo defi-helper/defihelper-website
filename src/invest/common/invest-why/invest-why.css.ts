@@ -81,5 +81,18 @@ export const cardTitle = style({
 });
 
 export const cardDescription = style({
-  opacity: 0.64
+  opacity: 0.64,
+
+  selectors: {
+    '&:not(:last-child)': {
+      marginBottom: 12
+    }
+  }
+});
+
+export const cardInDev = style({
+  borderRadius: 8,
+  border: `1px solid ${theme.palette.green1}`,
+  display: 'inline-block',
+  padding: '9px 25px'
 });
