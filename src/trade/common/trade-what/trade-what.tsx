@@ -20,24 +20,24 @@ const DATA: {
   inDev?: boolean;
 }[] = [
   {
-    title: 'USE TRAILING BUY',
-    text: 'Use "trailing buy" feature if you are not sure about the token price. Our bot will track the minimal price of the token and will try to buy deep to maximize your profit.',
+    title: 'USE \'Trailing\'',
+    text: 'Use our \'Trailing\' feature if you are unsure about the token price. Our bot will track the price of the token and will try to maximize your profit.',
     img: what1,
     inDev: true
   },
   {
     title: 'STOP LOSS and TAKE PROFIT',
-    text: 'Protect your order with stop loss and take profit features. We will track the price of the token online and will execute the blockchain transaction as soon as price will be lower/higher than threshold.',
+    text: 'Protect your order with our Stop-Loss and Take-Profit features. We will track the price of the token online and will execute the blockchain transaction as soon as price will be lower/higher than the threshold.',
     img: what2
   },
   {
-    title: 'PROTECT YOUR TOKENS WITH "SMART SELL"',
-    text: 'Setup "smart sell" to setup stop loss and take profit for previously bought tokens. And start to watch your gains.',
+    title: 'PROTECT YOUR TOKENS WITH \'Smart Sell\'',
+    text: 'Setup \'Smart Sell\' to enable our \'Stop-Loss\' and \'Take-Profit\' features for previously bought tokens. Then, sit back, and watch the gains.',
     img: what3
   },
   {
-    title: 'WAIT FOR PRICE GO UP',
-    text: 'We recommend to use timeout for each order to prevent execution on deadly spikes. Our bot will wait some time to give a change price to go up. Do not sell on the deep.',
+    title: 'WAIT FOR THE PRICE TO RISE',
+    text: 'We recommend that you use the timeout feature for each order, to prevent execution on deadly spikes. Our bot will delay to allow for the price to stabilise, so that you don\'t sell at the lowest price.',
     img: what4
   }
 ];
@@ -51,7 +51,7 @@ export const TradeWhat: React.VFC<TradeWhatProps> = (props) => {
         variant="h2"
         className={styles.title}
       >
-        why you need trade with defihelper?
+        Why you need to DeFiHelper's 'Trade' Functionality
       </Typography>
       <div className={styles.list}>
         {DATA.map((dataItem) => (

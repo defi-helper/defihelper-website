@@ -205,7 +205,7 @@ export const InvestPools: React.VFC<InvestPoolsProps> = (props) => {
         variant="h2"
         className={styles.title}
       >
-        top pools to invest right now
+        top pools to invest in right now
       </Typography>
       <div className={styles.table}>
         <div className={styles.tableHead}>

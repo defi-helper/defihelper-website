@@ -24,11 +24,11 @@ export const TradeHero: React.VFC<TradeHeroProps> = (props) => {
           as="h1"
           className={styles.title}
         >
-          Best DeFi Trading Platform
+          The Best DeFi Trading Platform
         </Typography>
         <Typography className={styles.description}>
-          Use trailing buy or stop loss/take profit features to trade like a
-          professional trader on DEX exchanges
+          Use our 'Trailing Buy', or 'Stop-loss/Take-profit' features to trade
+          like a pro on DEXs
         </Typography>
         <div className={styles.actions}>
           <Button color="secondary" as="a"

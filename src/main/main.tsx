@@ -105,18 +105,18 @@ export const Main: React.VFC = () => {
   return (
     <LandingLayout>
       <Head
-        title="Best DeFi Platform for Yield Farming & Trading"
+        title="The Best DeFi Platform for Yield Farming & Trading"
         keywords={[
           'top defi',
           'defi platform',
           'yield farming',
           'defi yield farming',
           'yieldfarming',
-          'best defi platform',
+          'the best defi platform',
           'top defi platform',
           'defi decentralized finance'
         ]}
-        description="Earn more with DeFiHelper - top DeFi Platform for Yield Farming and Trading. Automate your DeFi strategies across chains. Use trailing buy or stop loss/take profit features. "
+        description="Earn more with DeFiHelper - top DeFi Platform for Yield Farming and Trading. Automate your DeFi strategies across chains. Use our 'Trailing Buy', or 'Stop-loss/Take-profit' features to trade like a pro on DEXs"
       />
       <MainHeader
         className={styles.header}

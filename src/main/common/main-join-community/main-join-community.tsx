@@ -48,7 +48,7 @@ export const MainJoinCommunity: React.FC<MainJoinCommunityProps> = (props) => {
         </ul>
         <form className={styles.feedback} onSubmit={formik.handleSubmit}>
           <Typography variant="h4" className={styles.feedbackText}>
-            Subscribe to receive more news
+            Subscribe to receive our news and updates
           </Typography>
           <div className={styles.feedbackCol}>
             <Input

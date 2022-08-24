@@ -51,7 +51,7 @@ export const InvestWhy: React.VFC<InvestWhyProps> = (props) => {
         variant="h2"
         className={styles.title}
       >
-        WHY YOU NEED INVEST WITH DEFIHELPER?
+        WHY DO YOU NEED TO INVEST WITH DEFIHELPER?
       </Typography>
       <div className={styles.list}>
         {DATA.map((dataItem) => (
