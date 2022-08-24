@@ -21,11 +21,6 @@ export type LayoutFooterProps = {
 
 const PROTOCOL = [
   {
-    title: 'Launch app',
-    link: config.LAUNCH_APP_URL ?? '/',
-    target: ''
-  },
-  {
     title: 'Governance',
     link: `${config.LAUNCH_APP_URL}governance`,
     target: ''
@@ -34,21 +29,6 @@ const PROTOCOL = [
     title: 'Tokenomics',
     link: URLS.tokenomics,
     target: ''
-  },
-  {
-    title: 'Litepaper',
-    link: URLS.litepaper,
-    target: '_blank'
-  },
-  {
-    title: 'Math behind DFH (EN)',
-    link: articleEN,
-    target: '_blank'
-  },
-  {
-    title: 'Math behind DFH (RU)',
-    link: articleRU,
-    target: '_blank'
   },
   {
     title: 'Contracts',
@@ -68,11 +48,6 @@ const PROTOCOL = [
   {
     title: 'Etherscan',
     link: 'https://etherscan.io/token/0x5f2080542ab6ae7e0b06778f0b2d263006297840',
-    target: '_blank'
-  },
-  {
-    title: 'Audit by HashEx',
-    link: 'https://github.com/HashEx/public_audits/blob/master/defi-helper/Defi-Helper_audit-report.pdf',
     target: '_blank'
   },
   {
@@ -144,32 +119,13 @@ export const LayoutFooter: React.VFC<LayoutFooterProps> = (props) => {
               variant="body2"
               className={styles.mb}
             >
-              Subscription
-            </Typography>
-            <Typography
-              variant="body2"
-              className={clsx(styles.mb, styles.grey)}
-            >
-              Be the first one to learn about updates and new features
-            </Typography>
-            <Button variant="outlined" onClick={props.onSubscribe}>
-              Subscribe
-            </Button>
-          </div>
-          <div className={styles.col}>
-            <Typography
-              transform="uppercase"
-              family="mono"
-              variant="body2"
-              className={styles.mb}
-            >
               Join Us
             </Typography>
             <Typography
               variant="body2"
               className={clsx(styles.mb, styles.grey)}
             >
-              Join the team and work on the future of DeFi automation with us
+              Join the team and work on the future of DeFi with us
             </Typography>
             <Button
               variant="outlined"

@@ -7,27 +7,15 @@ import { ReactComponent as DiscordIcon } from 'src/assets/icons/social/discord.s
 
 export const SOCIAL = [
   {
-    title: 'News (EN)',
+    title: 'News channel',
     icon: TelegramIcon,
     link: 'https://t.me/defihelper_news',
     target: '_blank'
   },
   {
-    title: 'News (RU)',
-    icon: TelegramIcon,
-    link: 'https://t.me/defihelper_news_ru',
-    target: '_blank'
-  },
-  {
-    title: 'Chat (EN)',
+    title: 'Community chat',
     icon: TelegramIcon,
     link: 'https://t.me/defihelper_chat',
-    target: '_blank'
-  },
-  {
-    title: 'Chat (RU)',
-    icon: TelegramIcon,
-    link: 'https://t.me/defihelper_chat_ru',
     target: '_blank'
   },
   {
@@ -52,12 +40,6 @@ export const SOCIAL = [
     title: 'Github',
     icon: GithubIcon,
     link: 'https://github.com/defi-helper',
-    target: '_blank'
-  },
-  {
-    title: 'Email',
-    icon: EmailIcon,
-    link: 'mailto:hello@defihelper.io',
     target: '_blank'
   }
 ];

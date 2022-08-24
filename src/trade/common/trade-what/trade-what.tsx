@@ -21,23 +21,23 @@ const DATA: {
 }[] = [
   {
     title: 'USE TRAILING BUY',
-    text: 'Integer sagittis euismod vitae penatibus libero, facilisi. Nulla elit suspendisse mauris fringilla turpis posuere. Aliquam, amet gravida blandit vitae id consequat risus. Faucibus amet, cum sit conse',
+    text: 'Use "trailing buy" feature if you are not sure about the token price. Our bot will track the minimal price of the token and will try to buy deep to maximize your profit.',
     img: what1,
     inDev: true
   },
   {
-    title: 'STOP-LOSS and TAKE-PROFIT',
-    text: 'Integer sagittis euismod vitae penatibus libero, facilisi. Nulla elit suspendisse mauris fringilla turpis posuere. Aliquam, amet gravida blandit vitae id consequat risus. Faucibus amet, cum sit conse',
+    title: 'STOP LOSS and TAKE PROFIT',
+    text: 'Protect your order with stop loss and take profit features. We will track the price of the token online and will execute the blockchain transaction as soon as price will be lower/higher than threshold.',
     img: what2
   },
   {
-    title: 'PROTECT YOUR TOKENS WITH SMART SELL FEATURE',
-    text: 'Integer sagittis euismod vitae penatibus libero, facilisi. Nulla elit suspendisse mauris fringilla turpis posuere. Aliquam, amet gravida blandit vitae id consequat risus. Faucibus amet, cum sit conse',
+    title: 'PROTECT YOUR TOKENS WITH "SMART SELL"',
+    text: 'Setup "smart sell" to setup stop loss and take profit for previously bought tokens. And start to watch your gains.',
     img: what3
   },
   {
     title: 'WAIT FOR PRICE GO UP',
-    text: 'Integer sagittis euismod vitae penatibus libero, facilisi. Nulla elit suspendisse mauris fringilla turpis posuere. Aliquam, amet gravida blandit vitae id consequat risus. Faucibus amet, cum sit conse',
+    text: 'We recommend to use timeout for each order to prevent execution on deadly spikes. Our bot will wait some time to give a change price to go up. Do not sell on the deep.',
     img: what4
   }
 ];

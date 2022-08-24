@@ -19,7 +19,7 @@ export const TradeSmart: React.VFC<TradeSmartProps> = (props) => {
         variant="h2"
         className={styles.title}
       >
-        smart tools
+        smart bot that works 24/7
       </Typography>
       <div className={styles.grid}>
         <img src={earnmore1} alt="" className={styles.gridImg} />
@@ -30,13 +30,25 @@ export const TradeSmart: React.VFC<TradeSmartProps> = (props) => {
             variant="h4"
             className={styles.gridTitle}
           >
-            use cex trading tools on dex
+            Make your own advanced strategy
           </Typography>
           <Typography className={styles.gridDescription}>
-            Integer sagittis euismod vitae penatibus libero, facilisi. Nulla
-            elit suspendisse mauris fringilla turpis posuere. Aliquam, amet
-            gravida blandit vitae id consequat risus. Faucibus amet, cum sit
-            conse
+            <p>Usually this features available only for professional traders or
+              in subscription based trading systems, but with DeFiHelper you can
+              create your own advanced strategy to buy any liquid or low liquid
+              tokens on the most popular decentralized exchanges.</p>
+
+            <p>For example: you can set up your order with "trailing buy",
+              choose the price for "stop loss", "take profit" and see how our
+              trading solution will work for you.</p>
+
+            <p>DeFiHelper bot will recalculate the price of the token after
+              every trade in the liquidity pool and will make a binary decision
+              to execute your order or not.</p>
+
+            <p>You can also protect your stop loss from the price spikes with
+              additional execution timeout. If the price will go back during the
+              timeout - your order will not be executed.</p>
           </Typography>
         </div>
       </div>

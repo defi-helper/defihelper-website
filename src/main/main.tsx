@@ -116,7 +116,7 @@ export const Main: React.VFC = () => {
           'top defi platform',
           'defi decentralized finance'
         ]}
-        description="Earn more with DeFiHelper - top DeFi Platform for Yield Farming and Trading. Automate your DeFi strategies across chains. Use trailing buy or stop-loss/take-profit features. "
+        description="Earn more with DeFiHelper - top DeFi Platform for Yield Farming and Trading. Automate your DeFi strategies across chains. Use trailing buy or stop loss/take profit features. "
       />
       <MainHeader
         className={styles.header}

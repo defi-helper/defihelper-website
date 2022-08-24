@@ -53,7 +53,7 @@ export const Trade: React.VFC<TradeProps> = () => {
     <LandingLayout>
       <Head
         title="DeFi Trading Platform"
-        description="Best DeFi trading platform - Use trailing buy or stop-loss/take-profit features to trade defi like a professional trader. "
+        description="Best DeFi trading platform - Use trailing buy or stop loss/take profit features to trade defi like a professional trader. "
         keywords={[
           'defi exchange',
           'best defi exchange',
@@ -70,7 +70,7 @@ export const Trade: React.VFC<TradeProps> = () => {
       <TradeHowWorks className={styles.section} />
       <MainBlockchains className={styles.section} />
       <TradeExchanges className={styles.section} exchanges={exchanges} />
-      <FaqText className={styles.section} />
+      {/*<FaqText className={styles.section} />*/}
       <MainJoinCommunity
         className={styles.section}
         onSubmit={handleSubscribe}

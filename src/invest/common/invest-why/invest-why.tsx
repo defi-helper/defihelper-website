@@ -25,7 +25,7 @@ const DATA: {
     img: why1
   },
   {
-    title: 'Protect your money with stop-loss / take profit features',
+    title: 'Protect your money with stop loss / take profit features',
     text: 'Integer sagittis euismod vitae penatibus libero, facilisi. Nulla elit suspendisse mauris fringilla turpis posuere. Aliquam, amet gravida blandit vitae id consequat risus. Faucibus amet, cum sit conse',
     img: why2,
     inDev: true
