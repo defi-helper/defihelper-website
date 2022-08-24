@@ -6,6 +6,7 @@ import { FaqText } from 'src/common/faq-text';
 import { Head } from 'src/common/head';
 import { contactsApi } from 'src/contacts/common/contacts-api';
 import { ContactSuccess } from 'src/contacts/contact-success';
+import opengraph from 'src/assets/images/invest.jpg';
 import {
   useProtocolsQuery,
   useRestakeStrategyQuery
@@ -80,6 +81,7 @@ export const Invest: React.FC<InvestProps> = () => {
           'yield aggregator crypto',
           'auto compound yield farming'
         ]}
+        ogImage={opengraph}
       />
       <InvestHero className={styles.section} />
       <InvestPools className={styles.section} />
