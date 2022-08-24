@@ -137,7 +137,7 @@ export const LayoutHeader: React.VFC<LayoutHeaderProps> = (props) => {
                   className={styles.menuMobileItem}
                   key={String(link.children)}
                 >
-                  <Link className={styles.navLink} {...link} />
+                  <Link className={styles.navLink} as={NavLink} {...link} />
                 </div>
               ))}
             </Paper>
