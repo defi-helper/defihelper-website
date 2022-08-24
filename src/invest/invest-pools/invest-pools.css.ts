@@ -153,7 +153,8 @@ export const contractUnknownNetworkIcon = style([
   {
     display: 'flex',
     alignItems: 'center',
-    justifyContent: 'center'
+    justifyContent: 'center',
+    background: theme.color.background
   }
 ]);
 
