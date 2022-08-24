@@ -3,7 +3,6 @@ import { Helmet } from 'react-helmet-async';
 import { useLocation } from 'react-router-dom';
 
 import opengraph from 'src/assets/images/opengraph.jpg';
-import { config } from 'src/config';
 
 export type HeadProps = {
   title?: string;
@@ -13,8 +12,6 @@ export type HeadProps = {
   keywords?: string[];
   status?: number;
 };
-
-const SITE_URL = config.LAUNCH_APP_URL?.slice(0, -1);
 
 const SITE_DESCRIPTION =
   'Automate your DeFi strategies across chains, earn more with our auto-staking feature';
@@ -28,7 +25,7 @@ export const Head: React.FC<HeadProps> = (props) => {
 
   const {
     ogImage = opengraph,
-    ogUrl = SITE_URL,
+    ogUrl = window.location.origin,
     description = SITE_DESCRIPTION,
     keywords = undefined,
     status = 200
