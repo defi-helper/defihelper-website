@@ -28,7 +28,6 @@ export const list = style({
   listStyle: 'none',
   padding: 0,
   margin: 0,
-  justifyContent: 'space-between',
   marginBottom: 32,
   display: 'grid',
   gridTemplateColumns: '1fr 1fr',
