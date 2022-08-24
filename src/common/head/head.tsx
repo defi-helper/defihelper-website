@@ -13,8 +13,6 @@ export type HeadProps = {
   status?: number;
 };
 
-const SITE_URL = 'https://defihelper.io';
-
 const SITE_DESCRIPTION =
   'Automate your DeFi strategies across chains, earn more with our auto-staking feature';
 
@@ -27,7 +25,7 @@ export const Head: React.FC<HeadProps> = (props) => {
 
   const {
     ogImage = opengraph,
-    ogUrl = SITE_URL,
+    ogUrl = window.location.origin,
     description = SITE_DESCRIPTION,
     keywords = undefined,
     status = 200
