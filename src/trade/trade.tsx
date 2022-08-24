@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react';
 
 import { useDialog } from 'src/common/dialog';
-import { FaqText } from 'src/common/faq-text';
 import { Head } from 'src/common/head';
 import { contactsApi } from 'src/contacts/common/contacts-api';
 import { ContactSuccess } from 'src/contacts/contact-success';
 import { LandingLayout } from 'src/layouts';
 import { MainBlockchains, MainJoinCommunity } from 'src/main/common';
+import opengraph from 'src/assets/images/trade.jpg';
 import { TradeExchanges } from './common/trade-exchanges';
 import { TradeHero } from './common/trade-hero';
 import { TradeHowWorks } from './common/trade-how-works';
@@ -63,6 +63,7 @@ export const Trade: React.VFC<TradeProps> = () => {
           'the best defi trading platform',
           'defi crypto trading'
         ]}
+        ogImage={opengraph}
       />
       <TradeHero className={styles.section} />
       <TradeSmart className={styles.section} />
@@ -70,7 +71,6 @@ export const Trade: React.VFC<TradeProps> = () => {
       <TradeHowWorks className={styles.section} />
       <MainBlockchains className={styles.section} />
       <TradeExchanges className={styles.section} exchanges={exchanges} />
-      {/*<FaqText className={styles.section} />*/}
       <MainJoinCommunity
         className={styles.section}
         onSubmit={handleSubscribe}
