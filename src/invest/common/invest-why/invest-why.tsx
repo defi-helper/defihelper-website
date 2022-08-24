@@ -20,25 +20,26 @@ const DATA: {
   inDev?: boolean;
 }[] = [
   {
-    title: 'Use auto-staking to boost your APY',
-    text: 'Integer sagittis euismod vitae penatibus libero, facilisi. Nulla elit suspendisse mauris fringilla turpis posuere. Aliquam, amet gravida blandit vitae id consequat risus. Faucibus amet, cum sit conse',
+    title: 'Use \'auto-staking\' to boost your APY',
+    text: 'Auto-staking is a built-in automation. It helps you earn more by automatically adding your profits to the deposit, effectively auto-compounding your interest. DFH has the most effective auto-compounding algorithm on the market.',
     img: why1
   },
   {
-    title: 'Protect your money with stop loss / take profit features',
-    text: 'Integer sagittis euismod vitae penatibus libero, facilisi. Nulla elit suspendisse mauris fringilla turpis posuere. Aliquam, amet gravida blandit vitae id consequat risus. Faucibus amet, cum sit conse',
+    title: 'Use \'stop loss\'',
+    text: 'Protect your investment with our \'Stop-Loss\' feature. We will track the value of your liquidity and will remove and sell LP token to the single token when the price will be lower then threshold.',
     img: why2,
     inDev: true
   },
   {
-    title: 'compare pools by REAL profitability',
-    text: 'Integer sagittis euismod vitae penatibus libero, facilisi. Nulla elit suspendisse mauris fringilla turpis posuere. Aliquam, amet gravida blandit vitae id consequat risus. Faucibus amet, cum sit conse',
-    img: why3
+    title: 'Get daily portfolio updates',
+    text: 'You can connect any amount of wallets and CEX exchanges to assemble your own portfolio. We will send you daily updates of how much USD you have in your pocket.',
+    img: why4
   },
   {
-    title: 'Get daily portfolio updates in telegram or email',
-    text: 'Integer sagittis euismod vitae penatibus libero, facilisi. Nulla elit suspendisse mauris fringilla turpis posuere. Aliquam, amet gravida blandit vitae id consequat risus. Faucibus amet, cum sit conse',
-    img: why4
+    title: 'Use deep analytics',
+    text: 'Our system is analyzing on-chain and off-chain data about tokens and protocols to provide you additional info to cut the risks. You can use information about 7d Real APY, Risk level and Risk factors for each protocol and liquidity pool',
+    img: why3,
+    inDev: true
   }
 ];
 

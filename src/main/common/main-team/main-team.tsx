@@ -8,6 +8,7 @@ import { Typography } from 'src/common/typography';
 import { Carousel } from 'src/common/carousel';
 import { Button } from 'src/common/button';
 import vlad_komissarov from 'src/assets/images/team/vlad_komissarov.png';
+import yuri_gugnin from 'src/assets/images/team/yuri_gugnin.png';
 import artem_tolkachev from 'src/assets/images/team/artem_tolkachev.png';
 import ben_ashworth from 'src/assets/images/team/ben_ashworth.jpg';
 import join_us from 'src/assets/images/team/join_us.png';
@@ -71,6 +72,29 @@ const TEAM: Array<Team> = [
       <ButtonBase
         as={Link}
         href="https://linkedin.com/in/artemtolkachev/"
+        target="_blank"
+      >
+        <LinkedInIcon />
+      </ButtonBase>
+    ]
+  },
+  {
+    photo: yuri_gugnin,
+    name: 'Yuriy Gugnin',
+    role: 'Business development',
+    description:
+      '',
+    actions: [
+      <ButtonBase
+        as={Link}
+        target="_blank"
+        href="https://twitter.com/???"
+      >
+        <TwitterIcon />
+      </ButtonBase>,
+      <ButtonBase
+        as={Link}
+        href="https://linkedin.com/in/???/"
         target="_blank"
       >
         <LinkedInIcon />

@@ -38,9 +38,14 @@ export const InvestHero: React.VFC<InvestHeroProps> = (props) => {
         >
           DeFi Yield Aggregator & Yield Optimizer
         </Typography>
+        <Typography className={styles.description}>
+          Find a pool to invest in, use auto compounding to boost your APY,
+          protect your investment with 'stop-loss'
+        </Typography>
         <div className={styles.actions}>
-          <Button color="secondary" as="a" href={config.LAUNCH_APP_URL}>
-            Stake
+          <Button color="secondary" as="a"
+                  href={`${config.LAUNCH_APP_URL}autostaking`} target="_blank">
+            Invest
           </Button>
           <ButtonBase
             className={styles.watchPromo}

@@ -40,6 +40,17 @@ export const title = style({
   marginBottom: 44
 });
 
+export const description = style({
+  opacity: 0.64,
+  marginBottom: 31,
+
+  '@media': {
+    [theme.mediaQueries.lg()]: {
+      marginBottom: 56
+    }
+  }
+});
+
 export const actions = style({
   margin: '0 auto',
   display: 'flex',

@@ -100,7 +100,7 @@ export const Invest: React.FC<InvestProps> = () => {
         className={styles.section}
         protocols={protocolsData?.protocols.list}
       />
-      <FaqText className={styles.section} />
+      {/*<FaqText className={styles.section} />*/}
       <MainSecurity className={styles.security} />
       <MainJoinCommunity
         onSubmit={handleSubscribe}

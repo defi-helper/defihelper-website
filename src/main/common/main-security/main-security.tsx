@@ -33,7 +33,7 @@ export const MainSecurity: React.VFC<MainSecurityProps> = (props) => {
               transform="uppercase"
               className={styles.auditsTitle}
             >
-              Audits by HashEx
+              Security audits
             </Typography>
             <LogoHashexIcon />
             <div className={styles.auditsButton}>
@@ -57,10 +57,11 @@ export const MainSecurity: React.VFC<MainSecurityProps> = (props) => {
               Your money is only your money
             </Typography>
             <Typography className={styles.yourMoneyText}>
-              Integer sagittis euismod vitae penatibus libero, facilisi. Nulla
-              elit suspendisse mauris fringilla turpis posuere. Aliquam, amet
-              gravida blandit vitae id consequat risus. Faucibus amet, cum sit
-              conse
+              Security is at the forefront of the DeFiHelper. Each automation
+              is represented by the special contract which user have to 'copy'
+              and transfer money to it, instead of buying 'some' tokens or
+              invest in 'special' pools. All the source code is open and audited
+              by major players in crypto market.
             </Typography>
           </Paper>
         </div>

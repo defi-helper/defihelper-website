@@ -27,12 +27,12 @@ const DATA: {
   },
   {
     title: 'STOP LOSS and TAKE PROFIT',
-    text: 'Protect your order with our Stop-Loss and Take-Profit features. We will track the price of the token online and will execute the blockchain transaction as soon as price will be lower/higher than the threshold.',
+    text: 'Protect your order with our Stop-Loss and Take-Profit features. We will track the price of the token online and will execute the blockchain transaction as soon as price will be lower/higher than the threshold. Then, sit back, and watch the gains.',
     img: what2
   },
   {
     title: 'PROTECT YOUR TOKENS WITH \'Smart Sell\'',
-    text: 'Setup \'Smart Sell\' to enable our \'Stop-Loss\' and \'Take-Profit\' features for previously bought tokens. Then, sit back, and watch the gains.',
+    text: 'Setup \'Smart Sell\' to enable our \'Stop-Loss\' and \'Take-Profit\' features for previously bought tokens. ',
     img: what3
   },
   {
