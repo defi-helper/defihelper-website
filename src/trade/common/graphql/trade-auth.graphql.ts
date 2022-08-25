@@ -1,4 +1,4 @@
-import { gql } from 'urql'
+import { gql } from 'urql';
 
 export const TRADE_AUTH = gql`
   mutation TradeAuth {
@@ -7,4 +7,4 @@ export const TRADE_AUTH = gql`
       tokenExpired
     }
   }
-`
+`;

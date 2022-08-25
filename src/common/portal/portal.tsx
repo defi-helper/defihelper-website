@@ -8,8 +8,9 @@ export type PortalProps = {
 
 export const Portal: React.FC<PortalProps> = (props) => {
   const { children, container } = props;
-  const [mountNode, setMountNode] =
-    React.useState<HTMLElement | Element | null>(null);
+  const [mountNode, setMountNode] = React.useState<
+    HTMLElement | Element | null
+  >(null);
 
   useMount(() => {
     setMountNode(container || document.body);

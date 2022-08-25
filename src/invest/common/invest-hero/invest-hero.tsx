@@ -43,8 +43,12 @@ export const InvestHero: React.VFC<InvestHeroProps> = (props) => {
           protect your investment with 'stop-loss'
         </Typography>
         <div className={styles.actions}>
-          <Button color="secondary" as="a"
-                  href={`${config.LAUNCH_APP_URL}autostaking`} target="_blank">
+          <Button
+            color="secondary"
+            as="a"
+            href={`${config.LAUNCH_APP_URL}autostaking`}
+            target="_blank"
+          >
             Invest
           </Button>
           <ButtonBase

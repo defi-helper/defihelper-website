@@ -8,7 +8,7 @@ import { Typography } from 'src/common/typography';
 import { Carousel } from 'src/common/carousel';
 import { Button } from 'src/common/button';
 import vlad_komissarov from 'src/assets/images/team/vlad_komissarov.png';
-import yuri_gugnin from 'src/assets/images/team/yuri_gugnin.png';
+import iurii_gugnin from 'src/assets/images/team/iurii_gugnin.png';
 import artem_tolkachev from 'src/assets/images/team/artem_tolkachev.png';
 import ben_ashworth from 'src/assets/images/team/ben_ashworth.jpg';
 import join_us from 'src/assets/images/team/join_us.png';
@@ -34,7 +34,7 @@ type Team = {
 const TEAM: Array<Team> = [
   {
     photo: vlad_komissarov,
-    name: 'Vladislav Komisarov',
+    name: 'Vladislav Komissarov',
     role: 'CEO and founder',
     description:
       'Vlad has over 17 years of experience in web development. He has launched and managed a number of major ICT products and services on the CIS market.',
@@ -79,22 +79,22 @@ const TEAM: Array<Team> = [
     ]
   },
   {
-    photo: yuri_gugnin,
-    name: 'Yuriy Gugnin',
+    photo: iurii_gugnin,
+    name: 'George Goognin',
     role: 'Business development',
     description:
-      '',
+      'Consulted 5 govts on crypto regulation, structured $250M of business loans, raised $11M in venture funding.',
     actions: [
       <ButtonBase
         as={Link}
         target="_blank"
-        href="https://twitter.com/???"
+        href="https://twitter.com/GeorgeGoognin"
       >
         <TwitterIcon />
       </ButtonBase>,
       <ButtonBase
         as={Link}
-        href="https://linkedin.com/in/???/"
+        href="https://linkedin.com/in/georgegoognin/"
         target="_blank"
       >
         <LinkedInIcon />

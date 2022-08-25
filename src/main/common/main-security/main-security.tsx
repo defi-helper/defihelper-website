@@ -57,11 +57,11 @@ export const MainSecurity: React.VFC<MainSecurityProps> = (props) => {
               Your money is only your money
             </Typography>
             <Typography className={styles.yourMoneyText}>
-              Security is at the forefront of the DeFiHelper. Each automation
-              is represented by the special contract which user have to 'copy'
-              and transfer money to it, instead of buying 'some' tokens or
-              invest in 'special' pools. All the source code is open and audited
-              by major players in crypto market.
+              Security is at the forefront of DeFiHelper. Each automation is
+              represented by a special contract, which the user has to 'copy'
+              and transfer money to, rather than buying some tokens and
+              investing in 'special' pools. All of our source code is open, and
+              audited by major players in the crypto market.
             </Typography>
           </Paper>
         </div>

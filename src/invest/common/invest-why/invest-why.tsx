@@ -20,24 +20,24 @@ const DATA: {
   inDev?: boolean;
 }[] = [
   {
-    title: 'Use \'auto-staking\' to boost your APY',
+    title: "Use 'auto-staking' to boost your APY",
     text: 'Auto-staking is a built-in automation. It helps you earn more by automatically adding your profits to the deposit, effectively auto-compounding your interest. DFH has the most effective auto-compounding algorithm on the market.',
     img: why1
   },
   {
-    title: 'Use \'stop loss\'',
-    text: 'Protect your investment with our \'Stop-Loss\' feature. We will track the value of your liquidity and will remove and sell LP token to the single token when the price will be lower then threshold.',
+    title: "Use 'stop loss'",
+    text: "Protect your investment with our 'Stop-Loss' feature. We will track the value of your liquidity, and then remove and sell your LP tokens to the single token when the price is lower than the threshold that you set.",
     img: why2,
     inDev: true
   },
   {
     title: 'Get daily portfolio updates',
-    text: 'You can connect any amount of wallets and CEX exchanges to assemble your own portfolio. We will send you daily updates of how much USD you have in your pocket.',
+    text: "You can connect any amount of wallets and CEXs to assemble your own portfolio. We will send you daily updates on your portfolio's value, in USD.",
     img: why4
   },
   {
     title: 'Use deep analytics',
-    text: 'Our system is analyzing on-chain and off-chain data about tokens and protocols to provide you additional info to cut the risks. You can use information about 7d Real APY, Risk level and Risk factors for each protocol and liquidity pool',
+    text: 'Our system analyzes on-chain and off-chain data about tokens and protocols to give you all the information you need to minimize risk. You can use our 7d Real APY tracker, Risk level and Risk factor analysis for each protocol and liquidity pool.',
     img: why3,
     inDev: true
   }

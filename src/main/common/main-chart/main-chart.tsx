@@ -97,8 +97,8 @@ export const MainChart: React.VFC<MainChartProps> = (props) => {
             sum={lastHoldValue?.v}
             description={
               <>
-                By just holding your bag on contract you will lost possible
-                compound interest
+                By not reinvesting your interest, you will lose out on compound
+                interest
               </>
             }
             dataFields={DATA_FIELDS}
@@ -118,8 +118,9 @@ export const MainChart: React.VFC<MainChartProps> = (props) => {
             sum={lastAutostakingValue?.v}
             description={
               <>
-                Autostaking feature increases your rewards by restaking your bag
-                in right time when rewards is optimal over fees.{' '}
+                Our autostaking feature boosts your rewards by restaking your
+                bag at the optimal time, maximising your profits and minimising
+                your effort.{' '}
                 <Link
                   target="_blank"
                   href={articleEN}

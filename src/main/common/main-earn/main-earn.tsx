@@ -36,7 +36,10 @@ export const MainEarn: React.VFC<MainEarnProps> = (props) => {
             The best defi trading platform
           </Typography>
           <Typography className={styles.earnMore1TextDescription}>
-            Ususally, these features are only available for professional traders, or in subscription based trading systems, but with DeFiHelper, you can create your own advanced strategy to buy any liquid or low liquid tokens on the most popular DEXs.
+            Ususally, these features are only available for professional
+            traders, or in subscription based trading systems, but with
+            DeFiHelper, you can create your own advanced strategy to buy any
+            liquid or low liquid tokens on the most popular DEXs.
           </Typography>
           <Button color="secondary" as={ReactRouterLink} to={URLS.trade}>
             trade
@@ -56,7 +59,8 @@ export const MainEarn: React.VFC<MainEarnProps> = (props) => {
             DEFI YIELD AGGREGATOR & YIELD OPTIMIZER
           </Typography>
           <Typography className={styles.earnMore2TextDescription}>
-            Find a pool to invest in, use auto compounding to boost your APY, protect your investment with 'stop-loss'
+            Find a pool to invest in, use auto compounding to boost your APY,
+            protect your investment with 'stop-loss'
           </Typography>
           <Button color="secondary" as={ReactRouterLink} to={URLS.invest}>
             invest

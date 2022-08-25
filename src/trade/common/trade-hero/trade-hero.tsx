@@ -31,8 +31,12 @@ export const TradeHero: React.VFC<TradeHeroProps> = (props) => {
           like a pro on DEXs
         </Typography>
         <div className={styles.actions}>
-          <Button color="secondary" as="a"
-                  href={`${config.LAUNCH_APP_URL}trade`} target="_blank">
+          <Button
+            color="secondary"
+            as="a"
+            href={`${config.LAUNCH_APP_URL}trade`}
+            target="_blank"
+          >
             Trade
           </Button>
         </div>

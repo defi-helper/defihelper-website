@@ -3,10 +3,10 @@ import React from 'react';
 import { Input } from 'src/common/input';
 import { Button } from 'src/common/button';
 import { Dialog } from 'src/common/dialog';
+import { analytics } from 'src/analytics';
 import { contactsApi } from '../common/contacts-api';
 import * as styles from './contact-announce.css';
 import { useContactForm } from '../common/contact-form';
-import { analytics } from 'src/analytics';
 
 export type ContactAnnounceProps = {
   open: boolean;
