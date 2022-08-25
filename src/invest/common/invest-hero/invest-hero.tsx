@@ -46,7 +46,7 @@ export const InvestHero: React.VFC<InvestHeroProps> = (props) => {
           <Button
             color="secondary"
             as="a"
-            href={`${config.LAUNCH_APP_URL}autostaking`}
+            href={`${config.LAUNCH_APP_URL}invest`}
             target="_blank"
           >
             Invest

@@ -441,7 +441,7 @@ export const InvestPools: React.VFC<InvestPoolsProps> = (props) => {
                         color="secondary"
                         size="small"
                         as="a"
-                        href={`${config.LAUNCH_APP_URL}autostaking?contractId=${contract.id}`}
+                        href={`${config.LAUNCH_APP_URL}invest?contractId=${contract.id}`}
                       >
                         Invest
                       </Button>
@@ -457,7 +457,7 @@ export const InvestPools: React.VFC<InvestPoolsProps> = (props) => {
         color="secondary"
         className={styles.button}
         as="a"
-        href={`${config.LAUNCH_APP_URL}autostaking`}
+        href={`${config.LAUNCH_APP_URL}invest`}
       >
         See more in app ({count})
       </Button>
