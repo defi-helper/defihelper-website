@@ -20,8 +20,8 @@ const DATA: {
   inDev?: boolean;
 }[] = [
   {
-    title: 'USE \'Trailing\'',
-    text: 'Use our \'Trailing\' feature if you are unsure about the token price. Our bot will track the price of the token and will try to maximize your profit.',
+    title: "USE 'Trailing'",
+    text: "Use our 'Trailing' feature if you are unsure about the token price. Our bot will track the price of the token and will try to maximize your profit.",
     img: what1,
     inDev: true
   },
@@ -31,13 +31,13 @@ const DATA: {
     img: what2
   },
   {
-    title: 'PROTECT YOUR TOKENS WITH \'Smart Sell\'',
-    text: 'Setup \'Smart Sell\' to enable our \'Stop-Loss\' and \'Take-Profit\' features for previously bought tokens. ',
+    title: "PROTECT YOUR TOKENS WITH 'Smart Sell'",
+    text: "Setup 'Smart Sell' to enable our 'Stop-Loss' and 'Take-Profit' features for previously bought tokens. ",
     img: what3
   },
   {
     title: 'WAIT FOR THE PRICE TO RISE',
-    text: 'We recommend that you use the timeout feature for each order, to prevent execution on deadly spikes. Our bot will delay to allow for the price to stabilise, so that you don\'t sell at the lowest price.',
+    text: "We recommend that you use the timeout feature for each order, to prevent execution on deadly spikes. Our bot will delay to allow for the price to stabilise, so that you don't sell at the lowest price.",
     img: what4
   }
 ];
@@ -51,7 +51,7 @@ export const TradeWhat: React.VFC<TradeWhatProps> = (props) => {
         variant="h2"
         className={styles.title}
       >
-        Why you need to DeFiHelper's 'Trade' Functionality
+        Why you need to DeFiHelper&apos;s &apos;Trade&apos; Functionality
       </Typography>
       <div className={styles.list}>
         {DATA.map((dataItem) => (

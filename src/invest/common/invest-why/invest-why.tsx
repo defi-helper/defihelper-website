@@ -20,13 +20,13 @@ const DATA: {
   inDev?: boolean;
 }[] = [
   {
-    title: 'Use \'auto-staking\' to boost your APY',
+    title: "Use 'auto-staking' to boost your APY",
     text: 'Auto-staking is a built-in automation. It helps you earn more by automatically adding your profits to the deposit, effectively auto-compounding your interest. DFH has the most effective auto-compounding algorithm on the market.',
     img: why1
   },
   {
-    title: 'Use \'stop loss\'',
-    text: 'Protect your investment with our \'Stop-Loss\' feature. We will track the value of your liquidity and will remove and sell LP token to the single token when the price will be lower then threshold.',
+    title: "Use 'stop loss'",
+    text: "Protect your investment with our 'Stop-Loss' feature. We will track the value of your liquidity and will remove and sell LP token to the single token when the price will be lower then threshold.",
     img: why2,
     inDev: true
   },
