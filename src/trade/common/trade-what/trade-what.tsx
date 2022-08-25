@@ -51,7 +51,7 @@ export const TradeWhat: React.VFC<TradeWhatProps> = (props) => {
         variant="h2"
         className={styles.title}
       >
-        Why you need to DeFiHelper's 'Trade' Functionality
+        Why you need to DeFiHelper&apos;s &apos;Trade&apos; Functionality
       </Typography>
       <div className={styles.list}>
         {DATA.map((dataItem) => (
