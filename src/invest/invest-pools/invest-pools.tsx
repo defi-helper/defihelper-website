@@ -15,8 +15,11 @@ import { ReactComponent as QuestionMarkIcon } from 'src/assets/icons/questionmar
 import { ReactComponent as CalculatorIcon } from 'src/assets/icons/сalculator.svg';
 import { ReactComponent as ArrowLongRightIcon } from 'src/assets/icons/arrow-long-right.svg';
 import { ReactComponent as LinkIcon } from 'src/assets/icons/link.svg';
+import { ReactComponent as BrownIcon } from 'src/assets/icons/brown-risk.svg';
+import { ReactComponent as GreenIcon } from 'src/assets/icons/green-risk.svg';
 import {
   ContractListSortInputTypeColumnEnum,
+  ContractRiskFactorEnum,
   InvestContractsQuery,
   SortOrderEnum,
   useInvestContractsQuery
@@ -26,8 +29,8 @@ import { config } from 'src/config';
 import { Link } from 'src/common/link';
 import { useDialog } from 'src/common/dialog';
 import { InvestApyDialog } from '../common/invest-apy-dialog';
-import * as styles from './invest-pools.css';
 import { InvestTooltip } from '../common/invest-tooltip';
+import * as styles from './invest-pools.css';
 
 export type InvestPoolsProps = {
   className?: string;
@@ -102,6 +105,13 @@ const icons = (
   </div>
 );
 
+const riskStatuses = {
+  [ContractRiskFactorEnum.High]: 'High',
+  [ContractRiskFactorEnum.Low]: 'Low',
+  [ContractRiskFactorEnum.Moderate]: 'Moderate',
+  [ContractRiskFactorEnum.NotCalculated]: '-'
+};
+
 const sortIcon = (
   sort: {
     column: ContractListSortInputTypeColumnEnum;
@@ -126,6 +136,10 @@ export const InvestPools: React.VFC<InvestPoolsProps> = (props) => {
     order: SortOrderEnum.Desc
   });
 
+  const [riskLevel, setRiskLevel] = useState(
+    ContractRiskFactorEnum.NotCalculated
+  );
+
   const [currentContract, setContract] = useState('');
   const isDesktop = useMedia('(min-width: 960px)');
 
@@ -138,7 +152,9 @@ export const InvestPools: React.VFC<InvestPoolsProps> = (props) => {
         deprecated: false,
         automate: {
           autorestake: true
-        }
+        },
+        risk:
+          riskLevel === ContractRiskFactorEnum.NotCalculated ? null : riskLevel
       },
       sort: [
         sortBy,
@@ -158,6 +174,10 @@ export const InvestPools: React.VFC<InvestPoolsProps> = (props) => {
 
   const handleChangeContract = (contract: string) => () => {
     setContract((prevContract) => (prevContract ? '' : contract));
+  };
+
+  const handleChangeRiskLevel = (newLevel: ContractRiskFactorEnum) => () => {
+    setRiskLevel(newLevel);
   };
 
   const handleOpenApy =
@@ -207,6 +227,29 @@ export const InvestPools: React.VFC<InvestPoolsProps> = (props) => {
       >
         top pools to invest in right now
       </Typography>
+      <div className={styles.actions}>
+        <Paper radius={8} className={styles.select}>
+          {riskLevel === ContractRiskFactorEnum.NotCalculated
+            ? 'Risk level'
+            : riskStatuses[riskLevel]}
+          <ArrowDownIcon />
+          <div className={styles.selectDropdown}>
+            <Paper radius={8} className={styles.selectDropdownInner}>
+              {Object.entries(ContractRiskFactorEnum).map(([key, value]) => (
+                <ButtonBase
+                  key={key}
+                  className={styles.selectDropdownItem}
+                  onClick={handleChangeRiskLevel(value)}
+                >
+                  {value === ContractRiskFactorEnum.NotCalculated
+                    ? 'Not calculated'
+                    : riskStatuses[value]}
+                </ButtonBase>
+              ))}
+            </Paper>
+          </div>
+        </Paper>
+      </div>
       <div className={styles.table}>
         <div className={styles.tableHead}>
           <Typography variant="body2">Pool</Typography>
@@ -256,6 +299,16 @@ export const InvestPools: React.VFC<InvestPoolsProps> = (props) => {
               <QuestionMarkIcon />
             </InvestTooltip>{' '}
             {sortIcon(sortBy, ContractListSortInputTypeColumnEnum.AprBoosted)}
+          </Typography>
+          <Typography
+            variant="body2"
+            align="right"
+            as="div"
+            className={styles.colButton}
+            onClick={handleSort(ContractListSortInputTypeColumnEnum.RiskFactor)}
+          >
+            Risk{' '}
+            {sortIcon(sortBy, ContractListSortInputTypeColumnEnum.RiskFactor)}
           </Typography>
         </div>
         <div className={styles.tableBody}>
@@ -434,6 +487,76 @@ export const InvestPools: React.VFC<InvestPoolsProps> = (props) => {
                           bignumberUtils.lt(apyboost, '0') &&
                           '- '}
                         {bignumberUtils.formatMax(apyboost, 10000)}%
+                      </Typography>
+                    </Typography>
+                    <Typography
+                      variant="body2"
+                      align="right"
+                      as="div"
+                      className={styles.tableCol}
+                    >
+                      {!isDesktop && (
+                        <Typography variant="inherit">Risk</Typography>
+                      )}
+                      <Typography variant="inherit">
+                        <InvestTooltip
+                          direction="right"
+                          dropdownClassName={styles.riskLevel}
+                          text={
+                            <>
+                              <Typography
+                                family="mono"
+                                as="div"
+                                className={styles.riskLevelRow}
+                              >
+                                <Typography variant="inherit">Risk</Typography>
+                                <Typography
+                                  as="div"
+                                  variant="body2"
+                                  className={styles.riskLevelStatus}
+                                >
+                                  {riskStatuses[contract.metric.risk]}
+                                </Typography>
+                              </Typography>
+                              <span className={styles.riskLevelSpacing} />
+                              <Typography
+                                family="mono"
+                                as="div"
+                                variant="body2"
+                                className={styles.riskLevelRow}
+                              >
+                                <Typography variant="inherit">
+                                  Reliability
+                                </Typography>
+                                <GreenIcon width={19} height={20} />
+                              </Typography>
+                              <Typography
+                                family="mono"
+                                as="div"
+                                variant="body2"
+                                className={styles.riskLevelRow}
+                              >
+                                <Typography variant="inherit">
+                                  Profitability
+                                </Typography>
+                                <BrownIcon width={19} height={20} />
+                              </Typography>
+                              <Typography
+                                family="mono"
+                                as="div"
+                                variant="body2"
+                                className={styles.riskLevelRow}
+                              >
+                                <Typography variant="inherit">
+                                  Volatility
+                                </Typography>
+                                <GreenIcon width={19} height={20} />
+                              </Typography>
+                            </>
+                          }
+                        >
+                          <GreenIcon width={22} height={24} />
+                        </InvestTooltip>
                       </Typography>
                     </Typography>
                     <div className={styles.tableButton}>

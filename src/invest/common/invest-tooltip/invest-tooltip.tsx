@@ -9,6 +9,7 @@ export type InvestTooltipProps = {
   text: React.ReactNode;
   className?: string;
   direction?: keyof typeof styles.directions;
+  dropdownClassName?: string;
 };
 
 export const InvestTooltip: React.VFC<InvestTooltipProps> = (props) => {
@@ -21,7 +22,10 @@ export const InvestTooltip: React.VFC<InvestTooltipProps> = (props) => {
           styles.directions[props.direction ?? 'right']
         )}
       >
-        <Paper radius={8} className={styles.dropdownInner}>
+        <Paper
+          radius={8}
+          className={clsx(styles.dropdownInner, props.dropdownClassName)}
+        >
           {props.text}
         </Paper>
       </div>
