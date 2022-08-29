@@ -83,7 +83,7 @@ const TEAM: Array<Team> = [
     name: 'George Goognin',
     role: 'Business development',
     description:
-      'Consulted 5 govts on crypto regulation, structured $250M of business loans, raised $11M in venture funding.',
+      'George has consulted 5 governments on crypto regulation, has structured over $250m of business loans, and has raised over $11m in venture funding.',
     actions: [
       <ButtonBase
         as={Link}

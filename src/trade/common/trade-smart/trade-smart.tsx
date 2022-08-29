@@ -34,7 +34,7 @@ export const TradeSmart: React.VFC<TradeSmartProps> = (props) => {
           </Typography>
           <Typography className={styles.gridDescription} as="div">
             <p>
-              Ususally, these features are only available for professional
+              Usually, our features are only available for professional
               traders, or in subscription based trading systems, but with
               DeFiHelper, you can create your own advanced strategy to buy any
               liquid or low liquid tokens on the most popular DEXs.

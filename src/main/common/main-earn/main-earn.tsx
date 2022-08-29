@@ -36,7 +36,7 @@ export const MainEarn: React.VFC<MainEarnProps> = (props) => {
             The best defi trading platform
           </Typography>
           <Typography className={styles.earnMore1TextDescription}>
-            Ususally, these features are only available for professional
+            Usually, our features are only available for professional
             traders, or in subscription based trading systems, but with
             DeFiHelper, you can create your own advanced strategy to buy any
             liquid or low liquid tokens on the most popular DEXs.
