@@ -14,21 +14,18 @@ const DATA = [
   {
     title: 'No-code automation',
     description:
-      'DFH charges $1 per executed automation (blockchain fee not included)',
-    estimate: '$4,300,000'
+      'DFH charges $1 per executed automation (blockchain fee not included)'
   },
 
   {
     title: 'Notifications',
-    description: `Notifications are available starting from $10 per 1,000 messages`,
-    estimate: '$450,000'
+    description: `Notifications are available starting from $10 per 1,000 messages`
   },
 
   {
     title: 'Scenarios marketplace',
     description: `The protocol and the authors of the provided strategies will
-      earn commissions from the application of the strategies by other users`,
-    estimate: '(soon)'
+      earn commissions from the application of the strategies by other users`
   }
 ];
 
@@ -58,12 +55,6 @@ export const TokenomicsProfit: React.VFC<TokenomicsProfitProps> = (props) => {
               className={clsx(styles.opacity, styles.cardDescription)}
             >
               {dataItem.description}
-            </Typography>
-            <Typography className={styles.estimateTitle}>
-              Estimated Yearly Profit
-            </Typography>
-            <Typography variant="h4" className={styles.estimateSubtitle}>
-              {dataItem.estimate}
             </Typography>
           </Paper>
         ))}
