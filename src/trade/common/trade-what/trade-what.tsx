@@ -38,7 +38,8 @@ const DATA: {
   {
     title: 'WAIT FOR THE PRICE TO RISE',
     text: "We recommend that you use the timeout feature for each order, to prevent execution on deadly spikes. Our bot will delay to allow for the price to stabilise, so that you don't sell at the lowest price.",
-    img: what4
+    img: what4,
+    inDev: true
   }
 ];
 
