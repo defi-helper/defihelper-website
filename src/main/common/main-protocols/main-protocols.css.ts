@@ -33,11 +33,13 @@ export const listItem = style({
 export const protocolButton = style({
   fontSize: 16,
   lineHeight: '24px',
-  borderRadius: 16,
-  padding: 16,
+  borderRadius: 8,
+  padding: 8,
 
   '@media': {
     [theme.mediaQueries.lg()]: {
+      borderRadius: 16,
+      padding: 16,
       fontSize: 24,
       lineHeight: '32px'
     }

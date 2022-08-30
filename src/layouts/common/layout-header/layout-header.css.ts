@@ -52,13 +52,7 @@ export const menuDesktop = style([
   padding,
   style({
     marginLeft: 'auto',
-    display: 'none',
-
-    '@media': {
-      [theme.mediaQueries.lg()]: {
-        display: 'flex'
-      }
-    }
+    display: 'flex'
   })
 ]);
 
@@ -100,13 +94,15 @@ export const navLink = style({
   textDecoration: 'none',
   fontSize: 12,
   lineHeight: '16px',
-  display: 'block',
-  padding: '8px 30px',
+  display: 'flex',
+  padding: '6px 15px',
+  alignItems: 'center',
 
   '@media': {
     [theme.mediaQueries.md()]: {
       fontSize: 16,
-      lineHeight: '24px'
+      lineHeight: '24px',
+      padding: '8px 30px'
     },
 
     [theme.mediaQueries.hover()]: {
@@ -120,11 +116,17 @@ export const navLink = style({
 export const coinPrice = style({
   display: 'flex',
   alignItems: 'center',
-  gap: 10,
-  marginRight: 24,
-  marginLeft: 40,
+  gap: 4,
+  marginRight: 5,
+  marginLeft: 10,
 
   '@media': {
+    [theme.mediaQueries.md()]: {
+      gap: 10,
+      marginRight: 24,
+      marginLeft: 40
+    },
+
     [theme.mediaQueries.hover()]: {
       ':hover': {
         color: theme.palette.green1
@@ -135,4 +137,14 @@ export const coinPrice = style({
 
 export const activeClassName = style({
   color: theme.palette.green1
+});
+
+export const launchButton = style({
+  '@media': {
+    [theme.mediaQueries.down(411)]: {
+      fontSize: 12,
+      lineHeight: '15px',
+      padding: '3px 5px'
+    }
+  }
 });

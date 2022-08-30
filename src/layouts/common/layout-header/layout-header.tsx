@@ -104,44 +104,47 @@ export const LayoutHeader: React.VFC<LayoutHeaderProps> = (props) => {
               color="secondary"
               as="a"
               href={config.LAUNCH_APP_URL}
-              size="medium"
+              size={isDesktop ? 'medium' : 'small'}
               onClick={() => analytics.send('header_launch_app_click')}
+              className={styles.launchButton}
             >
               Launch App
             </Button>
           </div>
-          <div className={styles.menuMobile} ref={ref}>
-            <Button
-              variant="contained"
-              color="secondary"
-              as="a"
-              href={config.LAUNCH_APP_URL}
-              size="small"
-              onClick={() => analytics.send('header_launch_app_click')}
-            >
-              Launch App
-            </Button>
-            <ButtonBase onClick={() => setOpen(!isOpen)}>
-              {!isOpen ? (
-                <BurgerIcon width="40" height="40" />
-              ) : (
-                <CloseBurgerIcon width="40" height="40" />
-              )}
-            </ButtonBase>
-            <Paper
-              className={styles.menuMobileInner}
-              style={{ display: isOpen ? 'block' : 'none' }}
-            >
-              {LINKS.map((link) => (
-                <div
-                  className={styles.menuMobileItem}
-                  key={String(link.children)}
-                >
-                  <Link className={styles.navLink} as={NavLink} {...link} />
-                </div>
-              ))}
-            </Paper>
-          </div>
+          {false && (
+            <div className={styles.menuMobile} ref={ref}>
+              <Button
+                variant="contained"
+                color="secondary"
+                as="a"
+                href={config.LAUNCH_APP_URL}
+                size="small"
+                onClick={() => analytics.send('header_launch_app_click')}
+              >
+                Launch App
+              </Button>
+              <ButtonBase onClick={() => setOpen(!isOpen)}>
+                {!isOpen ? (
+                  <BurgerIcon width="40" height="40" />
+                ) : (
+                  <CloseBurgerIcon width="40" height="40" />
+                )}
+              </ButtonBase>
+              <Paper
+                className={styles.menuMobileInner}
+                style={{ display: isOpen ? 'block' : 'none' }}
+              >
+                {LINKS.map((link) => (
+                  <div
+                    className={styles.menuMobileItem}
+                    key={String(link.children)}
+                  >
+                    <Link className={styles.navLink} as={NavLink} {...link} />
+                  </div>
+                ))}
+              </Paper>
+            </div>
+          )}
         </Grid.Row>
       </Grid.Container>
     </header>
