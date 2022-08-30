@@ -28,8 +28,8 @@ export const MainBlockchains: React.VFC<MainBlockchainsProps> = (props) => {
         {blockchains.length} Supported blockchains
       </Typography>
       <ul className={styles.list}>
-        {blockchains.map((protocol, index) => (
-          <li key={String(index)} className={styles.listItem}>
+        {blockchains.map((protocol) => (
+          <li key={protocol.title} className={styles.listItem}>
             <MainChip icon={protocol.icon ?? undefined} name={protocol.title} />
           </li>
         ))}

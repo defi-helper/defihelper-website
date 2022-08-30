@@ -1,5 +1,5 @@
 import clsx from 'clsx';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useMedia } from 'react-use';
 
 import { bignumberUtils } from 'src/common/bignumber-utils';
@@ -171,7 +171,7 @@ export const InvestPools: React.VFC<InvestPoolsProps> = (props) => {
   const count = data?.contracts.pagination.count ?? 0;
 
   const handleChangeContract = (contract: string) => () => {
-    setContract((prevContract) => (prevContract ? '' : contract));
+    setContract((prevContract) => (prevContract === contract ? '' : contract));
   };
 
   const handleChangeRiskLevel = (newLevel: ContractRiskFactorEnum) => () => {
@@ -214,6 +214,16 @@ export const InvestPools: React.VFC<InvestPoolsProps> = (props) => {
           : SortOrderEnum.Desc
     });
   };
+
+  const contracts = data?.contracts.list;
+
+  useEffect(() => {
+    const [firstContract] = contracts ?? [];
+
+    if (!firstContract || isDesktop) return;
+
+    setContract(firstContract.id);
+  }, [contracts, isDesktop]);
 
   return (
     <Grid.Container className={clsx(props.className, styles.root)}>

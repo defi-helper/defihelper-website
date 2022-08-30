@@ -3,24 +3,27 @@ import { style } from '@vanilla-extract/css';
 import { theme } from 'src/common/theme';
 
 export const root = style({
+  position: 'relative',
   display: 'flex',
   flexDirection: 'column',
-  gap: 29,
-  minHeight: 'calc(100vh - 84px)',
+  gap: 20,
 
   '@media': {
-    [theme.mediaQueries.md()]: {
-      minHeight: 'calc(100vh - 116px)'
+    [theme.mediaQueries.sm()]: {
+      minHeight: 'calc(100vh - 84px)'
     },
-    [theme.mediaQueries.lg()]: {
+
+    [theme.mediaQueries.md()]: {
       flexDirection: 'row-reverse',
-      alignItems: 'center'
+      alignItems: 'center',
+      justifyContent: 'space-between',
+      minHeight: 'calc(100vh - 116px)'
     }
   }
 });
 
 export const img = style({
-  maxWidth: 319,
+  maxWidth: 450,
   width: '100%',
   margin: '0 auto',
 

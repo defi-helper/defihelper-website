@@ -56,13 +56,12 @@ export const card = style({
 });
 
 export const cardImg = style({
-  maxWidth: 100,
+  maxWidth: 250,
   width: '100%',
   margin: '0 auto 31px auto',
 
   '@media': {
     [theme.mediaQueries.md()]: {
-      maxWidth: 250,
       margin: 0
     }
   }
