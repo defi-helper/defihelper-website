@@ -109,7 +109,7 @@ const riskStatuses = {
   [ContractRiskFactorEnum.High]: 'High',
   [ContractRiskFactorEnum.Low]: 'Low',
   [ContractRiskFactorEnum.Moderate]: 'Moderate',
-  [ContractRiskFactorEnum.NotCalculated]: '-'
+  [ContractRiskFactorEnum.NotCalculated]: 'Not Calculated'
 };
 
 const sortIcon = (
@@ -132,13 +132,11 @@ const sortIcon = (
 
 export const InvestPools: React.VFC<InvestPoolsProps> = (props) => {
   const [sortBy, setSort] = useState({
-    column: ContractListSortInputTypeColumnEnum.AprYear,
+    column: ContractListSortInputTypeColumnEnum.Tvl,
     order: SortOrderEnum.Desc
   });
 
-  const [riskLevel, setRiskLevel] = useState(
-    ContractRiskFactorEnum.NotCalculated
-  );
+  const [riskLevel, setRiskLevel] = useState(ContractRiskFactorEnum.Low);
 
   const [currentContract, setContract] = useState('');
   const isDesktop = useMedia('(min-width: 960px)');
@@ -228,26 +226,19 @@ export const InvestPools: React.VFC<InvestPoolsProps> = (props) => {
         top pools to invest in right now
       </Typography>
       <div className={styles.actions}>
-        <Paper radius={8} className={styles.select}>
-          {riskLevel === ContractRiskFactorEnum.NotCalculated
-            ? 'Risk level'
-            : riskStatuses[riskLevel]}
-          <ArrowDownIcon />
-          <div className={styles.selectDropdown}>
-            <Paper radius={8} className={styles.selectDropdownInner}>
-              {Object.entries(ContractRiskFactorEnum).map(([key, value]) => (
-                <ButtonBase
-                  key={key}
-                  className={styles.selectDropdownItem}
-                  onClick={handleChangeRiskLevel(value)}
-                >
-                  {value === ContractRiskFactorEnum.NotCalculated
-                    ? 'Not calculated'
-                    : riskStatuses[value]}
-                </ButtonBase>
-              ))}
-            </Paper>
-          </div>
+        <Paper radius={8} className={styles.tabs}>
+          {Object.entries(ContractRiskFactorEnum).map(([key, value]) => (
+            <ButtonBase
+              key={key}
+              className={clsx(
+                styles.tab,
+                riskLevel === value && styles.tabActive
+              )}
+              onClick={handleChangeRiskLevel(value)}
+            >
+              {riskStatuses[value]}
+            </ButtonBase>
+          ))}
         </Paper>
       </div>
       <div className={styles.table}>
