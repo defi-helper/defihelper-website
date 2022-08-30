@@ -18,39 +18,29 @@ export const actions = style({
   marginBottom: 24
 });
 
-export const select = style({
+export const tabs = style({
   display: 'flex',
-  padding: '8px 17px',
-  position: 'relative',
-  gap: 30,
-  width: 150,
-  justifyContent: 'space-between'
-});
-
-export const selectDropdown = style({
-  paddingTop: 5,
-  display: 'none',
-  position: 'absolute',
-  width: '100%',
-  right: 0,
-  left: 0,
-  top: '100%'
-});
-
-export const selectDropdownInner = style({
-  display: 'flex',
+  padding: 2,
   flexDirection: 'column',
-  border: `1px solid ${theme.palette.grey8}`,
-  boxShadow: '0px 8px 24px rgba(10, 18, 19, 0.4)',
-  padding: '8px 17px'
+  width: '100%',
+
+  '@media': {
+    [theme.mediaQueries.sm()]: {
+      flexDirection: 'row',
+      width: 'auto'
+    }
+  }
 });
 
-globalStyle(`${select}:hover ${selectDropdown}`, {
-  display: 'block'
+export const tab = style({
+  padding: '6px 16px',
+  borderRadius: 6,
+  color: theme.palette.grey7
 });
 
-export const selectDropdownItem = style({
-  justifyContent: 'flex-start'
+export const tabActive = style({
+  background: theme.palette.green,
+  color: theme.palette.white
 });
 
 export const table = style({
