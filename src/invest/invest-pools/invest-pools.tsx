@@ -17,6 +17,7 @@ import { ReactComponent as ArrowLongRightIcon } from 'src/assets/icons/arrow-lon
 import { ReactComponent as LinkIcon } from 'src/assets/icons/link.svg';
 import { ReactComponent as BrownIcon } from 'src/assets/icons/brown-risk.svg';
 import { ReactComponent as GreenIcon } from 'src/assets/icons/green-risk.svg';
+import { ReactComponent as RedIcon } from 'src/assets/icons/red-risk.svg';
 import {
   ContractListSortInputTypeColumnEnum,
   ContractRiskFactorEnum,
@@ -110,6 +111,12 @@ const riskStatuses = {
   [ContractRiskFactorEnum.Low]: 'Low',
   [ContractRiskFactorEnum.Moderate]: 'Moderate',
   [ContractRiskFactorEnum.NotCalculated]: 'Not Calculated'
+};
+const riskIcons = {
+  [ContractRiskFactorEnum.High]: <RedIcon width={22} height={24} />,
+  [ContractRiskFactorEnum.Low]: <GreenIcon width={22} height={24} />,
+  [ContractRiskFactorEnum.Moderate]: <BrownIcon width={22} height={24} />,
+  [ContractRiskFactorEnum.NotCalculated]: '-'
 };
 
 const sortIcon = (
@@ -236,20 +243,29 @@ export const InvestPools: React.VFC<InvestPoolsProps> = (props) => {
         top pools to invest in right now
       </Typography>
       <div className={styles.actions}>
-        <Paper radius={8} className={styles.tabs}>
-          {Object.entries(ContractRiskFactorEnum).map(([key, value]) => (
-            <ButtonBase
-              key={key}
-              className={clsx(
-                styles.tab,
-                riskLevel === value && styles.tabActive
-              )}
-              onClick={handleChangeRiskLevel(value)}
-            >
-              {riskStatuses[value]}
-            </ButtonBase>
-          ))}
-        </Paper>
+        <div className={styles.tabWrapper}>
+          <Typography variant="body2" className={styles.tabsTitle}>
+            Risk level
+          </Typography>
+          <Paper radius={8} className={styles.tabs}>
+            {Object.entries(ContractRiskFactorEnum)
+              .filter(
+                ([, value]) => ContractRiskFactorEnum.NotCalculated !== value
+              )
+              .map(([key, value]) => (
+                <ButtonBase
+                  key={key}
+                  className={clsx(
+                    styles.tab,
+                    riskLevel === value && styles.tabActive
+                  )}
+                  onClick={handleChangeRiskLevel(value)}
+                >
+                  {riskStatuses[value]}
+                </ButtonBase>
+              ))}
+          </Paper>
+        </div>
       </div>
       <div className={styles.table}>
         <div className={styles.tableHead}>
@@ -500,64 +516,69 @@ export const InvestPools: React.VFC<InvestPoolsProps> = (props) => {
                         <Typography variant="inherit">Risk</Typography>
                       )}
                       <Typography variant="inherit">
-                        <InvestTooltip
-                          direction="right"
-                          dropdownClassName={styles.riskLevel}
-                          text={
-                            <>
-                              <Typography
-                                family="mono"
-                                as="div"
-                                className={styles.riskLevelRow}
-                              >
-                                <Typography variant="inherit">Risk</Typography>
+                        {riskIcons[contract.metric.risk]}
+                        {false && (
+                          <InvestTooltip
+                            direction="right"
+                            dropdownClassName={styles.riskLevel}
+                            text={
+                              <>
                                 <Typography
+                                  family="mono"
+                                  as="div"
+                                  className={styles.riskLevelRow}
+                                >
+                                  <Typography variant="inherit">
+                                    Risk
+                                  </Typography>
+                                  <Typography
+                                    as="div"
+                                    variant="body2"
+                                    className={styles.riskLevelStatus}
+                                  >
+                                    {riskStatuses[contract.metric.risk]}
+                                  </Typography>
+                                </Typography>
+                                <span className={styles.riskLevelSpacing} />
+                                <Typography
+                                  family="mono"
                                   as="div"
                                   variant="body2"
-                                  className={styles.riskLevelStatus}
+                                  className={styles.riskLevelRow}
                                 >
-                                  {riskStatuses[contract.metric.risk]}
+                                  <Typography variant="inherit">
+                                    Reliability
+                                  </Typography>
+                                  <GreenIcon width={19} height={20} />
                                 </Typography>
-                              </Typography>
-                              <span className={styles.riskLevelSpacing} />
-                              <Typography
-                                family="mono"
-                                as="div"
-                                variant="body2"
-                                className={styles.riskLevelRow}
-                              >
-                                <Typography variant="inherit">
-                                  Reliability
+                                <Typography
+                                  family="mono"
+                                  as="div"
+                                  variant="body2"
+                                  className={styles.riskLevelRow}
+                                >
+                                  <Typography variant="inherit">
+                                    Profitability
+                                  </Typography>
+                                  <BrownIcon width={19} height={20} />
                                 </Typography>
-                                <GreenIcon width={19} height={20} />
-                              </Typography>
-                              <Typography
-                                family="mono"
-                                as="div"
-                                variant="body2"
-                                className={styles.riskLevelRow}
-                              >
-                                <Typography variant="inherit">
-                                  Profitability
+                                <Typography
+                                  family="mono"
+                                  as="div"
+                                  variant="body2"
+                                  className={styles.riskLevelRow}
+                                >
+                                  <Typography variant="inherit">
+                                    Volatility
+                                  </Typography>
+                                  <GreenIcon width={19} height={20} />
                                 </Typography>
-                                <BrownIcon width={19} height={20} />
-                              </Typography>
-                              <Typography
-                                family="mono"
-                                as="div"
-                                variant="body2"
-                                className={styles.riskLevelRow}
-                              >
-                                <Typography variant="inherit">
-                                  Volatility
-                                </Typography>
-                                <GreenIcon width={19} height={20} />
-                              </Typography>
-                            </>
-                          }
-                        >
-                          <GreenIcon width={22} height={24} />
-                        </InvestTooltip>
+                              </>
+                            }
+                          >
+                            <GreenIcon width={22} height={24} />
+                          </InvestTooltip>
+                        )}
                       </Typography>
                     </Typography>
                     <div className={styles.tableButton}>
