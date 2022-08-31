@@ -29,14 +29,13 @@ build:app:
     KUBERNETES_MEMORY_REQUEST: 4096Mi
     KUBERNETES_MEMORY_LIMIT: 4096Mi
     APP_NAME: "app"
+    BUILD_ARGS: "--build-arg NODE_ENV=development --build-arg REACT_APP_API_URL=https://backend-dev.defihelper.info/api --build-arg REACT_APP_LAUNCH_APP_URL=https://app-dev.defihelper.info/ --build-arg REACT_APP_AMCHARTS_LICENCE=${REACT_APP_AMCHARTS_LICENCE} --build-arg REACT_APP_UNISENDER_API=${REACT_APP_UNISENDER_API} --build-arg REACT_APP_DEMO_LINK=https://app-dev.defihelper.info/demo"
   rules:
-    - if: $CI_COMMIT_REF_NAME == "master"
-      variables:
-        BUILD_ARGS: "--build-arg NODE_ENV=development --build-arg REACT_APP_API_URL=https://backend-dev.defihelper.info/api --build-arg REACT_APP_LAUNCH_APP_URL=https://app-dev.defihelper.info/ --build-arg REACT_APP_AMCHARTS_LICENCE=${REACT_APP_AMCHARTS_LICENCE} --build-arg REACT_APP_UNISENDER_API=${REACT_APP_UNISENDER_API} --build-arg REACT_APP_DEMO_LINK=https://app-dev.defihelper.info/demo"
     - if: $CI_COMMIT_REF_NAME == "release"
       variables:
         BUILD_ARGS: "--build-arg NODE_ENV=production --build-arg REACT_APP_API_URL=https://backend.defihelper.io/api --build-arg REACT_APP_LAUNCH_APP_URL=https://app.defihelper.io/ --build-arg REACT_APP_AMCHARTS_LICENCE=${REACT_APP_AMCHARTS_LICENCE} --build-arg REACT_APP_UNISENDER_API=${REACT_APP_UNISENDER_API} --build-arg REACT_APP_DEMO_LINK=https://app.defihelper.io/demo"
         ENVIRONMENT: prod
+    - if: $CI_COMMIT_REF_NAME == "master"
     - if: '$CI_PIPELINE_SOURCE == "merge_request_event" || $CI_COMMIT_BRANCH'
 
 deploy:
