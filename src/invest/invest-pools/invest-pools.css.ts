@@ -18,6 +18,28 @@ export const actions = style({
   marginBottom: 24
 });
 
+export const tabWrapper = style({
+  display: 'flex',
+  border: `1px solid ${theme.color.paper}`,
+  borderRadius: 8,
+  flexDirection: 'column',
+  width: '100%',
+
+  '@media': {
+    [theme.mediaQueries.sm()]: {
+      flexDirection: 'row',
+      width: 'auto'
+    }
+  }
+});
+
+export const tabsTitle = style({
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center',
+  padding: '6px 16px'
+});
+
 export const tabs = style({
   display: 'flex',
   padding: 2,
