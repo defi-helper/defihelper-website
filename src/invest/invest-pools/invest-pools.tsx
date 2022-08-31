@@ -299,7 +299,7 @@ export const InvestPools: React.VFC<InvestPoolsProps> = (props) => {
             )}
           >
             7D Performance{' '}
-            <InvestTooltip text="Based on last 7 days' pool performance. Does not account for impermanent loss">
+            <InvestTooltip text="Based on last 7 days&apos; pool performance. Does not account for impermanent loss">
               <QuestionMarkIcon />
             </InvestTooltip>{' '}
             {sortIcon(sortBy, ContractListSortInputTypeColumnEnum.AprWeekReal)}
