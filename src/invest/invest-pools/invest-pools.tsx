@@ -282,8 +282,8 @@ export const InvestPools: React.VFC<InvestPoolsProps> = (props) => {
               ContractListSortInputTypeColumnEnum.AprWeekReal
             )}
           >
-            Real APR (7d){' '}
-            <InvestTooltip text="Actual 7-day annualized percentage rate">
+            7D Performance{' '}
+            <InvestTooltip text="Based on last 7 days' pool performance. Does not account for impermanent loss">
               <QuestionMarkIcon />
             </InvestTooltip>{' '}
             {sortIcon(sortBy, ContractListSortInputTypeColumnEnum.AprWeekReal)}
@@ -439,7 +439,7 @@ export const InvestPools: React.VFC<InvestPoolsProps> = (props) => {
                       className={styles.tableCol}
                     >
                       {!isDesktop && (
-                        <Typography variant="inherit">Real APR (7d)</Typography>
+                        <Typography variant="inherit">7D Performance</Typography>
                       )}
                       <Typography
                         variant="inherit"
