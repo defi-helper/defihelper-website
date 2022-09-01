@@ -474,7 +474,7 @@ export const InvestPools: React.VFC<InvestPoolsProps> = (props) => {
                         ) &&
                           bignumberUtils.lt(realApy, '0') &&
                           '- '}
-                        {bignumberUtils.formatMax(realApy, 10000)}%
+                        {bignumberUtils.formatMax(realApy, 10000, false)}%
                       </Typography>
                     </Typography>
                     <Typography
