@@ -29,10 +29,14 @@ export const bignumberUtils = {
     return result.toFormat(0);
   },
 
-  formatMax: (amount?: string | number | null, max = 10000) => {
+  formatMax: (
+    amount?: string | number | null,
+    max = 10000,
+    negative = true
+  ) => {
     return bignumberUtils.gt(amount, max)
       ? `${bignumberUtils.format(max)}+`
-      : bignumberUtils.format(amount);
+      : bignumberUtils.format(amount, undefined, negative);
   },
 
   getPercentage: (
