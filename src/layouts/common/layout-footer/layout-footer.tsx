@@ -23,7 +23,7 @@ const PROTOCOL = [
   {
     title: 'Governance',
     link: `${config.LAUNCH_APP_URL}governance`,
-    target: ''
+    target: '_blank'
   },
   {
     title: 'Tokenomics',
