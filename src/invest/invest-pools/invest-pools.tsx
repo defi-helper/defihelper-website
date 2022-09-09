@@ -14,7 +14,6 @@ import { ReactComponent as ArrowDownIcon } from 'src/assets/icons/arrow-down.svg
 import { ReactComponent as QuestionMarkIcon } from 'src/assets/icons/questionmark.svg';
 import { ReactComponent as CalculatorIcon } from 'src/assets/icons/сalculator.svg';
 import { ReactComponent as ArrowLongRightIcon } from 'src/assets/icons/arrow-long-right.svg';
-import { ReactComponent as LinkIcon } from 'src/assets/icons/link.svg';
 import { ReactComponent as BrownIcon } from 'src/assets/icons/brown-risk.svg';
 import { ReactComponent as GreenIcon } from 'src/assets/icons/green-risk.svg';
 import { ReactComponent as RedIcon } from 'src/assets/icons/red-risk.svg';
@@ -41,7 +40,8 @@ const icons = (
   tokens: Exclude<
     InvestContractsQuery['contracts']['list'],
     null | undefined
-  >[number]['tokens']['reward']
+  >[number]['tokens']['reward'],
+  type: 'stake' | 'reward'
 ) => (
   <div className={styles.contractIconsItemTokens}>
     {tokens.map((token, index) => {
@@ -65,38 +65,15 @@ const icons = (
           className={styles.contractIconsItem}
           direction="left"
           text={
-            <>
-              {Icon}
-              <div>
+            <div>
+              {type === 'stake' ? 'LP Token part' : 'Reward token'}
+              <div className={styles.tooltipValue}>
+                {Icon}
                 <Typography variant="body2" family="mono">
                   {token.name}
                 </Typography>
-                <Typography variant="body2" family="mono">
-                  <Link
-                    target="_blank"
-                    color="blue"
-                    href={`${
-                      networksConfig[token.network]?.explorerUrl
-                    }/address/${token.address}`}
-                    style={{
-                      display: 'inline-flex',
-                      alignItems: 'center',
-                      gap: 4
-                    }}
-                  >
-                    Explorer{' '}
-                    <LinkIcon
-                      style={{
-                        display: 'inline-block',
-                        verticalAlign: 'middle'
-                      }}
-                      width="1em"
-                      height="1em"
-                    />
-                  </Link>
-                </Typography>
               </div>
-            </>
+            </div>
           }
         >
           {Icon}
@@ -312,7 +289,34 @@ export const InvestPools: React.VFC<InvestPoolsProps> = (props) => {
             onClick={handleSort(ContractListSortInputTypeColumnEnum.AprBoosted)}
           >
             APY Boost{' '}
-            <InvestTooltip text="Activate auto-staking to boost your yield">
+            <InvestTooltip
+              text={
+                <>
+                  <Typography
+                    variant="body2"
+                    weight="semibold"
+                    className={styles.autostakingTooltipTitle}
+                  >
+                    Auto-staking
+                  </Typography>
+                  <Typography
+                    variant="body2"
+                    className={styles.autostakingTooltipText}
+                  >
+                    Auto-staking is a built-in automation. It helps you earn
+                    more by automatically adding your profits to the deposit,
+                    effectively auto- compounding your interest.
+                  </Typography>
+                  <Link
+                    href="https://defihelper.medium.com/auto-staking-explained-da5fbab082e0"
+                    target="_blank"
+                    color="blue"
+                  >
+                    How auto-staking works?
+                  </Link>
+                </>
+              }
+            >
               <QuestionMarkIcon />
             </InvestTooltip>{' '}
             {sortIcon(sortBy, ContractListSortInputTypeColumnEnum.AprBoosted)}
@@ -363,20 +367,31 @@ export const InvestPools: React.VFC<InvestPoolsProps> = (props) => {
                   {contract.name}
                   <div className={styles.contractIcons}>
                     {networksConfig[contract.network] && (
-                      <img
-                        src={networksConfig[contract.network].icon}
-                        alt=""
+                      <InvestTooltip
                         className={styles.contractIconsItem}
-                      />
+                        direction="left"
+                        text={
+                          <Typography variant="body2" family="mono">
+                            This pool is located on{' '}
+                            {networksConfig[contract.network].title} network
+                          </Typography>
+                        }
+                      >
+                        <img
+                          src={networksConfig[contract.network].icon}
+                          alt=""
+                          className={styles.contractIconsItem}
+                        />
+                      </InvestTooltip>
                     )}
                     {Boolean(
                       [...contract.tokens.reward, ...contract.tokens.stake]
                         .length
                     ) && (
                       <div className={styles.contractIconsItemTokens}>
-                        {icons(contract.tokens.stake)}
+                        {icons(contract.tokens.stake, 'stake')}
                         <ArrowLongRightIcon className={styles.tokenIconArrow} />
-                        {icons(contract.tokens.reward)}
+                        {icons(contract.tokens.reward, 'reward')}
                       </div>
                     )}
                   </div>
