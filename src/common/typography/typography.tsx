@@ -40,6 +40,7 @@ type Props<C> = {
     | React.MutableRefObject<HTMLHeadingElement | null>
     | null;
   children?: React.ReactNode;
+  weight?: keyof typeof styles.weights;
 };
 
 export type TypographyProps<C extends React.ElementType = 'div'> = Props<C> &
@@ -54,6 +55,7 @@ const Typography = function Typography<
     align = 'left',
     family = 'square',
     transform = 'normal',
+    weight = 'normal',
     as,
     className,
     ...restProps
@@ -65,7 +67,8 @@ const Typography = function Typography<
     styles.variants[variant],
     styles.aligns[align],
     styles.fontFamilies[family],
-    styles.transforms[transform]
+    styles.transforms[transform],
+    styles.weights[weight]
   );
 
   const Component = as ?? variantMapping[variant];

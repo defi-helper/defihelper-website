@@ -136,3 +136,21 @@ export const transforms = styleVariants({
     textTransform: 'lowercase'
   }
 });
+
+export const weights = styleVariants({
+  light: {
+    fontWeight: 300
+  },
+
+  normal: {
+    fontWeight: 400
+  },
+
+  bold: {
+    fontWeight: 700
+  },
+
+  semibold: {
+    fontWeight: 600
+  }
+});

@@ -186,8 +186,8 @@ export const contractIcons = style({
 });
 
 export const contractIconsItem = style({
-  width: 20,
-  height: 20,
+  width: 16,
+  height: 16,
 
   selectors: {
     '&:not(:first-child)': {
@@ -314,4 +314,19 @@ export const riskLevelStatus = style({
   padding: '0 31px',
   borderRadius: 22,
   color: theme.palette.black1
+});
+
+export const tooltipValue = style({
+  display: 'flex',
+  alignItems: 'center',
+  gap: 10
+});
+
+export const autostakingTooltipTitle = style({
+  color: theme.palette.green1,
+  marginBottom: 8
+});
+
+export const autostakingTooltipText = style({
+  marginBottom: 16
 });
