@@ -593,7 +593,7 @@ export const InvestPools: React.VFC<InvestPoolsProps> = (props) => {
                         color="secondary"
                         size="small"
                         as="a"
-                        href={`${config.LAUNCH_APP_URL}invest?contractId=${contract.id}`}
+                        href={`${config.LAUNCH_APP_URL}invest/${contract.id}`}
                       >
                         Invest
                       </Button>
