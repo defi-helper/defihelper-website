@@ -103,7 +103,7 @@ export const LayoutHeader: React.VFC<LayoutHeaderProps> = (props) => {
               variant="contained"
               color="secondary"
               as="a"
-              href={config.LAUNCH_APP_URL}
+              href={`${config.LAUNCH_APP_URL}welcome`}
               size={isDesktop ? 'medium' : 'small'}
               onClick={() => analytics.send('header_launch_app_click')}
               className={styles.launchButton}
@@ -117,7 +117,7 @@ export const LayoutHeader: React.VFC<LayoutHeaderProps> = (props) => {
                 variant="contained"
                 color="secondary"
                 as="a"
-                href={config.LAUNCH_APP_URL}
+                href={`${config.LAUNCH_APP_URL}welcome`}
                 size="small"
                 onClick={() => analytics.send('header_launch_app_click')}
               >

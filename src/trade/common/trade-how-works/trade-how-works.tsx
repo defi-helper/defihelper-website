@@ -101,7 +101,7 @@ export const TradeHowWorks: React.VFC<TradeHowWorksProps> = (props) => {
         color="secondary"
         className={styles.connectWallet}
         as="a"
-        href={config.LAUNCH_APP_URL}
+        href={`${config.LAUNCH_APP_URL}welcome`}
       >
         Launch app
       </Button>
