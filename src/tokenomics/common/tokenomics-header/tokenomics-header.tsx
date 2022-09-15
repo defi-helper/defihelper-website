@@ -46,7 +46,7 @@ export const TokenomicsHeader: React.VFC<TokenomicsHeaderProps> = (props) => {
               variant="contained"
               color="secondary"
               as="a"
-              href={config.LAUNCH_APP_URL}
+              href={`${config.LAUNCH_APP_URL}welcome`}
               className={styles.launchButton}
               onClick={() => analytics.send('header_launch_app_click')}
             >
