@@ -27,8 +27,7 @@ const DATA: {
   {
     title: "Use 'stop loss'",
     text: "Protect your investment with our 'Stop-Loss' feature. We will track the value of your liquidity, and then remove and sell your LP tokens to the single token when the price is lower than the threshold that you set.",
-    img: why2,
-    inDev: true
+    img: why2
   },
   {
     title: 'Get daily portfolio updates',
