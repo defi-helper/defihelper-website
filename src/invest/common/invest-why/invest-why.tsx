@@ -37,9 +37,8 @@ const DATA: {
   },
   {
     title: 'Use deep analytics',
-    text: 'Our system analyzes on-chain and off-chain data about tokens and protocols to give you all the information you need to minimize risk. You can use our 7d Real APY tracker, Risk level and Risk factor analysis for each protocol and liquidity pool.',
-    img: why3,
-    inDev: true
+    text: 'Our system analyzes on-chain and off-chain data about tokens and protocols to give you all the information you need to minimize risk. You can use our 7D Performance, Risk level and Risk factor analysis for each protocol and liquidity pool.',
+    img: why3
   }
 ];
 
