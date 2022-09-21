@@ -23,7 +23,7 @@ export const MainEarn: React.VFC<MainEarnProps> = (props) => {
         transform="uppercase"
         className={styles.title}
       >
-        Earn more with our smart tools
+        Top DeFi Platform for Yield Farming & Trading
       </Typography>
       <div className={styles.earnMore1}>
         <div className={styles.earnMore1Text}>

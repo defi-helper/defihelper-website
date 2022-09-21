@@ -36,7 +36,7 @@ export const MainHeader: React.VFC<MainHeaderProps> = (props) => {
           <div className={styles.text}>
             <img src={logo} alt="" className={styles.logo} />
             <Typography variant="h1" className={styles.subtitle} align="center">
-              Top DeFi Platform for Yield Farming & Trading
+              Earn more with our smart tools
             </Typography>
             <Typography
               family="mono"
@@ -66,7 +66,7 @@ export const MainHeader: React.VFC<MainHeaderProps> = (props) => {
                 onClick={handleOpenVideoDialog}
               >
                 <PlayIcon />
-                watch promo
+                watch this video to see how
               </ButtonBase>
             </div>
           </div>

@@ -56,7 +56,7 @@ export const InvestHero: React.VFC<InvestHeroProps> = (props) => {
             onClick={handleOpenVideoDialog}
           >
             <PlayIcon />
-            watch video
+            watch video how to invest
           </ButtonBase>
         </div>
       </div>
