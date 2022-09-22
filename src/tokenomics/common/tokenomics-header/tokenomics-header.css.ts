@@ -77,7 +77,7 @@ export const title = style({
 export const launchButton = style({
   marginLeft: 16
 });
-export const litepaper = style([
+export const pitchdeck = style([
   launchButton,
   {
     background: theme.palette.green,

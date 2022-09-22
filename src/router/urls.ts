@@ -1,10 +1,10 @@
-import litepaper from 'src/assets/pdf/DeFiHelper_litepaper.pdf';
+import pitchdeck from 'src/assets/pdf/DeFiHelper_pitchdeck.pdf';
 
 export const URLS = {
   main: '/',
   tokenomics: '/tokenomics',
   notfound: '/404',
-  litepaper,
+  pitchdeck,
   docs: {
     list: '/docs',
     detail: (contractName = ':contractName') => `/docs/${contractName}` as const

@@ -57,11 +57,11 @@ export const TokenomicsHeader: React.VFC<TokenomicsHeaderProps> = (props) => {
             variant="contained"
             color="secondary"
             as="a"
-            href={URLS.litepaper}
-            className={styles.litepaper}
+            href={URLS.pitchdeck}
+            className={styles.pitchdeck}
             target="_blank"
           >
-            Litepaper
+            Pitch deck
           </Button>
         </div>
         <img src={tokenomicsMobile} alt="" className={styles.imgMobile} />
