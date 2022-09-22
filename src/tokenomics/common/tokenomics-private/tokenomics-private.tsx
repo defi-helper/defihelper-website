@@ -30,12 +30,12 @@ const DATA = [
     completed: false
   },
   {
-    title: 'IDO',
-    description: `100% unlock on TGE.`,
-    price: '$0.03',
-    amount: '10m tokens',
-    value: '$300,000',
-    valuation: '$30,000,000',
+    title: 'Public round (IDO)',
+    description: `100% unlock on TGE, no lock.`,
+    price: '$0.05',
+    amount: '50m tokens',
+    value: '$2,500,000',
+    valuation: '$50,000,000',
     completed: false
   }
 ];
