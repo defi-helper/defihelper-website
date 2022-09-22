@@ -33,7 +33,7 @@ export const MainEarn: React.VFC<MainEarnProps> = (props) => {
             transform="uppercase"
             className={styles.earnMore1TextTitle}
           >
-            The best defi trading platform
+            DEFI trading platform
           </Typography>
           <Typography className={styles.earnMore1TextDescription}>
             Usually, our features are only available for professional traders,
