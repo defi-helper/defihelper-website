@@ -1,6 +1,7 @@
-import { globalStyle, style } from '@vanilla-extract/css';
+import { globalStyle, style, styleVariants } from '@vanilla-extract/css';
 
 import { theme } from 'src/common/theme';
+import { ContractRiskFactorEnum } from 'src/graphql/_generated-hooks';
 
 export const root = style({
   display: 'flex',
@@ -119,12 +120,13 @@ export const tableRow = style([
   row,
   {
     background: theme.color.paper,
-    padding: '10px 13px',
+    padding: '24px 24px 16px',
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'stretch',
     borderRadius: 8,
     gap: 16,
+    position: 'relative',
 
     '@media': {
       [theme.mediaQueries.md()]: {
@@ -164,10 +166,6 @@ export const contractName = style({
   }
 });
 
-export const contractArrow = style({
-  marginLeft: 'auto'
-});
-
 export const contractNameInactive = style({
   margin: 0
 });
@@ -186,19 +184,41 @@ export const contractIcons = style({
 });
 
 export const contractIconsItem = style({
-  width: 16,
-  height: 16,
+  width: 51,
+  height: 51,
 
   selectors: {
     '&:not(:first-child)': {
       marginLeft: -4
     }
+  },
+
+  '@media': {
+    [theme.mediaQueries.md()]: {
+      width: 16,
+      height: 16
+    }
   }
+});
+
+export const contractNetworkIconMobile = style({
+  width: 32,
+  height: 32,
+  marginBottom: -32
 });
 
 export const contractIconsItemTokens = style({
   display: 'flex',
-  alignItems: 'center'
+  alignItems: 'center',
+  justifyContent: 'center',
+  marginBottom: 4,
+
+  '@media': {
+    [theme.mediaQueries.md()]: {
+      justifyContent: 'flex-start',
+      marginBottom: 0
+    }
+  }
 });
 
 export const contractUnknownNetworkIcon = style([
@@ -210,6 +230,27 @@ export const contractUnknownNetworkIcon = style([
     background: theme.color.background
   }
 ]);
+
+export const mobileTitle = style({
+  selectors: {
+    '&:not(:last-child)': {
+      marginBottom: 2
+    }
+  }
+});
+
+export const mobileRiskStatuses = styleVariants({
+  [ContractRiskFactorEnum.High]: {
+    color: theme.palette.red
+  },
+  [ContractRiskFactorEnum.Low]: {
+    color: theme.palette.green1
+  },
+  [ContractRiskFactorEnum.Moderate]: {
+    color: theme.palette.brown
+  },
+  [ContractRiskFactorEnum.NotCalculated]: {}
+});
 
 export const protocol = style({
   display: 'flex',
@@ -239,10 +280,12 @@ export const tableButton = style({
 export const tableCol = style({
   display: 'grid',
   gridTemplateColumns: '1fr 1fr',
+  margin: '0 27px',
 
   '@media': {
     [theme.mediaQueries.md()]: {
-      display: 'block'
+      display: 'block',
+      margin: 'none'
     }
   }
 });
