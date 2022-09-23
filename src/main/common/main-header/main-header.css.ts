@@ -7,10 +7,26 @@ export const root = style({
   display: 'flex',
   flexDirection: 'column',
   minHeight: 'calc(100vh - 84px)',
+  position: 'relative',
 
   '@media': {
     [theme.mediaQueries.md()]: {
       minHeight: 'calc(100vh - 116px)'
+    }
+  }
+});
+
+export const scrollIcon = style({
+  position: 'absolute',
+  bottom: '5%',
+  left: 0,
+  right: 0,
+  margin: 'auto',
+  display: 'none',
+
+  '@media': {
+    [theme.mediaQueries.md()]: {
+      display: 'block'
     }
   }
 });
