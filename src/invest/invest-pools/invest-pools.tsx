@@ -513,81 +513,80 @@ export const InvestPools: React.VFC<InvestPoolsProps> = (props) => {
                         {bignumberUtils.formatMax(apyboost, 10000)}%
                       </Typography>
                     </Typography>
-                    <Typography
-                      variant="body2"
-                      align="right"
-                      as="div"
-                      className={styles.tableCol}
-                    >
-                      {!isDesktop && (
-                        <Typography variant="inherit">Risk</Typography>
-                      )}
-                      <Typography variant="inherit">
-                        {riskIcons[contract.metric.risk]}
-                        {false && (
-                          <InvestTooltip
-                            direction="right"
-                            dropdownClassName={styles.riskLevel}
-                            text={
-                              <>
-                                <Typography
-                                  family="mono"
-                                  as="div"
-                                  className={styles.riskLevelRow}
-                                >
-                                  <Typography variant="inherit">
-                                    Risk
-                                  </Typography>
+                    {isDesktop && (
+                      <Typography
+                        variant="body2"
+                        align="right"
+                        as="div"
+                        className={styles.tableCol}
+                      >
+                        <Typography variant="inherit">
+                          {riskIcons[contract.metric.risk]}
+                          {false && (
+                            <InvestTooltip
+                              direction="right"
+                              dropdownClassName={styles.riskLevel}
+                              text={
+                                <>
                                   <Typography
+                                    family="mono"
+                                    as="div"
+                                    className={styles.riskLevelRow}
+                                  >
+                                    <Typography variant="inherit">
+                                      Risk
+                                    </Typography>
+                                    <Typography
+                                      as="div"
+                                      variant="body2"
+                                      className={styles.riskLevelStatus}
+                                    >
+                                      {riskStatuses[contract.metric.risk]}
+                                    </Typography>
+                                  </Typography>
+                                  <span className={styles.riskLevelSpacing} />
+                                  <Typography
+                                    family="mono"
                                     as="div"
                                     variant="body2"
-                                    className={styles.riskLevelStatus}
+                                    className={styles.riskLevelRow}
                                   >
-                                    {riskStatuses[contract.metric.risk]}
+                                    <Typography variant="inherit">
+                                      Reliability
+                                    </Typography>
+                                    <GreenIcon width={19} height={20} />
                                   </Typography>
-                                </Typography>
-                                <span className={styles.riskLevelSpacing} />
-                                <Typography
-                                  family="mono"
-                                  as="div"
-                                  variant="body2"
-                                  className={styles.riskLevelRow}
-                                >
-                                  <Typography variant="inherit">
-                                    Reliability
+                                  <Typography
+                                    family="mono"
+                                    as="div"
+                                    variant="body2"
+                                    className={styles.riskLevelRow}
+                                  >
+                                    <Typography variant="inherit">
+                                      Profitability
+                                    </Typography>
+                                    <BrownIcon width={19} height={20} />
                                   </Typography>
-                                  <GreenIcon width={19} height={20} />
-                                </Typography>
-                                <Typography
-                                  family="mono"
-                                  as="div"
-                                  variant="body2"
-                                  className={styles.riskLevelRow}
-                                >
-                                  <Typography variant="inherit">
-                                    Profitability
+                                  <Typography
+                                    family="mono"
+                                    as="div"
+                                    variant="body2"
+                                    className={styles.riskLevelRow}
+                                  >
+                                    <Typography variant="inherit">
+                                      Volatility
+                                    </Typography>
+                                    <GreenIcon width={19} height={20} />
                                   </Typography>
-                                  <BrownIcon width={19} height={20} />
-                                </Typography>
-                                <Typography
-                                  family="mono"
-                                  as="div"
-                                  variant="body2"
-                                  className={styles.riskLevelRow}
-                                >
-                                  <Typography variant="inherit">
-                                    Volatility
-                                  </Typography>
-                                  <GreenIcon width={19} height={20} />
-                                </Typography>
-                              </>
-                            }
-                          >
-                            <GreenIcon width={22} height={24} />
-                          </InvestTooltip>
-                        )}
+                                </>
+                              }
+                            >
+                              <GreenIcon width={22} height={24} />
+                            </InvestTooltip>
+                          )}
+                        </Typography>
                       </Typography>
-                    </Typography>
+                    )}
                     <div className={styles.tableButton}>
                       <Button
                         color="secondary"
