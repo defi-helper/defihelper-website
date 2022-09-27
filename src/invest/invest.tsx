@@ -1,8 +1,7 @@
 import React, { useMemo, useState } from 'react';
 import { useThrottle } from 'react-use';
-import { useDialog } from 'src/common/dialog';
-import { FaqText } from 'src/common/faq-text';
 
+import { useDialog } from 'src/common/dialog';
 import { Head } from 'src/common/head';
 import { contactsApi } from 'src/contacts/common/contacts-api';
 import { ContactSuccess } from 'src/contacts/contact-success';

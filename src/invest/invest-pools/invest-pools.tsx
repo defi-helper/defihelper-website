@@ -1,5 +1,5 @@
 import clsx from 'clsx';
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { useMedia } from 'react-use';
 
 import { bignumberUtils } from 'src/common/bignumber-utils';
@@ -121,8 +121,6 @@ export const InvestPools: React.VFC<InvestPoolsProps> = (props) => {
   });
 
   const [riskLevel, setRiskLevel] = useState(ContractRiskFactorEnum.Low);
-
-  const [currentContract, setContract] = useState('');
   const isDesktop = useMedia('(min-width: 960px)');
 
   const [openApyDialog] = useDialog(InvestApyDialog);
@@ -153,10 +151,6 @@ export const InvestPools: React.VFC<InvestPoolsProps> = (props) => {
   });
 
   const count = data?.contracts.pagination.count ?? 0;
-
-  const handleChangeContract = (contract: string) => () => {
-    setContract((prevContract) => (prevContract === contract ? '' : contract));
-  };
 
   const handleChangeRiskLevel = (newLevel: ContractRiskFactorEnum) => () => {
     setRiskLevel(newLevel);
@@ -198,16 +192,6 @@ export const InvestPools: React.VFC<InvestPoolsProps> = (props) => {
           : SortOrderEnum.Desc
     });
   };
-
-  const contracts = data?.contracts.list;
-
-  useEffect(() => {
-    const [firstContract] = contracts ?? [];
-
-    if (!firstContract || isDesktop) return;
-
-    setContract(firstContract.id);
-  }, [contracts, isDesktop]);
 
   return (
     <Grid.Container className={clsx(props.className, styles.root)}>
@@ -355,250 +339,252 @@ export const InvestPools: React.VFC<InvestPoolsProps> = (props) => {
 
             return (
               <div key={contract.id} className={styles.tableRow}>
-                <Typography
-                  variant="body2"
-                  as="div"
-                  className={clsx(styles.contractName, {
-                    [styles.contractNameInactive]:
-                      currentContract !== contract.id
-                  })}
-                  onClick={handleChangeContract(contract.id)}
-                >
-                  {contract.name}
-                  <div className={styles.contractIcons}>
-                    {networksConfig[contract.network] && (
-                      <InvestTooltip
-                        className={styles.contractIconsItem}
-                        direction="left"
-                        text={
-                          <Typography variant="body2" family="mono">
-                            This pool is located on{' '}
-                            {networksConfig[contract.network].title} network
-                          </Typography>
-                        }
-                      >
-                        <img
-                          src={networksConfig[contract.network].icon}
-                          alt=""
-                          className={styles.contractIconsItem}
-                        />
-                      </InvestTooltip>
-                    )}
-                    {Boolean(
-                      [...contract.tokens.reward, ...contract.tokens.stake]
-                        .length
-                    ) && (
-                      <div className={styles.contractIconsItemTokens}>
-                        {icons(contract.tokens.stake, 'stake')}
-                        <ArrowLongRightIcon className={styles.tokenIconArrow} />
-                        {icons(contract.tokens.reward, 'reward')}
-                      </div>
-                    )}
+                {!isDesktop && (
+                  <img
+                    src={networksConfig[contract.network].icon}
+                    alt=""
+                    className={styles.contractNetworkIconMobile}
+                  />
+                )}
+                {!isDesktop && (
+                  <div>
+                    {icons(contract.tokens.stake, 'stake')}
+                    <Typography align="center" className={styles.mobileTitle}>
+                      {contract.name}
+                    </Typography>
+                    <Typography align="center" className={styles.mobileTitle}>
+                      {contract.protocol.name}
+                    </Typography>
+                    <Typography
+                      align="center"
+                      className={clsx(
+                        styles.mobileTitle,
+                        styles.mobileRiskStatuses[contract.metric.risk]
+                      )}
+                    >
+                      {riskStatuses[contract.metric.risk]} risk
+                    </Typography>
                   </div>
-                  {!isDesktop && (
-                    <>
-                      {currentContract === contract.id ? (
-                        <ArrowUpIcon className={styles.contractArrow} />
-                      ) : (
-                        <ArrowDownIcon className={styles.contractArrow} />
-                      )}
-                    </>
-                  )}
-                </Typography>
-                {(isDesktop || currentContract === contract.id) && (
-                  <>
-                    <Typography
-                      variant="body2"
-                      as="div"
-                      className={styles.tableCol}
-                    >
-                      {!isDesktop && (
-                        <Typography variant="inherit">Protocol</Typography>
-                      )}
-                      <Typography
-                        variant="inherit"
-                        className={styles.protocol}
-                        as={Link}
-                        href={`${config.LAUNCH_APP_URL}protocols/${contract.protocol.id}`}
-                      >
-                        {contract.protocol.icon && (
+                )}
+                {isDesktop && (
+                  <Typography
+                    variant="body2"
+                    as="div"
+                    className={clsx(styles.contractName)}
+                  >
+                    {contract.name}
+                    <div className={styles.contractIcons}>
+                      {networksConfig[contract.network] && (
+                        <InvestTooltip
+                          className={styles.contractIconsItem}
+                          direction="left"
+                          text={
+                            <Typography variant="body2" family="mono">
+                              This pool is located on{' '}
+                              {networksConfig[contract.network].title} network
+                            </Typography>
+                          }
+                        >
                           <img
-                            src={contract.protocol.icon}
+                            src={networksConfig[contract.network].icon}
                             alt=""
-                            className={styles.protocolIcon}
+                            className={styles.contractIconsItem}
                           />
-                        )}
-                        {contract.protocol.name}
-                      </Typography>
-                    </Typography>
-                    <Typography
-                      variant="body2"
-                      align="right"
-                      as="div"
-                      className={styles.tableCol}
-                    >
-                      {!isDesktop && (
-                        <Typography variant="inherit">TVL</Typography>
+                        </InvestTooltip>
                       )}
-                      <Typography variant="inherit">
-                        ${bignumberUtils.format(contract.metric.tvl)}
-                      </Typography>
-                    </Typography>
-                    <Typography
-                      variant="body2"
-                      align="right"
-                      as="div"
-                      className={styles.tableCol}
-                    >
-                      {!isDesktop && (
-                        <Typography variant="inherit">APY</Typography>
+                      {Boolean(
+                        [...contract.tokens.reward, ...contract.tokens.stake]
+                          .length
+                      ) && (
+                        <div className={styles.contractIconsItemTokens}>
+                          {icons(contract.tokens.stake, 'stake')}
+                          <ArrowLongRightIcon
+                            className={styles.tokenIconArrow}
+                          />
+                          {icons(contract.tokens.reward, 'reward')}
+                        </div>
                       )}
-                      <Typography variant="inherit" className={styles.apy}>
-                        {bignumberUtils.formatMax(
-                          bignumberUtils.mul(contract.metric.aprYear, 100)
-                        )}
-                        %
-                        <ButtonBase onClick={handleOpenApy(contract.metric)}>
-                          <CalculatorIcon />
-                        </ButtonBase>
-                      </Typography>
-                    </Typography>
+                    </div>
+                  </Typography>
+                )}
+                {isDesktop && (
+                  <Typography
+                    variant="body2"
+                    as="div"
+                    className={styles.tableCol}
+                  >
                     <Typography
-                      variant="body2"
-                      align="right"
-                      as="div"
-                      className={styles.tableCol}
+                      variant="inherit"
+                      className={styles.protocol}
+                      as={Link}
+                      href={`${config.LAUNCH_APP_URL}protocols/${contract.protocol.id}`}
                     >
-                      {!isDesktop && (
-                        <Typography variant="inherit">
-                          7D Performance
-                        </Typography>
+                      {contract.protocol.icon && (
+                        <img
+                          src={contract.protocol.icon}
+                          alt=""
+                          className={styles.protocolIcon}
+                        />
                       )}
-                      <Typography
-                        variant="inherit"
-                        className={clsx({
-                          [styles.green]: bignumberUtils.gt(realApy, '0'),
-                          [styles.red]: bignumberUtils.lt(realApy, '0')
-                        })}
-                      >
-                        {bignumberUtils.formatMax(realApy, 10000, false)}%
-                      </Typography>
+                      {contract.protocol.name}
                     </Typography>
-                    <Typography
-                      variant="body2"
-                      align="right"
-                      as="div"
-                      className={styles.tableCol}
-                    >
-                      {!isDesktop && (
-                        <Typography variant="inherit">APY Boost</Typography>
-                      )}
-                      <Typography
-                        variant="inherit"
-                        className={clsx({
-                          [styles.green]: bignumberUtils.gt(apyboost, '0'),
-                          [styles.red]:
-                            !bignumberUtils.eq(
-                              bignumberUtils.format(apyboost),
-                              '0'
-                            ) && bignumberUtils.lt(apyboost, '0')
-                        })}
-                      >
-                        {!bignumberUtils.eq(
+                  </Typography>
+                )}
+                <Typography
+                  variant={isDesktop ? 'body2' : undefined}
+                  align="right"
+                  as="div"
+                  className={styles.tableCol}
+                >
+                  {!isDesktop && <Typography variant="inherit">TVL</Typography>}
+                  <Typography variant="inherit">
+                    ${bignumberUtils.format(contract.metric.tvl)}
+                  </Typography>
+                </Typography>
+                <Typography
+                  variant={isDesktop ? 'body2' : undefined}
+                  align="right"
+                  as="div"
+                  className={styles.tableCol}
+                >
+                  {!isDesktop && <Typography variant="inherit">APY</Typography>}
+                  <Typography variant="inherit" className={styles.apy}>
+                    {bignumberUtils.formatMax(
+                      bignumberUtils.mul(contract.metric.aprYear, 100)
+                    )}
+                    %
+                    <ButtonBase onClick={handleOpenApy(contract.metric)}>
+                      <CalculatorIcon />
+                    </ButtonBase>
+                  </Typography>
+                </Typography>
+                <Typography
+                  variant={isDesktop ? 'body2' : undefined}
+                  align="right"
+                  as="div"
+                  className={styles.tableCol}
+                >
+                  {!isDesktop && (
+                    <Typography variant="inherit">7D Performance</Typography>
+                  )}
+                  <Typography
+                    variant="inherit"
+                    className={clsx({
+                      [styles.green]: bignumberUtils.gt(realApy, '0'),
+                      [styles.red]: bignumberUtils.lt(realApy, '0')
+                    })}
+                  >
+                    {bignumberUtils.formatMax(realApy, 10000, false)}%
+                  </Typography>
+                </Typography>
+                <Typography
+                  variant={isDesktop ? 'body2' : undefined}
+                  align="right"
+                  as="div"
+                  className={styles.tableCol}
+                >
+                  {!isDesktop && (
+                    <Typography variant="inherit">APY Boost</Typography>
+                  )}
+                  <Typography
+                    variant="inherit"
+                    className={clsx({
+                      [styles.green]: bignumberUtils.gt(apyboost, '0'),
+                      [styles.red]:
+                        !bignumberUtils.eq(
                           bignumberUtils.format(apyboost),
                           '0'
-                        ) &&
-                          bignumberUtils.lt(apyboost, '0') &&
-                          '- '}
-                        {bignumberUtils.formatMax(apyboost, 10000)}%
-                      </Typography>
+                        ) && bignumberUtils.lt(apyboost, '0')
+                    })}
+                  >
+                    {!bignumberUtils.eq(bignumberUtils.format(apyboost), '0') &&
+                      bignumberUtils.lt(apyboost, '0') &&
+                      '- '}
+                    {bignumberUtils.formatMax(apyboost, 10000)}%
+                  </Typography>
+                </Typography>
+                {isDesktop && (
+                  <Typography
+                    variant="body2"
+                    align="right"
+                    as="div"
+                    className={styles.tableCol}
+                  >
+                    <Typography variant="inherit">
+                      {riskIcons[contract.metric.risk]}
+                      {false && (
+                        <InvestTooltip
+                          direction="right"
+                          dropdownClassName={styles.riskLevel}
+                          text={
+                            <>
+                              <Typography
+                                family="mono"
+                                as="div"
+                                className={styles.riskLevelRow}
+                              >
+                                <Typography variant="inherit">Risk</Typography>
+                                <Typography
+                                  as="div"
+                                  variant="body2"
+                                  className={styles.riskLevelStatus}
+                                >
+                                  {riskStatuses[contract.metric.risk]}
+                                </Typography>
+                              </Typography>
+                              <span className={styles.riskLevelSpacing} />
+                              <Typography
+                                family="mono"
+                                as="div"
+                                variant="body2"
+                                className={styles.riskLevelRow}
+                              >
+                                <Typography variant="inherit">
+                                  Reliability
+                                </Typography>
+                                <GreenIcon width={19} height={20} />
+                              </Typography>
+                              <Typography
+                                family="mono"
+                                as="div"
+                                variant="body2"
+                                className={styles.riskLevelRow}
+                              >
+                                <Typography variant="inherit">
+                                  Profitability
+                                </Typography>
+                                <BrownIcon width={19} height={20} />
+                              </Typography>
+                              <Typography
+                                family="mono"
+                                as="div"
+                                variant="body2"
+                                className={styles.riskLevelRow}
+                              >
+                                <Typography variant="inherit">
+                                  Volatility
+                                </Typography>
+                                <GreenIcon width={19} height={20} />
+                              </Typography>
+                            </>
+                          }
+                        >
+                          <GreenIcon width={22} height={24} />
+                        </InvestTooltip>
+                      )}
                     </Typography>
-                    {isDesktop && (
-                      <Typography
-                        variant="body2"
-                        align="right"
-                        as="div"
-                        className={styles.tableCol}
-                      >
-                        <Typography variant="inherit">
-                          {riskIcons[contract.metric.risk]}
-                          {false && (
-                            <InvestTooltip
-                              direction="right"
-                              dropdownClassName={styles.riskLevel}
-                              text={
-                                <>
-                                  <Typography
-                                    family="mono"
-                                    as="div"
-                                    className={styles.riskLevelRow}
-                                  >
-                                    <Typography variant="inherit">
-                                      Risk
-                                    </Typography>
-                                    <Typography
-                                      as="div"
-                                      variant="body2"
-                                      className={styles.riskLevelStatus}
-                                    >
-                                      {riskStatuses[contract.metric.risk]}
-                                    </Typography>
-                                  </Typography>
-                                  <span className={styles.riskLevelSpacing} />
-                                  <Typography
-                                    family="mono"
-                                    as="div"
-                                    variant="body2"
-                                    className={styles.riskLevelRow}
-                                  >
-                                    <Typography variant="inherit">
-                                      Reliability
-                                    </Typography>
-                                    <GreenIcon width={19} height={20} />
-                                  </Typography>
-                                  <Typography
-                                    family="mono"
-                                    as="div"
-                                    variant="body2"
-                                    className={styles.riskLevelRow}
-                                  >
-                                    <Typography variant="inherit">
-                                      Profitability
-                                    </Typography>
-                                    <BrownIcon width={19} height={20} />
-                                  </Typography>
-                                  <Typography
-                                    family="mono"
-                                    as="div"
-                                    variant="body2"
-                                    className={styles.riskLevelRow}
-                                  >
-                                    <Typography variant="inherit">
-                                      Volatility
-                                    </Typography>
-                                    <GreenIcon width={19} height={20} />
-                                  </Typography>
-                                </>
-                              }
-                            >
-                              <GreenIcon width={22} height={24} />
-                            </InvestTooltip>
-                          )}
-                        </Typography>
-                      </Typography>
-                    )}
-                    <div className={styles.tableButton}>
-                      <Button
-                        color="secondary"
-                        size="small"
-                        as="a"
-                        href={`${config.LAUNCH_APP_URL}invest/${contract.id}`}
-                      >
-                        Invest
-                      </Button>
-                    </div>
-                  </>
+                  </Typography>
                 )}
+                <div className={styles.tableButton}>
+                  <Button
+                    color="secondary"
+                    size="small"
+                    as="a"
+                    href={`${config.LAUNCH_APP_URL}invest/${contract.id}`}
+                  >
+                    Invest
+                  </Button>
+                </div>
               </div>
             );
           })}
