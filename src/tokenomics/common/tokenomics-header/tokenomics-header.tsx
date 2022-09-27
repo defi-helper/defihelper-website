@@ -41,18 +41,6 @@ export const TokenomicsHeader: React.VFC<TokenomicsHeaderProps> = (props) => {
           <Button color="primary" onClick={props.onGetDFH}>
             Get DFH
           </Button>
-          {!isDesktop && (
-            <Button
-              variant="contained"
-              color="secondary"
-              as="a"
-              href={`${config.LAUNCH_APP_URL}welcome`}
-              className={styles.launchButton}
-              onClick={() => analytics.send('header_launch_app_click')}
-            >
-              Launch App
-            </Button>
-          )}
           <Button
             variant="contained"
             color="secondary"
