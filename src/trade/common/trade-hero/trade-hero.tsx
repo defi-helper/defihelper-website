@@ -6,6 +6,7 @@ import { Typography } from 'src/common/typography';
 import tradeHero from 'src/assets/images/trade-hero.png';
 import { Button } from 'src/common/button';
 import { config } from 'src/config';
+import { ReactComponent as ScrollIcon } from 'src/assets/icons/scroll.svg';
 import * as styles from './trade-hero.css';
 
 export type TradeHeroProps = {
@@ -27,8 +28,8 @@ export const TradeHero: React.VFC<TradeHeroProps> = (props) => {
           The Best DeFi Trading Platform
         </Typography>
         <Typography className={styles.description}>
-          Use our 'Trailing Buy', or 'Stop-loss/Take-profit' features to trade
-          like a pro on DEXs
+          Use our &apos;Trailing Buy&apos;, or &apos;Stop-loss/Take-profit&apos;
+          features to trade like a pro on DEXs
         </Typography>
         <div className={styles.actions}>
           <Button
@@ -41,6 +42,7 @@ export const TradeHero: React.VFC<TradeHeroProps> = (props) => {
           </Button>
         </div>
       </div>
+      <ScrollIcon className={styles.scrollIcon} />
     </Grid.Container>
   );
 };
