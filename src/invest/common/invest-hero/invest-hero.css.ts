@@ -19,6 +19,21 @@ export const root = style({
   }
 });
 
+export const scrollIcon = style({
+  position: 'absolute',
+  bottom: '5%',
+  left: 0,
+  right: 0,
+  margin: 'auto',
+  display: 'none',
+
+  '@media': {
+    [theme.mediaQueries.md()]: {
+      display: 'block'
+    }
+  }
+});
+
 export const img = style({
   maxWidth: 450,
   width: '100%',

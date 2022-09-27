@@ -10,6 +10,7 @@ import { ReactComponent as PlayIcon } from 'src/assets/icons/play.svg';
 import { VideoDialog } from 'src/common/video-dialog';
 import { useDialog } from 'src/common/dialog';
 import { config } from 'src/config';
+import { ReactComponent as ScrollIcon } from 'src/assets/icons/scroll.svg';
 import * as styles from './invest-hero.css';
 
 export type InvestHeroProps = {
@@ -40,7 +41,7 @@ export const InvestHero: React.VFC<InvestHeroProps> = (props) => {
         </Typography>
         <Typography className={styles.description}>
           Find a pool to invest in, use auto compounding to boost your APY,
-          protect your investment with 'stop-loss'
+          protect your investment with &apos;stop-loss&apos;
         </Typography>
         <div className={styles.actions}>
           <Button
@@ -60,6 +61,7 @@ export const InvestHero: React.VFC<InvestHeroProps> = (props) => {
           </ButtonBase>
         </div>
       </div>
+      <ScrollIcon className={styles.scrollIcon} />
     </Grid.Container>
   );
 };

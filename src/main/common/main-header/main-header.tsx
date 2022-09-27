@@ -10,6 +10,7 @@ import { ButtonBase } from 'src/common/button-base';
 import { ReactComponent as PlayIcon } from 'src/assets/icons/play.svg';
 import { useDialog } from 'src/common/dialog';
 import { VideoDialog } from 'src/common/video-dialog';
+import { ReactComponent as ScrollIcon } from 'src/assets/icons/scroll.svg';
 import * as styles from './main-header.css';
 
 export type MainHeaderProps = {
@@ -72,6 +73,7 @@ export const MainHeader: React.VFC<MainHeaderProps> = (props) => {
           </div>
         </Grid.Row>
       </Grid.Container>
+      <ScrollIcon className={styles.scrollIcon} />
     </div>
   );
 };
