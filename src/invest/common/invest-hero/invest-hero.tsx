@@ -10,7 +10,7 @@ import { ReactComponent as PlayIcon } from 'src/assets/icons/play.svg';
 import { VideoDialog } from 'src/common/video-dialog';
 import { useDialog } from 'src/common/dialog';
 import { config } from 'src/config';
-import { ReactComponent as ScrollIcon } from 'src/assets/icons/scroll.svg';
+import { ScrollIcon } from 'src/common/scroll-icon';
 import * as styles from './invest-hero.css';
 
 export type InvestHeroProps = {
