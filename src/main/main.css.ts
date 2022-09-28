@@ -7,7 +7,7 @@ export const header = style({
 
   '@media': {
     [theme.mediaQueries.lg()]: {
-      marginBottom: 120
+      marginBottom: 100
     }
   }
 });

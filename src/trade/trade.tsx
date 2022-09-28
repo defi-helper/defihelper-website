@@ -65,7 +65,7 @@ export const Trade: React.VFC<TradeProps> = () => {
         ]}
         ogImage={opengraph}
       />
-      <TradeHero className={styles.section} />
+      <TradeHero className={styles.hero} />
       <TradeSmart className={styles.section} />
       <TradeWhat className={styles.section} />
       <TradeHowWorks className={styles.section} />

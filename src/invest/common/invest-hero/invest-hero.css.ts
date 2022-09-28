@@ -7,14 +7,14 @@ export const root = style({
   display: 'flex',
   flexDirection: 'column',
   gap: 20,
-  minHeight: 'calc(100vh - 84px)',
+  minHeight: 'calc(85vh - 84px)',
 
   '@media': {
     [theme.mediaQueries.md()]: {
       flexDirection: 'row-reverse',
       alignItems: 'center',
       justifyContent: 'space-between',
-      minHeight: 'calc(100vh - 116px)'
+      minHeight: 'calc(85vh - 116px)'
     }
   }
 });

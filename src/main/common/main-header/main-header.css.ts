@@ -6,12 +6,12 @@ export const root = style({
   overflowX: 'hidden',
   display: 'flex',
   flexDirection: 'column',
-  minHeight: 'calc(100vh - 84px)',
+  minHeight: 'calc(85vh - 84px)',
   position: 'relative',
 
   '@media': {
     [theme.mediaQueries.md()]: {
-      minHeight: 'calc(100vh - 116px)'
+      minHeight: 'calc(85vh - 116px)'
     }
   }
 });
