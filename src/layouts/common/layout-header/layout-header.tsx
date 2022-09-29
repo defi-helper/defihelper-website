@@ -96,7 +96,7 @@ export const LayoutHeader: React.VFC<LayoutHeaderProps> = (props) => {
                 as={ReactRouterLink}
                 to={URLS.tokenomics}
               >
-                Tokenomics
+                TOKENOMICS
               </Typography>
             </div>
             <Button
