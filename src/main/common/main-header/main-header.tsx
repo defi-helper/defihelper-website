@@ -56,10 +56,10 @@ export const MainHeader: React.VFC<MainHeaderProps> = (props) => {
                   variant="outlined"
                   color="secondary"
                   as="a"
-                  href={config.DEMO_LINK}
+                  href={`${config.LAUNCH_APP_URL}invest`}
                   size="large"
                 >
-                  Demo account
+                  INVEST
                 </Button>
               )}
               <ButtonBase
