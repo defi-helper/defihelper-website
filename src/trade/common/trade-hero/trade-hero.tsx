@@ -6,7 +6,7 @@ import { Typography } from 'src/common/typography';
 import tradeHero from 'src/assets/images/trade-hero.png';
 import { Button } from 'src/common/button';
 import { config } from 'src/config';
-import { ReactComponent as ScrollIcon } from 'src/assets/icons/scroll.svg';
+import { ScrollIcon } from 'src/common/scroll-icon';
 import * as styles from './trade-hero.css';
 
 export type TradeHeroProps = {

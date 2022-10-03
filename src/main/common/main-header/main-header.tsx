@@ -10,7 +10,7 @@ import { ButtonBase } from 'src/common/button-base';
 import { ReactComponent as PlayIcon } from 'src/assets/icons/play.svg';
 import { useDialog } from 'src/common/dialog';
 import { VideoDialog } from 'src/common/video-dialog';
-import { ReactComponent as ScrollIcon } from 'src/assets/icons/scroll.svg';
+import { ScrollIcon } from 'src/common/scroll-icon';
 import * as styles from './main-header.css';
 
 export type MainHeaderProps = {

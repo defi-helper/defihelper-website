@@ -2,8 +2,14 @@ import { style } from '@vanilla-extract/css';
 
 import { theme } from 'src/common/theme';
 
-export const header = style({
-  marginBottom: 40
+export const hero = style({
+  marginBottom: 80,
+
+  '@media': {
+    [theme.mediaQueries.lg()]: {
+      marginBottom: 100
+    }
+  }
 });
 
 export const section = style({

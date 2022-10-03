@@ -10,14 +10,14 @@ export const root = style({
 
   '@media': {
     [theme.mediaQueries.sm()]: {
-      minHeight: 'calc(100vh - 84px)'
+      minHeight: 'calc(85vh - 84px)'
     },
 
     [theme.mediaQueries.md()]: {
       flexDirection: 'row-reverse',
       alignItems: 'center',
       justifyContent: 'space-between',
-      minHeight: 'calc(100vh - 116px)'
+      minHeight: 'calc(85vh - 116px)'
     }
   }
 });
