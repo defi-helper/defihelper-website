@@ -16,12 +16,10 @@ import { Link } from 'src/common/link';
 import { ButtonBase } from 'src/common/button-base';
 import { ReactComponent as BurgerIcon } from 'src/assets/icons/burger.svg';
 import { ReactComponent as CloseBurgerIcon } from 'src/assets/icons/close-burger.svg';
-import { ReactComponent as CoinLogoIcon } from 'src/assets/icons/coin-logo.svg';
 import { Button } from 'src/common/button';
 import { config } from 'src/config';
 import { Paper } from 'src/common/paper';
 import { analytics } from 'src/analytics';
-import { bignumberUtils } from 'src/common/bignumber-utils';
 import { Typography } from 'src/common/typography';
 import * as styles from './layout-header.css';
 
@@ -88,17 +86,15 @@ export const LayoutHeader: React.VFC<LayoutHeaderProps> = (props) => {
                 {...link}
               />
             ))}
-            <div className={styles.coinPrice}>
-              <CoinLogoIcon />
-              <Typography
-                variant="body2"
-                family="mono"
-                as={ReactRouterLink}
-                to={URLS.tokenomics}
-              >
-                TOKENOMICS
-              </Typography>
-            </div>
+            <Typography
+              variant="body2"
+              family="mono"
+              as={ReactRouterLink}
+              to={URLS.tokenomics}
+              className={styles.navLink}
+            >
+              TOKENOMICS
+            </Typography>
             <Button
               variant="contained"
               color="secondary"

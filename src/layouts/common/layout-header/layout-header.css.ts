@@ -25,8 +25,9 @@ export const padding = style({
 export const logo = style([
   padding,
   style({
-    width: 21,
-    height: 16,
+    maxWidth: 21,
+    width: '100%',
+    height: '100%',
 
     '@media': {
       [theme.mediaQueries.lg()]: {
@@ -92,10 +93,10 @@ export const navLink = style({
   textTransform: 'uppercase',
   fontFamily: theme.fonts.mono,
   textDecoration: 'none',
-  fontSize: 12,
+  fontSize: 10,
   lineHeight: '16px',
   display: 'flex',
-  padding: '6px 15px',
+  padding: '2px 5px',
   alignItems: 'center',
 
   '@media': {
@@ -142,9 +143,9 @@ export const activeClassName = style({
 export const launchButton = style({
   '@media': {
     [theme.mediaQueries.down(411)]: {
-      fontSize: 12,
+      fontSize: 10,
       lineHeight: '15px',
-      padding: '3px 5px'
+      padding: '0 3px'
     }
   }
 });
