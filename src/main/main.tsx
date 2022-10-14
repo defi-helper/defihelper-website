@@ -13,7 +13,6 @@ import big_brain_holdings from 'src/assets/images/big_brain_holdings.png';
 import starter from 'src/assets/images/starter.png';
 import huckleberry from 'src/assets/images/huckleberry.png';
 import perpetual from 'src/assets/images/perpetual.png';
-import vc from 'src/assets/images/vc.svg';
 import cointelgraph from 'src/assets/images/cointelgraph.svg';
 import hackernoon from 'src/assets/images/hackernoon.svg';
 import { contactsApi } from 'src/contacts/common/contacts-api';
@@ -64,18 +63,13 @@ const INVESTORS = [
 
 const PRESS = [
   {
-    title: 'vc',
-    link: '',
-    image: vc
-  },
-  {
     title: 'cointelgraph',
-    link: '',
+    link: 'https://cointelegraph.com/authors/artem-tolkachev',
     image: cointelgraph
   },
   {
-    title: 'huckleberry',
-    link: '',
+    title: 'hackernoon',
+    link: 'https://hackernoon.com/u/defihelper',
     image: hackernoon
   }
 ];
@@ -137,7 +131,7 @@ export const Main: React.VFC = () => {
       <MainInvestors title="Investors and partners" className={styles.section}>
         {INVESTORS}
       </MainInvestors>
-      <MainInvestors title="Press" className={styles.section}>
+      <MainInvestors title="As Featured in" className={styles.section}>
         {PRESS}
       </MainInvestors>
       <MainMedium
