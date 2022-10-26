@@ -10,7 +10,6 @@ import { Button } from 'src/common/button';
 import vlad_komissarov from 'src/assets/images/team/vlad_komissarov.png';
 import iurii_gugnin from 'src/assets/images/team/iurii_gugnin.png';
 import artem_tolkachev from 'src/assets/images/team/artem_tolkachev.png';
-import ben_ashworth from 'src/assets/images/team/ben_ashworth.jpg';
 import join_us from 'src/assets/images/team/join_us.png';
 import ilya_munerman from 'src/assets/images/team/ilya_munerman.jpeg';
 import { ReactComponent as TwitterIcon } from 'src/assets/icons/social/twitter.svg';
@@ -95,22 +94,6 @@ const TEAM: Array<Team> = [
       <ButtonBase
         as={Link}
         href="https://linkedin.com/in/georgegoognin/"
-        target="_blank"
-      >
-        <LinkedInIcon />
-      </ButtonBase>
-    ]
-  },
-  {
-    photo: ben_ashworth,
-    name: 'Ben Ashworth',
-    role: 'Investor Relations',
-    description:
-      'Ben graduated with a law degree from Newcastle University before travelling the world, becoming bi-lingual in Spanish during his travels. Ben has over 4 years experience in crypto and is a firm believer in DeFi.',
-    actions: [
-      <ButtonBase
-        as={Link}
-        href="https://www.linkedin.com/in/ben-ashworth-kwasnik-9897a8140/"
         target="_blank"
       >
         <LinkedInIcon />
