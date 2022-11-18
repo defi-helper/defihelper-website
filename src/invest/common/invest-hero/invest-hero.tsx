@@ -5,7 +5,7 @@ import { Button } from 'src/common/button';
 import { Grid } from 'src/common/grid';
 import { Typography } from 'src/common/typography';
 import investHero from 'src/assets/images/invest-hero.png';
-import { ButtonBase } from 'src/common/button-base';
+import investHeroBg from 'src/assets/images/invest-hero-bg.png';
 import { ReactComponent as PlayIcon } from 'src/assets/icons/play.svg';
 import { VideoDialog } from 'src/common/video-dialog';
 import { useDialog } from 'src/common/dialog';
@@ -28,7 +28,27 @@ export const InvestHero: React.VFC<InvestHeroProps> = (props) => {
 
   return (
     <Grid.Container className={clsx(styles.root, props.className)}>
-      <img alt="" src={investHero} className={styles.img} />
+      <div className={styles.video}>
+        <img alt="" src={investHeroBg} className={styles.videoBg} />
+        <div
+          className={styles.videoInner}
+          style={{ backgroundImage: `url(${investHero})` }}
+          role="button"
+          tabIndex={0}
+          onClick={handleOpenVideoDialog}
+          onKeyDown={handleOpenVideoDialog}
+        >
+          <PlayIcon />
+          <Typography
+            as="div"
+            transform="uppercase"
+            family="mono"
+            variant="body2"
+          >
+            WATCH VIDEO HOW TO INVEST
+          </Typography>
+        </div>
+      </div>
       <div className={styles.text}>
         <Typography
           transform="uppercase"
@@ -52,13 +72,6 @@ export const InvestHero: React.VFC<InvestHeroProps> = (props) => {
           >
             Invest
           </Button>
-          <ButtonBase
-            className={styles.watchPromo}
-            onClick={handleOpenVideoDialog}
-          >
-            <PlayIcon />
-            watch video how to invest
-          </ButtonBase>
         </div>
       </div>
       <ScrollIcon className={styles.scrollIcon} />

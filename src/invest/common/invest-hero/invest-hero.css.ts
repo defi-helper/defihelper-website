@@ -34,10 +34,51 @@ export const scrollIcon = style({
   }
 });
 
-export const img = style({
-  maxWidth: 450,
-  width: '100%',
-  margin: '0 auto'
+export const video = style({
+  position: 'relative',
+  display: 'flex',
+  flexDirection: 'column',
+  alignItems: 'center',
+  justifyContent: 'center'
+});
+
+export const videoInner = style({
+  display: 'flex',
+  flexDirection: 'column',
+  alignItems: 'center',
+  justifyContent: 'center',
+  gap: 17,
+  border: `1px solid ${theme.palette.green1}`,
+  borderRadius: 30,
+  backgroundSize: 'cover',
+  backgroundPosition: 'center',
+  width: 310,
+  height: 230,
+  cursor: 'pointer',
+
+  '@media': {
+    [theme.mediaQueries.sm()]: {
+      width: 457,
+      height: 330
+    }
+  }
+});
+
+export const videoBg = style({
+  position: 'absolute',
+  maxWidth: 744,
+  objectFit: 'contain',
+  zIndex: 1,
+  right: '-23%',
+  top: '-29%',
+  display: 'none',
+  pointerEvents: 'none',
+
+  '@media': {
+    [theme.mediaQueries.md()]: {
+      display: 'block'
+    }
+  }
 });
 
 export const text = style({
@@ -78,16 +119,4 @@ export const actions = style({
       margin: 0
     }
   }
-});
-
-export const watchPromo = style({
-  color: theme.palette.blue,
-  fontSize: 20,
-  lineHeight: '28px',
-  textTransform: 'uppercase',
-  fontFamily: theme.fonts.mono,
-  display: 'flex',
-  gap: 8,
-  alignItems: 'center',
-  padding: '12px 14px'
 });

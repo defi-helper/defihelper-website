@@ -82,7 +82,9 @@ export const Invest: React.FC<InvestProps> = () => {
         ]}
         ogImage={opengraph}
       />
-      <InvestHero className={styles.hero} />
+      <div className={styles.hero}>
+        <InvestHero />
+      </div>
       <InvestPools className={styles.section} />
       <InvestWhy className={styles.section} />
       <InvestHowWorks className={styles.section} />
