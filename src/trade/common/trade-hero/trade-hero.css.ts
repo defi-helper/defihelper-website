@@ -37,15 +37,47 @@ export const scrollIcon = style({
   }
 });
 
-export const img = style({
-  maxWidth: 450,
-  width: '100%',
-  margin: '0 auto',
+export const video = style({
+  position: 'relative',
+  display: 'flex',
+  flexDirection: 'column',
+  alignItems: 'center',
+  justifyContent: 'center'
+});
+
+export const videoInner = style({
+  display: 'flex',
+  flexDirection: 'column',
+  alignItems: 'center',
+  justifyContent: 'center',
+  gap: 17,
+  border: `1px solid ${theme.palette.green1}`,
+  borderRadius: 30,
+  backgroundSize: 'cover',
+  backgroundPosition: 'center',
+  width: 310,
+  height: 230,
+  cursor: 'pointer',
 
   '@media': {
-    [theme.mediaQueries.lg()]: {
-      maxWidth: 769,
-      marginLeft: 'auto'
+    [theme.mediaQueries.sm()]: {
+      width: 457,
+      height: 330
+    }
+  }
+});
+
+export const videoBg = style({
+  position: 'absolute',
+  maxWidth: 865,
+  objectFit: 'contain',
+  zIndex: -1,
+  right: '-30%',
+  display: 'none',
+
+  '@media': {
+    [theme.mediaQueries.md()]: {
+      display: 'block'
     }
   }
 });
@@ -57,6 +89,7 @@ export const text = style({
 
 export const title = style({
   marginBottom: 8,
+  maxWidth: 519,
 
   '@media': {
     [theme.mediaQueries.lg()]: {
@@ -68,6 +101,7 @@ export const title = style({
 export const description = style({
   opacity: 0.64,
   marginBottom: 31,
+  maxWidth: 415,
 
   '@media': {
     [theme.mediaQueries.lg()]: {

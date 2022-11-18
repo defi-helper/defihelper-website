@@ -4,10 +4,13 @@ import { theme } from 'src/common/theme';
 
 export const hero = style({
   marginBottom: 80,
+  overflow: 'hidden',
+  paddingBottom: 73,
 
   '@media': {
     [theme.mediaQueries.lg()]: {
-      marginBottom: 100
+      marginBottom: 100,
+      paddingBottom: 0
     }
   }
 });
