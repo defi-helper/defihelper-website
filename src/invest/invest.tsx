@@ -85,8 +85,8 @@ export const Invest: React.FC<InvestProps> = () => {
       <div className={styles.hero}>
         <InvestHero />
       </div>
-      <InvestPools className={styles.section} />
       <InvestWhy className={styles.section} />
+      <InvestPools className={styles.section} />
       <InvestHowWorks className={styles.section} />
       <MainChart
         className={styles.section}
