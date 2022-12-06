@@ -58,7 +58,7 @@ const prodNetworks: Record<string, Network> = {
   },
   56: {
     chainId: 56,
-    title: 'Binance Smart Chain',
+    title: 'BNB Chain',
     explorerUrl: 'https://bscscan.com',
     coin: 'BNB',
     decimals: 18,
