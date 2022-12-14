@@ -21,8 +21,10 @@ export const InvestHero: React.VFC<InvestHeroProps> = (props) => {
   const [openVideoDialog] = useDialog(VideoDialog);
 
   const handleOpenVideoDialog = () => {
+    if (!config.VIDEO_HOW_TO_INVEST) throw new Error('video id is required');
+
     openVideoDialog({
-      videoId: 'pVTxnp0qujw'
+      videoId: config.VIDEO_HOW_TO_INVEST
     }).catch(console.error);
   };
 
@@ -32,21 +34,28 @@ export const InvestHero: React.VFC<InvestHeroProps> = (props) => {
         <img alt="" src={investHeroBg} className={styles.videoBg} />
         <div
           className={styles.videoInner}
-          style={{ backgroundImage: `url(${investHero})` }}
+          style={{
+            backgroundImage: `url(${investHero})`,
+            cursor: config.VIDEO_HOW_TO_INVEST ? 'pointer' : 'default'
+          }}
           role="button"
           tabIndex={0}
           onClick={handleOpenVideoDialog}
           onKeyDown={handleOpenVideoDialog}
         >
-          <PlayIcon />
-          <Typography
-            as="div"
-            transform="uppercase"
-            family="mono"
-            variant="body2"
-          >
-            WATCH VIDEO HOW TO INVEST
-          </Typography>
+          {config.VIDEO_HOW_TO_INVEST && (
+            <>
+              <PlayIcon />
+              <Typography
+                as="div"
+                transform="uppercase"
+                family="mono"
+                variant="body2"
+              >
+                WATCH VIDEO HOW TO INVEST
+              </Typography>
+            </>
+          )}
         </div>
       </div>
       <div className={styles.text}>
