@@ -21,8 +21,10 @@ export const TradeHero: React.VFC<TradeHeroProps> = (props) => {
   const [openVideoDialog] = useDialog(VideoDialog);
 
   const handleOpenVideoDialog = () => {
+    if (!config.VIDEO_HOW_TO_TRADE) throw new Error('video id is required');
+
     openVideoDialog({
-      videoId: 'pVTxnp0qujw'
+      videoId: config.VIDEO_HOW_TO_TRADE
     }).catch(console.error);
   };
 
@@ -32,21 +34,28 @@ export const TradeHero: React.VFC<TradeHeroProps> = (props) => {
         <img alt="" src={tradeHeroBg} className={styles.videoBg} />
         <div
           className={styles.videoInner}
-          style={{ backgroundImage: `url(${tradeHero})` }}
+          style={{
+            backgroundImage: `url(${tradeHero})`,
+            cursor: config.VIDEO_HOW_TO_TRADE ? 'pointer' : 'default'
+          }}
           role="button"
           tabIndex={0}
           onClick={handleOpenVideoDialog}
           onKeyDown={handleOpenVideoDialog}
         >
-          <PlayIcon />
-          <Typography
-            as="div"
-            transform="uppercase"
-            family="mono"
-            variant="body2"
-          >
-            WATCH VIDEO HOW TO trade
-          </Typography>
+          {config.VIDEO_HOW_TO_TRADE && (
+            <>
+              <PlayIcon />
+              <Typography
+                as="div"
+                transform="uppercase"
+                family="mono"
+                variant="body2"
+              >
+                WATCH VIDEO HOW TO trade
+              </Typography>
+            </>
+          )}
         </div>
       </div>
       <div className={styles.text}>
