@@ -25,7 +25,16 @@ export const INVEST_CONTRACTS = gql`
           aprWeekReal
           myAPYBoost
           myStaked
-          risk
+          risk {
+            totalRate
+            reliabilityRate
+            profitabilityRate
+            volatilityRate
+            total
+            reliability
+            profitability
+            volatility
+          }
         }
         tokens {
           stake {

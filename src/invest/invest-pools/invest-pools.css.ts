@@ -1,7 +1,7 @@
 import { globalStyle, style, styleVariants } from '@vanilla-extract/css';
 
 import { theme } from 'src/common/theme';
-import { ContractRiskFactorEnum } from 'src/graphql/_generated-hooks';
+import { TokenRiskScoringEnum } from 'src/graphql/_generated-hooks';
 
 export const root = style({
   display: 'flex',
@@ -240,16 +240,16 @@ export const mobileTitle = style({
 });
 
 export const mobileRiskStatuses = styleVariants({
-  [ContractRiskFactorEnum.High]: {
+  [TokenRiskScoringEnum.High]: {
     color: theme.palette.red
   },
-  [ContractRiskFactorEnum.Low]: {
+  [TokenRiskScoringEnum.Low]: {
     color: theme.palette.green1
   },
-  [ContractRiskFactorEnum.Moderate]: {
+  [TokenRiskScoringEnum.Moderate]: {
     color: theme.palette.brown
   },
-  [ContractRiskFactorEnum.NotCalculated]: {}
+  [TokenRiskScoringEnum.NotCalculated]: {}
 });
 
 export const protocol = style({
