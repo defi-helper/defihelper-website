@@ -301,6 +301,7 @@ export enum AutomateContractListSortInputTypeColumnEnum {
 
 export type AutomateContractMetricType = {
   __typename?: 'AutomateContractMetricType';
+  invest: Scalars['String'];
   staked: Scalars['String'];
   earned: Scalars['String'];
   apyBoost: Scalars['String'];
@@ -342,8 +343,14 @@ export type AutomateContractStopLossType = {
   status: AutomateContractStopLossStatusEnum;
   tx: Scalars['EthereumTransactionHashType'];
   amountOut?: Maybe<Scalars['BigNumberType']>;
+  inToken?: Maybe<TokenType>;
   outToken?: Maybe<TokenType>;
   params: AutomateContractStopLossParamsType;
+};
+
+export type AutomateContractTriggerUpdateInputType = {
+  /** Is active */
+  active?: Maybe<Scalars['Boolean']>;
 };
 
 export type AutomateContractType = {
@@ -375,6 +382,7 @@ export type AutomateContractType = {
   /** Date at archived contract */
   archivedAt?: Maybe<Scalars['DateTimeType']>;
   stopLoss?: Maybe<AutomateContractStopLossType>;
+  trigger?: Maybe<AutomateTriggerType>;
 };
 
 export enum AutomateContractTypeEnum {
@@ -398,6 +406,31 @@ export type AutomateDescriptionType = {
   __typename?: 'AutomateDescriptionType';
   name: Scalars['String'];
   description: Scalars['String'];
+};
+
+export type AutomateInvestCreateInputType = {
+  /** Automate contract */
+  contract: Scalars['UuidType'];
+  /** Investor wallet */
+  wallet: Scalars['UuidType'];
+  amount: Scalars['BigNumberType'];
+  amountUSD: Scalars['BigNumberType'];
+};
+
+export type AutomateInvestHistoryType = {
+  __typename?: 'AutomateInvestHistoryType';
+  /** Identificator */
+  id: Scalars['UuidType'];
+  amount: Scalars['BigNumberType'];
+  amountUSD: Scalars['BigNumberType'];
+  createdAt: Scalars['DateTimeType'];
+};
+
+export type AutomateInvestRefundInputType = {
+  /** Automate contract */
+  contract: Scalars['UuidType'];
+  /** Investor wallet */
+  wallet: Scalars['UuidType'];
 };
 
 export type AutomateTriggerCallHistoryListFilterInputType = {
@@ -567,16 +600,6 @@ export type BalanceMetaType = {
   priceUSD: Scalars['String'];
 };
 
-export type BillingBalanceType = {
-  __typename?: 'BillingBalanceType';
-  lowFeeFunds: Scalars['Boolean'];
-  pending: Scalars['Float'];
-  balance: Scalars['Float'];
-  claim: Scalars['Float'];
-  netBalance: Scalars['Float'];
-  netBalanceUSD: Scalars['Float'];
-};
-
 export enum BillingBillStatusEnum {
   /** Bill awaiting confirmation */
   Pending = 'pending',
@@ -599,15 +622,15 @@ export type BillingBillType = {
   /** Claimant */
   claimant: Scalars['String'];
   /** Declarate gas fee */
-  claimGasFee: Scalars['Float'];
+  claimGasFee: Scalars['BigNumberType'];
   /** Declarate protocol fee */
-  claimProtocolFee: Scalars['Float'];
+  claimProtocolFee: Scalars['BigNumberType'];
   /** Confirmed gas fee */
-  gasFee?: Maybe<Scalars['Float']>;
+  gasFee?: Maybe<Scalars['BigNumberType']>;
   /** Confirmed protocol fee */
-  protocolFee?: Maybe<Scalars['Float']>;
+  protocolFee?: Maybe<Scalars['BigNumberType']>;
   /** Balance of claim after make the bill */
-  claim: Scalars['Float'];
+  claim: Scalars['BigNumberType'];
   /** Current status */
   status: BillingBillStatusEnum;
   /** Transaction id */
@@ -622,7 +645,7 @@ export type BillingTransferCreateInputType = {
   blockchain: BlockchainEnum;
   network: Scalars['String'];
   account: Scalars['String'];
-  amount: Scalars['String'];
+  amount: Scalars['BigNumberType'];
   tx: Scalars['String'];
 };
 
@@ -643,7 +666,7 @@ export type BillingTransferType = {
   /** Account */
   account: Scalars['String'];
   /** Transfer amount (must be negative) */
-  amount: Scalars['Float'];
+  amount: Scalars['BigNumberType'];
   /** Transaction id */
   tx: Scalars['String'];
   /** Bill */
@@ -652,6 +675,23 @@ export type BillingTransferType = {
   rejectReason: Scalars['String'];
   /** Date of created */
   createdAt: Scalars['DateTimeType'];
+};
+
+export type BillingUserBalanceType = {
+  __typename?: 'BillingUserBalanceType';
+  pending: Scalars['BigNumberType'];
+  balance: Scalars['BigNumberType'];
+  claim: Scalars['BigNumberType'];
+  netBalance: Scalars['BigNumberType'];
+};
+
+export type BillingWalletBalanceType = {
+  __typename?: 'BillingWalletBalanceType';
+  lowFeeFunds: Scalars['Boolean'];
+  balance: Scalars['BigNumberType'];
+  claim: Scalars['BigNumberType'];
+  netBalance: Scalars['BigNumberType'];
+  netBalanceUSD: Scalars['BigNumberType'];
 };
 
 export enum BlockchainEnum {
@@ -664,8 +704,14 @@ export type BlockchainFilterInputType = {
   network?: Maybe<Scalars['String']>;
 };
 
+export type ConfigBlockchainAutomateFilterInputType = {
+  /** Has autorestake automate */
+  autorestake?: Maybe<Scalars['Boolean']>;
+};
+
 export type ConfigBlockchainFilterInputType = {
   testnet?: Maybe<Scalars['Boolean']>;
+  automate?: Maybe<ConfigBlockchainAutomateFilterInputType>;
 };
 
 export type ConfigBlockchainType = {
@@ -895,11 +941,12 @@ export type ContractListAutomateFilterInputType = {
 export type ContractListFilterInputType = {
   id?: Maybe<Scalars['UuidType']>;
   protocol?: Maybe<Array<Scalars['UuidType']>>;
+  tag?: Maybe<Array<Scalars['UuidType']>>;
   blockchain?: Maybe<BlockchainFilterInputType>;
   hidden?: Maybe<Scalars['Boolean']>;
   deprecated?: Maybe<Scalars['Boolean']>;
   userLink?: Maybe<ContractUserLinkTypeEnum>;
-  risk?: Maybe<ContractRiskFactorEnum>;
+  risk?: Maybe<TokenRiskScoringEnum>;
   automate?: Maybe<ContractListAutomateFilterInputType>;
   search?: Maybe<Scalars['String']>;
 };
@@ -964,6 +1011,18 @@ export type ContractMetricFilterInputType = {
   wallet?: Maybe<ContractMetricWalletFilterInputType>;
 };
 
+export type ContractMetricRiskType = {
+  __typename?: 'ContractMetricRiskType';
+  totalRate: TokenRiskScoringEnum;
+  reliabilityRate: TokenRiskScoringEnum;
+  profitabilityRate: TokenRiskScoringEnum;
+  volatilityRate: TokenRiskScoringEnum;
+  total: Scalars['Float'];
+  reliability: Scalars['Float'];
+  profitability: Scalars['Float'];
+  volatility: Scalars['Float'];
+};
+
 export type ContractMetricType = {
   __typename?: 'ContractMetricType';
   tvl: Scalars['String'];
@@ -971,8 +1030,8 @@ export type ContractMetricType = {
   aprWeek: Scalars['String'];
   aprMonth: Scalars['String'];
   aprYear: Scalars['String'];
-  risk: ContractRiskFactorEnum;
   aprWeekReal?: Maybe<Scalars['String']>;
+  risk: ContractMetricRiskType;
   myStaked: Scalars['String'];
   myStakedChange: MetricChangeType;
   myEarned: Scalars['String'];
@@ -983,13 +1042,6 @@ export type ContractMetricType = {
 export type ContractMetricWalletFilterInputType = {
   type?: Maybe<Array<WalletBlockchainTypeEnum>>;
 };
-
-export enum ContractRiskFactorEnum {
-  NotCalculated = 'notCalculated',
-  Low = 'low',
-  Moderate = 'moderate',
-  High = 'high'
-}
 
 export type ContractTokenLinkType = {
   __typename?: 'ContractTokenLinkType';
@@ -1033,6 +1085,7 @@ export type ContractType = {
   metric: ContractMetricType;
   events: Array<Scalars['String']>;
   tokens: ContractTokenLinkType;
+  tags: Array<TagType>;
   /** Date of created account */
   createdAt: Scalars['DateTimeType'];
 };
@@ -1362,6 +1415,7 @@ export type Mutation = {
   productUpdate: StoreProductType;
   productDelete: Scalars['Boolean'];
   billingTransferCreate: BillingTransferType;
+  zapFeePayCreate: Scalars['Boolean'];
   automateTriggerCreate: AutomateTriggerType;
   automateTriggerUpdate: AutomateTriggerType;
   automateTriggerDelete: Scalars['Boolean'];
@@ -1376,8 +1430,16 @@ export type Mutation = {
   automateContractDelete: Scalars['Boolean'];
   automateContractStopLossEnable: Scalars['Boolean'];
   automateContractStopLossDisable: Scalars['Boolean'];
+  automateInvestCreate: AutomateInvestHistoryType;
+  automateInvestRefund: Scalars['Boolean'];
+  automateContractTriggerUpdate: Array<AutomateTriggerType>;
   tradingAuth?: Maybe<TradingAuthType>;
+  smartTradeCancel: SmartTradeOrderType;
+  smartTradeClaim: SmartTradeOrderType;
   smartTradeSwapOrderCreate: SmartTradeOrderType;
+  smartTradeSwapOrderSetBoughtPrice: SmartTradeOrderType;
+  smartTradeSwapOrderUpdate: SmartTradeOrderType;
+  smartTradeSwapOrderClose: SmartTradeOrderType;
 };
 
 export type MutationUserUpdateArgs = {
@@ -1585,6 +1647,10 @@ export type MutationBillingTransferCreateArgs = {
   input: BillingTransferCreateInputType;
 };
 
+export type MutationZapFeePayCreateArgs = {
+  input: ZapFeePayCreateInputType;
+};
+
 export type MutationAutomateTriggerCreateArgs = {
   input: AutomateTriggerCreateInputType;
 };
@@ -1641,8 +1707,48 @@ export type MutationAutomateContractStopLossDisableArgs = {
   input: AutomateContractStopLossDisableInputType;
 };
 
+export type MutationAutomateInvestCreateArgs = {
+  input: AutomateInvestCreateInputType;
+};
+
+export type MutationAutomateInvestRefundArgs = {
+  input: AutomateInvestRefundInputType;
+};
+
+export type MutationAutomateContractTriggerUpdateArgs = {
+  id: Scalars['UuidType'];
+  input: AutomateContractTriggerUpdateInputType;
+};
+
+export type MutationSmartTradeCancelArgs = {
+  id: Scalars['UuidType'];
+};
+
+export type MutationSmartTradeClaimArgs = {
+  id: Scalars['UuidType'];
+};
+
 export type MutationSmartTradeSwapOrderCreateArgs = {
   input: SmartTradeSwapOrderCreateInputType;
+};
+
+export type MutationSmartTradeSwapOrderSetBoughtPriceArgs = {
+  id: Scalars['UuidType'];
+  input: SmartTradeSwapOrderSetBoughtPriceInputType;
+};
+
+export type MutationSmartTradeSwapOrderUpdateArgs = {
+  id: Scalars['UuidType'];
+  input: SmartTradeSwapOrderUpdateInputType;
+};
+
+export type MutationSmartTradeSwapOrderCloseArgs = {
+  id: Scalars['UuidType'];
+  input: SmartTradeSwapOrderCloseInputType;
+};
+
+export type OnOrderStatusChangedFilterInputType = {
+  user: Scalars['UuidType'];
 };
 
 export type OnTokenMetricUpdatedFilterInputType = {
@@ -1659,6 +1765,10 @@ export type OnTransferCreatedFilterInputType = {
 
 export type OnTransferUpdatedFilterInputType = {
   wallet?: Maybe<Array<Scalars['UuidType']>>;
+  user?: Maybe<Array<Scalars['UuidType']>>;
+};
+
+export type OnUserContactActivatedFilterInputType = {
   user?: Maybe<Array<Scalars['UuidType']>>;
 };
 
@@ -1860,6 +1970,8 @@ export type ProtocolLinkType = {
 
 export type ProtocolListFilterAutomateInputType = {
   lpTokensManager?: Maybe<Scalars['Boolean']>;
+  /** Has autorestake automate */
+  autorestake?: Maybe<Scalars['Boolean']>;
 };
 
 export type ProtocolListFilterInputType = {
@@ -2011,6 +2123,7 @@ export type ProtocolMetricType = {
   myEarnedChange: MetricChangeType;
   myAPYBoost: Scalars['String'];
   myMinUpdatedAt?: Maybe<Scalars['DateTimeType']>;
+  risk?: Maybe<TokenMetricRiskType>;
 };
 
 export type ProtocolResolveContractsInputType = {
@@ -2211,6 +2324,7 @@ export type Query = {
   automateContracts: AutomateContractListQuery;
   govToken: GovTokenType;
   restakeStrategy: RestakeStrategyType;
+  restakeCalculator: RestakeCalculatorType;
   treasury: TreasuryType;
   monitoringUsersRegisteringHistory: Array<MonitoringStatisticsPointType>;
   monitoringWalletsRegisteringHistory: Array<MonitoringStatisticsPointType>;
@@ -2218,7 +2332,9 @@ export type Query = {
   monitoringAutomatesCreationHistory: Array<MonitoringStatisticsPointType>;
   monitoringAutoRestakeAutomatesCreationHistory: Array<MonitoringStatisticsPointType>;
   monitoringProtocolEarningsHistory: Array<MonitoringStatisticsEarningsPointType>;
+  monitoringTelegramContactsHistory: Array<MonitoringStatisticsEarningsPointType>;
   smartTradeOrders: SmartTradeOrderListQuery;
+  tags: TagsListQuery;
 };
 
 export type QueryMeArgs = {
@@ -2354,6 +2470,13 @@ export type QueryRestakeStrategyArgs = {
   apy: Scalars['Float'];
 };
 
+export type QueryRestakeCalculatorArgs = {
+  contract: Scalars['UuidType'];
+  amount: Scalars['BigNumberType'];
+  period: Scalars['Int'];
+  isRestake: Scalars['Boolean'];
+};
+
 export type QueryMonitoringAutomateRunHistoryArgs = {
   filter: MonitoringAutomateRunHistoryFilterEnum;
 };
@@ -2366,6 +2489,18 @@ export type QuerySmartTradeOrdersArgs = {
   filter?: Maybe<SmartTradeOrderListFilterInputType>;
   sort?: Maybe<Array<SmartTradeOrderListSortInputType>>;
   pagination?: Maybe<SmartTradeOrderListPaginationInputType>;
+};
+
+export type QueryTagsArgs = {
+  sort?: Maybe<Array<TagsListSortInputType>>;
+  pagination?: Maybe<TagsListPaginationInputType>;
+};
+
+export type RestakeCalculatorType = {
+  __typename?: 'RestakeCalculatorType';
+  earnedUSD: Scalars['BigNumberType'];
+  nextRestakeAt?: Maybe<Scalars['DateTimeType']>;
+  apyBoost?: Maybe<Scalars['String']>;
 };
 
 export type RestakeStrategyPointType = {
@@ -2387,6 +2522,12 @@ export type SmartTradeMockHandlerCallDataType = {
   tokenOut: Scalars['EthereumAddressType'];
   amountIn: Scalars['BigNumberType'];
   amountOut: Scalars['BigNumberType'];
+};
+
+export type SmartTradeOrderBalanceType = {
+  __typename?: 'SmartTradeOrderBalanceType';
+  token: TokenType;
+  balance: Scalars['BigNumberType'];
 };
 
 export type SmartTradeOrderCallDataType =
@@ -2418,6 +2559,7 @@ export type SmartTradeOrderListFilterInputType = {
   type?: Maybe<Array<SmartTradeOrderHandlerTypeEnum>>;
   status?: Maybe<Array<SmartTradeOrderStatusEnum>>;
   confirmed?: Maybe<Scalars['Boolean']>;
+  claim?: Maybe<Scalars['Boolean']>;
 };
 
 export type SmartTradeOrderListPaginationInputType = {
@@ -2441,7 +2583,8 @@ export type SmartTradeOrderListSortInputType = {
 
 export enum SmartTradeOrderListSortInputTypeColumnEnum {
   Id = 'id',
-  CreatedAt = 'createdAt'
+  CreatedAt = 'createdAt',
+  UpdatedAt = 'updatedAt'
 }
 
 export enum SmartTradeOrderStatusEnum {
@@ -2476,12 +2619,17 @@ export type SmartTradeOrderType = {
   callData: SmartTradeOrderCallDataType;
   /** Status */
   status: SmartTradeOrderStatusEnum;
+  claim: Scalars['Boolean'];
+  active: Scalars['Boolean'];
   /** Transaction hash */
   tx: Scalars['EthereumTransactionHashType'];
   lastCall?: Maybe<SmartTradeOrderCallHistoryType>;
   tokens: Array<SmartTradeOrderTokenLinkType>;
+  balances: Array<SmartTradeOrderBalanceType>;
   /** Is order confirmed on blockchain */
   confirmed: Scalars['Boolean'];
+  /** Is order closed with market price */
+  closed: Scalars['Boolean'];
   /** Date of created */
   createdAt: Scalars['DateTimeType'];
 };
@@ -2489,12 +2637,19 @@ export type SmartTradeOrderType = {
 export type SmartTradeSwapHandlerCallDataType = {
   __typename?: 'SmartTradeSwapHandlerCallDataType';
   exchange: Scalars['EthereumAddressType'];
+  pair: Scalars['EthereumAddressType'];
   path: Array<Scalars['EthereumAddressType']>;
   amountIn: Scalars['BigNumberType'];
-  boughtPrice: Scalars['BigNumberType'];
+  boughtPrice?: Maybe<Scalars['BigNumberType']>;
+  swapPrice?: Maybe<Scalars['BigNumberType']>;
   stopLoss?: Maybe<SwapHandlerCallDataRouteType>;
+  stopLoss2?: Maybe<SwapHandlerCallDataRouteType>;
   takeProfit?: Maybe<SwapHandlerCallDataRouteType>;
   deadline: Scalars['Int'];
+};
+
+export type SmartTradeSwapOrderCloseInputType = {
+  tx: Scalars['EthereumTransactionHashType'];
 };
 
 export type SmartTradeSwapOrderCreateCallDataInputType = {
@@ -2504,8 +2659,9 @@ export type SmartTradeSwapOrderCreateCallDataInputType = {
   tokenInDecimals: Scalars['Int'];
   tokenOutDecimals: Scalars['Int'];
   amountIn: Scalars['BigNumberType'];
-  boughtPrice: Scalars['BigNumberType'];
+  boughtPrice?: Maybe<Scalars['BigNumberType']>;
   stopLoss?: Maybe<SwapOrderCallDataRouteInputType>;
+  stopLoss2?: Maybe<SwapOrderCallDataRouteInputType>;
   takeProfit?: Maybe<SwapOrderCallDataRouteInputType>;
   /** Deadline seconds */
   deadline: Scalars['Int'];
@@ -2523,6 +2679,28 @@ export type SmartTradeSwapOrderCreateInputType = {
   callData: SmartTradeSwapOrderCreateCallDataInputType;
   /** Transaction hash */
   tx: Scalars['EthereumTransactionHashType'];
+};
+
+export type SmartTradeSwapOrderSetBoughtPriceCallDataInputType = {
+  boughtPrice: Scalars['BigNumberType'];
+};
+
+export type SmartTradeSwapOrderSetBoughtPriceInputType = {
+  callData: SmartTradeSwapOrderSetBoughtPriceCallDataInputType;
+};
+
+export type SmartTradeSwapOrderUpdateCallDataInputType = {
+  stopLoss?: Maybe<SwapOrderCallDataRouteInputType>;
+  stopLoss2?: Maybe<SwapOrderCallDataRouteInputType>;
+  takeProfit?: Maybe<SwapOrderCallDataRouteInputType>;
+  /** Deadline seconds */
+  deadline: Scalars['Int'];
+};
+
+export type SmartTradeSwapOrderUpdateInputType = {
+  /** Handler raw call data */
+  callDataRaw: Scalars['String'];
+  callData: SmartTradeSwapOrderUpdateCallDataInputType;
 };
 
 export enum SortOrderEnum {
@@ -2686,6 +2864,8 @@ export type Subscription = {
   onTokenMetricUpdated: TokenMetricUpdatedEvent;
   onBillingTransferCreated: BillingTransferType;
   onBillingTransferUpdated: BillingTransferType;
+  onUserContactActivated: UserContactType;
+  onSmartTradeOrderUpdated: SmartTradeOrderType;
 };
 
 export type SubscriptionOnWalletCreatedArgs = {
@@ -2708,18 +2888,86 @@ export type SubscriptionOnBillingTransferUpdatedArgs = {
   filter?: Maybe<OnTransferUpdatedFilterInputType>;
 };
 
+export type SubscriptionOnUserContactActivatedArgs = {
+  filter?: Maybe<OnUserContactActivatedFilterInputType>;
+};
+
+export type SubscriptionOnSmartTradeOrderUpdatedArgs = {
+  filter?: Maybe<OnOrderStatusChangedFilterInputType>;
+};
+
+export type SwapHandlerCallDataRouteActivationType = {
+  __typename?: 'SwapHandlerCallDataRouteActivationType';
+  amountOut: Scalars['BigNumberType'];
+  direction: SwapOrderCallDataDirectionEnum;
+  activated: Scalars['Boolean'];
+};
+
 export type SwapHandlerCallDataRouteType = {
   __typename?: 'SwapHandlerCallDataRouteType';
   amountOut: Scalars['BigNumberType'];
   amountOutMin: Scalars['BigNumberType'];
   slippage: Scalars['Float'];
+  moving: Scalars['Boolean'];
+  activation?: Maybe<SwapHandlerCallDataRouteActivationType>;
+};
+
+export enum SwapOrderCallDataDirectionEnum {
+  /** great */
+  Gt = 'gt',
+  /** less */
+  Lt = 'lt'
+}
+
+export type SwapOrderCallDataRouteActivationInputType = {
+  amountOut: Scalars['BigNumberType'];
+  direction: SwapOrderCallDataDirectionEnum;
 };
 
 export type SwapOrderCallDataRouteInputType = {
   amountOut: Scalars['BigNumberType'];
   amountOutMin: Scalars['BigNumberType'];
   slippage: Scalars['Float'];
+  moving?: Maybe<Scalars['BigNumberType']>;
+  activation?: Maybe<SwapOrderCallDataRouteActivationInputType>;
 };
+
+export type TagType = {
+  __typename?: 'TagType';
+  name: Scalars['String'];
+  type: TagTypeEnum;
+  id: Scalars['UuidType'];
+};
+
+export enum TagTypeEnum {
+  Tvl = 'tvl',
+  Risk = 'risk',
+  PoolType = 'poolType'
+}
+
+export type TagsListPaginationInputType = {
+  /** Limit */
+  limit?: Maybe<Scalars['Int']>;
+  /** Offset */
+  offset?: Maybe<Scalars['Int']>;
+};
+
+export type TagsListQuery = {
+  __typename?: 'TagsListQuery';
+  /** Elements */
+  list?: Maybe<Array<TagType>>;
+  pagination: Pagination;
+};
+
+export type TagsListSortInputType = {
+  column: TagsListSortInputTypeColumnEnum;
+  order?: Maybe<SortOrderEnum>;
+};
+
+export enum TagsListSortInputTypeColumnEnum {
+  Position = 'position',
+  Name = 'name'
+}
 
 export type TokenAlias = {
   __typename?: 'TokenAlias';
@@ -2766,7 +3014,7 @@ export enum TokenAliasLiquidityEnum {
 export type TokenAliasListFilterInputType = {
   blockchain?: Maybe<BlockchainFilterInputType>;
   liquidity?: Maybe<TokenAliasLiquidityEnum>;
-  symbol?: Maybe<Scalars['String']>;
+  symbol?: Maybe<Array<Scalars['String']>>;
   hasLogo?: Maybe<Scalars['Boolean']>;
   search?: Maybe<Scalars['String']>;
 };
@@ -2937,6 +3185,23 @@ export type TokenListType = {
   pagination: Pagination;
 };
 
+export type TokenMetricRiskType = {
+  __typename?: 'TokenMetricRiskType';
+  totalRate: TokenRiskScoringEnum;
+  reliabilityRate: TokenRiskScoringEnum;
+  profitabilityRate: TokenRiskScoringEnum;
+  volatilityRate: TokenRiskScoringEnum;
+  total: Scalars['Float'];
+  reliability: Scalars['Float'];
+  profitability: Scalars['Float'];
+  volatility: Scalars['Float'];
+};
+
+export type TokenMetricType = {
+  __typename?: 'TokenMetricType';
+  risk: TokenMetricRiskType;
+};
+
 export type TokenMetricUpdatedEvent = {
   __typename?: 'TokenMetricUpdatedEvent';
   id: Scalars['UuidType'];
@@ -2982,11 +3247,25 @@ export enum TokenPriceFeedCoingeckoPlatformEnum {
 export type TokenPriceFeedInputType = {
   coingeckoId?: Maybe<TokenPriceFeedCoingeckoIdInputType>;
   coingeckoAddress?: Maybe<TokenPriceFeedCoingeckoAddressInputType>;
+  uniswapRouterV2?: Maybe<TokenPriceFeedUniswapRouterV2InputType>;
 };
 
 export type TokenPriceFeedType =
   | TokenPriceFeedCoingeckoIdType
   | TokenPriceFeedCoingeckoAddressType;
+
+export type TokenPriceFeedUniswapRouterV2InputType = {
+  route: Array<Scalars['String']>;
+  routerAddress: Scalars['String'];
+  outputDecimals: Scalars['Int'];
+};
+
+export enum TokenRiskScoringEnum {
+  NotCalculated = 'notCalculated',
+  Low = 'low',
+  Moderate = 'moderate',
+  High = 'high'
+}
 
 export type TokenType = {
   __typename?: 'TokenType';
@@ -3008,6 +3287,7 @@ export type TokenType = {
   decimals: Scalars['Int'];
   priceFeed?: Maybe<TokenPriceFeedType>;
   priceFeedNeeded: Scalars['Boolean'];
+  metric: TokenMetricType;
 };
 
 export type TokenUpdateInputType = {
@@ -3105,7 +3385,7 @@ export type UserBillingType = {
   __typename?: 'UserBillingType';
   transfers: UserBillingTransferListType;
   bills: UserBillingBillListType;
-  balance: BillingBalanceType;
+  balance: BillingUserBalanceType;
 };
 
 export type UserBillingTypeTransfersArgs = {
@@ -3436,12 +3716,10 @@ export type UserReferrerCodeType = {
 };
 
 export enum UserRoleEnum {
-  /** User */
+  Demo = 'demo',
   User = 'user',
-  /** Administrator */
-  Admin = 'admin',
-  /** Demo */
-  Demo = 'demo'
+  UserSt = 'userST',
+  Admin = 'admin'
 }
 
 export type UserStoreBalanceType = {
@@ -3627,6 +3905,7 @@ export type UserType = {
   store: UserStoreType;
   /** Date of last auth */
   authAt: Scalars['DateTimeType'];
+  isMetricsTracked: Scalars['Boolean'];
   /** Date of created account */
   createdAt: Scalars['DateTimeType'];
 };
@@ -3779,7 +4058,7 @@ export type WalletBillingType = {
   __typename?: 'WalletBillingType';
   transfers: WalletBillingTransferListType;
   bills: WalletBillingBillListType;
-  balance: BillingBalanceType;
+  balance: BillingWalletBalanceType;
 };
 
 export type WalletBillingTypeTransfersArgs = {
@@ -3813,6 +4092,7 @@ export type WalletBlockchainType = {
   /** Statistics collected */
   statisticsCollectedAt: Scalars['DateTimeType'];
   contracts: WalletContractListType;
+  automates: Array<WalletBlockchainType>;
   triggersCount: Scalars['Int'];
   tokenAliases: WalletTokenAliasListType;
   metricChart: Array<MetricChartType>;
@@ -3945,6 +4225,7 @@ export type WalletExchangeType = {
   name: Scalars['String'];
   /** Exchange type */
   exchange: WalletExchangeTypeEnum;
+  isExpired: Scalars['Boolean'];
   /** Statistics collected */
   statisticsCollectedAt: Scalars['DateTimeType'];
   tokenAliases: WalletExchangeTokenAliasListType;
@@ -4137,6 +4418,19 @@ export type WalletUpdateInputType = {
   name?: Maybe<Scalars['String']>;
 };
 
+export type ZapFeePayCreateInputType = {
+  type: ZapFeePayCreateTypeEnum;
+  wallet: Scalars['UuidType'];
+  fee: Scalars['BigNumberType'];
+  feeUSD: Scalars['BigNumberType'];
+  tx: Scalars['String'];
+};
+
+export enum ZapFeePayCreateTypeEnum {
+  Buy = 'Buy',
+  Sell = 'Sell'
+}
+
 export type TreasuryQueryVariables = Exact<{ [key: string]: never }>;
 
 export type TreasuryQuery = { __typename?: 'Query' } & {
@@ -4173,8 +4467,19 @@ export type InvestContractsQuery = { __typename?: 'Query' } & {
               | 'aprWeekReal'
               | 'myAPYBoost'
               | 'myStaked'
-              | 'risk'
-            >;
+            > & {
+                risk: { __typename?: 'ContractMetricRiskType' } & Pick<
+                  ContractMetricRiskType,
+                  | 'totalRate'
+                  | 'reliabilityRate'
+                  | 'profitabilityRate'
+                  | 'volatilityRate'
+                  | 'total'
+                  | 'reliability'
+                  | 'profitability'
+                  | 'volatility'
+                >;
+              };
             tokens: { __typename?: 'ContractTokenLinkType' } & {
               stake: Array<
                 { __typename?: 'TokenType' } & Pick<
@@ -4386,7 +4691,16 @@ export const InvestContractsDocument = gql`
           aprWeekReal
           myAPYBoost
           myStaked
-          risk
+          risk {
+            totalRate
+            reliabilityRate
+            profitabilityRate
+            volatilityRate
+            total
+            reliability
+            profitability
+            volatility
+          }
         }
         tokens {
           stake {

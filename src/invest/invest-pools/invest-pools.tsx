@@ -19,7 +19,7 @@ import { ReactComponent as GreenIcon } from 'src/assets/icons/green-risk.svg';
 import { ReactComponent as RedIcon } from 'src/assets/icons/red-risk.svg';
 import {
   ContractListSortInputTypeColumnEnum,
-  ContractRiskFactorEnum,
+  TokenRiskScoringEnum,
   InvestContractsQuery,
   SortOrderEnum,
   useInvestContractsQuery
@@ -84,16 +84,16 @@ const icons = (
 );
 
 const riskStatuses = {
-  [ContractRiskFactorEnum.High]: 'High',
-  [ContractRiskFactorEnum.Low]: 'Low',
-  [ContractRiskFactorEnum.Moderate]: 'Moderate',
-  [ContractRiskFactorEnum.NotCalculated]: 'Not Calculated'
+  [TokenRiskScoringEnum.High]: 'High',
+  [TokenRiskScoringEnum.Low]: 'Low',
+  [TokenRiskScoringEnum.Moderate]: 'Moderate',
+  [TokenRiskScoringEnum.NotCalculated]: 'Not Calculated'
 };
 const riskIcons = {
-  [ContractRiskFactorEnum.High]: <RedIcon width={22} height={24} />,
-  [ContractRiskFactorEnum.Low]: <GreenIcon width={22} height={24} />,
-  [ContractRiskFactorEnum.Moderate]: <BrownIcon width={22} height={24} />,
-  [ContractRiskFactorEnum.NotCalculated]: '-'
+  [TokenRiskScoringEnum.High]: <RedIcon width={22} height={24} />,
+  [TokenRiskScoringEnum.Low]: <GreenIcon width={22} height={24} />,
+  [TokenRiskScoringEnum.Moderate]: <BrownIcon width={22} height={24} />,
+  [TokenRiskScoringEnum.NotCalculated]: '-'
 };
 
 const sortIcon = (
@@ -120,7 +120,7 @@ export const InvestPools: React.VFC<InvestPoolsProps> = (props) => {
     order: SortOrderEnum.Desc
   });
 
-  const [riskLevel, setRiskLevel] = useState(ContractRiskFactorEnum.Low);
+  const [riskLevel, setRiskLevel] = useState(TokenRiskScoringEnum.Low);
   const isDesktop = useMedia('(min-width: 960px)');
 
   const [openApyDialog] = useDialog(InvestApyDialog);
@@ -134,7 +134,7 @@ export const InvestPools: React.VFC<InvestPoolsProps> = (props) => {
           autorestake: true
         },
         risk:
-          riskLevel === ContractRiskFactorEnum.NotCalculated ? null : riskLevel
+          riskLevel === TokenRiskScoringEnum.NotCalculated ? null : riskLevel
       },
       sort: [
         sortBy,
@@ -152,7 +152,7 @@ export const InvestPools: React.VFC<InvestPoolsProps> = (props) => {
 
   const count = data?.contracts.pagination.count ?? 0;
 
-  const handleChangeRiskLevel = (newLevel: ContractRiskFactorEnum) => () => {
+  const handleChangeRiskLevel = (newLevel: TokenRiskScoringEnum) => () => {
     setRiskLevel(newLevel);
   };
 
@@ -209,9 +209,9 @@ export const InvestPools: React.VFC<InvestPoolsProps> = (props) => {
             Risk level
           </Typography>
           <Paper radius={8} className={styles.tabs}>
-            {Object.entries(ContractRiskFactorEnum)
+            {Object.entries(TokenRiskScoringEnum)
               .filter(
-                ([, value]) => ContractRiskFactorEnum.NotCalculated !== value
+                ([, value]) => TokenRiskScoringEnum.NotCalculated !== value
               )
               .map(([key, value]) => (
                 <ButtonBase
@@ -359,10 +359,12 @@ export const InvestPools: React.VFC<InvestPoolsProps> = (props) => {
                       align="center"
                       className={clsx(
                         styles.mobileTitle,
-                        styles.mobileRiskStatuses[contract.metric.risk]
+                        styles.mobileRiskStatuses[
+                          contract.metric.risk.totalRate
+                        ]
                       )}
                     >
-                      {riskStatuses[contract.metric.risk]} risk
+                      {riskStatuses[contract.metric.risk.totalRate]} risk
                     </Typography>
                   </div>
                 )}
@@ -511,7 +513,7 @@ export const InvestPools: React.VFC<InvestPoolsProps> = (props) => {
                     className={styles.tableCol}
                   >
                     <Typography variant="inherit">
-                      {riskIcons[contract.metric.risk]}
+                      {riskIcons[contract.metric.risk.totalRate]}
                       {false && (
                         <InvestTooltip
                           direction="right"
@@ -529,7 +531,7 @@ export const InvestPools: React.VFC<InvestPoolsProps> = (props) => {
                                   variant="body2"
                                   className={styles.riskLevelStatus}
                                 >
-                                  {riskStatuses[contract.metric.risk]}
+                                  {riskStatuses[contract.metric.risk.totalRate]}
                                 </Typography>
                               </Typography>
                               <span className={styles.riskLevelSpacing} />
